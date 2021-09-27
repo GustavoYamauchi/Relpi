@@ -1,0 +1,591 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1CC810472702336200B9E721 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC810462702336200B9E721 /* AppDelegate.swift */; };
+		1CC810492702336200B9E721 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC810482702336200B9E721 /* SceneDelegate.swift */; };
+		1CC8104B2702336200B9E721 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8104A2702336200B9E721 /* ContentView.swift */; };
+		1CC8104D2702336400B9E721 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC8104C2702336400B9E721 /* Assets.xcassets */; };
+		1CC810502702336400B9E721 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC8104F2702336400B9E721 /* Preview Assets.xcassets */; };
+		1CC810532702336400B9E721 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CC810512702336400B9E721 /* LaunchScreen.storyboard */; };
+		1CC8105B270233FD00B9E721 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CC8105A270233FD00B9E721 /* GoogleService-Info.plist */; };
+		1CC81078270237F400B9E721 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC810462702336200B9E721 /* AppDelegate.swift */; };
+		1CC81079270237F400B9E721 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC810482702336200B9E721 /* SceneDelegate.swift */; };
+		1CC8107A270237F400B9E721 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8104A2702336200B9E721 /* ContentView.swift */; };
+		1CC8107C270237F400B9E721 /* Pods_Mini4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5D085BED330F0CD78C4E26 /* Pods_Mini4.framework */; };
+		1CC8107E270237F400B9E721 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CC810512702336400B9E721 /* LaunchScreen.storyboard */; };
+		1CC8107F270237F400B9E721 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CC8105A270233FD00B9E721 /* GoogleService-Info.plist */; };
+		1CC81080270237F400B9E721 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC8104F2702336400B9E721 /* Preview Assets.xcassets */; };
+		1CC81081270237F400B9E721 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC8104C2702336400B9E721 /* Assets.xcassets */; };
+		1CC81089270238FF00B9E721 /* GoogleService-Info-admin.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CC81088270238FF00B9E721 /* GoogleService-Info-admin.plist */; };
+		6DA4B72157C3CB7B233CA050 /* Pods_Mini4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5D085BED330F0CD78C4E26 /* Pods_Mini4.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1CC810432702336200B9E721 /* Mini4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mini4.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CC810462702336200B9E721 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1CC810482702336200B9E721 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		1CC8104A2702336200B9E721 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1CC8104C2702336400B9E721 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1CC8104F2702336400B9E721 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1CC810522702336400B9E721 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1CC810542702336400B9E721 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1CC8105A270233FD00B9E721 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1CC8105C2702366800B9E721 /* Mini4.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mini4.entitlements; sourceTree = "<group>"; };
+		1CC81086270237F400B9E721 /* Mini4Admin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mini4Admin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CC81087270237F400B9E721 /* Mini4 copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Mini4 copy-Info.plist"; path = "/Users/gustavorigor/Developer/Academy/Mini4/Mini4/Mini4 copy-Info.plist"; sourceTree = "<absolute>"; };
+		1CC81088270238FF00B9E721 /* GoogleService-Info-admin.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-admin.plist"; sourceTree = "<group>"; };
+		3F5D085BED330F0CD78C4E26 /* Pods_Mini4.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mini4.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		61C50368EA545A9091BCA999 /* Pods-Mini4.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mini4.release.xcconfig"; path = "Target Support Files/Pods-Mini4/Pods-Mini4.release.xcconfig"; sourceTree = "<group>"; };
+		F75A507FF86D223AF712BBE1 /* Pods-Mini4.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mini4.debug.xcconfig"; path = "Target Support Files/Pods-Mini4/Pods-Mini4.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1CC810402702336200B9E721 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6DA4B72157C3CB7B233CA050 /* Pods_Mini4.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CC8107B270237F400B9E721 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CC8107C270237F400B9E721 /* Pods_Mini4.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1CC8103A2702336200B9E721 = {
+			isa = PBXGroup;
+			children = (
+				1CC810452702336200B9E721 /* Mini4 */,
+				1CC810442702336200B9E721 /* Products */,
+				F276C1DC6A1D3B17238F756B /* Pods */,
+				90B278108663E2C3B71189CA /* Frameworks */,
+				1CC81087270237F400B9E721 /* Mini4 copy-Info.plist */,
+			);
+			sourceTree = "<group>";
+		};
+		1CC810442702336200B9E721 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1CC810432702336200B9E721 /* Mini4.app */,
+				1CC81086270237F400B9E721 /* Mini4Admin.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1CC810452702336200B9E721 /* Mini4 */ = {
+			isa = PBXGroup;
+			children = (
+				1CC8105C2702366800B9E721 /* Mini4.entitlements */,
+				1CC810462702336200B9E721 /* AppDelegate.swift */,
+				1CC810482702336200B9E721 /* SceneDelegate.swift */,
+				1CC8104A2702336200B9E721 /* ContentView.swift */,
+				1CC8104C2702336400B9E721 /* Assets.xcassets */,
+				1CC810512702336400B9E721 /* LaunchScreen.storyboard */,
+				1CC810542702336400B9E721 /* Info.plist */,
+				1CC81088270238FF00B9E721 /* GoogleService-Info-admin.plist */,
+				1CC8105A270233FD00B9E721 /* GoogleService-Info.plist */,
+				1CC8104E2702336400B9E721 /* Preview Content */,
+			);
+			path = Mini4;
+			sourceTree = "<group>";
+		};
+		1CC8104E2702336400B9E721 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1CC8104F2702336400B9E721 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		90B278108663E2C3B71189CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F5D085BED330F0CD78C4E26 /* Pods_Mini4.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F276C1DC6A1D3B17238F756B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F75A507FF86D223AF712BBE1 /* Pods-Mini4.debug.xcconfig */,
+				61C50368EA545A9091BCA999 /* Pods-Mini4.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1CC810422702336200B9E721 /* Mini4 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CC810572702336400B9E721 /* Build configuration list for PBXNativeTarget "Mini4" */;
+			buildPhases = (
+				BA78B4E970A4E1DDED13C78A /* [CP] Check Pods Manifest.lock */,
+				1CC8103F2702336200B9E721 /* Sources */,
+				1CC810402702336200B9E721 /* Frameworks */,
+				1CC810412702336200B9E721 /* Resources */,
+				298546A108E67826874EB6E6 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Mini4;
+			productName = Mini4;
+			productReference = 1CC810432702336200B9E721 /* Mini4.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1CC81075270237F400B9E721 /* Mini4Admin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CC81083270237F400B9E721 /* Build configuration list for PBXNativeTarget "Mini4Admin" */;
+			buildPhases = (
+				1CC81076270237F400B9E721 /* [CP] Check Pods Manifest.lock */,
+				1CC81077270237F400B9E721 /* Sources */,
+				1CC8107B270237F400B9E721 /* Frameworks */,
+				1CC8107D270237F400B9E721 /* Resources */,
+				1CC81082270237F400B9E721 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Mini4Admin;
+			productName = Mini4;
+			productReference = 1CC81086270237F400B9E721 /* Mini4Admin.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1CC8103B2702336200B9E721 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					1CC810422702336200B9E721 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+				};
+			};
+			buildConfigurationList = 1CC8103E2702336200B9E721 /* Build configuration list for PBXProject "Mini4" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1CC8103A2702336200B9E721;
+			productRefGroup = 1CC810442702336200B9E721 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1CC810422702336200B9E721 /* Mini4 */,
+				1CC81075270237F400B9E721 /* Mini4Admin */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1CC810412702336200B9E721 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CC810532702336400B9E721 /* LaunchScreen.storyboard in Resources */,
+				1CC8105B270233FD00B9E721 /* GoogleService-Info.plist in Resources */,
+				1CC810502702336400B9E721 /* Preview Assets.xcassets in Resources */,
+				1CC8104D2702336400B9E721 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CC8107D270237F400B9E721 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CC8107E270237F400B9E721 /* LaunchScreen.storyboard in Resources */,
+				1CC8107F270237F400B9E721 /* GoogleService-Info.plist in Resources */,
+				1CC81080270237F400B9E721 /* Preview Assets.xcassets in Resources */,
+				1CC81089270238FF00B9E721 /* GoogleService-Info-admin.plist in Resources */,
+				1CC81081270237F400B9E721 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1CC81076270237F400B9E721 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Mini4-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1CC81082270237F400B9E721 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mini4/Pods-Mini4-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mini4/Pods-Mini4-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mini4/Pods-Mini4-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		298546A108E67826874EB6E6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mini4/Pods-Mini4-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mini4/Pods-Mini4-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mini4/Pods-Mini4-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BA78B4E970A4E1DDED13C78A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Mini4-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1CC8103F2702336200B9E721 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CC810472702336200B9E721 /* AppDelegate.swift in Sources */,
+				1CC810492702336200B9E721 /* SceneDelegate.swift in Sources */,
+				1CC8104B2702336200B9E721 /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CC81077270237F400B9E721 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CC81078270237F400B9E721 /* AppDelegate.swift in Sources */,
+				1CC81079270237F400B9E721 /* SceneDelegate.swift in Sources */,
+				1CC8107A270237F400B9E721 /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1CC810512702336400B9E721 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1CC810522702336400B9E721 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1CC810552702336400B9E721 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1CC810562702336400B9E721 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1CC810582702336400B9E721 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F75A507FF86D223AF712BBE1 /* Pods-Mini4.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Mini4/Mini4.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Mini4/Preview Content\"";
+				DEVELOPMENT_TEAM = LW4D8C52G7;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Mini4/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = academy.com.Grupo3.Mini4;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1CC810592702336400B9E721 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61C50368EA545A9091BCA999 /* Pods-Mini4.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Mini4/Mini4.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Mini4/Preview Content\"";
+				DEVELOPMENT_TEAM = LW4D8C52G7;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Mini4/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = academy.com.Grupo3.Mini4;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1CC81084270237F400B9E721 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F75A507FF86D223AF712BBE1 /* Pods-Mini4.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Mini4/Mini4.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Mini4/Preview Content\"";
+				DEVELOPMENT_TEAM = LW4D8C52G7;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Mini4 copy-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = academy.com.Grupo3.Mini4Admin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1CC81085270237F400B9E721 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61C50368EA545A9091BCA999 /* Pods-Mini4.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Mini4/Mini4.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Mini4/Preview Content\"";
+				DEVELOPMENT_TEAM = LW4D8C52G7;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Mini4 copy-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = academy.com.Grupo3.Mini4Admin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1CC8103E2702336200B9E721 /* Build configuration list for PBXProject "Mini4" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CC810552702336400B9E721 /* Debug */,
+				1CC810562702336400B9E721 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1CC810572702336400B9E721 /* Build configuration list for PBXNativeTarget "Mini4" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CC810582702336400B9E721 /* Debug */,
+				1CC810592702336400B9E721 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1CC81083270237F400B9E721 /* Build configuration list for PBXNativeTarget "Mini4Admin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CC81084270237F400B9E721 /* Debug */,
+				1CC81085270237F400B9E721 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1CC8103B2702336200B9E721 /* Project object */;
+}
