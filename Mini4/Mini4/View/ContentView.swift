@@ -26,19 +26,22 @@ struct ContentView_Previews: PreviewProvider {
 struct custView : View{
     
     @State var msg = ""
-    @ObservedObject var datas = observer()
+    @ObservedObject var viewModel = OngViewModel()
     
     var body: some View{
         VStack{
             List{
-                ForEach(datas.data){ i in
+                ForEach(viewModel.data){ i in
                     HStack{
+                        #if Mini4
                         Text(i.cnpj!)
+                        #else
                         NavigationLink(
                             destination: modisy(id: i.id!),
                             label: {
-                                Text("")
+                                Text(i.cnpj!)
                             })
+                        #endif
                     }
                     
                 }
@@ -85,42 +88,6 @@ struct custView : View{
             print("sucess")
             self.msg = ""
         }
-    }
-}
-
-class observer : ObservableObject {
-    @Published var data = [Organizacao]()
-    
-    //for reading purpose it will automatically add data when we write data to firestore.
-    
-    init() {
-        let db = Firestore.firestore().collection("Ong")
-        
-        db.addSnapshotListener({ (snap, err) in
-            if err != nil {
-                print((err?.localizedDescription)!)
-                return
-            }
-            for i in snap!.documentChanges{
-                if i.type == .added{
-                    let msgData = Organizacao(id: i.document.documentID, cnpj: i.document.get("cnpj") as! String)
-                    self.data.append(msgData)
-                }
-                if i.type == .modified{
-                    for j in 0..<self.data.count{
-                        if self.data[j].id == i.document.documentID{
-                            self.data[j].cnpj = (i.document.get("cnpj") as! String)
-                        }
-                    }
-                }
-                if i.type == .removed{
-                    self.data.remove(at: self.data.firstIndex(where: { ong in
-                        i.document.documentID == ong.id
-                    })!)
-                }
-            }
-            
-        })
     }
 }
 
