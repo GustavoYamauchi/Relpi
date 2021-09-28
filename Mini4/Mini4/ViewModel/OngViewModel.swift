@@ -14,10 +14,9 @@ class OngViewModel : ObservableObject {
     @Published var data = [Organizacao]()
     
     //for reading purpose it will automatically add data when we write data to firestore.
+    private let dbOng = Firestore.firestore().collection("Ong")
     
     init() {
-        let firestore = Firestore.firestore()
-        let dbOng = firestore.collection("Ong")
         
         dbOng.addSnapshotListener({ (snap_, err) in
             guard let snap = snap_ else {return}
@@ -62,4 +61,28 @@ class OngViewModel : ObservableObject {
         }
         return ""
     }
+    
+    // to create and write data on firestore
+    func addData(msg: String){
+        let msg1 = dbOng.document()
+        
+        msg1.setData(["id" : msg1.documentID, "cnpj":msg]){ (err) in
+            if err != nil {
+                print((err?.localizedDescription)!)
+                return
+            }
+            print("sucess")
+        }
+    }
+    
+    func updateData(id: String, txt: String) {
+        dbOng.document(id).updateData(["cnpj": txt]){ (err) in
+            if err != nil{
+                print((err?.localizedDescription)!)
+                return
+            }
+            print("success")
+        }
+    }
+    
 }
