@@ -23,6 +23,14 @@
 		1CC81080270237F400B9E721 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC8104F2702336400B9E721 /* Preview Assets.xcassets */; };
 		1CC81081270237F400B9E721 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC8104C2702336400B9E721 /* Assets.xcassets */; };
 		1CC81089270238FF00B9E721 /* GoogleService-Info-admin.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CC81088270238FF00B9E721 /* GoogleService-Info-admin.plist */; };
+		1CC8109827038A3100B9E721 /* Endereco.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8109427038A3100B9E721 /* Endereco.swift */; };
+		1CC8109927038A3100B9E721 /* Endereco.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8109427038A3100B9E721 /* Endereco.swift */; };
+		1CC8109A27038A3100B9E721 /* Banco.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8109527038A3100B9E721 /* Banco.swift */; };
+		1CC8109B27038A3100B9E721 /* Banco.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8109527038A3100B9E721 /* Banco.swift */; };
+		1CC8109C27038A3100B9E721 /* Organizacao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8109627038A3100B9E721 /* Organizacao.swift */; };
+		1CC8109D27038A3100B9E721 /* Organizacao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8109627038A3100B9E721 /* Organizacao.swift */; };
+		1CC8109E27038A3100B9E721 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8109727038A3100B9E721 /* Item.swift */; };
+		1CC8109F27038A3100B9E721 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8109727038A3100B9E721 /* Item.swift */; };
 		6DA4B72157C3CB7B233CA050 /* Pods_Mini4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5D085BED330F0CD78C4E26 /* Pods_Mini4.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +48,10 @@
 		1CC81086270237F400B9E721 /* Mini4Admin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mini4Admin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CC81087270237F400B9E721 /* Mini4 copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Mini4 copy-Info.plist"; path = "/Users/gustavorigor/Developer/Academy/Mini4/Mini4/Mini4 copy-Info.plist"; sourceTree = "<absolute>"; };
 		1CC81088270238FF00B9E721 /* GoogleService-Info-admin.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-admin.plist"; sourceTree = "<group>"; };
+		1CC8109427038A3100B9E721 /* Endereco.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endereco.swift; sourceTree = "<group>"; };
+		1CC8109527038A3100B9E721 /* Banco.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Banco.swift; sourceTree = "<group>"; };
+		1CC8109627038A3100B9E721 /* Organizacao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Organizacao.swift; sourceTree = "<group>"; };
+		1CC8109727038A3100B9E721 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		3F5D085BED330F0CD78C4E26 /* Pods_Mini4.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mini4.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61C50368EA545A9091BCA999 /* Pods-Mini4.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mini4.release.xcconfig"; path = "Target Support Files/Pods-Mini4/Pods-Mini4.release.xcconfig"; sourceTree = "<group>"; };
 		F75A507FF86D223AF712BBE1 /* Pods-Mini4.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mini4.debug.xcconfig"; path = "Target Support Files/Pods-Mini4/Pods-Mini4.debug.xcconfig"; sourceTree = "<group>"; };
@@ -88,6 +100,7 @@
 		1CC810452702336200B9E721 /* Mini4 */ = {
 			isa = PBXGroup;
 			children = (
+				1CC8109327038A3100B9E721 /* Model */,
 				1CC8105C2702366800B9E721 /* Mini4.entitlements */,
 				1CC810462702336200B9E721 /* AppDelegate.swift */,
 				1CC810482702336200B9E721 /* SceneDelegate.swift */,
@@ -108,6 +121,17 @@
 				1CC8104F2702336400B9E721 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1CC8109327038A3100B9E721 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1CC8109427038A3100B9E721 /* Endereco.swift */,
+				1CC8109527038A3100B9E721 /* Banco.swift */,
+				1CC8109627038A3100B9E721 /* Organizacao.swift */,
+				1CC8109727038A3100B9E721 /* Item.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		90B278108663E2C3B71189CA /* Frameworks */ = {
@@ -315,7 +339,11 @@
 			files = (
 				1CC810472702336200B9E721 /* AppDelegate.swift in Sources */,
 				1CC810492702336200B9E721 /* SceneDelegate.swift in Sources */,
+				1CC8109C27038A3100B9E721 /* Organizacao.swift in Sources */,
+				1CC8109827038A3100B9E721 /* Endereco.swift in Sources */,
+				1CC8109E27038A3100B9E721 /* Item.swift in Sources */,
 				1CC8104B2702336200B9E721 /* ContentView.swift in Sources */,
+				1CC8109A27038A3100B9E721 /* Banco.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,7 +353,11 @@
 			files = (
 				1CC81078270237F400B9E721 /* AppDelegate.swift in Sources */,
 				1CC81079270237F400B9E721 /* SceneDelegate.swift in Sources */,
+				1CC8109D27038A3100B9E721 /* Organizacao.swift in Sources */,
+				1CC8109927038A3100B9E721 /* Endereco.swift in Sources */,
+				1CC8109F27038A3100B9E721 /* Item.swift in Sources */,
 				1CC8107A270237F400B9E721 /* ContentView.swift in Sources */,
+				1CC8109B27038A3100B9E721 /* Banco.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
