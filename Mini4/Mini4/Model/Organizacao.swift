@@ -13,9 +13,8 @@ struct Organizacao: Identifiable {
     var cnpj: String?
     var descricao: String?
     var telefone: String?
-    var pix: String?
     var foto: String?
     var banco: Banco?
-    var endereco : Endereco?
-    var estoque : [Item]?
+    var endereco: Endereco?
+    var estoque: [Item]?
 }
