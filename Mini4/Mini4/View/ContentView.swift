@@ -64,54 +64,17 @@ struct custView : View{
 //                }
             }
             HStack{
-                TextField("msg", text: $msg).textFieldStyle(RoundedBorderTextFieldStyle())
+                TextField("cnpj", text: $msg).textFieldStyle(RoundedBorderTextFieldStyle())
                 Button(action: {
                     print(self.msg)
-                    self.addData(msg: self.msg)
+                    viewModel.addData(msg: self.msg)
+                    self.msg = ""
                 }){
                     Text("Add")
                 }.padding()
             }.padding()
         }
     }
-    
-    // to create and write data on firestore
-    func addData(msg: String){
-        let db = Firestore.firestore()
-        let msg1 = db.collection("Ong").document()
-        
-        msg1.setData(["id" : msg1.documentID, "cnpj":msg]){ (err) in
-            if err != nil {
-                print((err?.localizedDescription)!)
-                return
-            }
-            print("sucess")
-            self.msg = ""
-        }
-    }
 }
 
-// To modify the data
-
-struct modisy : View {
-    @State var txt = ""
-    var id = ""
-    var body: some View{
-        VStack{
-            TextField("edit", text: $txt).textFieldStyle(RoundedBorderTextFieldStyle())
-            Button(action: {
-                let db = Firestore.firestore().collection("Ong")
-                db.document(id).updateData(["cnpj":self.txt]){ (err) in
-                    if err != nil{
-                        print((err?.localizedDescription)!)
-                        return
-                    }
-                    print("success")
-                }
-            }){
-                Text("Modify")
-            }
-        }
-    }
-}
 

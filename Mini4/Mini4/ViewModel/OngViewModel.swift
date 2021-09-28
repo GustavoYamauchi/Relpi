@@ -62,4 +62,30 @@ class OngViewModel : ObservableObject {
         }
         return ""
     }
+    
+    // to create and write data on firestore
+    func addData(msg: String){
+        let db = Firestore.firestore()
+        let msg1 = db.collection("Ong").document()
+        
+        msg1.setData(["id" : msg1.documentID, "cnpj":msg]){ (err) in
+            if err != nil {
+                print((err?.localizedDescription)!)
+                return
+            }
+            print("sucess")
+        }
+    }
+    
+    func updateData(id: String, txt: String) {
+        let db = Firestore.firestore().collection("Ong")
+        db.document(id).updateData(["cnpj": txt]){ (err) in
+            if err != nil{
+                print((err?.localizedDescription)!)
+                return
+            }
+            print("success")
+        }
+    }
+    
 }
