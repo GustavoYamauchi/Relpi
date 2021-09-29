@@ -9,10 +9,10 @@ import Foundation
 
 struct Organizacao: Identifiable {
     var id: String?
-    var nome: String?
-    var cnpj: String?
-    var descricao: String?
-    var telefone: String?
+    var nome: String
+    var cnpj: String
+    var descricao: String
+    var telefone: String
     var foto: String?
     var banco: Banco?
     var endereco: Endereco?
