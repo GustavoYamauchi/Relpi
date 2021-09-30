@@ -67,9 +67,9 @@ class OngViewModel : ObservableObject {
     
     func addOrgData(org: Organizacao){
         let ong1 = dbOng.document()
-        let banco = dbOng.document(ong1.documentID).collection("banco").document()
-        let endereco = dbOng.document(ong1.documentID).collection("endereco").document()
-        let estoque = dbOng.document(ong1.documentID).collection("estoque").document()
+        let banco = dbOng.document(ong1.documentID).collection("banco").document("principal")
+        let endereco = dbOng.document(ong1.documentID).collection("endereco").document("principal")
+        let estoque = dbOng.document(ong1.documentID).collection("estoque").document("principal")
         
         ong1.setData([
             "id" : ong1.documentID,
