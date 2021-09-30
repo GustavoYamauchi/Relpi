@@ -42,6 +42,9 @@ class OngViewModel : ObservableObject {
                     for j in 0..<self.data.count{
                         if self.data[j].id == i.document.documentID{
                             self.data[j].cnpj = (i.document.get("cnpj") as! String)
+                            self.data[j].nome = self.castString(i.document.get("nome"))
+                            self.data[j].descricao = self.castString(i.document.get("descricao"))
+                            self.data[j].telefone = self.castString(i.document.get("telefone"))
                         }
                     }
                 }
@@ -62,11 +65,16 @@ class OngViewModel : ObservableObject {
         return ""
     }
     
-    // to create and write data on firestore
-    func addData(msg: String){
+    func addOrgData(org: Organizacao){
         let msg1 = dbOng.document()
         
-        msg1.setData(["id" : msg1.documentID, "cnpj":msg]){ (err) in
+        msg1.setData([
+            "id" : msg1.documentID,
+            "nome": org.nome,
+            "cnpj": org.cnpj,
+            "descricao": org.descricao,
+            "telefone": org.telefone
+        ]) { (err) in
             if err != nil {
                 print((err?.localizedDescription)!)
                 return
@@ -75,8 +83,14 @@ class OngViewModel : ObservableObject {
         }
     }
     
-    func updateData(id: String, txt: String) {
-        dbOng.document(id).updateData(["cnpj": txt]){ (err) in
+    func updateOng(ong: Organizacao) {
+        dbOng.document(ong.id!).updateData(
+            ["cnpj": ong.cnpj,
+             "nome": ong.nome,
+             "descricao": ong.descricao,
+             "telefone": ong.telefone
+            ]
+        ){ (err) in
             if err != nil{
                 print((err?.localizedDescription)!)
                 return

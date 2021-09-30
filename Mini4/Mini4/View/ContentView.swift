@@ -12,7 +12,11 @@ import FirebaseFirestore
 struct ContentView: View {
     var body: some View {
         NavigationView{
+            #if Mini4
+            DoadorHome().navigationTitle("Doador")
+            #else
             custView().navigationTitle("Home")
+            #endif
         }
     }
 }
@@ -33,15 +37,11 @@ struct custView : View{
             List{
                 ForEach(viewModel.data){ i in
                     HStack{
-                        #if Mini4
-                        Text(i.cnpj!)
-                        #else
                         NavigationLink(
-                            destination: modisy(id: i.id!),
+                            destination: OngFormView(ong: i, isEditing: true),
                             label: {
-                                Text(i.cnpj!)
-                            })
-                        #endif
+                                Text(i.nome)
+                        })
                     }
                     
                 }
@@ -63,18 +63,9 @@ struct custView : View{
 //                    }
 //                }
             }
-            HStack{
-                TextField("cnpj", text: $msg).textFieldStyle(RoundedBorderTextFieldStyle())
-                Button(action: {
-                    print(self.msg)
-                    viewModel.addData(msg: self.msg)
-                    self.msg = ""
-                }){
-                    Text("Add")
-                }.padding()
-            }.padding()
         }
     }
 }
+
 
 
