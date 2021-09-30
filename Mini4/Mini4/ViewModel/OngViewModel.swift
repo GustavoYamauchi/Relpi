@@ -69,7 +69,7 @@ class OngViewModel : ObservableObject {
         let ong1 = dbOng.document()
         let banco = dbOng.document(ong1.documentID).collection("banco").document("principal")
         let endereco = dbOng.document(ong1.documentID).collection("endereco").document("principal")
-        let estoque = dbOng.document(ong1.documentID).collection("estoque").document("principal")
+        let estoque = dbOng.document(ong1.documentID).collection("estoque").document("item0")
         
         ong1.setData([
             "id" : ong1.documentID,
