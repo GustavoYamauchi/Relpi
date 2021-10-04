@@ -34,6 +34,7 @@ class OngViewModel : ObservableObject {
                         cnpj: self.castString(i.document.get("cnpj")),
                         descricao: self.castString(i.document.get("descricao")),
                         telefone: self.castString(i.document.get("telefone")),
+                        email: "ong@gmail.com",
                         foto: self.castString(i.document.get("foto"))
                     )
                     self.data.append(msgData)
@@ -73,7 +74,8 @@ class OngViewModel : ObservableObject {
             "nome": org.nome,
             "cnpj": org.cnpj,
             "descricao": org.descricao,
-            "telefone": org.telefone
+            "telefone": org.telefone,
+            "email": org.email
         ]) { (err) in
             if err != nil {
                 print((err?.localizedDescription)!)
@@ -88,7 +90,8 @@ class OngViewModel : ObservableObject {
             ["cnpj": ong.cnpj,
              "nome": ong.nome,
              "descricao": ong.descricao,
-             "telefone": ong.telefone
+             "telefone": ong.telefone,
+             "email": ong.email
             ]
         ){ (err) in
             if err != nil{

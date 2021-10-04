@@ -35,12 +35,12 @@ struct custView : View{
     var body: some View{
         VStack{
             List{
-                ForEach(viewModel.data){ i in
+                ForEach(0..<viewModel.data.count, id: \.self){ i in
                     HStack{
                         NavigationLink(
-                            destination: OngFormView(ong: i, isEditing: true),
+                            destination: OngFormView(ong: $viewModel.data[i], isEditing: true),
                             label: {
-                                Text(i.nome)
+                                Text(viewModel.data[i].nome)
                         })
                     }
                     

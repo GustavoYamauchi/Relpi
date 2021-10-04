@@ -38,6 +38,10 @@
 		6DA4B72157C3CB7B233CA050 /* Pods_Mini4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5D085BED330F0CD78C4E26 /* Pods_Mini4.framework */; };
 		8553EDCA2704E6A300DB408D /* DoadorHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8553EDC92704E6A300DB408D /* DoadorHome.swift */; };
 		8553EDCC2704F17900DB408D /* OngView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8553EDCB2704F17900DB408D /* OngView.swift */; };
+		8589EBE9270B939C00EA906C /* FormEnderecoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8589EBE8270B939C00EA906C /* FormEnderecoView.swift */; };
+		85E49094270B9402009CD6FE /* FormInfoGeralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E49093270B9402009CD6FE /* FormInfoGeralView.swift */; };
+		85E49096270B97D9009CD6FE /* FormBancoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E49095270B97D9009CD6FE /* FormBancoView.swift */; };
+		85E49098270B989A009CD6FE /* FormContatoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E49097270B989A009CD6FE /* FormContatoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +68,10 @@
 		61C50368EA545A9091BCA999 /* Pods-Mini4.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mini4.release.xcconfig"; path = "Target Support Files/Pods-Mini4/Pods-Mini4.release.xcconfig"; sourceTree = "<group>"; };
 		8553EDC92704E6A300DB408D /* DoadorHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoadorHome.swift; sourceTree = "<group>"; };
 		8553EDCB2704F17900DB408D /* OngView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngView.swift; sourceTree = "<group>"; };
+		8589EBE8270B939C00EA906C /* FormEnderecoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormEnderecoView.swift; sourceTree = "<group>"; };
+		85E49093270B9402009CD6FE /* FormInfoGeralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInfoGeralView.swift; sourceTree = "<group>"; };
+		85E49095270B97D9009CD6FE /* FormBancoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormBancoView.swift; sourceTree = "<group>"; };
+		85E49097270B989A009CD6FE /* FormContatoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormContatoView.swift; sourceTree = "<group>"; };
 		F75A507FF86D223AF712BBE1 /* Pods-Mini4.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mini4.debug.xcconfig"; path = "Target Support Files/Pods-Mini4/Pods-Mini4.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,12 +164,24 @@
 		1CC810A427038FE100B9E721 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8589EBE7270B935900EA906C /* Organizacao */,
 				1CC8104A2702336200B9E721 /* ContentView.swift */,
 				1CC810A92703B0B000B9E721 /* OngFormView.swift */,
 				8553EDC92704E6A300DB408D /* DoadorHome.swift */,
 				8553EDCB2704F17900DB408D /* OngView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		8589EBE7270B935900EA906C /* Organizacao */ = {
+			isa = PBXGroup;
+			children = (
+				8589EBE8270B939C00EA906C /* FormEnderecoView.swift */,
+				85E49093270B9402009CD6FE /* FormInfoGeralView.swift */,
+				85E49095270B97D9009CD6FE /* FormBancoView.swift */,
+				85E49097270B989A009CD6FE /* FormContatoView.swift */,
+			);
+			path = Organizacao;
 			sourceTree = "<group>";
 		};
 		90B278108663E2C3B71189CA /* Frameworks */ = {
@@ -387,13 +407,17 @@
 			files = (
 				1CC81078270237F400B9E721 /* AppDelegate.swift in Sources */,
 				1CC81079270237F400B9E721 /* SceneDelegate.swift in Sources */,
+				85E49094270B9402009CD6FE /* FormInfoGeralView.swift in Sources */,
+				85E49098270B989A009CD6FE /* FormContatoView.swift in Sources */,
 				1CC8109D27038A3100B9E721 /* Organizacao.swift in Sources */,
 				1CC8109927038A3100B9E721 /* Endereco.swift in Sources */,
 				1CC8109F27038A3100B9E721 /* Item.swift in Sources */,
 				1CC810AB2703B0B000B9E721 /* OngFormView.swift in Sources */,
 				1CC810A327038E7400B9E721 /* OngViewModel.swift in Sources */,
+				85E49096270B97D9009CD6FE /* FormBancoView.swift in Sources */,
 				1CC8107A270237F400B9E721 /* ContentView.swift in Sources */,
 				1CC8109B27038A3100B9E721 /* Banco.swift in Sources */,
+				8589EBE9270B939C00EA906C /* FormEnderecoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,6 +563,7 @@
 				DEVELOPMENT_TEAM = LW4D8C52G7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Mini4/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -564,6 +589,7 @@
 				DEVELOPMENT_TEAM = LW4D8C52G7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Mini4/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
