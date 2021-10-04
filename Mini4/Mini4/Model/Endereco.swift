@@ -15,5 +15,6 @@ struct Endereco: Identifiable {
     var bairro: String
     var cidade: String
     var cep: String
+    var estado: String
 }
 
