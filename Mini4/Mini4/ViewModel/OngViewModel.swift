@@ -66,20 +66,63 @@ class OngViewModel : ObservableObject {
     }
     
     func addOrgData(org: Organizacao){
-        let msg1 = dbOng.document()
+        let ong1 = dbOng.document()
+        let banco = dbOng.document(ong1.documentID).collection("banco").document("principal")
+        let endereco = dbOng.document(ong1.documentID).collection("endereco").document("principal")
+        let estoque = dbOng.document(ong1.documentID).collection("estoque").document("item0")
         
-        msg1.setData([
-            "id" : msg1.documentID,
+        ong1.setData([
+            "id" : ong1.documentID,
             "nome": org.nome,
             "cnpj": org.cnpj,
             "descricao": org.descricao,
             "telefone": org.telefone
         ]) { (err) in
-            if err != nil {
-                print((err?.localizedDescription)!)
+            if let erro = err?.localizedDescription {
+                print(erro)
                 return
             }
-            print("sucess")
+        }
+        
+        banco.setData([
+            "id": banco.documentID,
+            "banco": "...",
+            "agencia": "...",
+            "conta": "...",
+            "pix": "..."
+        ]) { (err) in
+            if let erro = err?.localizedDescription {
+                print(erro)
+                return
+            }
+        }
+        
+        endereco.setData([
+            "id": endereco.documentID,
+            "logradouro": "...",
+            "numero": "...",
+            "complemento": "...",
+            "bairro": "...",
+            "cidade": "...",
+            "cep": 0
+        ]) { (err) in
+            if let erro = err?.localizedDescription {
+                print(erro)
+                return
+            }
+        }
+        
+        estoque.setData([
+            "id": estoque.documentID,
+            "nome": "...",
+            "quantidade": 1,
+            "urgente": false,
+            "visivel": true
+        ]) { (err) in
+            if let erro = err?.localizedDescription {
+                print(erro)
+                return
+            }
         }
     }
     

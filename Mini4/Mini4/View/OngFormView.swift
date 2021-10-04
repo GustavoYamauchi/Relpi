@@ -38,8 +38,15 @@ struct OngFormView: View {
         }){
             Text("Add")
         }.padding()
+        
+        NavigationLink(
+            destination: BancoFormView(viewModel: BancoViewModel(ong.id!), isEditing: false),
+            label: {
+                Text("Dados bancarios")
+        })
+        
         .onAppear {
-            ong = (isEditing) ? ong : Organizacao(nome: "", cnpj: "", descricao: "", telefone: "")
+            ong = (isEditing) ? ong : Organizacao(nome: "", cnpj: "", descricao: "", telefone: "", banco: Banco(banco: "", agencia: "", conta: "", pix: ""))
         }
     }
 }
