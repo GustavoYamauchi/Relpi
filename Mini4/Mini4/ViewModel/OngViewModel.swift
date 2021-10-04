@@ -104,7 +104,7 @@ class OngViewModel : ObservableObject {
             "complemento": "...",
             "bairro": "...",
             "cidade": "...",
-            "cep": 0
+            "cep": "..."
         ]) { (err) in
             if let erro = err?.localizedDescription {
                 print(erro)
