@@ -10,24 +10,30 @@ import Firebase
 import FirebaseFirestore
 
 struct BancoFormView: View {
-    @ObservedObject var viewModel = OngViewModel()
+    @ObservedObject var viewModel: BancoViewModel
     
-    @State var banco: Banco
+    @State var banco: Banco = Banco(banco: "", agencia: "", conta: "", pix: "")
     
     var isEditing: Bool
     
     var body: some View {
         VStack {
             TextField("nome do banco", text: $banco.banco).textFieldStyle(RoundedBorderTextFieldStyle())
+            
+            TextField("agencia", text: $banco.agencia).textFieldStyle(RoundedBorderTextFieldStyle())
+            
+            TextField("conta", text: $banco.conta).textFieldStyle(RoundedBorderTextFieldStyle())
+            
+            TextField("pix", text: $banco.pix).textFieldStyle(RoundedBorderTextFieldStyle())
 
         }.padding()
 
         Button(action: {
             if isEditing {
-                //viewModel.updateOng(ong: banco)
+                viewModel.updateBanco(banco: banco)
             } else {
-                //viewModel.addOrgData(org: banco)
-                self.banco = Banco(banco: "")
+                viewModel.addBancoData(banco: banco)
+                self.banco = Banco(banco: "", agencia: "", conta: "", pix: "")
             }
         }){
             Text("Add")
@@ -35,7 +41,14 @@ struct BancoFormView: View {
         
         
         .onAppear {
-            banco = (isEditing) ? banco : Banco(banco: "")
+            defineBanco()
+            banco = (isEditing) ? banco : Banco(banco: "", agencia: "", conta: "", pix: "")
+        }
+    }
+    
+    func defineBanco(){
+        if let primeiroBanco = viewModel.data.first{
+            banco = primeiroBanco
         }
     }
 }

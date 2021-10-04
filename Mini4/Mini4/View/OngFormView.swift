@@ -40,13 +40,13 @@ struct OngFormView: View {
         }.padding()
         
         NavigationLink(
-            destination: BancoFormView(banco: Banco(banco: "adfa"), isEditing: false),
+            destination: BancoFormView(viewModel: BancoViewModel(ong.id!), isEditing: false),
             label: {
                 Text("Dados bancarios")
         })
         
         .onAppear {
-            ong = (isEditing) ? ong : Organizacao(nome: "", cnpj: "", descricao: "", telefone: "", banco: Banco(banco: ""))
+            ong = (isEditing) ? ong : Organizacao(nome: "", cnpj: "", descricao: "", telefone: "", banco: Banco(banco: "", agencia: "", conta: "", pix: ""))
         }
     }
 }

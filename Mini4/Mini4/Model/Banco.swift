@@ -10,9 +10,9 @@ import Foundation
 struct Banco: Identifiable {
     var id: String?
     var banco: String
-    var agencia: String?
-    var conta: String?
-    var pix: String?
+    var agencia: String
+    var conta: String
+    var pix: String
 }
 
 
