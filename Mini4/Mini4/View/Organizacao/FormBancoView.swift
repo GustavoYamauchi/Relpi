@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FormBancoView: View {
-    @State var banco: Banco
+    @Binding var banco: Banco
     
     var body: some View {
         VStack(alignment: .leading, spacing: 30) {

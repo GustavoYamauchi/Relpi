@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FormEnderecoView: View {
-    @State var endereco: Endereco
+    @Binding var endereco: Endereco
     
     var body: some View {
         VStack(alignment: .leading, spacing: 30) {

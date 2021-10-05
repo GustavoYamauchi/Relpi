@@ -35,7 +35,9 @@ class OngViewModel : ObservableObject {
                         descricao: self.castString(i.document.get("descricao")),
                         telefone: self.castString(i.document.get("telefone")),
                         email: "ong@gmail.com",
-                        foto: self.castString(i.document.get("foto"))
+                        foto: self.castString(i.document.get("foto")),
+                        banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
+                        endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: "")
                     )
                     self.data.append(msgData)
                 }
