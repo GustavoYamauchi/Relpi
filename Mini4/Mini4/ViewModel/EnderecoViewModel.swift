@@ -37,7 +37,7 @@ class EnderecoViewModel : ObservableObject {
                         complemento: self.castString(i.document.get("complemento")),
                         bairro: self.castString(i.document.get("bairro")),
                         cidade: self.castString(i.document.get("cidade")),
-                        cep: self.castString(i.document.get("cep"))
+                        cep: self.castString(i.document.get("cep")), estado: ""
                     )
                     self.data.append(msgData)
                 }

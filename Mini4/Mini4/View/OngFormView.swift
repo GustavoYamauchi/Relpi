@@ -10,7 +10,8 @@ import Firebase
 import FirebaseFirestore
 
 struct OngFormView: View {
-    @ObservedObject var viewModel = OngViewModel()
+    @ObservedObject var ongViewModel = OngViewModel()
+    @ObservedObject var enderecoViewModel: EnderecoViewModel
     
     // organização que está no array da viewModel
     @Binding var ong: Organizacao
@@ -20,11 +21,14 @@ struct OngFormView: View {
     var isEditing: Bool
     @State var pageIndex: Int = 0
     
-    init(ong: Binding<Organizacao>, isEditing: Bool) {
+    init(ong: Binding<Organizacao>,
+         isEditing: Bool,
+         enderecoViewModel: EnderecoViewModel) {
         self.isEditing = isEditing
         
         self._ong = ong
         self.ongDraft = ong.wrappedValue
+        self.enderecoViewModel = enderecoViewModel
     }
     
     var body: some View {
@@ -86,11 +90,11 @@ struct OngFormView: View {
         // se já existir ong, atualiza
         if isEditing {
             ong = ongDraft
-            viewModel.updateOng(ong: ong)
+            ongViewModel.updateOng(ong: ong)
         } else {
             // adiciona nova
             ong = ongDraft
-            viewModel.addOrgData(org: ong)
+            ongViewModel.addOrgData(org: ong)
             self.ongDraft = getNewOrg()
         }
     }
@@ -115,15 +119,17 @@ struct OngFormView: View {
         return Organizacao(
             nome: "", cnpj: "", descricao: "", telefone: "", email: "",
             banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
-            endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
+            endereco: Endereco(logradouro: "", numero: "", complemento: "", bairro: "", cidade: "", cep: "", estado: ""))
     }
     
     @ViewBuilder func getFormView(pageIndex: Int) -> some View {
         switch pageIndex {
         case 0: FormInfoGeralView(ong: $ongDraft)
-        case 1: FormEnderecoView(endereco: $ongDraft.endereco)
+//        case 1: FormEnderecoView(endereco: $ongDraft.endereco)
+        case 1: EnderecoFormView(viewModel: EnderecoViewModel(ong.id!), endereco: ongDraft.endereco, isEditing: true)
         case 2: FormContatoView(ong: $ongDraft)
-        case 3: FormBancoView(banco: $ongDraft.banco)
+//        case 3: FormBancoView(banco: $ongDraft.banco)
+        case 3: BancoFormView(viewModel: BancoViewModel(ong.id!), banco: ongDraft.banco, isEditing: true)
         default: FormInfoGeralView(ong: $ongDraft)
         }
     }
@@ -136,10 +142,10 @@ struct OngFormView_Previews: PreviewProvider {
     @State static var ong: Organizacao = Organizacao(
         nome: "", cnpj: "", descricao: "", telefone: "", email: "",
         banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
-        endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
+        endereco: Endereco(logradouro: "", numero: "", complemento: "", bairro: "", cidade: "", cep: "", estado: ""))
     
     static var previews: some View {
-        OngFormView(ong: $ong, isEditing: true)
+        OngFormView(ong: $ong, isEditing: true, enderecoViewModel: EnderecoViewModel("1"))
     }
     
 }

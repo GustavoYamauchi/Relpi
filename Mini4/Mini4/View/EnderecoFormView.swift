@@ -12,7 +12,7 @@ import FirebaseFirestore
 struct EnderecoFormView: View {
     @ObservedObject var viewModel: EnderecoViewModel
     
-    @State var endereco: Endereco = Endereco(logradouro: "", numero: "", complemento: "", bairro: "", cidade: "", cep: "")
+    @State var endereco: Endereco = Endereco(logradouro: "", numero: "", complemento: "", bairro: "", cidade: "", cep: "", estado: "")
     
     var isEditing: Bool
     
@@ -32,7 +32,7 @@ struct EnderecoFormView: View {
                 viewModel.updateEndereco(endereco: endereco)
             } else {
                 viewModel.addEnderecoData(endereco: endereco)
-                self.endereco = Endereco(logradouro: "", numero: "", complemento: "", bairro: "", cidade: "", cep: "")
+                self.endereco = Endereco(logradouro: "", numero: "", complemento: "", bairro: "", cidade: "", cep: "", estado: "")
             }
         }){
             Text("Add")
@@ -41,7 +41,7 @@ struct EnderecoFormView: View {
         
         .onAppear {
             defineEndereco()
-            endereco = (isEditing) ? endereco : Endereco(logradouro: "", numero: "", complemento: "", bairro: "", cidade: "", cep: "")
+            endereco = (isEditing) ? endereco : Endereco(logradouro: "", numero: "", complemento: "", bairro: "", cidade: "", cep: "", estado: "")
         }
     }
     
