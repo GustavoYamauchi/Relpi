@@ -44,9 +44,15 @@ struct OngFormView: View {
             label: {
                 Text("Dados bancarios")
         })
+            
+        NavigationLink(
+            destination: EnderecoFormView(viewModel: EnderecoViewModel(ong.id!), isEditing: true),
+            label: {
+                Text("Endereco")
+            }).padding()
         
         .onAppear {
-            ong = (isEditing) ? ong : Organizacao(nome: "", cnpj: "", descricao: "", telefone: "", banco: Banco(banco: "", agencia: "", conta: "", pix: ""))
+            ong = (isEditing) ? ong : Organizacao(nome: "", cnpj: "", descricao: "", telefone: "")
         }
     }
 }

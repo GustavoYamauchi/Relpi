@@ -87,9 +87,9 @@ class BancoViewModel : ObservableObject {
         dbBanco.document("principal").updateData(
             [
                 "banco": banco.banco,
-                "agencia": banco.agencia ?? "...",
-                "conta": banco.conta ?? "...",
-                "pix": banco.pix ?? "..."
+                "agencia": banco.agencia,
+                "conta": banco.conta,
+                "pix": banco.pix
             ]
         ){ (err) in
             if err != nil{
