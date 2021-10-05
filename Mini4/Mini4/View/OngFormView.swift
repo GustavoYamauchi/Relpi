@@ -22,13 +22,13 @@ struct OngFormView: View {
     @State var pageIndex: Int = 0
     
     init(ong: Binding<Organizacao>,
-         isEditing: Bool,
-         enderecoViewModel: EnderecoViewModel) {
+         isEditing: Bool) {
         self.isEditing = isEditing
         
         self._ong = ong
         self.ongDraft = ong.wrappedValue
-        self.enderecoViewModel = enderecoViewModel
+        
+        self.enderecoViewModel = EnderecoViewModel(ong.wrappedValue.id!)
     }
     
     var body: some View {
@@ -78,9 +78,12 @@ struct OngFormView: View {
                 }
                 .navigationBarTitle("", displayMode: .inline)
                 // não tá funcionando, porque é do tipo binding
-//                .onAppear {
-//                    ong = (isEditing) ? ong : getNewOrg()
-//                }
+                .onAppear {
+                    ong.endereco = enderecoViewModel.data.first!
+//                    ong.banco = bancoViewModel.data.first!
+                    
+                    ongDraft = ong
+                }
                 .navigationBarBackButtonHidden(true)
             }            
         }
@@ -91,10 +94,12 @@ struct OngFormView: View {
         if isEditing {
             ong = ongDraft
             ongViewModel.updateOng(ong: ong)
+            enderecoViewModel.updateEndereco(endereco: ong.endereco)
         } else {
             // adiciona nova
             ong = ongDraft
             ongViewModel.addOrgData(org: ong)
+            enderecoViewModel.addEnderecoData(endereco: ong.endereco)
             self.ongDraft = getNewOrg()
         }
     }
@@ -125,8 +130,7 @@ struct OngFormView: View {
     @ViewBuilder func getFormView(pageIndex: Int) -> some View {
         switch pageIndex {
         case 0: FormInfoGeralView(ong: $ongDraft)
-//        case 1: FormEnderecoView(endereco: $ongDraft.endereco)
-        case 1: EnderecoFormView(viewModel: EnderecoViewModel(ong.id!), endereco: ongDraft.endereco, isEditing: true)
+        case 1: EnderecoFormView(viewModel: enderecoViewModel, endereco: $ongDraft.endereco, isEditing: true)
         case 2: FormContatoView(ong: $ongDraft)
 //        case 3: FormBancoView(banco: $ongDraft.banco)
         case 3: BancoFormView(viewModel: BancoViewModel(ong.id!), banco: ongDraft.banco, isEditing: true)
@@ -145,7 +149,7 @@ struct OngFormView_Previews: PreviewProvider {
         endereco: Endereco(logradouro: "", numero: "", complemento: "", bairro: "", cidade: "", cep: "", estado: ""))
     
     static var previews: some View {
-        OngFormView(ong: $ong, isEditing: true, enderecoViewModel: EnderecoViewModel("1"))
+        OngFormView(ong: $ong, isEditing: true)
     }
     
 }
