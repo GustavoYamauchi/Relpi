@@ -12,7 +12,9 @@ import FirebaseFirestore
 struct OngFormView: View {
     @ObservedObject var viewModel = OngViewModel()
     
+    // organização que está no array da viewModel
     @Binding var ong: Organizacao
+    // organização usada como rascunho
     @State private var ongDraft: Organizacao
     
     var isEditing: Bool
@@ -22,9 +24,7 @@ struct OngFormView: View {
         self.isEditing = isEditing
         
         self._ong = ong
-        let endereco = Endereco(logradouro: "Rua ametista", numero: "123", bairro: "Vila Pirajussra", cidade: "São Paulo", cep: "05579-010", estado: "SP")
         self.ongDraft = ong.wrappedValue
-        ongDraft.endereco = endereco
     }
     
     var body: some View {
@@ -61,6 +61,7 @@ struct OngFormView: View {
                     }
                     
                     Button("Cancelar") {
+                        ongDraft = ong
                         print("CANCELA TUDO")
                     }
                     
@@ -72,22 +73,25 @@ struct OngFormView: View {
                     }
                 }
                 .navigationBarTitle("", displayMode: .inline)
-                .onAppear {
-                    ong = (isEditing) ? ong : Organizacao(nome: "", cnpj: "", descricao: "", telefone: "", email: "")
-                }
+                // não tá funcionando, porque é do tipo binding
+//                .onAppear {
+//                    ong = (isEditing) ? ong : getNewOrg()
+//                }
                 .navigationBarBackButtonHidden(true)
             }            
         }
     }
         
     private func saveOng() {
+        // se já existir ong, atualiza
         if isEditing {
             ong = ongDraft
             viewModel.updateOng(ong: ong)
         } else {
+            // adiciona nova
             ong = ongDraft
             viewModel.addOrgData(org: ong)
-            self.ong = Organizacao(nome: "", cnpj: "", descricao: "", telefone: "", email: "")
+            self.ongDraft = getNewOrg()
         }
     }
     
@@ -107,13 +111,20 @@ struct OngFormView: View {
         }
     }
     
+    private func getNewOrg() -> Organizacao {
+        return Organizacao(
+            nome: "", cnpj: "", descricao: "", telefone: "", email: "",
+            banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
+            endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
+    }
+    
     @ViewBuilder func getFormView(pageIndex: Int) -> some View {
         switch pageIndex {
-        case 0: FormInfoGeralView(ong: ongDraft)
-        case 1: FormEnderecoView(endereco: Endereco(logradouro: "Rua ametista", numero: "123", bairro: "Vila Pirajussra", cidade: "São Paulo", cep: "05579-010", estado: "SP"))
-        case 2: FormContatoView(ong: ongDraft)
-        case 3: FormBancoView(banco: Banco(banco: "", agencia: "", conta: "", pix: ""))
-        default: FormInfoGeralView(ong: ongDraft)
+        case 0: FormInfoGeralView(ong: $ongDraft)
+        case 1: FormEnderecoView(endereco: $ongDraft.endereco)
+        case 2: FormContatoView(ong: $ongDraft)
+        case 3: FormBancoView(banco: $ongDraft.banco)
+        default: FormInfoGeralView(ong: $ongDraft)
         }
     }
     
@@ -122,7 +133,10 @@ struct OngFormView: View {
 
 
 struct OngFormView_Previews: PreviewProvider {
-    @State static var ong: Organizacao = Organizacao(nome: "", cnpj: "", descricao: "", telefone: "", email: "", endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
+    @State static var ong: Organizacao = Organizacao(
+        nome: "", cnpj: "", descricao: "", telefone: "", email: "",
+        banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
+        endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
     
     static var previews: some View {
         OngFormView(ong: $ong, isEditing: true)

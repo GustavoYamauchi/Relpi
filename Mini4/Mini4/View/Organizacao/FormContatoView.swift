@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FormContatoView: View {
-    @State var ong: Organizacao
+    @Binding var ong: Organizacao
     
     var body: some View {
         VStack(alignment: .leading, spacing: 30) {
