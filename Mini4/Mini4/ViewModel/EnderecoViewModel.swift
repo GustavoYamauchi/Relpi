@@ -92,12 +92,12 @@ class EnderecoViewModel : ObservableObject {
     func updateEndereco(endereco: Endereco) {
         dbEndereco.document("principal").updateData(
             [
-                "logradouro": endereco.logradouro
-//                "numero": endereco.numero,
-//                "complemento": endereco.complemento,
-//                "bairro": endereco.bairro,
-//                "cidade": endereco.cidade,
-//                "cep": endereco.cidade
+                "logradouro": endereco.logradouro,
+                "numero": endereco.numero,
+                "complemento": endereco.complemento,
+                "bairro": endereco.bairro,
+                "cidade": endereco.cidade,
+                "cep": endereco.cidade
             ]
         ){ (err) in
             if err != nil{

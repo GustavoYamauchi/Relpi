@@ -12,13 +12,18 @@ import FirebaseFirestore
 struct EnderecoFormView: View {
     @ObservedObject var viewModel: EnderecoViewModel
     
-    @State var endereco: Endereco = Endereco(logradouro: "")
+    @State var endereco: Endereco = Endereco(logradouro: "", numero: "", complemento: "", bairro: "", cidade: "", cep: "")
     
     var isEditing: Bool
     
     var body: some View {
         VStack {
             TextField("logradouro", text: $endereco.logradouro).textFieldStyle(RoundedBorderTextFieldStyle())
+            TextField("numero", text: $endereco.numero).textFieldStyle(RoundedBorderTextFieldStyle())
+            TextField("complemento", text: $endereco.complemento).textFieldStyle(RoundedBorderTextFieldStyle())
+            TextField("bairro", text: $endereco.bairro).textFieldStyle(RoundedBorderTextFieldStyle())
+            TextField("cidade", text: $endereco.cidade).textFieldStyle(RoundedBorderTextFieldStyle())
+            TextField("cep", text: $endereco.cep).textFieldStyle(RoundedBorderTextFieldStyle())
 
         }.padding()
 
@@ -27,7 +32,7 @@ struct EnderecoFormView: View {
                 viewModel.updateEndereco(endereco: endereco)
             } else {
                 viewModel.addEnderecoData(endereco: endereco)
-                self.endereco = Endereco(logradouro: "")
+                self.endereco = Endereco(logradouro: "", numero: "", complemento: "", bairro: "", cidade: "", cep: "")
             }
         }){
             Text("Add")
@@ -36,7 +41,7 @@ struct EnderecoFormView: View {
         
         .onAppear {
             defineEndereco()
-            endereco = (isEditing) ? endereco : Endereco(logradouro: "")
+            endereco = (isEditing) ? endereco : Endereco(logradouro: "", numero: "", complemento: "", bairro: "", cidade: "", cep: "")
         }
     }
     
