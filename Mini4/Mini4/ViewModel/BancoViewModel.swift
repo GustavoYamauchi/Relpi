@@ -50,8 +50,8 @@ class BancoViewModel : ObservableObject {
                     }
                 }
                 if i.type == .removed{
-                    self.data.remove(at: self.data.firstIndex(where: { ong in
-                        i.document.documentID == ong.id
+                    self.data.remove(at: self.data.firstIndex(where: { banco in
+                        i.document.documentID == banco.id
                     })!)
                 }
             }
@@ -97,6 +97,17 @@ class BancoViewModel : ObservableObject {
                 return
             }
             print("success")
+        }
+    }
+    
+    func deleteBanco(banco: Banco){
+        if let id = banco.id{
+            dbBanco.document(id).delete{ erro in
+                if let err = erro {
+                    print(err.localizedDescription)
+                    return
+                }
+            }
         }
     }
     

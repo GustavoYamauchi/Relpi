@@ -142,4 +142,15 @@ class OngViewModel : ObservableObject {
         }
     }
     
+    func deleteOng(ong: Organizacao){
+        if let id = ong.id{
+            dbOng.document(id).delete{ erro in
+                if let err = erro {
+                    print(err.localizedDescription)
+                    return
+                }
+            }
+        }
+    }
+    
 }

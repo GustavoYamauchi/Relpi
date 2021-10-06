@@ -114,6 +114,17 @@ class EstoqueViewModel : ObservableObject {
         }
     }
     
+    func deleteEndereco(endereco: Endereco){
+        if let id = endereco.id{
+            dbEstoque.document(id).delete{ erro in
+                if let err = erro {
+                    print(err.localizedDescription)
+                    return
+                }
+            }
+        }
+    }
+    
 }
 
 
