@@ -9,8 +9,8 @@ import Foundation
 
 struct Item: Identifiable {
     var id: String?
-    var nome: String?
-    var quantidade: Int?
-    var urgente: Bool?
-    var visivel: Bool?
+    var nome: String
+    var quantidade: Int
+    var urgente: Bool
+    var visivel: Bool
 }

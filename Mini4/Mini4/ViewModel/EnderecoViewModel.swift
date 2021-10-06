@@ -54,8 +54,8 @@ class EnderecoViewModel : ObservableObject {
                     }
                 }
                 if i.type == .removed{
-                    self.data.remove(at: self.data.firstIndex(where: { ong in
-                        i.document.documentID == ong.id
+                    self.data.remove(at: self.data.firstIndex(where: { endereco in
+                        i.document.documentID == endereco.id
                     })!)
                 }
             }
@@ -105,6 +105,17 @@ class EnderecoViewModel : ObservableObject {
                 return
             }
             print("success")
+        }
+    }
+    
+    func deleteEndereco(endereco: Endereco){
+        if let id = endereco.id{
+            dbEndereco.document(id).delete{ erro in
+                if let err = erro {
+                    print(err.localizedDescription)
+                    return
+                }
+            }
         }
     }
     
