@@ -7,24 +7,18 @@
 
 import SwiftUI
 
-struct FormContatoView: View {
+struct ContatoFormView: View {
     @Binding var ong: Organizacao
     
     var body: some View {
         VStack(alignment: .leading, spacing: 30) {
             Text("Contato")
                 .padding(.top)
-                .font(.title)
+                .foregroundColor(Color("primaryButton"))
+                .font(.system(size: 24, weight: .bold, design: .default))
             
             TextField("Telefone", text: $ong.telefone).textFieldStyle(RoundedBorderTextFieldStyle())
-            
             TextField("E-mail", text: $ong.email).textFieldStyle(RoundedBorderTextFieldStyle())
         }
     }
 }
-
-//struct FormContatoView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FormContatoView(ong: <#Organizacao#>)
-//    }
-//}

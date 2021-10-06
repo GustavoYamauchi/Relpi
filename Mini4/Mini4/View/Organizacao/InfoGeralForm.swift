@@ -7,27 +7,19 @@
 
 import SwiftUI
 
-struct FormInfoGeralView: View {
+struct InfoGeralForm: View {
     @Binding var ong: Organizacao
     
     var body: some View {
         VStack(alignment: .leading, spacing: 30) {
             Text("Informações Gerais")
                 .padding(.top)
-                .font(.title)
+                .foregroundColor(Color("primaryButton"))
+                .font(.system(size: 24, weight: .bold, design: .default))
             
             TextField("Nome da Ong", text: $ong.nome).textFieldStyle(RoundedBorderTextFieldStyle())
-            
             TextField("CNPJ", text: $ong.cnpj).textFieldStyle(RoundedBorderTextFieldStyle())
-            
             TextField("Descrição da ONG", text: $ong.descricao).textFieldStyle(RoundedBorderTextFieldStyle())
         }
     }
 }
-
-
-//struct FormInfoGeralView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FormInfoGeralView()
-//    }
-//}

@@ -19,7 +19,8 @@ struct EnderecoFormView: View {
         VStack(alignment: .leading, spacing: 30) {
             Text("Endereço")
                 .padding(.top)
-                .font(.title)
+                .foregroundColor(Color("primaryButton"))
+                .font(.system(size: 24, weight: .bold, design: .default))
             
             TextField("CEP", text: $endereco.cep).textFieldStyle(RoundedBorderTextFieldStyle())
             TextField("Rua", text: $endereco.logradouro).textFieldStyle(RoundedBorderTextFieldStyle())

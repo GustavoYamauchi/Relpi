@@ -20,16 +20,13 @@ struct BancoFormView: View {
         VStack(alignment: .leading, spacing: 30) {
             Text("Dados Bancários")
                 .padding(.top)
-                .font(.title)
+                .foregroundColor(Color("primaryButton"))
+                .font(.system(size: 24, weight: .bold, design: .default))
             
             TextField("nome do banco", text: $banco.banco).textFieldStyle(RoundedBorderTextFieldStyle())
-            
             TextField("agencia", text: $banco.agencia).textFieldStyle(RoundedBorderTextFieldStyle())
-            
             TextField("conta", text: $banco.conta).textFieldStyle(RoundedBorderTextFieldStyle())
-            
             TextField("pix", text: $banco.pix).textFieldStyle(RoundedBorderTextFieldStyle())
-
         }
         
         .onAppear {
