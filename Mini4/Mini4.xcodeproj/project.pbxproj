@@ -50,6 +50,7 @@
 		6DA4B72157C3CB7B233CA050 /* Pods_Mini4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5D085BED330F0CD78C4E26 /* Pods_Mini4.framework */; };
 		8553EDCA2704E6A300DB408D /* DoadorHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8553EDC92704E6A300DB408D /* DoadorHome.swift */; };
 		8553EDCC2704F17900DB408D /* OngView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8553EDCB2704F17900DB408D /* OngView.swift */; };
+		A3ADA90E270CC6BE0005A81E /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ADA90D270CC6BE0005A81E /* ButtonStyles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		61C50368EA545A9091BCA999 /* Pods-Mini4.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mini4.release.xcconfig"; path = "Target Support Files/Pods-Mini4/Pods-Mini4.release.xcconfig"; sourceTree = "<group>"; };
 		8553EDC92704E6A300DB408D /* DoadorHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoadorHome.swift; sourceTree = "<group>"; };
 		8553EDCB2704F17900DB408D /* OngView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngView.swift; sourceTree = "<group>"; };
+		A3ADA90D270CC6BE0005A81E /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		F75A507FF86D223AF712BBE1 /* Pods-Mini4.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mini4.debug.xcconfig"; path = "Target Support Files/Pods-Mini4/Pods-Mini4.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,6 +133,7 @@
 				1CC8109327038A3100B9E721 /* Model */,
 				1CC810A427038FE100B9E721 /* View */,
 				1CC810A027038E1A00B9E721 /* ViewModel */,
+				A3E7438F270E13FF004B47A0 /* Utility */,
 				1CC8105C2702366800B9E721 /* Mini4.entitlements */,
 				1CC810462702336200B9E721 /* AppDelegate.swift */,
 				1CC810482702336200B9E721 /* SceneDelegate.swift */,
@@ -194,6 +197,14 @@
 				3F5D085BED330F0CD78C4E26 /* Pods_Mini4.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A3E7438F270E13FF004B47A0 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				A3ADA90D270CC6BE0005A81E /* ButtonStyles.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		F276C1DC6A1D3B17238F756B /* Pods */ = {
@@ -406,6 +417,7 @@
 				1CC810AA2703B0B000B9E721 /* OngFormView.swift in Sources */,
 				1CC810A227038E7400B9E721 /* OngViewModel.swift in Sources */,
 				1CD911DD270B7224007B2D05 /* BancoViewModel.swift in Sources */,
+				A3ADA90E270CC6BE0005A81E /* ButtonStyles.swift in Sources */,
 				1CC8104B2702336200B9E721 /* ContentView.swift in Sources */,
 				1CC8109A27038A3100B9E721 /* Banco.swift in Sources */,
 			);
