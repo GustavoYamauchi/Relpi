@@ -16,6 +16,6 @@ struct ItemListaView: View {
 
 struct ItemListaView_Previews: PreviewProvider {
     static var previews: some View {
-        ItemListaView(item: Item(id: "", nome: "Vtnc", quantidade: 3, urgente: true, visivel: true))
+        ItemListaView(item: Item(id: "", nome: "Vtnc", categoria: "", quantidade: 3, urgente: true, visivel: true))
     }
 }

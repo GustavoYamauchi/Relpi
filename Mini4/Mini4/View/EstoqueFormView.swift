@@ -47,7 +47,7 @@ struct ItemFormView : View {
                 Text(isEditing ? "Modificar" : "Criar")
             }
         }.onAppear{
-            item = isEditing ? item : Item(nome: "", quantidade: 0, urgente: false, visivel: false)
+            item = isEditing ? item : Item(nome: "", categoria: "", quantidade: 0, urgente: false, visivel: false)
         }
     }
 }

@@ -27,6 +27,8 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
+#if Mini4
+#else
 struct custView : View{
     
     @State var msg = ""
@@ -66,6 +68,6 @@ struct custView : View{
         }
     }
 }
-
+#endif
 
 

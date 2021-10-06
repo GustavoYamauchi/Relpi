@@ -10,6 +10,7 @@ import Foundation
 struct Item: Identifiable {
     var id: String?
     var nome: String
+    var categoria: String
     var quantidade: Int
     var urgente: Bool
     var visivel: Bool

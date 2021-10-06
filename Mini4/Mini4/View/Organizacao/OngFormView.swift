@@ -138,11 +138,11 @@ struct OngFormView: View {
     
     @ViewBuilder func getFormView(pageIndex: Int) -> some View {
         switch pageIndex {
-        case 0: InfoGeralForm(ong: $ongRascunho)
+        case 0: InfoGeralFormView(ong: $ongRascunho)
         case 1: EnderecoFormView(viewModel: enderecoViewModel, endereco: $ongRascunho.endereco, isEditing: true)
         case 2: ContatoFormView(ong: $ongRascunho)
         case 3: BancoFormView(viewModel: bancoViewModel, banco: $ongRascunho.banco, isEditing: true)
-        default: InfoGeralForm(ong: $ongRascunho)
+        default: InfoGeralFormView(ong: $ongRascunho)
         }
     }
     

@@ -33,6 +33,7 @@ class EstoqueViewModel : ObservableObject {
                     let msgData = Item(
                         id: i.document.documentID,
                         nome: self.castString(i.document.get("nome")),
+                        categoria: self.castString(i.document.get("categoria")),
                         quantidade: self.castInt(i.document.get("numero")),
                         urgente: self.castBool(i.document.get("urgente")),
                         visivel: self.castBool(i.document.get("visivel"))
@@ -43,6 +44,7 @@ class EstoqueViewModel : ObservableObject {
                     for j in 0..<self.data.count{
                         if self.data[j].id == i.document.documentID{
                             self.data[j].nome = self.castString(i.document.get("nome"))
+                            self.data[j].categoria = self.castString(i.document.get("categoria"))
                             self.data[j].quantidade = self.castInt(i.document.get("numero"))
                             self.data[j].urgente = self.castBool(i.document.get("urgente"))
                             self.data[j].visivel = self.castBool(i.document.get("visivel"))
@@ -86,6 +88,7 @@ class EstoqueViewModel : ObservableObject {
         itemNovo.setData([
             "id": itemNovo.documentID,
             "nome":  self.castString(item.nome),
+            "categoria":  self.castString(item.categoria),
             "quantidade":  item.quantidade,
             "urgente":  item.urgente,
             "visivel":  item.visivel
@@ -101,6 +104,7 @@ class EstoqueViewModel : ObservableObject {
         dbEstoque.document(castString(item.id)).updateData(
             [
                 "nome": item.nome,
+                "categoria": item.categoria,
                 "quantidade": item.quantidade,
                 "urgente": item.urgente,
                 "visivel": item.visivel
@@ -114,8 +118,8 @@ class EstoqueViewModel : ObservableObject {
         }
     }
     
-    func deleteEndereco(endereco: Endereco){
-        if let id = endereco.id{
+    func deleteItem(item: Item){
+        if let id = item.id{
             dbEstoque.document(id).delete{ erro in
                 if let err = erro {
                     print(err.localizedDescription)

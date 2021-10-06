@@ -18,6 +18,7 @@
 		1C136A38270E391C00D09E9D /* TelaListaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A36270E391C00D09E9D /* TelaListaView.swift */; };
 		1C136A3A270E399E00D09E9D /* ItemListaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A39270E399E00D09E9D /* ItemListaView.swift */; };
 		1C136A3B270E399E00D09E9D /* ItemListaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A39270E399E00D09E9D /* ItemListaView.swift */; };
+		1C136A3C270E402B00D09E9D /* OngView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8553EDCB2704F17900DB408D /* OngView.swift */; };
 		1CC810472702336200B9E721 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC810462702336200B9E721 /* AppDelegate.swift */; };
 		1CC810492702336200B9E721 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC810482702336200B9E721 /* SceneDelegate.swift */; };
 		1CC8104B2702336200B9E721 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8104A2702336200B9E721 /* ContentView.swift */; };
@@ -52,7 +53,7 @@
 		8553EDCA2704E6A300DB408D /* DoadorHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8553EDC92704E6A300DB408D /* DoadorHome.swift */; };
 		8553EDCC2704F17900DB408D /* OngView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8553EDCB2704F17900DB408D /* OngView.swift */; };
 		8578A636270E23520064497C /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ADA90D270CC6BE0005A81E /* ButtonStyles.swift */; };
-		85E49094270B9402009CD6FE /* InfoGeralForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E49093270B9402009CD6FE /* InfoGeralForm.swift */; };
+		85E49094270B9402009CD6FE /* InfoGeralFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E49093270B9402009CD6FE /* InfoGeralFormView.swift */; };
 		85E49098270B989A009CD6FE /* ContatoFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E49097270B989A009CD6FE /* ContatoFormView.swift */; };
 		A3ADA90E270CC6BE0005A81E /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ADA90D270CC6BE0005A81E /* ButtonStyles.swift */; };
 /* End PBXBuildFile section */
@@ -89,7 +90,7 @@
 		61C50368EA545A9091BCA999 /* Pods-Mini4.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mini4.release.xcconfig"; path = "Target Support Files/Pods-Mini4/Pods-Mini4.release.xcconfig"; sourceTree = "<group>"; };
 		8553EDC92704E6A300DB408D /* DoadorHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoadorHome.swift; sourceTree = "<group>"; };
 		8553EDCB2704F17900DB408D /* OngView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngView.swift; sourceTree = "<group>"; };
-		85E49093270B9402009CD6FE /* InfoGeralForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoGeralForm.swift; sourceTree = "<group>"; };
+		85E49093270B9402009CD6FE /* InfoGeralFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoGeralFormView.swift; sourceTree = "<group>"; };
 		85E49097270B989A009CD6FE /* ContatoFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatoFormView.swift; sourceTree = "<group>"; };
 		A3ADA90D270CC6BE0005A81E /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		F75A507FF86D223AF712BBE1 /* Pods-Mini4.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mini4.debug.xcconfig"; path = "Target Support Files/Pods-Mini4/Pods-Mini4.debug.xcconfig"; sourceTree = "<group>"; };
@@ -211,7 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				1CC810A92703B0B000B9E721 /* OngFormView.swift */,
-				85E49093270B9402009CD6FE /* InfoGeralForm.swift */,
+				85E49093270B9402009CD6FE /* InfoGeralFormView.swift */,
 				1C136A22270BA39E00D09E9D /* EnderecoFormView.swift */,
 				85E49097270B989A009CD6FE /* ContatoFormView.swift */,
 				1CC810AE27064AB800B9E721 /* BancoFormView.swift */,
@@ -460,12 +461,13 @@
 				1C136A25270BA41500D09E9D /* EnderecoViewModel.swift in Sources */,
 				1C136A28270CC6F400D09E9D /* EstoqueViewModel.swift in Sources */,
 				1CC810B027064ABF00B9E721 /* BancoFormView.swift in Sources */,
-				85E49094270B9402009CD6FE /* InfoGeralForm.swift in Sources */,
+				85E49094270B9402009CD6FE /* InfoGeralFormView.swift in Sources */,
 				85E49098270B989A009CD6FE /* ContatoFormView.swift in Sources */,
 				1C136A38270E391C00D09E9D /* TelaListaView.swift in Sources */,
 				1CC8109D27038A3100B9E721 /* Organizacao.swift in Sources */,
 				1CC8109927038A3100B9E721 /* Endereco.swift in Sources */,
 				1C136A24270BA39E00D09E9D /* EnderecoFormView.swift in Sources */,
+				1C136A3C270E402B00D09E9D /* OngView.swift in Sources */,
 				1CC8109F27038A3100B9E721 /* Item.swift in Sources */,
 				1C136A3B270E399E00D09E9D /* ItemListaView.swift in Sources */,
 				1CD911DE270B778F007B2D05 /* BancoViewModel.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct InfoGeralForm: View {
+struct InfoGeralFormView: View {
     @Binding var ong: Organizacao
     
     var body: some View {
