@@ -12,11 +12,12 @@ import FirebaseFirestore
 struct OngFormView: View {
     @ObservedObject var ongViewModel = OngViewModel()
     @ObservedObject var enderecoViewModel: EnderecoViewModel
+    @ObservedObject var bancoViewModel: BancoViewModel
     
     // organização que está no array da viewModel
     @Binding var ong: Organizacao
     // organização usada como rascunho
-    @State private var ongDraft: Organizacao
+    @State private var ongRascunho: Organizacao
     
     var isEditing: Bool
     @State var pageIndex: Int = 0
@@ -26,9 +27,10 @@ struct OngFormView: View {
         self.isEditing = isEditing
         
         self._ong = ong
-        self.ongDraft = ong.wrappedValue
+        self.ongRascunho = ong.wrappedValue
         
         self.enderecoViewModel = EnderecoViewModel(ong.wrappedValue.id!)
+        self.bancoViewModel = BancoViewModel(ong.wrappedValue.id!)
     }
     
     var body: some View {
@@ -58,16 +60,17 @@ struct OngFormView: View {
                                 nextPage()
                             }
                         }
-                    }
-                    
+                    }.foregroundColor(Color("primaryButton"))
+                    .font(.system(size: 16, weight: .bold, design: .default))
+
                     Button("Salvar") {
                         saveOng()
-                    }
+                    }.buttonStyle(PrimaryButton())
                     
                     Button("Cancelar") {
-                        ongDraft = ong
+                        ongRascunho = ong
                         print("CANCELA TUDO")
-                    }
+                    }.buttonStyle(SecondaryButton())
                     
                 }
                 .padding([.leading, .trailing], 30)
@@ -77,12 +80,10 @@ struct OngFormView: View {
                     }
                 }
                 .navigationBarTitle("", displayMode: .inline)
-                // não tá funcionando, porque é do tipo binding
                 .onAppear {
                     ong.endereco = enderecoViewModel.data.first!
-//                    ong.banco = bancoViewModel.data.first!
-                    
-                    ongDraft = ong
+                    ong.banco = bancoViewModel.data.first ?? Banco(banco: "", agencia: "", conta: "", pix: "")
+                    ongRascunho = ong
                 }
                 .navigationBarBackButtonHidden(true)
             }            
@@ -92,15 +93,17 @@ struct OngFormView: View {
     private func saveOng() {
         // se já existir ong, atualiza
         if isEditing {
-            ong = ongDraft
+            ong = ongRascunho
             ongViewModel.updateOng(ong: ong)
             enderecoViewModel.updateEndereco(endereco: ong.endereco)
+            bancoViewModel.updateBanco(banco: ong.banco)
         } else {
             // adiciona nova
-            ong = ongDraft
+            ong = ongRascunho
             ongViewModel.addOrgData(org: ong)
             enderecoViewModel.addEnderecoData(endereco: ong.endereco)
-            self.ongDraft = getNewOrg()
+            bancoViewModel.updateBanco(banco: ong.banco)
+            self.ongRascunho = getNewOrg()
         }
     }
     
@@ -129,17 +132,15 @@ struct OngFormView: View {
     
     @ViewBuilder func getFormView(pageIndex: Int) -> some View {
         switch pageIndex {
-        case 0: FormInfoGeralView(ong: $ongDraft)
-        case 1: EnderecoFormView(viewModel: enderecoViewModel, endereco: $ongDraft.endereco, isEditing: true)
-        case 2: FormContatoView(ong: $ongDraft)
-//        case 3: FormBancoView(banco: $ongDraft.banco)
-        case 3: BancoFormView(viewModel: BancoViewModel(ong.id!), banco: ongDraft.banco, isEditing: true)
-        default: FormInfoGeralView(ong: $ongDraft)
+        case 0: InfoGeralForm(ong: $ongRascunho)
+        case 1: EnderecoFormView(viewModel: enderecoViewModel, endereco: $ongRascunho.endereco, isEditing: true)
+        case 2: ContatoFormView(ong: $ongRascunho)
+        case 3: BancoFormView(viewModel: bancoViewModel, banco: $ongRascunho.banco, isEditing: true)
+        default: InfoGeralForm(ong: $ongRascunho)
         }
     }
     
 }
-
 
 
 struct OngFormView_Previews: PreviewProvider {

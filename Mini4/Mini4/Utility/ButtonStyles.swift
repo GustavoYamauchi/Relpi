@@ -16,7 +16,8 @@ struct PrimaryButton: ButtonStyle {
             .foregroundColor(Color("textPrimaryButton"))
             .background(Color("primaryButton"))
             .cornerRadius(50)
-            .padding(.horizontal, 20)
+            .padding(.horizontal, 30)
+            .font(.system(size: 16, weight: .bold, design: .default))
     }
 }
 
@@ -30,6 +31,7 @@ struct SecondaryButton: ButtonStyle {
             .cornerRadius(50)
             .overlay(RoundedRectangle(cornerRadius: 50)
                         .stroke(Color("borderSecondaryButton"), lineWidth: 2))
-            .padding(.horizontal, 20)
+            .padding(.horizontal, 30)
+            .font(.system(size: 16, weight: .bold, design: .default))
     }
 }
