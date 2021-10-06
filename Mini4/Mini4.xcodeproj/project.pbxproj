@@ -11,6 +11,10 @@
 		1C136A23270BA39E00D09E9D /* EnderecoFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A22270BA39E00D09E9D /* EnderecoFormView.swift */; };
 		1C136A24270BA39E00D09E9D /* EnderecoFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A22270BA39E00D09E9D /* EnderecoFormView.swift */; };
 		1C136A25270BA41500D09E9D /* EnderecoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A20270B9AEC00D09E9D /* EnderecoViewModel.swift */; };
+		1C136A27270CC6F400D09E9D /* EstoqueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A26270CC6F400D09E9D /* EstoqueViewModel.swift */; };
+		1C136A28270CC6F400D09E9D /* EstoqueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A26270CC6F400D09E9D /* EstoqueViewModel.swift */; };
+		1C136A2A270CCD3B00D09E9D /* EstoqueFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A29270CCD3B00D09E9D /* EstoqueFormView.swift */; };
+		1C136A2B270CCD3B00D09E9D /* EstoqueFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A29270CCD3B00D09E9D /* EstoqueFormView.swift */; };
 		1CC810472702336200B9E721 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC810462702336200B9E721 /* AppDelegate.swift */; };
 		1CC810492702336200B9E721 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC810482702336200B9E721 /* SceneDelegate.swift */; };
 		1CC8104B2702336200B9E721 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8104A2702336200B9E721 /* ContentView.swift */; };
@@ -51,6 +55,8 @@
 /* Begin PBXFileReference section */
 		1C136A20270B9AEC00D09E9D /* EnderecoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnderecoViewModel.swift; sourceTree = "<group>"; };
 		1C136A22270BA39E00D09E9D /* EnderecoFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnderecoFormView.swift; sourceTree = "<group>"; };
+		1C136A26270CC6F400D09E9D /* EstoqueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstoqueViewModel.swift; sourceTree = "<group>"; };
+		1C136A29270CCD3B00D09E9D /* EstoqueFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstoqueFormView.swift; sourceTree = "<group>"; };
 		1CC810432702336200B9E721 /* Mini4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mini4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CC810462702336200B9E721 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CC810482702336200B9E721 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +169,7 @@
 				1CC810A127038E7400B9E721 /* OngViewModel.swift */,
 				1CD911DC270B7224007B2D05 /* BancoViewModel.swift */,
 				1C136A20270B9AEC00D09E9D /* EnderecoViewModel.swift */,
+				1C136A26270CC6F400D09E9D /* EstoqueViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -176,6 +183,7 @@
 				1C136A22270BA39E00D09E9D /* EnderecoFormView.swift */,
 				8553EDC92704E6A300DB408D /* DoadorHome.swift */,
 				8553EDCB2704F17900DB408D /* OngView.swift */,
+				1C136A29270CCD3B00D09E9D /* EstoqueFormView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -386,9 +394,11 @@
 				1CC810472702336200B9E721 /* AppDelegate.swift in Sources */,
 				1CC810492702336200B9E721 /* SceneDelegate.swift in Sources */,
 				1CC8109C27038A3100B9E721 /* Organizacao.swift in Sources */,
+				1C136A27270CC6F400D09E9D /* EstoqueViewModel.swift in Sources */,
 				8553EDCA2704E6A300DB408D /* DoadorHome.swift in Sources */,
 				1CC810AF27064AB800B9E721 /* BancoFormView.swift in Sources */,
 				1C136A21270B9AEC00D09E9D /* EnderecoViewModel.swift in Sources */,
+				1C136A2A270CCD3B00D09E9D /* EstoqueFormView.swift in Sources */,
 				8553EDCC2704F17900DB408D /* OngView.swift in Sources */,
 				1CC8109827038A3100B9E721 /* Endereco.swift in Sources */,
 				1C136A23270BA39E00D09E9D /* EnderecoFormView.swift in Sources */,
@@ -407,7 +417,9 @@
 			files = (
 				1CC81078270237F400B9E721 /* AppDelegate.swift in Sources */,
 				1CC81079270237F400B9E721 /* SceneDelegate.swift in Sources */,
+				1C136A2B270CCD3B00D09E9D /* EstoqueFormView.swift in Sources */,
 				1C136A25270BA41500D09E9D /* EnderecoViewModel.swift in Sources */,
+				1C136A28270CC6F400D09E9D /* EstoqueViewModel.swift in Sources */,
 				1CC810B027064ABF00B9E721 /* BancoFormView.swift in Sources */,
 				1CC8109D27038A3100B9E721 /* Organizacao.swift in Sources */,
 				1CC8109927038A3100B9E721 /* Endereco.swift in Sources */,
