@@ -75,8 +75,14 @@ struct OngFormView: View {
                 }
                 .padding([.leading, .trailing], 30)
                 .toolbar {
-                    Button("Alterar foto") {
-                        print("alterar")
+                    HStack{
+                        NavigationLink(destination: TelaListaView(viewModel: EstoqueViewModel(ong.id!)),
+                        label: {
+                            Text("Lista")
+                        })
+                        Button("Alterar foto") {
+                            print("alterar")
+                        }
                     }
                 }
                 .navigationBarTitle("", displayMode: .inline)
