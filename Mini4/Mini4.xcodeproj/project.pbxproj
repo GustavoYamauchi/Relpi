@@ -55,6 +55,8 @@
 		8578A636270E23520064497C /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ADA90D270CC6BE0005A81E /* ButtonStyles.swift */; };
 		85E49094270B9402009CD6FE /* InfoGeralFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E49093270B9402009CD6FE /* InfoGeralFormView.swift */; };
 		85E49098270B989A009CD6FE /* ContatoFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E49097270B989A009CD6FE /* ContatoFormView.swift */; };
+		A30BA3AD270F5C9F00D2222B /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BA3AC270F5C9F00D2222B /* Color+Extension.swift */; };
+		A30BA3AE270F5C9F00D2222B /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BA3AC270F5C9F00D2222B /* Color+Extension.swift */; };
 		A3ADA90E270CC6BE0005A81E /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ADA90D270CC6BE0005A81E /* ButtonStyles.swift */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +94,7 @@
 		8553EDCB2704F17900DB408D /* OngView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngView.swift; sourceTree = "<group>"; };
 		85E49093270B9402009CD6FE /* InfoGeralFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoGeralFormView.swift; sourceTree = "<group>"; };
 		85E49097270B989A009CD6FE /* ContatoFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatoFormView.swift; sourceTree = "<group>"; };
+		A30BA3AC270F5C9F00D2222B /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		A3ADA90D270CC6BE0005A81E /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		F75A507FF86D223AF712BBE1 /* Pods-Mini4.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mini4.debug.xcconfig"; path = "Target Support Files/Pods-Mini4/Pods-Mini4.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -232,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				A3ADA90D270CC6BE0005A81E /* ButtonStyles.swift */,
+				A30BA3AC270F5C9F00D2222B /* Color+Extension.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -432,6 +436,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CC810472702336200B9E721 /* AppDelegate.swift in Sources */,
+				A30BA3AD270F5C9F00D2222B /* Color+Extension.swift in Sources */,
 				1CC810492702336200B9E721 /* SceneDelegate.swift in Sources */,
 				1CC8109C27038A3100B9E721 /* Organizacao.swift in Sources */,
 				1C136A27270CC6F400D09E9D /* EstoqueViewModel.swift in Sources */,
@@ -464,6 +469,7 @@
 				85E49094270B9402009CD6FE /* InfoGeralFormView.swift in Sources */,
 				85E49098270B989A009CD6FE /* ContatoFormView.swift in Sources */,
 				1C136A38270E391C00D09E9D /* TelaListaView.swift in Sources */,
+				A30BA3AE270F5C9F00D2222B /* Color+Extension.swift in Sources */,
 				1CC8109D27038A3100B9E721 /* Organizacao.swift in Sources */,
 				1CC8109927038A3100B9E721 /* Endereco.swift in Sources */,
 				1C136A24270BA39E00D09E9D /* EnderecoFormView.swift in Sources */,
