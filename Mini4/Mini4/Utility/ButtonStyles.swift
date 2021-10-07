@@ -13,8 +13,8 @@ struct PrimaryButton: ButtonStyle {
         configuration.label
             .frame(minWidth: 0, maxWidth: .infinity)
             .padding()
-            .foregroundColor(Color("textPrimaryButton"))
-            .background(Color("primaryButton"))
+            .foregroundColor(Color.textPrimaryButton)
+            .background(Color.primaryButton)
             .cornerRadius(50)
             .padding(.horizontal, 30)
             .font(.system(size: 16, weight: .bold, design: .default))
@@ -26,11 +26,11 @@ struct SecondaryButton: ButtonStyle {
         configuration.label
             .frame(minWidth: 0, maxWidth: .infinity)
             .padding()
-            .foregroundColor(Color("textSecondaryButton"))
-            .background(Color("secondaryButton"))
+            .foregroundColor(Color.textSecondaryButton)
+            .background(Color.secondaryButton)
             .cornerRadius(50)
             .overlay(RoundedRectangle(cornerRadius: 50)
-                        .stroke(Color("borderSecondaryButton"), lineWidth: 2))
+                        .stroke(Color.borderSecondaryButton, lineWidth: 2))
             .padding(.horizontal, 30)
             .font(.system(size: 16, weight: .bold, design: .default))
     }
