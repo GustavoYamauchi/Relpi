@@ -16,7 +16,7 @@ struct TelaListaView: View {
             Text("Lista de necessidades")
                 .padding(.top)
                 .padding(.leading, 25)
-                .foregroundColor(Color("primaryButton"))
+                .foregroundColor(Color.primaryButton)
                 .font(.system(size: 24, weight: .bold, design: .default))
             
             ScrollView {

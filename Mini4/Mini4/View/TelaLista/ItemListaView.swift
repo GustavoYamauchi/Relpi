@@ -13,7 +13,7 @@ struct ItemListaView: View {
         ZStack{
             RoundedRectangle(cornerRadius: 15)
                 .foregroundColor(item.urgente ?
-                                    item.visivel ? Color("tertiaryColor") : Color("tertiaryColor").opacity(0.5) :
+                                    item.visivel ? Color.tertiary : Color.tertiary.opacity(0.5) :
                             item.visivel ? Color("quaternaryColor"): Color("tertiaryColor").opacity(0.5))
             VStack(alignment: .center){
                 Spacer()
