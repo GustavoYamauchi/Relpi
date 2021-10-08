@@ -25,14 +25,14 @@ struct EnderecoFormView: View {
             TextField("CEP", text: $endereco.cep).textFieldStyle(RoundedBorderTextFieldStyle())
             TextField("Rua", text: $endereco.logradouro).textFieldStyle(RoundedBorderTextFieldStyle())
             TextField("Numero", text: $endereco.numero).textFieldStyle(RoundedBorderTextFieldStyle())
-            TextField("Complemento", text: $endereco.complemento).textFieldStyle(RoundedBorderTextFieldStyle())
+//            TextField("Complemento", text: $endereco.complemento).textFieldStyle(RoundedBorderTextFieldStyle())
             TextField("Bairro", text: $endereco.bairro).textFieldStyle(RoundedBorderTextFieldStyle())
             TextField("Cidade", text: $endereco.cidade).textFieldStyle(RoundedBorderTextFieldStyle())
 
         }
         .onAppear {
 //            defineEndereco()
-            endereco = (isEditing) ? endereco : Endereco(logradouro: "", numero: "", complemento: "", bairro: "", cidade: "", cep: "", estado: "")
+            endereco = (isEditing) ? endereco : Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: "")
         }
     }
     

@@ -11,7 +11,6 @@ struct Endereco: Identifiable {
     var id: String?
     var logradouro: String
     var numero: String
-    var complemento: String
     var bairro: String
     var cidade: String
     var cep: String
