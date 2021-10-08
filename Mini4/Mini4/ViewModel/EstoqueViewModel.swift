@@ -98,6 +98,7 @@ class EstoqueViewModel : ObservableObject {
                 return
             }
         }
+        atualizarTimestamp()
     }
     
     func updateItem(item: Item) {
@@ -116,6 +117,7 @@ class EstoqueViewModel : ObservableObject {
             }
             print("success")
         }
+        atualizarTimestamp()
     }
     
     func deleteItem(item: Item){
@@ -126,6 +128,13 @@ class EstoqueViewModel : ObservableObject {
                     return
                 }
             }
+        }
+        atualizarTimestamp()
+    }
+    
+    func atualizarTimestamp(){
+        if let attEstoque = dbEstoque.parent{
+            attEstoque.updateData(["data" : Timestamp(date: Date())])
         }
     }
     

@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct TelaListaView: View {
     @ObservedObject var viewModel: EstoqueViewModel
+    var data: Timestamp
     var gridItemLayout = [GridItem(.adaptive(minimum: 150, maximum: .infinity), spacing: 30), GridItem(.adaptive(minimum: 150, maximum: .infinity), spacing: 30)]
     
     var body: some View {
@@ -18,6 +20,11 @@ struct TelaListaView: View {
                 .padding(.leading, 25)
                 .foregroundColor(Color.primaryButton)
                 .font(.system(size: 24, weight: .bold, design: .default))
+            
+            Text(converteData())
+                .padding(.leading, 25)
+                .foregroundColor(Color.black)
+                .font(.system(size: 18, weight: .regular, design: .default))
             
             ScrollView {
                 LazyVGrid(columns: gridItemLayout) {
@@ -33,6 +40,15 @@ struct TelaListaView: View {
             viewModel.data.sort {$0.urgente && !$1.urgente}
         }
         
+    }
+    
+    func converteData() -> String{
+        let date = Date(timeIntervalSince1970: TimeInterval(self.data.seconds))
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = DateFormatter.Style.medium //Set time style
+        dateFormatter.dateStyle = DateFormatter.Style.medium //Set date style
+        dateFormatter.timeZone = .current
+        return dateFormatter.string(from: date)
     }
 }
 

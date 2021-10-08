@@ -36,6 +36,7 @@ class OngViewModel : ObservableObject {
                         telefone: self.castString(i.document.get("telefone")),
                         email: "ong@gmail.com",
                         foto: self.castString(i.document.get("foto")),
+                        data: Timestamp.init(date: Date()),
                         banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
                         endereco: Endereco(logradouro: "", numero: "", complemento: "", bairro: "", cidade: "", cep: "", estado: "")
                     )
@@ -44,8 +45,9 @@ class OngViewModel : ObservableObject {
                 if i.type == .modified{
                     for j in 0..<self.data.count{
                         if self.data[j].id == i.document.documentID{
-                            self.data[j].cnpj = (i.document.get("cnpj") as! String)
+                            self.data[j].cnpj = self.castString(i.document.get("cnpj"))
                             self.data[j].nome = self.castString(i.document.get("nome"))
+                            self.data[j].data = self.castTimestamp(i.document.get("data"))
                             self.data[j].descricao = self.castString(i.document.get("descricao"))
                             self.data[j].telefone = self.castString(i.document.get("telefone"))
                         }
@@ -68,6 +70,13 @@ class OngViewModel : ObservableObject {
         return ""
     }
     
+    func castTimestamp(_ variable: Any?) -> Timestamp{
+        if let timestamp = variable as? Timestamp{
+            return timestamp
+        }
+        return Timestamp(date: Date())
+    }
+    
     func addOrgData(org: Organizacao){
         let ong1 = dbOng.document()
         let banco = dbOng.document(ong1.documentID).collection("banco").document("principal")
@@ -80,6 +89,7 @@ class OngViewModel : ObservableObject {
             "cnpj": org.cnpj,
             "descricao": org.descricao,
             "telefone": org.telefone,
+            "data": Timestamp(date: Date()),
             "email": org.email
         ]) { (err) in
             if let erro = err?.localizedDescription {
@@ -136,6 +146,7 @@ class OngViewModel : ObservableObject {
              "nome": ong.nome,
              "descricao": ong.descricao,
              "telefone": ong.telefone,
+             "data": Timestamp(date: Date()),
              "email": ong.email
             ]
         ){ (err) in
@@ -164,6 +175,7 @@ class OngViewModel : ObservableObject {
                               descricao: "A Casa Maria Helena Paulina é uma organização não governamental paulista fundada em 1992 que acolhe jovens com câncer - ou outras enfermidades - e seus acompanhantes oriundos de diversos estados brasileiros que encaminham-se para São Paulo em busca de infraestrutura de tratamento adequado às suas necessidades. A Casa fornece moradia, alimentos, assistência psicológica, produtos de higiene e as mais variadas atividades para que a estadia dos assistidos seja a melhor possível apesar de todas as dificuldades encontradas ao longo do tratamento.",
                               telefone: "(11) 3744-7492",
                               email: "contato@casamariahelenapaulina.org.br",
+                              data: Timestamp(date: Date()),
                               banco: Banco(banco: "Banco Itaú",
                                            agencia: "0062",
                                            conta: "35.926-0",
