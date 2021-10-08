@@ -34,7 +34,7 @@ class OngViewModel : ObservableObject {
                         cnpj: self.castString(i.document.get("cnpj")),
                         descricao: self.castString(i.document.get("descricao")),
                         telefone: self.castString(i.document.get("telefone")),
-                        email: "ong@gmail.com",
+                        email: self.castString(i.document.get("email")),
                         foto: self.castString(i.document.get("foto")),
                         banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
                         endereco: Endereco(logradouro: "", numero: "", complemento: "", bairro: "", cidade: "", cep: "", estado: "")
@@ -136,7 +136,7 @@ class OngViewModel : ObservableObject {
              "nome": ong.nome,
              "descricao": ong.descricao,
              "telefone": ong.telefone,
-             "email": ong.email
+             "email": ong.email,
             ]
         ){ (err) in
             if err != nil{
@@ -158,4 +158,23 @@ class OngViewModel : ObservableObject {
         }
     }
     
+    func imageToString(image: UIImage) -> String {
+        if let imageData = image.pngData() {
+            let stringData = imageData.base64EncodedString()
+            return stringData
+        }
+        return ""
+    }
+    
+    func stringToImage(ong: Organizacao) -> UIImage? {
+        if ong.foto != "" && ong.foto != Optional("") && ong.foto != nil {
+            let decodedData = Data(base64Encoded: ong.foto!, options: [])
+            if let data = decodedData {
+                let decodedImage = UIImage(data: data)
+                return decodedImage
+            }
+        }
+        
+        return UIImage(named: "ImagePlaceholder")
+    }
 }

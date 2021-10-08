@@ -19,6 +19,11 @@ struct OngFormView: View {
     // organização usada como rascunho
     @State private var ongRascunho: Organizacao
     
+    // upload de foto
+    @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
+    @State private var selectedImage: UIImage?
+    @State private var isImagePickerDisplaying = false
+    
     var isEditing: Bool
     @State var pageIndex: Int = 0
     
@@ -31,14 +36,21 @@ struct OngFormView: View {
         
         self.enderecoViewModel = EnderecoViewModel(ong.wrappedValue.id!)
         self.bancoViewModel = BancoViewModel(ong.wrappedValue.id!)
+//        self.selectedImage = selectedImage
     }
     
     var body: some View {
         ScrollView {
             VStack {
-                Image("ImagePlaceholder")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
+                if selectedImage != nil {
+                    Image(uiImage: selectedImage!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                } else {
+                    Image("ImagePlaceholder")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                }
                 
                 Spacer()
                 
@@ -71,7 +83,7 @@ struct OngFormView: View {
                         ongRascunho = ong
                         print("CANCELA TUDO")
                     }.buttonStyle(SecondaryButton())
-                    
+                                        
                 }
                 .padding([.leading, .trailing], 30)
                 .toolbar {
@@ -81,7 +93,8 @@ struct OngFormView: View {
                             Text("Lista")
                         })
                         Button("Alterar foto") {
-                            print("alterar")
+                            self.sourceType = .photoLibrary
+                            self.isImagePickerDisplaying.toggle()
                         }
                     }
                 }
@@ -90,8 +103,12 @@ struct OngFormView: View {
                     ong.endereco = enderecoViewModel.data.first!
                     ong.banco = bancoViewModel.data.first ?? Banco(banco: "", agencia: "", conta: "", pix: "")
                     ongRascunho = ong
+
                 }
                 .navigationBarBackButtonHidden(true)
+                .sheet(isPresented: self.$isImagePickerDisplaying) {
+                    ImagePickerView(selectedImage: $selectedImage, sourceType: self.sourceType)
+                }
             }            
         }
     }
@@ -100,6 +117,9 @@ struct OngFormView: View {
         // se já existir ong, atualiza
         if isEditing {
             ong = ongRascunho
+            if let selectedImage = selectedImage {
+                ong.foto = ongViewModel.imageToString(image: selectedImage)
+            }
             ongViewModel.updateOng(ong: ong)
             enderecoViewModel.updateEndereco(endereco: ong.endereco)
             bancoViewModel.updateBanco(banco: ong.banco)
