@@ -17,16 +17,16 @@ struct PickerCustom: View {
     var body: some View {
 
         ZStack {
-            RoundedRectangle(cornerRadius: 100)
-                .frame(width: UIScreen.main.bounds.size.width-18, height: 32)
-                .foregroundColor(.blue)
+            RoundedRectangle(cornerRadius: 5)
+                .frame(width: UIScreen.main.bounds.size.width-75, height: 32)
+                .foregroundColor(Color.secondary)
             
             Picker("Color", selection: $select){
                 ForEach(array, id: \.self){
                     Text($0)
                 }
             }
-        }
+        }.padding(30)
     }
     
 }

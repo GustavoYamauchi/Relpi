@@ -10,17 +10,23 @@ import SwiftUI
 struct DoadorHome: View {
     @ObservedObject var viewModel = OngViewModel()
     
+    @State var selected: String = "Sla"
+    
     var body: some View {
-        List{
-            ForEach(viewModel.data){ i in
-                HStack {
-                    NavigationLink(
-                        destination: OngView(ong: i),
-                        label: {
-                            Text(i.nome)
-                    })
+        VStack{
+            Text(selected)
+            List{
+                ForEach(viewModel.data){ i in
+                    HStack {
+                        NavigationLink(
+                            destination: OngView(ong: i),
+                            label: {
+                                Text(i.nome)
+                            })
+                    }
                 }
             }
+            Category(title: "Teste", array: ["a", "b", "c"], selected: $selected)
         }
     }
 }

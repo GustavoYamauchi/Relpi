@@ -20,14 +20,20 @@ struct Category: View {
         Button("Teste") {
             self.toggle.toggle()
         }
+        .buttonStyle(.primaryButton)
         .sheet(isPresented: $toggle, content: {
-            VStack{
-                Text(title)
-                PickerCustom(array: array, select: $selected)
-                Button(title){
-                    
+            ZStack{
+                Color.primary
+                VStack{
+                    Text(title)
+                    PickerCustom(array: array, select: $selected)
+                    Button("Ok"){
+                        self.toggle.toggle()
+                    }.buttonStyle(.primaryButton)
                 }
-            }
+            }.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
         })
+        
     }
 }
+
