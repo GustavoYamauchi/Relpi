@@ -21,10 +21,10 @@ struct TelaListaView: View {
                 .foregroundColor(Color.primaryButton)
                 .font(.system(size: 24, weight: .bold, design: .default))
             
-            Text(converteData())
+            Text("Atualizado em \(converteData()).")
                 .padding(.leading, 25)
-                .foregroundColor(Color.black)
-                .font(.system(size: 18, weight: .regular, design: .default))
+                .foregroundColor(Color.gray)
+                .font(.system(size: 14, weight: .regular, design: .default))
             
             ScrollView {
                 LazyVGrid(columns: gridItemLayout) {
@@ -44,11 +44,20 @@ struct TelaListaView: View {
     
     func converteData() -> String{
         let date = Date(timeIntervalSince1970: TimeInterval(self.data.seconds))
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeStyle = DateFormatter.Style.medium //Set time style
-        dateFormatter.dateStyle = DateFormatter.Style.medium //Set date style
-        dateFormatter.timeZone = .current
-        return dateFormatter.string(from: date)
+        
+        let formatador = DateFormatter()
+        let formatadorHora = DateFormatter()
+        formatador.dateStyle = .short
+        formatadorHora.locale = .current
+        formatador.locale = .current
+        let template = "MM/dd/yyyy"
+        let templateHora = "HH:mm"
+        if let dateFormate = DateFormatter.dateFormat(fromTemplate: template, options: 0, locale: formatador.locale), let hourFormate = DateFormatter.dateFormat(fromTemplate: templateHora, options: 0, locale: formatador.locale){
+            formatador.dateFormat = dateFormate
+            formatadorHora.dateFormat = hourFormate
+            return "\(formatador.string(from: date)) às \(formatadorHora.string(from: date))"
+        }
+        return ""
     }
 }
 
