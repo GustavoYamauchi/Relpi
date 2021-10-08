@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>296478876542-u00arp0fmh2i1aa56l1a61ui26a65frs.apps.googleusercontent.com</string>
+	<string>334066460621-uo5a86pobt6fkanlosjso3f1eperm8rg.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.296478876542-u00arp0fmh2i1aa56l1a61ui26a65frs</string>
+	<string>com.googleusercontent.apps.334066460621-uo5a86pobt6fkanlosjso3f1eperm8rg</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAejCFmIOAVeX1VI2FuGaeHb6qi4tKyDGg</string>
+	<string>AIzaSyCF_MajzOO3VFUB60ZK0VRcBIx9A_PHPRk</string>
 	<key>GCM_SENDER_ID</key>
-	<string>296478876542</string>
+	<string>334066460621</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>academy.com.Grupo3.Mini4</string>
 	<key>PROJECT_ID</key>
-	<string>mini4doacoes</string>
+	<string>relpi-db</string>
 	<key>STORAGE_BUCKET</key>
-	<string>mini4doacoes.appspot.com</string>
+	<string>relpi-db.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:296478876542:ios:d4d31846b85717070fc92f</string>
+	<string>1:334066460621:ios:f0ae38c2bdcee9a5eac684</string>
 </dict>
 </plist>
