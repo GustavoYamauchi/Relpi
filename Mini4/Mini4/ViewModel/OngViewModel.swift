@@ -14,7 +14,7 @@ class OngViewModel : ObservableObject {
     @Published var data = [Organizacao]()
     
     //for reading purpose it will automatically add data when we write data to firestore.
-    private let dbOng = Firestore.firestore().collection("Ong")
+    private let dbOng = Firestore.firestore().collection("ong")
     
     init() {
         
@@ -34,11 +34,11 @@ class OngViewModel : ObservableObject {
                         cnpj: self.castString(i.document.get("cnpj")),
                         descricao: self.castString(i.document.get("descricao")),
                         telefone: self.castString(i.document.get("telefone")),
-                        email: "ong@gmail.com",
+                        email: self.castString(i.document.get("email")),
                         foto: self.castString(i.document.get("foto")),
                         data: Timestamp.init(date: Date()),
                         banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
-                        endereco: Endereco(logradouro: "", numero: "", complemento: "", bairro: "", cidade: "", cep: "", estado: "")
+                        endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: "")
                     )
                     self.data.append(msgData)
                 }
@@ -100,10 +100,10 @@ class OngViewModel : ObservableObject {
         
         banco.setData([
             "id": banco.documentID,
-            "banco": "...",
-            "agencia": "...",
-            "conta": "...",
-            "pix": "..."
+            "banco": org.banco.banco,
+            "agencia": org.banco.agencia,
+            "conta": org.banco.conta,
+            "pix": org.banco.pix
         ]) { (err) in
             if let erro = err?.localizedDescription {
                 print(erro)
@@ -113,12 +113,12 @@ class OngViewModel : ObservableObject {
         
         endereco.setData([
             "id": endereco.documentID,
-            "logradouro": "...",
-            "numero": "...",
-            "complemento": "...",
-            "bairro": "...",
-            "cidade": "...",
-            "cep": "..."
+            "logradouro": org.endereco.logradouro,
+            "numero": org.endereco.numero,
+            "bairro": org.endereco.bairro,
+            "cidade": org.endereco.cidade,
+            "cep": org.endereco.cep,
+            "estado": org.endereco.estado
         ]) { (err) in
             if let erro = err?.localizedDescription {
                 print(erro)
@@ -182,7 +182,6 @@ class OngViewModel : ObservableObject {
                                            pix: "69.107.142/0001-59"),
                               endereco: Endereco(logradouro: "R. Judith Passald Esteves",
                                                  numero: "137",
-                                                 complemento: "",
                                                  bairro: "Jd. Colombo",
                                                  cidade: "São Paulo",
                                                  cep: "05625-030",

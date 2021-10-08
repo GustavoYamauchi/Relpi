@@ -33,6 +33,7 @@ struct custView : View{
     
     @State var msg = ""
     @ObservedObject var viewModel = OngViewModel()
+    @State var novaOrg: Organizacao = Organizacao(id: NSUUID().uuidString, nome: "", cnpj: "", descricao: "", telefone: "", email: "", data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""), endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
     
     var body: some View{
         VStack{
@@ -47,6 +48,7 @@ struct custView : View{
                     }
                     
                 }
+                NavigationLink(destination: OngFormView(ong: $novaOrg, isEditing: false), label: { Text("Nova Ong") })
 //                .onDelete{ (index) in
 //                    // to remove data on cloud firestore
 //                    let id = self.datas.data[index.first!].id
