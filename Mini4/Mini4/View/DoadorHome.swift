@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct DoadorHome: View {
+    
     @ObservedObject var viewModel = OngViewModel()
     
     var body: some View {
-        List{
-            ForEach(viewModel.data){ i in
+        List {
+            ForEach(viewModel.data) { ong in
                 HStack {
                     NavigationLink(
-                        destination: OngView(ong: i),
+                        destination: SobreOngView(ong: ong),
                         label: {
-                            Text(i.nome)
-                    })
+                            Text(ong.nome)
+                                .buttonStyle(PrimaryButton())
+                        })
                 }
             }
         }

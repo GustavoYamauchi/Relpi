@@ -57,6 +57,8 @@
 		85E49098270B989A009CD6FE /* ContatoFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E49097270B989A009CD6FE /* ContatoFormView.swift */; };
 		A30BA3AD270F5C9F00D2222B /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BA3AC270F5C9F00D2222B /* Color+Extension.swift */; };
 		A30BA3AE270F5C9F00D2222B /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BA3AC270F5C9F00D2222B /* Color+Extension.swift */; };
+		A30BA3B2270F6DE400D2222B /* SobreOngView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BA3B1270F6DE400D2222B /* SobreOngView.swift */; };
+		A30BA3B3270F6DE400D2222B /* SobreOngView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BA3B1270F6DE400D2222B /* SobreOngView.swift */; };
 		A3ADA90E270CC6BE0005A81E /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ADA90D270CC6BE0005A81E /* ButtonStyles.swift */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +97,7 @@
 		85E49093270B9402009CD6FE /* InfoGeralFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoGeralFormView.swift; sourceTree = "<group>"; };
 		85E49097270B989A009CD6FE /* ContatoFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatoFormView.swift; sourceTree = "<group>"; };
 		A30BA3AC270F5C9F00D2222B /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		A30BA3B1270F6DE400D2222B /* SobreOngView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SobreOngView.swift; sourceTree = "<group>"; };
 		A3ADA90D270CC6BE0005A81E /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		F75A507FF86D223AF712BBE1 /* Pods-Mini4.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mini4.debug.xcconfig"; path = "Target Support Files/Pods-Mini4/Pods-Mini4.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -205,6 +208,7 @@
 				1C136A35270E38FC00D09E9D /* TelaLista */,
 				1CC8104A2702336200B9E721 /* ContentView.swift */,
 				8553EDC92704E6A300DB408D /* DoadorHome.swift */,
+				A30BA3B1270F6DE400D2222B /* SobreOngView.swift */,
 				8553EDCB2704F17900DB408D /* OngView.swift */,
 				1C136A29270CCD3B00D09E9D /* EstoqueFormView.swift */,
 			);
@@ -439,6 +443,7 @@
 				A30BA3AD270F5C9F00D2222B /* Color+Extension.swift in Sources */,
 				1CC810492702336200B9E721 /* SceneDelegate.swift in Sources */,
 				1CC8109C27038A3100B9E721 /* Organizacao.swift in Sources */,
+				A30BA3B2270F6DE400D2222B /* SobreOngView.swift in Sources */,
 				1C136A27270CC6F400D09E9D /* EstoqueViewModel.swift in Sources */,
 				8553EDCA2704E6A300DB408D /* DoadorHome.swift in Sources */,
 				1C136A21270B9AEC00D09E9D /* EnderecoViewModel.swift in Sources */,
@@ -464,6 +469,7 @@
 				1CC81079270237F400B9E721 /* SceneDelegate.swift in Sources */,
 				1C136A2B270CCD3B00D09E9D /* EstoqueFormView.swift in Sources */,
 				1C136A25270BA41500D09E9D /* EnderecoViewModel.swift in Sources */,
+				A30BA3B3270F6DE400D2222B /* SobreOngView.swift in Sources */,
 				1C136A28270CC6F400D09E9D /* EstoqueViewModel.swift in Sources */,
 				1CC810B027064ABF00B9E721 /* BancoFormView.swift in Sources */,
 				85E49094270B9402009CD6FE /* InfoGeralFormView.swift in Sources */,
