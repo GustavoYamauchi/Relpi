@@ -12,8 +12,14 @@ struct SobreOngView: View {
     @State private var ong: Organizacao
     @State var search: String = ""
     
+    @ObservedObject var enderecoViewModel: EnderecoViewModel
+    @ObservedObject var bancoViewModel: BancoViewModel
+    
+    
     init(ong: Organizacao) {
         self.ong = ong
+        self.enderecoViewModel = EnderecoViewModel(ong.id!)
+        self.bancoViewModel = BancoViewModel(ong.id!)
     }
     
     var body: some View {
@@ -71,6 +77,11 @@ struct SobreOngView: View {
                 
             }
             
+        }.onAppear {
+            if let banco = bancoViewModel.data.first, let enderecoVM = enderecoViewModel.data.first {
+                self.ong.banco = banco
+                self.ong.endereco = enderecoVM
+            }
         }
         
     }

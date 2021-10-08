@@ -14,11 +14,11 @@ class EnderecoViewModel : ObservableObject {
     @Published var data = [Endereco]()
 
     //for reading purpose it will automatically add data when we write data to firestore.
-    private var dbEndereco = Firestore.firestore().collection("Ong")
+    private var dbEndereco = Firestore.firestore().collection("ong")
     
     
     init(_ idOng: String) {
-        dbEndereco = Firestore.firestore().collection("Ong").document(idOng).collection("endereco")
+        dbEndereco = Firestore.firestore().collection("ong").document(idOng).collection("endereco")
         
         dbEndereco.addSnapshotListener({ (snap_, err) in
             guard let snap = snap_ else {return}
@@ -34,10 +34,10 @@ class EnderecoViewModel : ObservableObject {
                         id: i.document.documentID,
                         logradouro: self.castString(i.document.get("logradouro")),
                         numero: self.castString(i.document.get("numero")),
-                        complemento: self.castString(i.document.get("complemento")),
                         bairro: self.castString(i.document.get("bairro")),
                         cidade: self.castString(i.document.get("cidade")),
-                        cep: self.castString(i.document.get("cep")), estado: ""
+                        cep: self.castString(i.document.get("cep")),
+                        estado: self.castString(i.document.get("estado"))
                     )
                     self.data.append(msgData)
                 }
@@ -46,10 +46,10 @@ class EnderecoViewModel : ObservableObject {
                         if self.data[j].id == i.document.documentID{
                             self.data[j].logradouro = self.castString(i.document.get("logradouro"))
                             self.data[j].numero = self.castString(i.document.get("numero"))
-                            self.data[j].complemento = self.castString(i.document.get("complemento"))
                             self.data[j].bairro = self.castString(i.document.get("bairro"))
                             self.data[j].cidade = self.castString(i.document.get("cidade"))
-                            self.data[j].cep = self.castString(i.document.get("cep"))    
+                            self.data[j].cep = self.castString(i.document.get("cep"))
+                            self.data[j].estado = self.castString(i.document.get("estado"))
                         }
                     }
                 }
@@ -77,10 +77,10 @@ class EnderecoViewModel : ObservableObject {
             "id": dbEndereco.documentID,
             "logradouro":  self.castString(endereco.logradouro),
             "numero":  self.castString(endereco.numero),
-            "complemento":  self.castString(endereco.complemento),
             "bairro":  self.castString(endereco.bairro),
             "cidade":  self.castString(endereco.cidade),
-            "cep":  self.castString(endereco.cep)
+            "cep":  self.castString(endereco.cep),
+            "estado": self.castString(endereco.estado)
         ]) { (err) in
             if let erro = err?.localizedDescription {
                 print(erro)
@@ -94,10 +94,10 @@ class EnderecoViewModel : ObservableObject {
             [
                 "logradouro": endereco.logradouro,
                 "numero": endereco.numero,
-                "complemento": endereco.complemento,
                 "bairro": endereco.bairro,
                 "cidade": endereco.cidade,
-                "cep": endereco.cidade
+                "cep": endereco.cidade,
+                "estado": endereco.estado
             ]
         ){ (err) in
             if err != nil{
