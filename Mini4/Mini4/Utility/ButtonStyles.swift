@@ -8,6 +8,11 @@
 import Foundation
 import SwiftUI
 
+enum CustomButton {
+    case primaryButton
+    case secondaryButton
+}
+
 struct PrimaryButton: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
@@ -33,5 +38,18 @@ struct SecondaryButton: ButtonStyle {
                         .stroke(Color.borderSecondaryButton, lineWidth: 2))
             .padding(.horizontal, 30)
             .font(.system(size: 16, weight: .bold, design: .default))
+    }
+}
+
+extension Button {
+
+    @ViewBuilder
+    func buttonStyle(_ style: CustomButton) -> some View {
+        switch style {
+        case .primaryButton:
+            self.buttonStyle(PrimaryButton())
+        case .secondaryButton:
+            self.buttonStyle(SecondaryButton())
+        }
     }
 }

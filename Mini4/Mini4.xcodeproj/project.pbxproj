@@ -55,6 +55,10 @@
 		8578A636270E23520064497C /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ADA90D270CC6BE0005A81E /* ButtonStyles.swift */; };
 		85E49094270B9402009CD6FE /* InfoGeralFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E49093270B9402009CD6FE /* InfoGeralFormView.swift */; };
 		85E49098270B989A009CD6FE /* ContatoFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E49097270B989A009CD6FE /* ContatoFormView.swift */; };
+		8B12DA562710BE5900A19E3B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B12DA552710BE5900A19E3B /* Category.swift */; };
+		8B12DA572710BE5900A19E3B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B12DA552710BE5900A19E3B /* Category.swift */; };
+		8B12DA592710BE9700A19E3B /* PickerCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B12DA582710BE9700A19E3B /* PickerCustom.swift */; };
+		8B12DA5A2710BE9700A19E3B /* PickerCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B12DA582710BE9700A19E3B /* PickerCustom.swift */; };
 		A30BA3AD270F5C9F00D2222B /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BA3AC270F5C9F00D2222B /* Color+Extension.swift */; };
 		A30BA3AE270F5C9F00D2222B /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BA3AC270F5C9F00D2222B /* Color+Extension.swift */; };
 		A3ADA90E270CC6BE0005A81E /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ADA90D270CC6BE0005A81E /* ButtonStyles.swift */; };
@@ -94,6 +98,8 @@
 		8553EDCB2704F17900DB408D /* OngView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngView.swift; sourceTree = "<group>"; };
 		85E49093270B9402009CD6FE /* InfoGeralFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoGeralFormView.swift; sourceTree = "<group>"; };
 		85E49097270B989A009CD6FE /* ContatoFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatoFormView.swift; sourceTree = "<group>"; };
+		8B12DA552710BE5900A19E3B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		8B12DA582710BE9700A19E3B /* PickerCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerCustom.swift; sourceTree = "<group>"; };
 		A30BA3AC270F5C9F00D2222B /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		A3ADA90D270CC6BE0005A81E /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		F75A507FF86D223AF712BBE1 /* Pods-Mini4.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mini4.debug.xcconfig"; path = "Target Support Files/Pods-Mini4/Pods-Mini4.debug.xcconfig"; sourceTree = "<group>"; };
@@ -236,6 +242,8 @@
 			children = (
 				A3ADA90D270CC6BE0005A81E /* ButtonStyles.swift */,
 				A30BA3AC270F5C9F00D2222B /* Color+Extension.swift */,
+				8B12DA552710BE5900A19E3B /* Category.swift */,
+				8B12DA582710BE9700A19E3B /* PickerCustom.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -445,11 +453,13 @@
 				1C136A2A270CCD3B00D09E9D /* EstoqueFormView.swift in Sources */,
 				8553EDCC2704F17900DB408D /* OngView.swift in Sources */,
 				1CC8109827038A3100B9E721 /* Endereco.swift in Sources */,
+				8B12DA562710BE5900A19E3B /* Category.swift in Sources */,
 				1CC8109E27038A3100B9E721 /* Item.swift in Sources */,
 				1CC810A227038E7400B9E721 /* OngViewModel.swift in Sources */,
 				1CD911DD270B7224007B2D05 /* BancoViewModel.swift in Sources */,
 				1C136A3A270E399E00D09E9D /* ItemListaView.swift in Sources */,
 				1C136A37270E391C00D09E9D /* TelaListaView.swift in Sources */,
+				8B12DA592710BE9700A19E3B /* PickerCustom.swift in Sources */,
 				A3ADA90E270CC6BE0005A81E /* ButtonStyles.swift in Sources */,
 				1CC8104B2702336200B9E721 /* ContentView.swift in Sources */,
 				1CC8109A27038A3100B9E721 /* Banco.swift in Sources */,
@@ -465,6 +475,7 @@
 				1C136A2B270CCD3B00D09E9D /* EstoqueFormView.swift in Sources */,
 				1C136A25270BA41500D09E9D /* EnderecoViewModel.swift in Sources */,
 				1C136A28270CC6F400D09E9D /* EstoqueViewModel.swift in Sources */,
+				8B12DA5A2710BE9700A19E3B /* PickerCustom.swift in Sources */,
 				1CC810B027064ABF00B9E721 /* BancoFormView.swift in Sources */,
 				85E49094270B9402009CD6FE /* InfoGeralFormView.swift in Sources */,
 				85E49098270B989A009CD6FE /* ContatoFormView.swift in Sources */,
@@ -482,6 +493,7 @@
 				1CC810A327038E7400B9E721 /* OngViewModel.swift in Sources */,
 				1CC8107A270237F400B9E721 /* ContentView.swift in Sources */,
 				1CC8109B27038A3100B9E721 /* Banco.swift in Sources */,
+				8B12DA572710BE5900A19E3B /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
