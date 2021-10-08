@@ -158,4 +158,25 @@ class OngViewModel : ObservableObject {
         }
     }
     
+    func mockOngMariaHelena() -> Organizacao {
+        let ong = Organizacao(nome: "Casa Maria Helena Paulina",
+                              cnpj: "69.107.142/0001-59",
+                              descricao: "A Casa Maria Helena Paulina é uma organização não governamental paulista fundada em 1992 que acolhe jovens com câncer - ou outras enfermidades - e seus acompanhantes oriundos de diversos estados brasileiros que encaminham-se para São Paulo em busca de infraestrutura de tratamento adequado às suas necessidades. A Casa fornece moradia, alimentos, assistência psicológica, produtos de higiene e as mais variadas atividades para que a estadia dos assistidos seja a melhor possível apesar de todas as dificuldades encontradas ao longo do tratamento.",
+                              telefone: "(11) 3744-7492",
+                              email: "contato@casamariahelenapaulina.org.br",
+                              banco: Banco(banco: "Banco Itaú",
+                                           agencia: "0062",
+                                           conta: "35.926-0",
+                                           pix: "69.107.142/0001-59"),
+                              endereco: Endereco(logradouro: "R. Judith Passald Esteves",
+                                                 numero: "137",
+                                                 complemento: "",
+                                                 bairro: "Jd. Colombo",
+                                                 cidade: "São Paulo",
+                                                 cep: "05625-030",
+                                                 estado: "SP"))
+        return ong
+    }
+    
 }
+
