@@ -29,6 +29,9 @@ struct TelaListaView: View {
                 }.padding(.horizontal, 30)
             }
         }
+        .onAppear{
+            viewModel.data.sort {$0.urgente && !$1.urgente}
+        }
         
     }
 }
