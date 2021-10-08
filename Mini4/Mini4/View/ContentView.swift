@@ -31,11 +31,12 @@ struct ContentView_Previews: PreviewProvider {
 #else
 struct custView : View{
     
-    @State var msg = ""
+    @State var msg = "Teste"
     @ObservedObject var viewModel = OngViewModel()
     
     var body: some View{
         VStack{
+            Text(msg)
             List{
                 ForEach(0..<viewModel.data.count, id: \.self){ i in
                     HStack{
@@ -65,6 +66,7 @@ struct custView : View{
 //                    }
 //                }
             }
+            Category(title: "Fdc", array: ["A", "B", "C", "D"], selected: $msg)
         }
     }
 }

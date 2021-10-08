@@ -14,7 +14,7 @@ struct Category: View {
     @State var toggle: Bool = false
     @State var title: String = "Title"
     @State var array = [""]
-    @State var selected:String = "Teste"
+    @Binding var selected: String
     
     var body: some View {
         Button("Teste") {
