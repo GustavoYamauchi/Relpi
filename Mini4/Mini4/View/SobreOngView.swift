@@ -15,7 +15,6 @@ struct SobreOngView: View {
     @ObservedObject var enderecoViewModel: EnderecoViewModel
     @ObservedObject var bancoViewModel: BancoViewModel
     
-    
     init(ong: Organizacao) {
         self.ong = ong
         self.enderecoViewModel = EnderecoViewModel(ong.id!)
@@ -38,7 +37,7 @@ struct SobreOngView: View {
                     Text("\(ong.endereco.cidade)")
                 }
                 
-                TextField("Search", text: $search)
+                SearchBarView(pesquisando: $search, placeholder: "Search")
                 
                 // Card dos itens
                 HStack(spacing: 30) {
