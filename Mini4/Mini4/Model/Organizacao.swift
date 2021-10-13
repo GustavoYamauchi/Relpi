@@ -5,17 +5,18 @@
 //  Created by Gustavo Rigor on 27/09/21.
 //
 
-import Foundation
+import Firebase
 
 struct Organizacao: Identifiable {
     var id: String?
-    var nome: String?
-    var cnpj: String?
-    var descricao: String?
-    var telefone: String?
-    var pix: String?
+    var nome: String
+    var cnpj: String
+    var descricao: String
+    var telefone: String
+    var email: String
     var foto: String?
-    var banco: Banco?
-    var endereco : Endereco?
-    var estoque : [Item]?
+    var data: Timestamp
+    var banco: Banco
+    var endereco: Endereco
+    var estoque: [Item]?
 }

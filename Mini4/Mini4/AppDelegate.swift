@@ -14,7 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        FirebaseApp.configure()
+        #if Mini4
+            let filePath = Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist")
+            let options = FirebaseOptions.init(contentsOfFile: filePath!)
+            FirebaseApp.configure(options: options!)
+        #else
+            let filePath = Bundle.main.path(forResource: "GoogleService-Info-admin", ofType: "plist")
+            let options = FirebaseOptions.init(contentsOfFile: filePath!)
+            FirebaseApp.configure(options: options!)
+        #endif
         // Override point for customization after application launch.
         return true
     }

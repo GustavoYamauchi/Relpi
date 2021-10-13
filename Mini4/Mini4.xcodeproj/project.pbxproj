@@ -7,22 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C136A21270B9AEC00D09E9D /* EnderecoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A20270B9AEC00D09E9D /* EnderecoViewModel.swift */; };
+		1C136A24270BA39E00D09E9D /* EnderecoFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A22270BA39E00D09E9D /* EnderecoFormView.swift */; };
+		1C136A25270BA41500D09E9D /* EnderecoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A20270B9AEC00D09E9D /* EnderecoViewModel.swift */; };
+		1C136A27270CC6F400D09E9D /* EstoqueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A26270CC6F400D09E9D /* EstoqueViewModel.swift */; };
+		1C136A28270CC6F400D09E9D /* EstoqueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A26270CC6F400D09E9D /* EstoqueViewModel.swift */; };
+		1C136A2A270CCD3B00D09E9D /* EstoqueFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A29270CCD3B00D09E9D /* EstoqueFormView.swift */; };
+		1C136A2B270CCD3B00D09E9D /* EstoqueFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A29270CCD3B00D09E9D /* EstoqueFormView.swift */; };
+		1C136A37270E391C00D09E9D /* TelaListaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A36270E391C00D09E9D /* TelaListaView.swift */; };
+		1C136A38270E391C00D09E9D /* TelaListaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A36270E391C00D09E9D /* TelaListaView.swift */; };
+		1C136A3A270E399E00D09E9D /* ItemListaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A39270E399E00D09E9D /* ItemListaView.swift */; };
+		1C136A3B270E399E00D09E9D /* ItemListaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A39270E399E00D09E9D /* ItemListaView.swift */; };
+		1C136A3C270E402B00D09E9D /* OngView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8553EDCB2704F17900DB408D /* OngView.swift */; };
+		1C136A3E27175E0A00D09E9D /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A3D27175E0A00D09E9D /* SearchBarView.swift */; };
+		1C136A3F27175E0A00D09E9D /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A3D27175E0A00D09E9D /* SearchBarView.swift */; };
 		1CC810472702336200B9E721 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC810462702336200B9E721 /* AppDelegate.swift */; };
 		1CC810492702336200B9E721 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC810482702336200B9E721 /* SceneDelegate.swift */; };
 		1CC8104B2702336200B9E721 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8104A2702336200B9E721 /* ContentView.swift */; };
 		1CC8104D2702336400B9E721 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC8104C2702336400B9E721 /* Assets.xcassets */; };
 		1CC810502702336400B9E721 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC8104F2702336400B9E721 /* Preview Assets.xcassets */; };
 		1CC810532702336400B9E721 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CC810512702336400B9E721 /* LaunchScreen.storyboard */; };
-		1CC8105B270233FD00B9E721 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CC8105A270233FD00B9E721 /* GoogleService-Info.plist */; };
 		1CC81078270237F400B9E721 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC810462702336200B9E721 /* AppDelegate.swift */; };
 		1CC81079270237F400B9E721 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC810482702336200B9E721 /* SceneDelegate.swift */; };
 		1CC8107A270237F400B9E721 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8104A2702336200B9E721 /* ContentView.swift */; };
 		1CC8107C270237F400B9E721 /* Pods_Mini4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5D085BED330F0CD78C4E26 /* Pods_Mini4.framework */; };
 		1CC8107E270237F400B9E721 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CC810512702336400B9E721 /* LaunchScreen.storyboard */; };
-		1CC8107F270237F400B9E721 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CC8105A270233FD00B9E721 /* GoogleService-Info.plist */; };
 		1CC81080270237F400B9E721 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC8104F2702336400B9E721 /* Preview Assets.xcassets */; };
 		1CC81081270237F400B9E721 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC8104C2702336400B9E721 /* Assets.xcassets */; };
-		1CC81089270238FF00B9E721 /* GoogleService-Info-admin.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CC81088270238FF00B9E721 /* GoogleService-Info-admin.plist */; };
 		1CC8109827038A3100B9E721 /* Endereco.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8109427038A3100B9E721 /* Endereco.swift */; };
 		1CC8109927038A3100B9E721 /* Endereco.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8109427038A3100B9E721 /* Endereco.swift */; };
 		1CC8109A27038A3100B9E721 /* Banco.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8109527038A3100B9E721 /* Banco.swift */; };
@@ -31,10 +42,39 @@
 		1CC8109D27038A3100B9E721 /* Organizacao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8109627038A3100B9E721 /* Organizacao.swift */; };
 		1CC8109E27038A3100B9E721 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8109727038A3100B9E721 /* Item.swift */; };
 		1CC8109F27038A3100B9E721 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8109727038A3100B9E721 /* Item.swift */; };
+		1CC810A227038E7400B9E721 /* OngViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC810A127038E7400B9E721 /* OngViewModel.swift */; };
+		1CC810A327038E7400B9E721 /* OngViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC810A127038E7400B9E721 /* OngViewModel.swift */; };
+		1CC810AB2703B0B000B9E721 /* OngFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC810A92703B0B000B9E721 /* OngFormView.swift */; };
+		1CC810B027064ABF00B9E721 /* BancoFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC810AE27064AB800B9E721 /* BancoFormView.swift */; };
+		1CD911DD270B7224007B2D05 /* BancoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD911DC270B7224007B2D05 /* BancoViewModel.swift */; };
+		1CD911DE270B778F007B2D05 /* BancoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD911DC270B7224007B2D05 /* BancoViewModel.swift */; };
 		6DA4B72157C3CB7B233CA050 /* Pods_Mini4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5D085BED330F0CD78C4E26 /* Pods_Mini4.framework */; };
+		853BC76C2710D418007C589D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 853BC76B2710D418007C589D /* GoogleService-Info.plist */; };
+		853BC76E2710D483007C589D /* GoogleService-Info-admin.plist in Resources */ = {isa = PBXBuildFile; fileRef = 853BC76D2710D483007C589D /* GoogleService-Info-admin.plist */; };
+		8553EDCA2704E6A300DB408D /* DoadorHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8553EDC92704E6A300DB408D /* DoadorHome.swift */; };
+		8553EDCC2704F17900DB408D /* OngView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8553EDCB2704F17900DB408D /* OngView.swift */; };
+		8578A636270E23520064497C /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ADA90D270CC6BE0005A81E /* ButtonStyles.swift */; };
+		85E49094270B9402009CD6FE /* InfoGeralFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E49093270B9402009CD6FE /* InfoGeralFormView.swift */; };
+		85E49098270B989A009CD6FE /* ContatoFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E49097270B989A009CD6FE /* ContatoFormView.swift */; };
+		8B12DA562710BE5900A19E3B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B12DA552710BE5900A19E3B /* Category.swift */; };
+		8B12DA572710BE5900A19E3B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B12DA552710BE5900A19E3B /* Category.swift */; };
+		8B12DA592710BE9700A19E3B /* PickerCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B12DA582710BE9700A19E3B /* PickerCustom.swift */; };
+		8B12DA5A2710BE9700A19E3B /* PickerCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B12DA582710BE9700A19E3B /* PickerCustom.swift */; };
+		A30BA3AD270F5C9F00D2222B /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BA3AC270F5C9F00D2222B /* Color+Extension.swift */; };
+		A30BA3AE270F5C9F00D2222B /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BA3AC270F5C9F00D2222B /* Color+Extension.swift */; };
+		A30BA3B2270F6DE400D2222B /* SobreOngView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BA3B1270F6DE400D2222B /* SobreOngView.swift */; };
+		A30BA3B3270F6DE400D2222B /* SobreOngView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BA3B1270F6DE400D2222B /* SobreOngView.swift */; };
+		A3ADA90E270CC6BE0005A81E /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ADA90D270CC6BE0005A81E /* ButtonStyles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C136A20270B9AEC00D09E9D /* EnderecoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnderecoViewModel.swift; sourceTree = "<group>"; };
+		1C136A22270BA39E00D09E9D /* EnderecoFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnderecoFormView.swift; sourceTree = "<group>"; };
+		1C136A26270CC6F400D09E9D /* EstoqueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstoqueViewModel.swift; sourceTree = "<group>"; };
+		1C136A29270CCD3B00D09E9D /* EstoqueFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstoqueFormView.swift; sourceTree = "<group>"; };
+		1C136A36270E391C00D09E9D /* TelaListaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaListaView.swift; sourceTree = "<group>"; };
+		1C136A39270E399E00D09E9D /* ItemListaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListaView.swift; sourceTree = "<group>"; };
+		1C136A3D27175E0A00D09E9D /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		1CC810432702336200B9E721 /* Mini4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mini4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CC810462702336200B9E721 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CC810482702336200B9E721 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,17 +83,30 @@
 		1CC8104F2702336400B9E721 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1CC810522702336400B9E721 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1CC810542702336400B9E721 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1CC8105A270233FD00B9E721 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1CC8105C2702366800B9E721 /* Mini4.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mini4.entitlements; sourceTree = "<group>"; };
 		1CC81086270237F400B9E721 /* Mini4Admin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mini4Admin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CC81087270237F400B9E721 /* Mini4 copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Mini4 copy-Info.plist"; path = "/Users/gustavorigor/Developer/Academy/Mini4/Mini4/Mini4 copy-Info.plist"; sourceTree = "<absolute>"; };
-		1CC81088270238FF00B9E721 /* GoogleService-Info-admin.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-admin.plist"; sourceTree = "<group>"; };
 		1CC8109427038A3100B9E721 /* Endereco.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endereco.swift; sourceTree = "<group>"; };
 		1CC8109527038A3100B9E721 /* Banco.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Banco.swift; sourceTree = "<group>"; };
 		1CC8109627038A3100B9E721 /* Organizacao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Organizacao.swift; sourceTree = "<group>"; };
 		1CC8109727038A3100B9E721 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		1CC810A127038E7400B9E721 /* OngViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngViewModel.swift; sourceTree = "<group>"; };
+		1CC810A92703B0B000B9E721 /* OngFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngFormView.swift; sourceTree = "<group>"; };
+		1CC810AE27064AB800B9E721 /* BancoFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BancoFormView.swift; sourceTree = "<group>"; };
+		1CD911DC270B7224007B2D05 /* BancoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BancoViewModel.swift; sourceTree = "<group>"; };
 		3F5D085BED330F0CD78C4E26 /* Pods_Mini4.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mini4.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61C50368EA545A9091BCA999 /* Pods-Mini4.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mini4.release.xcconfig"; path = "Target Support Files/Pods-Mini4/Pods-Mini4.release.xcconfig"; sourceTree = "<group>"; };
+		853BC76B2710D418007C589D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		853BC76D2710D483007C589D /* GoogleService-Info-admin.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-admin.plist"; sourceTree = "<group>"; };
+		8553EDC92704E6A300DB408D /* DoadorHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoadorHome.swift; sourceTree = "<group>"; };
+		8553EDCB2704F17900DB408D /* OngView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngView.swift; sourceTree = "<group>"; };
+		85E49093270B9402009CD6FE /* InfoGeralFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoGeralFormView.swift; sourceTree = "<group>"; };
+		85E49097270B989A009CD6FE /* ContatoFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatoFormView.swift; sourceTree = "<group>"; };
+		8B12DA552710BE5900A19E3B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		8B12DA582710BE9700A19E3B /* PickerCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerCustom.swift; sourceTree = "<group>"; };
+		A30BA3AC270F5C9F00D2222B /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		A30BA3B1270F6DE400D2222B /* SobreOngView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SobreOngView.swift; sourceTree = "<group>"; };
+		A3ADA90D270CC6BE0005A81E /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		F75A507FF86D223AF712BBE1 /* Pods-Mini4.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mini4.debug.xcconfig"; path = "Target Support Files/Pods-Mini4/Pods-Mini4.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,6 +130,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C136A35270E38FC00D09E9D /* TelaLista */ = {
+			isa = PBXGroup;
+			children = (
+				1C136A36270E391C00D09E9D /* TelaListaView.swift */,
+				1C136A39270E399E00D09E9D /* ItemListaView.swift */,
+			);
+			path = TelaLista;
+			sourceTree = "<group>";
+		};
 		1CC8103A2702336200B9E721 = {
 			isa = PBXGroup;
 			children = (
@@ -101,15 +163,17 @@
 			isa = PBXGroup;
 			children = (
 				1CC8109327038A3100B9E721 /* Model */,
+				1CC810A427038FE100B9E721 /* View */,
+				1CC810A027038E1A00B9E721 /* ViewModel */,
+				A3E7438F270E13FF004B47A0 /* Utility */,
 				1CC8105C2702366800B9E721 /* Mini4.entitlements */,
 				1CC810462702336200B9E721 /* AppDelegate.swift */,
 				1CC810482702336200B9E721 /* SceneDelegate.swift */,
-				1CC8104A2702336200B9E721 /* ContentView.swift */,
 				1CC8104C2702336400B9E721 /* Assets.xcassets */,
 				1CC810512702336400B9E721 /* LaunchScreen.storyboard */,
 				1CC810542702336400B9E721 /* Info.plist */,
-				1CC81088270238FF00B9E721 /* GoogleService-Info-admin.plist */,
-				1CC8105A270233FD00B9E721 /* GoogleService-Info.plist */,
+				853BC76B2710D418007C589D /* GoogleService-Info.plist */,
+				853BC76D2710D483007C589D /* GoogleService-Info-admin.plist */,
 				1CC8104E2702336400B9E721 /* Preview Content */,
 			);
 			path = Mini4;
@@ -134,12 +198,61 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		1CC810A027038E1A00B9E721 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1CC810A127038E7400B9E721 /* OngViewModel.swift */,
+				1CD911DC270B7224007B2D05 /* BancoViewModel.swift */,
+				1C136A20270B9AEC00D09E9D /* EnderecoViewModel.swift */,
+				1C136A26270CC6F400D09E9D /* EstoqueViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1CC810A427038FE100B9E721 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8589EBE7270B935900EA906C /* Organizacao */,
+				1C136A35270E38FC00D09E9D /* TelaLista */,
+				1CC8104A2702336200B9E721 /* ContentView.swift */,
+				8553EDC92704E6A300DB408D /* DoadorHome.swift */,
+				A30BA3B1270F6DE400D2222B /* SobreOngView.swift */,
+				8553EDCB2704F17900DB408D /* OngView.swift */,
+				1C136A29270CCD3B00D09E9D /* EstoqueFormView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8589EBE7270B935900EA906C /* Organizacao */ = {
+			isa = PBXGroup;
+			children = (
+				1CC810A92703B0B000B9E721 /* OngFormView.swift */,
+				85E49093270B9402009CD6FE /* InfoGeralFormView.swift */,
+				1C136A22270BA39E00D09E9D /* EnderecoFormView.swift */,
+				85E49097270B989A009CD6FE /* ContatoFormView.swift */,
+				1CC810AE27064AB800B9E721 /* BancoFormView.swift */,
+			);
+			path = Organizacao;
+			sourceTree = "<group>";
+		};
 		90B278108663E2C3B71189CA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				3F5D085BED330F0CD78C4E26 /* Pods_Mini4.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A3E7438F270E13FF004B47A0 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				A3ADA90D270CC6BE0005A81E /* ButtonStyles.swift */,
+				A30BA3AC270F5C9F00D2222B /* Color+Extension.swift */,
+				8B12DA552710BE5900A19E3B /* Category.swift */,
+				8B12DA582710BE9700A19E3B /* PickerCustom.swift */,
+				1C136A3D27175E0A00D09E9D /* SearchBarView.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		F276C1DC6A1D3B17238F756B /* Pods */ = {
@@ -231,7 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CC810532702336400B9E721 /* LaunchScreen.storyboard in Resources */,
-				1CC8105B270233FD00B9E721 /* GoogleService-Info.plist in Resources */,
+				853BC76C2710D418007C589D /* GoogleService-Info.plist in Resources */,
 				1CC810502702336400B9E721 /* Preview Assets.xcassets in Resources */,
 				1CC8104D2702336400B9E721 /* Assets.xcassets in Resources */,
 			);
@@ -242,9 +355,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CC8107E270237F400B9E721 /* LaunchScreen.storyboard in Resources */,
-				1CC8107F270237F400B9E721 /* GoogleService-Info.plist in Resources */,
+				853BC76E2710D483007C589D /* GoogleService-Info-admin.plist in Resources */,
 				1CC81080270237F400B9E721 /* Preview Assets.xcassets in Resources */,
-				1CC81089270238FF00B9E721 /* GoogleService-Info-admin.plist in Resources */,
 				1CC81081270237F400B9E721 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,11 +449,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C136A3E27175E0A00D09E9D /* SearchBarView.swift in Sources */,
 				1CC810472702336200B9E721 /* AppDelegate.swift in Sources */,
+				A30BA3AD270F5C9F00D2222B /* Color+Extension.swift in Sources */,
 				1CC810492702336200B9E721 /* SceneDelegate.swift in Sources */,
 				1CC8109C27038A3100B9E721 /* Organizacao.swift in Sources */,
+				A30BA3B2270F6DE400D2222B /* SobreOngView.swift in Sources */,
+				1C136A27270CC6F400D09E9D /* EstoqueViewModel.swift in Sources */,
+				8553EDCA2704E6A300DB408D /* DoadorHome.swift in Sources */,
+				1C136A21270B9AEC00D09E9D /* EnderecoViewModel.swift in Sources */,
+				1C136A2A270CCD3B00D09E9D /* EstoqueFormView.swift in Sources */,
+				8553EDCC2704F17900DB408D /* OngView.swift in Sources */,
 				1CC8109827038A3100B9E721 /* Endereco.swift in Sources */,
+				8B12DA562710BE5900A19E3B /* Category.swift in Sources */,
 				1CC8109E27038A3100B9E721 /* Item.swift in Sources */,
+				1CC810A227038E7400B9E721 /* OngViewModel.swift in Sources */,
+				1CD911DD270B7224007B2D05 /* BancoViewModel.swift in Sources */,
+				1C136A3A270E399E00D09E9D /* ItemListaView.swift in Sources */,
+				1C136A37270E391C00D09E9D /* TelaListaView.swift in Sources */,
+				8B12DA592710BE9700A19E3B /* PickerCustom.swift in Sources */,
+				A3ADA90E270CC6BE0005A81E /* ButtonStyles.swift in Sources */,
 				1CC8104B2702336200B9E721 /* ContentView.swift in Sources */,
 				1CC8109A27038A3100B9E721 /* Banco.swift in Sources */,
 			);
@@ -353,11 +480,30 @@
 			files = (
 				1CC81078270237F400B9E721 /* AppDelegate.swift in Sources */,
 				1CC81079270237F400B9E721 /* SceneDelegate.swift in Sources */,
+				1C136A2B270CCD3B00D09E9D /* EstoqueFormView.swift in Sources */,
+				1C136A25270BA41500D09E9D /* EnderecoViewModel.swift in Sources */,
+				1C136A3F27175E0A00D09E9D /* SearchBarView.swift in Sources */,
+				A30BA3B3270F6DE400D2222B /* SobreOngView.swift in Sources */,
+				1C136A28270CC6F400D09E9D /* EstoqueViewModel.swift in Sources */,
+				8B12DA5A2710BE9700A19E3B /* PickerCustom.swift in Sources */,
+				1CC810B027064ABF00B9E721 /* BancoFormView.swift in Sources */,
+				85E49094270B9402009CD6FE /* InfoGeralFormView.swift in Sources */,
+				85E49098270B989A009CD6FE /* ContatoFormView.swift in Sources */,
+				1C136A38270E391C00D09E9D /* TelaListaView.swift in Sources */,
+				A30BA3AE270F5C9F00D2222B /* Color+Extension.swift in Sources */,
 				1CC8109D27038A3100B9E721 /* Organizacao.swift in Sources */,
 				1CC8109927038A3100B9E721 /* Endereco.swift in Sources */,
+				1C136A24270BA39E00D09E9D /* EnderecoFormView.swift in Sources */,
+				1C136A3C270E402B00D09E9D /* OngView.swift in Sources */,
 				1CC8109F27038A3100B9E721 /* Item.swift in Sources */,
+				1C136A3B270E399E00D09E9D /* ItemListaView.swift in Sources */,
+				1CD911DE270B778F007B2D05 /* BancoViewModel.swift in Sources */,
+				8578A636270E23520064497C /* ButtonStyles.swift in Sources */,
+				1CC810AB2703B0B000B9E721 /* OngFormView.swift in Sources */,
+				1CC810A327038E7400B9E721 /* OngViewModel.swift in Sources */,
 				1CC8107A270237F400B9E721 /* ContentView.swift in Sources */,
 				1CC8109B27038A3100B9E721 /* Banco.swift in Sources */,
+				8B12DA572710BE5900A19E3B /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,10 +649,12 @@
 				DEVELOPMENT_TEAM = LW4D8C52G7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Mini4/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "-D Mini4";
 				PRODUCT_BUNDLE_IDENTIFIER = academy.com.Grupo3.Mini4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
@@ -527,10 +675,12 @@
 				DEVELOPMENT_TEAM = LW4D8C52G7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Mini4/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "-D Mini4";
 				PRODUCT_BUNDLE_IDENTIFIER = academy.com.Grupo3.Mini4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
@@ -555,6 +705,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "-D MiniAdmin";
 				PRODUCT_BUNDLE_IDENTIFIER = academy.com.Grupo3.Mini4Admin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
@@ -579,6 +730,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "-D MiniAdmin";
 				PRODUCT_BUNDLE_IDENTIFIER = academy.com.Grupo3.Mini4Admin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
