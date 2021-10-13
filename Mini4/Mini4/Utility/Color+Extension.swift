@@ -22,5 +22,6 @@ extension Color {
     static let secondaryButton = Color("secondaryButton")
     static let textSecondaryButton = Color("textSecondaryButton")
     static let borderSecondaryButton = Color("borderSecondaryButton")
+    static let textDeleteButton = Color("textDeleteButton")
     static let backgroundPrimarySearch = Color("backgroundPrimarySearch")
 }
