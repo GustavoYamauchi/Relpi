@@ -13,6 +13,8 @@ struct TelaListaView: View {
     var data: Timestamp
     var gridItemLayout = [GridItem(.adaptive(minimum: 150, maximum: .infinity), spacing: 30), GridItem(.adaptive(minimum: 150, maximum: .infinity), spacing: 30)]
     
+    @State var itemPesquisado = ""
+    
     var body: some View {
         VStack(alignment: .leading){
             Text("Lista de necessidades")
@@ -26,6 +28,8 @@ struct TelaListaView: View {
                 .foregroundColor(Color.gray)
                 .font(.system(size: 14, weight: .regular, design: .default))
                 .padding(.bottom, 10)
+            
+            SearchBarView(pesquisando: $itemPesquisado, placeholder: "Pesquisar")
             
             ZStack{
                 RoundedRectangle(cornerRadius: 15)
@@ -44,7 +48,7 @@ struct TelaListaView: View {
             
             ScrollView {
                 LazyVGrid(columns: gridItemLayout) {
-                    ForEach(viewModel.data){ item in
+                    ForEach(viewModel.data.filter({$0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty})){ item in
                         ItemListaView(item: item)
                             .frame(minWidth: 50, minHeight: 220)
                             .padding(.bottom, 20)
