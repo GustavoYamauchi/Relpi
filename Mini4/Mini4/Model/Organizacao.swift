@@ -5,7 +5,7 @@
 //  Created by Gustavo Rigor on 27/09/21.
 //
 
-import Foundation
+import Firebase
 
 struct Organizacao: Identifiable {
     var id: String?
@@ -15,6 +15,7 @@ struct Organizacao: Identifiable {
     var telefone: String
     var email: String
     var foto: String?
+    var data: Timestamp
     var banco: Banco
     var endereco: Endereco
     var estoque: [Item]?

@@ -14,11 +14,10 @@ class BancoViewModel : ObservableObject {
     @Published var data = [Banco]()
 
     //for reading purpose it will automatically add data when we write data to firestore.
-    private var dbBanco = Firestore.firestore().collection("Ong")
-    
+    private var dbBanco = Firestore.firestore().collection("ong")
     
     init(_ idOng: String) {
-        dbBanco = Firestore.firestore().collection("Ong").document(idOng).collection("banco")
+        dbBanco = Firestore.firestore().collection("ong").document(idOng).collection("banco")
         
         dbBanco.addSnapshotListener({ (snap_, err) in
             guard let snap = snap_ else {return}

@@ -76,7 +76,7 @@ struct OngFormView: View {
                 .padding([.leading, .trailing], 30)
                 .toolbar {
                     HStack{
-                        NavigationLink(destination: TelaListaView(viewModel: EstoqueViewModel(ong.id!)),
+                        NavigationLink(destination: TelaListaView(viewModel: EstoqueViewModel(ong.id!), data: ong.data),
                         label: {
                             Text("Lista")
                         })
@@ -87,7 +87,7 @@ struct OngFormView: View {
                 }
                 .navigationBarTitle("", displayMode: .inline)
                 .onAppear {
-                    ong.endereco = enderecoViewModel.data.first!
+                    ong.endereco = enderecoViewModel.data.first ?? Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: "")
                     ong.banco = bancoViewModel.data.first ?? Banco(banco: "", agencia: "", conta: "", pix: "")
                     ongRascunho = ong
                 }
@@ -108,7 +108,7 @@ struct OngFormView: View {
             ong = ongRascunho
             ongViewModel.addOrgData(org: ong)
             enderecoViewModel.addEnderecoData(endereco: ong.endereco)
-            bancoViewModel.updateBanco(banco: ong.banco)
+            bancoViewModel.addBancoData(banco: ong.banco)
             self.ongRascunho = getNewOrg()
         }
     }
@@ -132,8 +132,8 @@ struct OngFormView: View {
     private func getNewOrg() -> Organizacao {
         return Organizacao(
             nome: "", cnpj: "", descricao: "", telefone: "", email: "",
-            banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
-            endereco: Endereco(logradouro: "", numero: "", complemento: "", bairro: "", cidade: "", cep: "", estado: ""))
+            data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
+            endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
     }
     
     @ViewBuilder func getFormView(pageIndex: Int) -> some View {
@@ -152,8 +152,8 @@ struct OngFormView: View {
 struct OngFormView_Previews: PreviewProvider {
     @State static var ong: Organizacao = Organizacao(
         nome: "", cnpj: "", descricao: "", telefone: "", email: "",
-        banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
-        endereco: Endereco(logradouro: "", numero: "", complemento: "", bairro: "", cidade: "", cep: "", estado: ""))
+        data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
+        endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
     
     static var previews: some View {
         OngFormView(ong: $ong, isEditing: true)

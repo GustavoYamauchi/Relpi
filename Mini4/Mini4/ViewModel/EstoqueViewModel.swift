@@ -14,11 +14,11 @@ class EstoqueViewModel : ObservableObject {
     @Published var data = [Item]()
 
     //for reading purpose it will automatically add data when we write data to firestore.
-    private var dbEstoque = Firestore.firestore().collection("Ong")
+    private var dbEstoque = Firestore.firestore().collection("ng")
     
     
     init(_ idOng: String) {
-        dbEstoque = Firestore.firestore().collection("Ong").document(idOng).collection("estoque")
+        dbEstoque = Firestore.firestore().collection("ong").document(idOng).collection("estoque")
         
         dbEstoque.addSnapshotListener({ (snap_, err) in
             guard let snap = snap_ else {return}
@@ -98,6 +98,7 @@ class EstoqueViewModel : ObservableObject {
                 return
             }
         }
+        atualizarTimestamp()
     }
     
     func updateItem(item: Item) {
@@ -116,6 +117,7 @@ class EstoqueViewModel : ObservableObject {
             }
             print("success")
         }
+        atualizarTimestamp()
     }
     
     func deleteItem(item: Item){
@@ -126,6 +128,13 @@ class EstoqueViewModel : ObservableObject {
                     return
                 }
             }
+        }
+        atualizarTimestamp()
+    }
+    
+    func atualizarTimestamp(){
+        if let attEstoque = dbEstoque.parent{
+            attEstoque.updateData(["data" : Timestamp(date: Date())])
         }
     }
     
