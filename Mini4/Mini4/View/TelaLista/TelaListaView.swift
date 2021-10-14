@@ -18,6 +18,7 @@ struct TelaListaView: View {
     @State var itemPesquisado = ""
     
     var body: some View {
+        
         VStack(alignment: .leading){
             
             HStack{
@@ -65,6 +66,7 @@ struct TelaListaView: View {
             SearchBarView(pesquisando: $itemPesquisado, placeholder: "Pesquisar")
                 .padding(.vertical, 20)
             
+            ScrollView{
             DialogCard(text: "Para realizar a doação, entre em contato com a ONG. Nossa plataforma apenas cataloga os itens demandados! :)", colorStyle: .yellow)
                 .padding(.vertical, 20)
             
@@ -73,7 +75,6 @@ struct TelaListaView: View {
             }.buttonStyle(PrimaryButton())
             .padding(.vertical, 20)
             
-            ScrollView{
                 if listaVertical{
                     if !listaCategorizada{
                         ForEach(viewModel.data.filter({$0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty})){ item in
