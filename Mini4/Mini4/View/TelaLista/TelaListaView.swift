@@ -63,6 +63,7 @@ struct TelaListaView: View {
                 .padding(.bottom, 10)
             
             SearchBarView(pesquisando: $itemPesquisado, placeholder: "Pesquisar")
+                .padding(.vertical, 20)
             
             DialogCard(text: "Para realizar a doação, entre em contato com a ONG. Nossa plataforma apenas cataloga os itens demandados! :)", colorStyle: .yellow)
                 .padding(.vertical, 20)
