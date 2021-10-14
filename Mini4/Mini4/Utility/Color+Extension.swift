@@ -23,5 +23,14 @@ extension Color {
     static let textSecondaryButton = Color("textSecondaryButton")
     static let borderSecondaryButton = Color("borderSecondaryButton")
     static let textDeleteButton = Color("textDeleteButton")
+    
     static let backgroundPrimarySearch = Color("backgroundPrimarySearch")
+    static let searchBarIcon = Color("searchBarIcon")
+    
+    static let greenBorderDialogCard = Color("greenBorderDialogCard")
+    static let greenBackgroundDialogCard = Color("greenBackgroundDialogCard")
+    static let yellowBorderDialogCard = Color("yellowBorderDialogCard")
+    static let yellowBackgroundDialogCard = Color("yellowBackgroundDialogCard")
+    static let redBorderDialogCard = Color("redBorderDialogCard")
+    static let redBackgroundDialogCard = Color("redBackgroundDialogCard")
 }

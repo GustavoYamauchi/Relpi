@@ -65,6 +65,7 @@
 		A30BA3B2270F6DE400D2222B /* SobreOngView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BA3B1270F6DE400D2222B /* SobreOngView.swift */; };
 		A30BA3B3270F6DE400D2222B /* SobreOngView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BA3B1270F6DE400D2222B /* SobreOngView.swift */; };
 		A3ADA90E270CC6BE0005A81E /* Button+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ADA90D270CC6BE0005A81E /* Button+Extension.swift */; };
+		A3AE97EF2717A91B00DEB318 /* DialogCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE97EE2717A91B00DEB318 /* DialogCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +108,7 @@
 		A30BA3AC270F5C9F00D2222B /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		A30BA3B1270F6DE400D2222B /* SobreOngView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SobreOngView.swift; sourceTree = "<group>"; };
 		A3ADA90D270CC6BE0005A81E /* Button+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Extension.swift"; sourceTree = "<group>"; };
+		A3AE97EE2717A91B00DEB318 /* DialogCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogCard.swift; sourceTree = "<group>"; };
 		AABDF4AB429958E127B17A6B /* Pods-Mini4.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mini4.release.xcconfig"; path = "Target Support Files/Pods-Mini4/Pods-Mini4.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -251,6 +253,7 @@
 				8B12DA552710BE5900A19E3B /* Category.swift */,
 				8B12DA582710BE9700A19E3B /* PickerCustom.swift */,
 				1C136A3D27175E0A00D09E9D /* SearchBarView.swift */,
+				A3AE97EE2717A91B00DEB318 /* DialogCard.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				1CC8109C27038A3100B9E721 /* Organizacao.swift in Sources */,
 				A30BA3B2270F6DE400D2222B /* SobreOngView.swift in Sources */,
 				1C136A27270CC6F400D09E9D /* EstoqueViewModel.swift in Sources */,
+				A3AE97EF2717A91B00DEB318 /* DialogCard.swift in Sources */,
 				8553EDCA2704E6A300DB408D /* DoadorHome.swift in Sources */,
 				1C136A21270B9AEC00D09E9D /* EnderecoViewModel.swift in Sources */,
 				1C136A2A270CCD3B00D09E9D /* EstoqueFormView.swift in Sources */,

@@ -46,6 +46,7 @@ struct SecondaryButton: ButtonStyle {
 struct TextButton: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
+            .frame(minWidth: 0, maxWidth: .infinity)
             .padding()
             .foregroundColor(Color.primaryButton)
             .padding(.horizontal, 30)
@@ -56,6 +57,7 @@ struct TextButton: ButtonStyle {
 struct DeleteButton: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
+            .frame(minWidth: 0, maxWidth: .infinity)
             .padding()
             .foregroundColor(Color.textDeleteButton)
             .padding(.horizontal, 30)

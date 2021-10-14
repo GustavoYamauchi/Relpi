@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             #if Mini4
-            DoadorHome().navigationTitle("Doador")
+            DoadorHome()//.navigationTitle("Doador")
             #else
             custView().navigationTitle("Home")
             #endif
