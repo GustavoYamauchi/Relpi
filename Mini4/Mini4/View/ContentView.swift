@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             #if Mini4
-            DoadorHome().navigationTitle("Doador")
+            DoadorHome()
             #else
             custView().navigationTitle("Home")
             #endif
@@ -31,12 +31,13 @@ struct ContentView_Previews: PreviewProvider {
 #else
 struct custView : View{
     
-    @State var msg = ""
+    @State var msg = "Teste"
     @ObservedObject var viewModel = OngViewModel()
     @State var novaOrg: Organizacao = Organizacao(id: NSUUID().uuidString, nome: "", cnpj: "", descricao: "", telefone: "", email: "", data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""), endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
     
     var body: some View{
         VStack{
+            Text(msg)
             List{
                 ForEach(0..<viewModel.data.count, id: \.self){ i in
                     HStack{
@@ -67,6 +68,7 @@ struct custView : View{
 //                    }
 //                }
             }
+            Category(title: "Fdc", array: ["A", "B", "C", "D"], selected: $msg)
         }
     }
 }
