@@ -13,10 +13,16 @@ struct TelaListaView: View {
     var data: Timestamp
     var gridItemLayout = [GridItem(.adaptive(minimum: 150, maximum: .infinity), spacing: 30), GridItem(.adaptive(minimum: 150, maximum: .infinity), spacing: 30)]
     
+    @State var listaVertical = true
     @State var itemPesquisado = ""
     
     var body: some View {
         VStack(alignment: .leading){
+            HStack{
+                Button("Mudar orientação da lista") {
+                    listaVertical.toggle()
+                }.buttonStyle(PrimaryButton())
+            }
             Text("Lista de necessidades")
                 .padding(.top)
                 .padding(.leading, 25)
@@ -50,14 +56,25 @@ struct TelaListaView: View {
             }.buttonStyle(PrimaryButton())
             
             ScrollView {
-                LazyVGrid(columns: gridItemLayout) {
+                if listaVertical{
                     ForEach(viewModel.data.filter({$0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty})){ item in
-                        ItemListaView(item: item)
-                            .frame(minWidth: 50, minHeight: 220)
-                            .padding(.bottom, 20)
-                    }
-                }.padding(.horizontal, 30)
-                .padding(.top, 10)
+                        ItemListaVerticalView(item: item)
+                            .frame(maxWidth: .infinity, minHeight: 55)
+                            .padding(.bottom, 10)
+                    }.padding(.horizontal, 30)
+                    .padding(.top, 10)
+                    
+                }else{
+                    LazyVGrid(columns: gridItemLayout) {
+                        ForEach(viewModel.data.filter({$0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty})){ item in
+                            ItemListaView(item: item)
+                                .frame(minWidth: 50, minHeight: 220)
+                                .padding(.bottom, 20)
+                        }
+                    }.padding(.horizontal, 30)
+                    .padding(.top, 10)
+                    
+                }
             }
         }
         .onAppear{
