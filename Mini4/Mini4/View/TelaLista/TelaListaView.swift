@@ -193,7 +193,7 @@ struct TelaListaView: View {
                                 .font(.system(size: 24, weight: .bold, design: .default))
                             
                             LazyVGrid(columns: gridItemLayout) {
-                                ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "medicamentos" })){ item in
+                                ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "medicamento" })){ item in
                                     ItemListaView(item: item)
                                         .frame(minWidth: 50, minHeight: 220)
                                         .padding(.bottom, 10)
@@ -224,7 +224,7 @@ struct TelaListaView: View {
                                 .font(.system(size: 24, weight: .bold, design: .default))
                             
                             LazyVGrid(columns: gridItemLayout) {
-                                ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "utensilios" })){ item in
+                                ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "utensilio" })){ item in
                                     ItemListaView(item: item)
                                         .frame(minWidth: 50, minHeight: 220)
                                         .padding(.bottom, 10)
