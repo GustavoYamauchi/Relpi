@@ -14,17 +14,44 @@ struct TelaListaView: View {
     var gridItemLayout = [GridItem(.adaptive(minimum: 150, maximum: .infinity), spacing: 30), GridItem(.adaptive(minimum: 150, maximum: .infinity), spacing: 30)]
     
     @State var listaVertical = true
+    @State var listaCategorizada = false
     @State var itemPesquisado = ""
     
     var body: some View {
         VStack(alignment: .leading){
+            
             HStack{
-                Button("Mudar orientação da lista") {
-                    listaVertical.toggle()
-                }.buttonStyle(PrimaryButton())
-            }
+                Image("filter")
+                    .renderingMode(.template)
+                    .foregroundColor(listaCategorizada ? .primaryButton : .backgroundPrimarySearch)
+                    .frame(width: 40, height: 40, alignment: .center)
+                    .onTapGesture {
+                        listaCategorizada.toggle()
+                    }
+                
+                Spacer()
+                Image("collection")
+                    .renderingMode(.template)
+                    .foregroundColor(!listaVertical ? .primaryButton : .backgroundPrimarySearch)
+                    .frame(width: 40, height: 40, alignment: .center)
+                    .padding(.trailing, 20)
+                    .onTapGesture {
+                        listaVertical = false
+                    }
+                
+                Image("table")
+                    .renderingMode(.template)
+                    .foregroundColor(listaVertical ? .primaryButton : .backgroundPrimarySearch)
+                    .frame(width: 40, height: 40, alignment: .center)
+                    .onTapGesture {
+                        listaVertical = true
+                    }
+                
+            }.padding(.horizontal, 30)
+            .padding(.vertical, 20)
+            
             Text("Lista de necessidades")
-                .padding(.top)
+                .padding(.top, 10)
                 .padding(.leading, 25)
                 .foregroundColor(Color.primaryButton)
                 .font(.system(size: 24, weight: .bold, design: .default))
@@ -36,24 +63,15 @@ struct TelaListaView: View {
                 .padding(.bottom, 10)
             
             SearchBarView(pesquisando: $itemPesquisado, placeholder: "Pesquisar")
+                .padding(.vertical, 20)
             
-            ZStack{
-                RoundedRectangle(cornerRadius: 15)
-                    .stroke(Color.quintenary, lineWidth: 2)
-                RoundedRectangle(cornerRadius: 15)
-                    .foregroundColor(Color.quintenary.opacity(0.2))
-                Text("Para realizar a doação, entre em contato com a ONG. Nossa plataforma apenas cataloga os itens demandados! :)")
-                    .padding(10)
-                    .font(.system(size: 14, weight: .regular, design: .default))
-                    .multilineTextAlignment(.leading)
-            }
-            .frame(idealWidth: .infinity, minHeight: 70, idealHeight: 80, maxHeight: 80, alignment: .center)
-            .padding(.horizontal, 30)
-            .padding(.bottom, 10)
+            DialogCard(text: "Para realizar a doação, entre em contato com a ONG. Nossa plataforma apenas cataloga os itens demandados! :)", colorStyle: .yellow)
+                .padding(.vertical, 20)
             
             Button("Adicionar itens na caixa de doação") {
                 print("Adicionar itens na caixa de doação")
             }.buttonStyle(PrimaryButton())
+            .padding(.vertical, 20)
             
             ScrollView {
                 if listaVertical{
@@ -69,7 +87,7 @@ struct TelaListaView: View {
                         ForEach(viewModel.data.filter({$0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty})){ item in
                             ItemListaView(item: item)
                                 .frame(minWidth: 50, minHeight: 220)
-                                .padding(.bottom, 20)
+                                .padding(.bottom, 10)
                         }
                     }.padding(.horizontal, 30)
                     .padding(.top, 10)

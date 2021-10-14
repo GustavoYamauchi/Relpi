@@ -50,6 +50,7 @@
 		1CC810B027064ABF00B9E721 /* BancoFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC810AE27064AB800B9E721 /* BancoFormView.swift */; };
 		1CD911DD270B7224007B2D05 /* BancoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD911DC270B7224007B2D05 /* BancoViewModel.swift */; };
 		1CD911DE270B778F007B2D05 /* BancoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD911DC270B7224007B2D05 /* BancoViewModel.swift */; };
+		1CFC96AA2718BF8D00B33A9E /* DialogCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE97EE2717A91B00DEB318 /* DialogCard.swift */; };
 		6DA4B72157C3CB7B233CA050 /* Pods_Mini4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5D085BED330F0CD78C4E26 /* Pods_Mini4.framework */; };
 		853BC76C2710D418007C589D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 853BC76B2710D418007C589D /* GoogleService-Info.plist */; };
 		853BC76E2710D483007C589D /* GoogleService-Info-admin.plist in Resources */ = {isa = PBXBuildFile; fileRef = 853BC76D2710D483007C589D /* GoogleService-Info-admin.plist */; };
@@ -504,6 +505,7 @@
 				A30BA3B3270F6DE400D2222B /* SobreOngView.swift in Sources */,
 				1C136A28270CC6F400D09E9D /* EstoqueViewModel.swift in Sources */,
 				8B12DA5A2710BE9700A19E3B /* PickerCustom.swift in Sources */,
+				1CFC96AA2718BF8D00B33A9E /* DialogCard.swift in Sources */,
 				1CC810B027064ABF00B9E721 /* BancoFormView.swift in Sources */,
 				85E49094270B9402009CD6FE /* InfoGeralFormView.swift in Sources */,
 				85E49098270B989A009CD6FE /* ContatoFormView.swift in Sources */,
