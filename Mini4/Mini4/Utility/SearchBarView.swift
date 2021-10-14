@@ -30,8 +30,8 @@ struct SearchBarView: View {
             }
             .background(RoundedRectangle(cornerRadius: 5).fill(Color.backgroundPrimarySearch))
             .cornerRadius(45)
-        }.padding(.horizontal, 25)
-        .padding(.bottom, 10)
+        }.padding(.horizontal, 30)
+//        .padding(.bottom, 10)
         
     }
 }
