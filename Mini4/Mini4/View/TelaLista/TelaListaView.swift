@@ -73,24 +73,183 @@ struct TelaListaView: View {
             }.buttonStyle(PrimaryButton())
             .padding(.vertical, 20)
             
-            ScrollView {
+            ScrollView{
                 if listaVertical{
-                    ForEach(viewModel.data.filter({$0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty})){ item in
-                        ItemListaVerticalView(item: item)
-                            .frame(maxWidth: .infinity, minHeight: 55)
-                            .padding(.bottom, 10)
-                    }.padding(.horizontal, 30)
-                    .padding(.top, 10)
+                    if !listaCategorizada{
+                        ForEach(viewModel.data.filter({$0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty})){ item in
+                            ItemListaVerticalView(item: item)
+                                .frame(maxWidth: .infinity, minHeight: 55)
+                                .padding(.bottom, 10)
+                            
+                        }.padding(.horizontal, 30)
+                        .padding(.top, 10)
+                    }else{
+                        
+                        VStack(alignment: .leading){
+                            Text("Produto de limpeza")
+                                .padding(.top, 10)
+                                .padding(.leading, 25)
+                                .foregroundColor(Color.primaryButton)
+                                .font(.system(size: 24, weight: .bold, design: .default))
+                            
+                            ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "limpeza" })){ item in
+                                ItemListaVerticalView(item: item)
+                                    .frame(maxWidth: .infinity, minHeight: 55)
+                                    .padding(.bottom, 10)
+                                
+                            }.padding(.horizontal, 30)
+                            .padding(.top, 10)
+                            
+                            Text("Medicamentos")
+                                .padding(.top, 10)
+                                .padding(.leading, 25)
+                                .foregroundColor(Color.primaryButton)
+                                .font(.system(size: 24, weight: .bold, design: .default))
+                            
+                            ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "medicamento" })){ item in
+                                ItemListaVerticalView(item: item)
+                                    .frame(maxWidth: .infinity, minHeight: 55)
+                                    .padding(.bottom, 10)
+                                
+                            }.padding(.horizontal, 30)
+                            .padding(.top, 10)
+                            
+                            Text("Higiene pessoal")
+                                .padding(.top, 10)
+                                .padding(.leading, 25)
+                                .foregroundColor(Color.primaryButton)
+                                .font(.system(size: 24, weight: .bold, design: .default))
+                            
+                            ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "higiene" })){ item in
+                                ItemListaVerticalView(item: item)
+                                    .frame(maxWidth: .infinity, minHeight: 55)
+                                    .padding(.bottom, 10)
+                                
+                            }.padding(.horizontal, 30)
+                            .padding(.top, 10)
+                            
+                            Text("Utensílios de cozinha")
+                                .padding(.top, 10)
+                                .padding(.leading, 25)
+                                .foregroundColor(Color.primaryButton)
+                                .font(.system(size: 24, weight: .bold, design: .default))
+                            
+                            ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "utensilio" })){ item in
+                                ItemListaVerticalView(item: item)
+                                    .frame(maxWidth: .infinity, minHeight: 55)
+                                    .padding(.bottom, 10)
+                                
+                            }.padding(.horizontal, 30)
+                            .padding(.top, 10)
+                            
+                            Text("Alimento")
+                                .padding(.top, 10)
+                                .padding(.leading, 25)
+                                .foregroundColor(Color.primaryButton)
+                                .font(.system(size: 24, weight: .bold, design: .default))
+                            
+                            ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "alimento" })){ item in
+                                ItemListaVerticalView(item: item)
+                                    .frame(maxWidth: .infinity, minHeight: 55)
+                                    .padding(.bottom, 10)
+                                
+                            }.padding(.horizontal, 30)
+                            .padding(.top, 10)
+                        }
+                        
+                    }
                     
                 }else{
-                    LazyVGrid(columns: gridItemLayout) {
-                        ForEach(viewModel.data.filter({$0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty})){ item in
-                            ItemListaView(item: item)
-                                .frame(minWidth: 50, minHeight: 220)
-                                .padding(.bottom, 10)
+                    if !listaCategorizada{
+                        LazyVGrid(columns: gridItemLayout) {
+                            ForEach(viewModel.data.filter({$0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty})){ item in
+                                ItemListaView(item: item)
+                                    .frame(minWidth: 50, minHeight: 220)
+                                    .padding(.bottom, 10)
+                            }
+                        }.padding(.horizontal, 30)
+                        .padding(.top, 10)
+                    }else{
+                        VStack(alignment: .leading){
+                            Text("Produto de limpeza")
+                                .padding(.top, 10)
+                                .padding(.leading, 25)
+                                .foregroundColor(Color.primaryButton)
+                                .font(.system(size: 24, weight: .bold, design: .default))
+                            
+                            LazyVGrid(columns: gridItemLayout) {
+                                ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "limpeza" })){ item in
+                                    ItemListaView(item: item)
+                                        .frame(minWidth: 50, minHeight: 220)
+                                        .padding(.bottom, 10)
+                                }
+                            }.padding(.horizontal, 30)
+                            .padding(.top, 10)
+                            
+                            Text("Medicamentos")
+                                .padding(.top, 10)
+                                .padding(.leading, 25)
+                                .foregroundColor(Color.primaryButton)
+                                .font(.system(size: 24, weight: .bold, design: .default))
+                            
+                            LazyVGrid(columns: gridItemLayout) {
+                                ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "medicamentos" })){ item in
+                                    ItemListaView(item: item)
+                                        .frame(minWidth: 50, minHeight: 220)
+                                        .padding(.bottom, 10)
+                                }
+                            }.padding(.horizontal, 30)
+                            .padding(.top, 10)
+                            
+                            
+                            Text("Higiene pessoal")
+                                .padding(.top, 10)
+                                .padding(.leading, 25)
+                                .foregroundColor(Color.primaryButton)
+                                .font(.system(size: 24, weight: .bold, design: .default))
+                            
+                            LazyVGrid(columns: gridItemLayout) {
+                                ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "higiene" })){ item in
+                                    ItemListaView(item: item)
+                                        .frame(minWidth: 50, minHeight: 220)
+                                        .padding(.bottom, 10)
+                                }
+                            }.padding(.horizontal, 30)
+                            .padding(.top, 10)
+                            
+                            Text("Utensílios de cozinha")
+                                .padding(.top, 10)
+                                .padding(.leading, 25)
+                                .foregroundColor(Color.primaryButton)
+                                .font(.system(size: 24, weight: .bold, design: .default))
+                            
+                            LazyVGrid(columns: gridItemLayout) {
+                                ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "utensilios" })){ item in
+                                    ItemListaView(item: item)
+                                        .frame(minWidth: 50, minHeight: 220)
+                                        .padding(.bottom, 10)
+                                }
+                            }.padding(.horizontal, 30)
+                            .padding(.top, 10)
+                            
+                            Text("Alimento")
+                                .padding(.top, 10)
+                                .padding(.leading, 25)
+                                .foregroundColor(Color.primaryButton)
+                                .font(.system(size: 24, weight: .bold, design: .default))
+                            
+                            LazyVGrid(columns: gridItemLayout) {
+                                ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "alimento" })){ item in
+                                    ItemListaView(item: item)
+                                        .frame(minWidth: 50, minHeight: 220)
+                                        .padding(.bottom, 10)
+                                }
+                            }.padding(.horizontal, 30)
+                            .padding(.top, 10)
+                            
                         }
-                    }.padding(.horizontal, 30)
-                    .padding(.top, 10)
+                        
+                    }
                     
                 }
             }
