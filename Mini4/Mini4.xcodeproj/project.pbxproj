@@ -22,6 +22,8 @@
 		1C136A3C270E402B00D09E9D /* OngView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8553EDCB2704F17900DB408D /* OngView.swift */; };
 		1C136A3E27175E0A00D09E9D /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A3D27175E0A00D09E9D /* SearchBarView.swift */; };
 		1C136A3F27175E0A00D09E9D /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A3D27175E0A00D09E9D /* SearchBarView.swift */; };
+		1C136A412718971800D09E9D /* ItemListaVerticalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A402718971800D09E9D /* ItemListaVerticalView.swift */; };
+		1C136A422718971800D09E9D /* ItemListaVerticalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A402718971800D09E9D /* ItemListaVerticalView.swift */; };
 		1CC810472702336200B9E721 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC810462702336200B9E721 /* AppDelegate.swift */; };
 		1CC810492702336200B9E721 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC810482702336200B9E721 /* SceneDelegate.swift */; };
 		1CC8104B2702336200B9E721 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8104A2702336200B9E721 /* ContentView.swift */; };
@@ -68,6 +70,7 @@
 		A30BA3B3270F6DE400D2222B /* SobreOngView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BA3B1270F6DE400D2222B /* SobreOngView.swift */; };
 		A3ADA90E270CC6BE0005A81E /* Button+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ADA90D270CC6BE0005A81E /* Button+Extension.swift */; };
 		A3AE97EF2717A91B00DEB318 /* DialogCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE97EE2717A91B00DEB318 /* DialogCard.swift */; };
+		BEF9BEAF89CE6E61ADDDD862 /* Pods_Mini4Admin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F05C14CBE999F96C1C742F /* Pods_Mini4Admin.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +81,7 @@
 		1C136A36270E391C00D09E9D /* TelaListaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaListaView.swift; sourceTree = "<group>"; };
 		1C136A39270E399E00D09E9D /* ItemListaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListaView.swift; sourceTree = "<group>"; };
 		1C136A3D27175E0A00D09E9D /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		1C136A402718971800D09E9D /* ItemListaVerticalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListaVerticalView.swift; sourceTree = "<group>"; };
 		1CC810432702336200B9E721 /* Mini4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mini4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CC810462702336200B9E721 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CC810482702336200B9E721 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,7 +101,9 @@
 		1CC810A92703B0B000B9E721 /* OngFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngFormView.swift; sourceTree = "<group>"; };
 		1CC810AE27064AB800B9E721 /* BancoFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BancoFormView.swift; sourceTree = "<group>"; };
 		1CD911DC270B7224007B2D05 /* BancoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BancoViewModel.swift; sourceTree = "<group>"; };
+		1E9A3916E7CB570A2B9FBA4F /* Pods-Mini4Admin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mini4Admin.debug.xcconfig"; path = "Target Support Files/Pods-Mini4Admin/Pods-Mini4Admin.debug.xcconfig"; sourceTree = "<group>"; };
 		3F5D085BED330F0CD78C4E26 /* Pods_Mini4.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mini4.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5743B9CDD5620E7CBB873A75 /* Pods-Mini4Admin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mini4Admin.release.xcconfig"; path = "Target Support Files/Pods-Mini4Admin/Pods-Mini4Admin.release.xcconfig"; sourceTree = "<group>"; };
 		83A6578411934C5392EA1241 /* Pods-Mini4.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mini4.debug.xcconfig"; path = "Target Support Files/Pods-Mini4/Pods-Mini4.debug.xcconfig"; sourceTree = "<group>"; };
 		853BC76B2710D418007C589D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		853BC76D2710D483007C589D /* GoogleService-Info-admin.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-admin.plist"; sourceTree = "<group>"; };
@@ -113,6 +119,7 @@
 		A3ADA90D270CC6BE0005A81E /* Button+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Extension.swift"; sourceTree = "<group>"; };
 		A3AE97EE2717A91B00DEB318 /* DialogCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogCard.swift; sourceTree = "<group>"; };
 		AABDF4AB429958E127B17A6B /* Pods-Mini4.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mini4.release.xcconfig"; path = "Target Support Files/Pods-Mini4/Pods-Mini4.release.xcconfig"; sourceTree = "<group>"; };
+		B0F05C14CBE999F96C1C742F /* Pods_Mini4Admin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mini4Admin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEF9BEAF89CE6E61ADDDD862 /* Pods_Mini4Admin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +148,7 @@
 			children = (
 				1C136A36270E391C00D09E9D /* TelaListaView.swift */,
 				1C136A39270E399E00D09E9D /* ItemListaView.swift */,
+				1C136A402718971800D09E9D /* ItemListaVerticalView.swift */,
 			);
 			path = TelaLista;
 			sourceTree = "<group>";
@@ -245,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				3F5D085BED330F0CD78C4E26 /* Pods_Mini4.framework */,
+				B0F05C14CBE999F96C1C742F /* Pods_Mini4Admin.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -267,6 +277,8 @@
 			children = (
 				83A6578411934C5392EA1241 /* Pods-Mini4.debug.xcconfig */,
 				AABDF4AB429958E127B17A6B /* Pods-Mini4.release.xcconfig */,
+				1E9A3916E7CB570A2B9FBA4F /* Pods-Mini4Admin.debug.xcconfig */,
+				5743B9CDD5620E7CBB873A75 /* Pods-Mini4Admin.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -297,9 +309,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1CC81083270237F400B9E721 /* Build configuration list for PBXNativeTarget "Mini4Admin" */;
 			buildPhases = (
+				365B72B7A8395A92E0CC1A1C /* [CP] Check Pods Manifest.lock */,
 				1CC81077270237F400B9E721 /* Sources */,
 				1CC8107B270237F400B9E721 /* Frameworks */,
 				1CC8107D270237F400B9E721 /* Resources */,
+				AF9D3CC96220B5333511CA88 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -386,6 +400,45 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mini4/Pods-Mini4-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		365B72B7A8395A92E0CC1A1C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Mini4Admin-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF9D3CC96220B5333511CA88 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mini4Admin/Pods-Mini4Admin-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mini4Admin/Pods-Mini4Admin-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mini4Admin/Pods-Mini4Admin-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BA78B4E970A4E1DDED13C78A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -421,6 +474,7 @@
 				1CC810492702336200B9E721 /* SceneDelegate.swift in Sources */,
 				1CC8109C27038A3100B9E721 /* Organizacao.swift in Sources */,
 				A30BA3B2270F6DE400D2222B /* SobreOngView.swift in Sources */,
+				1C136A412718971800D09E9D /* ItemListaVerticalView.swift in Sources */,
 				1C136A27270CC6F400D09E9D /* EstoqueViewModel.swift in Sources */,
 				A3AE97EF2717A91B00DEB318 /* DialogCard.swift in Sources */,
 				8553EDCA2704E6A300DB408D /* DoadorHome.swift in Sources */,
@@ -448,6 +502,7 @@
 				1CC81078270237F400B9E721 /* AppDelegate.swift in Sources */,
 				85AC8807270F66E400BFDF96 /* ImagePickerView.swift in Sources */,
 				1CC81079270237F400B9E721 /* SceneDelegate.swift in Sources */,
+				1C136A422718971800D09E9D /* ItemListaVerticalView.swift in Sources */,
 				1C136A2B270CCD3B00D09E9D /* EstoqueFormView.swift in Sources */,
 				1C136A25270BA41500D09E9D /* EnderecoViewModel.swift in Sources */,
 				1C136A3F27175E0A00D09E9D /* SearchBarView.swift in Sources */,
@@ -659,6 +714,7 @@
 		};
 		1CC81084270237F400B9E721 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E9A3916E7CB570A2B9FBA4F /* Pods-Mini4Admin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -684,6 +740,7 @@
 		};
 		1CC81085270237F400B9E721 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5743B9CDD5620E7CBB873A75 /* Pods-Mini4Admin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
