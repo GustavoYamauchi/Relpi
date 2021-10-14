@@ -45,6 +45,9 @@ struct TelaListaView: View {
             .padding(.horizontal, 30)
             .padding(.bottom, 10)
             
+            Button("Adicionar itens na caixa de doação") {
+                print("Adicionar itens na caixa de doação")
+            }.buttonStyle(PrimaryButton())
             
             ScrollView {
                 LazyVGrid(columns: gridItemLayout) {
@@ -54,6 +57,7 @@ struct TelaListaView: View {
                             .padding(.bottom, 20)
                     }
                 }.padding(.horizontal, 30)
+                .padding(.top, 10)
             }
         }
         .onAppear{
