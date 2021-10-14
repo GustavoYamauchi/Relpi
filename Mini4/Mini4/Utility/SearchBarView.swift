@@ -19,7 +19,8 @@ struct SearchBarView: View {
                 if pesquisando.isEmpty{
                     Image(systemName: "magnifyingglass")
                         .padding(.trailing, 20)
-                }else{
+                        .accentColor(.searchBarIcon)
+                } else {
                     Image(systemName: "xmark")
                         .padding(.trailing, 20)
                         .onTapGesture {
