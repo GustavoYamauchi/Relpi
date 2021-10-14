@@ -13,6 +13,8 @@ struct TelaListaView: View {
     var data: Timestamp
     var gridItemLayout = [GridItem(.adaptive(minimum: 150, maximum: .infinity), spacing: 30), GridItem(.adaptive(minimum: 150, maximum: .infinity), spacing: 30)]
     
+    @State var itemPesquisado = ""
+    
     var body: some View {
         VStack(alignment: .leading){
             Text("Lista de necessidades")
@@ -25,10 +27,28 @@ struct TelaListaView: View {
                 .padding(.leading, 25)
                 .foregroundColor(Color.gray)
                 .font(.system(size: 14, weight: .regular, design: .default))
+                .padding(.bottom, 10)
+            
+            SearchBarView(pesquisando: $itemPesquisado, placeholder: "Pesquisar")
+            
+            ZStack{
+                RoundedRectangle(cornerRadius: 15)
+                    .stroke(Color.quintenary, lineWidth: 2)
+                RoundedRectangle(cornerRadius: 15)
+                    .foregroundColor(Color.quintenary.opacity(0.2))
+                Text("Para realizar a doação, entre em contato com a ONG. Nossa plataforma apenas cataloga os itens demandados! :)")
+                    .padding(10)
+                    .font(.system(size: 14, weight: .regular, design: .default))
+                    .multilineTextAlignment(.leading)
+            }
+            .frame(idealWidth: .infinity, minHeight: 70, idealHeight: 80, maxHeight: 80, alignment: .center)
+            .padding(.horizontal, 30)
+            .padding(.bottom, 10)
+            
             
             ScrollView {
                 LazyVGrid(columns: gridItemLayout) {
-                    ForEach(viewModel.data){ item in
+                    ForEach(viewModel.data.filter({$0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty})){ item in
                         ItemListaView(item: item)
                             .frame(minWidth: 50, minHeight: 220)
                             .padding(.bottom, 20)

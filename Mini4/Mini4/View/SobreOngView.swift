@@ -15,7 +15,6 @@ struct SobreOngView: View {
     @ObservedObject var enderecoViewModel: EnderecoViewModel
     @ObservedObject var bancoViewModel: BancoViewModel
     
-    
     init(ong: Organizacao) {
         self.ong = ong
         self.enderecoViewModel = EnderecoViewModel(ong.id!)
@@ -38,7 +37,7 @@ struct SobreOngView: View {
                     Text("\(ong.endereco.cidade)")
                 }
                 
-                TextField("Search", text: $search)
+                SearchBarView(pesquisando: $search, placeholder: "Search")
                 
                 // Card dos itens
                 HStack(spacing: 30) {
@@ -54,7 +53,7 @@ struct SobreOngView: View {
                 // Listar todos os itens da ONG
                 Button("Lista completa") {
                     print("Lista completa")
-                }.buttonStyle(PrimaryButton())
+                }.buttonStyle(.primaryButton)
                 
                 // Infos sobre a ONG
                 VStack(alignment: .leading) {
@@ -71,9 +70,9 @@ struct SobreOngView: View {
                 Text("\(ong.descricao)")
                 
                 // Contribuir com a ONG
-                Button("Lista completa") {
-                    print("Lista completa")
-                }.buttonStyle(PrimaryButton())
+                Button("Contribua") {
+                    print("Contribua")
+                }.buttonStyle(.primaryButton)
                 
             }
             
