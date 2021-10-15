@@ -117,16 +117,17 @@ struct OngFormView: View {
         // se já existir ong, atualiza
         if isEditing {
             ong = ongRascunho
-            if let selectedImage = selectedImage {
-                ong.foto = ongViewModel.imageToString(image: selectedImage)
-            }
-            ongViewModel.updateOng(ong: ong)
+//            if let selectedImage = selectedImage {
+////                ong.foto = ongViewModel.imageToString(image: selectedImage)
+//                ongViewModel.uploadImage(org: ong, image: selectedImage)
+//            }
+            ongViewModel.updateOng(ong: ong, image: selectedImage)
             enderecoViewModel.updateEndereco(endereco: ong.endereco)
             bancoViewModel.updateBanco(banco: ong.banco)
         } else {
             // adiciona nova
             ong = ongRascunho
-            ongViewModel.addOrgData(org: ong)
+            ongViewModel.addOrgData(org: ong, image: selectedImage)
             enderecoViewModel.addEnderecoData(endereco: ong.endereco)
             bancoViewModel.addBancoData(banco: ong.banco)
             self.ongRascunho = getNewOrg()

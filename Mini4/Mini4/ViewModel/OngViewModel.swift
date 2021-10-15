@@ -8,6 +8,7 @@
 import SwiftUI
 import Firebase
 import FirebaseFirestore
+import FirebaseStorage
 
 
 class OngViewModel : ObservableObject {
@@ -50,6 +51,9 @@ class OngViewModel : ObservableObject {
                             self.data[j].data = self.castTimestamp(i.document.get("data"))
                             self.data[j].descricao = self.castString(i.document.get("descricao"))
                             self.data[j].telefone = self.castString(i.document.get("telefone"))
+                            if self.data[j].foto != nil {
+                                self.data[j].foto = self.castString(i.document.get("foto"))
+                            }
                         }
                     }
                 }
@@ -77,27 +81,43 @@ class OngViewModel : ObservableObject {
         return Timestamp(date: Date())
     }
     
-    func addOrgData(org: Organizacao){
+    func addOrgData(org: Organizacao, image: UIImage?){
         let ong1 = dbOng.document()
         let banco = dbOng.document(ong1.documentID).collection("banco").document("principal")
         let endereco = dbOng.document(ong1.documentID).collection("endereco").document("principal")
         let estoque = dbOng.document(ong1.documentID).collection("estoque").document("item0")
+                
+        var ongData = ["id": ong1.documentID,
+                       "cnpj": org.cnpj,
+                       "nome": org.nome,
+                       "descricao": org.descricao,
+                       "telefone": org.telefone,
+                       "email": org.email,
+                       "data": Timestamp(date: Date())]
+            as [String : Any]
         
-        ong1.setData([
-            "id" : ong1.documentID,
-            "nome": org.nome,
-            "cnpj": org.cnpj,
-            "descricao": org.descricao,
-            "telefone": org.telefone,
-            "data": Timestamp(date: Date()),
-            "email": org.email
-        ]) { (err) in
+        
+        if let image = image {
+            
+            ImageStorageService.shared.uploadImage(orgName: org.nome, image: image) { urlString, err in
+                ongData["foto"] = urlString
+                
+                ong1.setData(ongData) { (err) in
+                    if let erro = err?.localizedDescription {
+                        print(erro)
+                        return
+                    }
+                }
+            }
+        }
+
+        ong1.setData(ongData) { (err) in
             if let erro = err?.localizedDescription {
                 print(erro)
                 return
             }
         }
-        
+
         banco.setData([
             "id": banco.documentID,
             "banco": org.banco.banco,
@@ -140,21 +160,39 @@ class OngViewModel : ObservableObject {
         }
     }
     
-    func updateOng(ong: Organizacao) {
-        dbOng.document(ong.id!).updateData(
-            ["cnpj": ong.cnpj,
-             "nome": ong.nome,
-             "descricao": ong.descricao,
-             "telefone": ong.telefone,
-             "email": ong.email,
-             "data": Timestamp(date: Date()),
-            ]
-        ){ (err) in
+    func updateOng(ong: Organizacao, image: UIImage?) {
+        var ongData = ["cnpj": ong.cnpj,
+                       "nome": ong.nome,
+                       "descricao": ong.descricao,
+                       "telefone": ong.telefone,
+                       "email": ong.email,
+                       "data": Timestamp(date: Date())]
+            as [String : Any]
+        
+        
+        if let image = image {
+            
+            ImageStorageService.shared.uploadImage(orgName: ong.nome, image: image) { urlString, error in
+                
+                ongData["foto"] = urlString
+                
+                self.dbOng.document(ong.id!).updateData(ongData) { (err) in
+                    if err != nil{
+                        print((err?.localizedDescription)!)
+                        return
+                    }
+                    print("success com foto")
+                }
+                
+            }
+        }
+        
+        self.dbOng.document(ong.id!).updateData(ongData){ (err) in
             if err != nil{
                 print((err?.localizedDescription)!)
                 return
             }
-            print("success")
+            print("success sem foto")
         }
     }
     
@@ -168,26 +206,6 @@ class OngViewModel : ObservableObject {
             }
         }
     }
-    
-    func imageToString(image: UIImage) -> String {
-        if let imageData = image.pngData() {
-            let stringData = imageData.base64EncodedString()
-            return stringData
-        }
-        return ""
-    }
-    
-    func stringToImage(ong: Organizacao) -> UIImage? {
-        if ong.foto != "" && ong.foto != Optional("") && ong.foto != nil {
-            let decodedData = Data(base64Encoded: ong.foto!, options: [])
-            if let data = decodedData {
-                let decodedImage = UIImage(data: data)
-                return decodedImage
-            }
-        }
-        
-        return UIImage(named: "ImagePlaceholder")
-    }
 
     func mockOngMariaHelena() -> Organizacao {
         let ong = Organizacao(nome: "Casa Maria Helena Paulina",
@@ -195,6 +213,7 @@ class OngViewModel : ObservableObject {
                               descricao: "A Casa Maria Helena Paulina é uma organização não governamental paulista fundada em 1992 que acolhe jovens com câncer - ou outras enfermidades - e seus acompanhantes oriundos de diversos estados brasileiros que encaminham-se para São Paulo em busca de infraestrutura de tratamento adequado às suas necessidades. A Casa fornece moradia, alimentos, assistência psicológica, produtos de higiene e as mais variadas atividades para que a estadia dos assistidos seja a melhor possível apesar de todas as dificuldades encontradas ao longo do tratamento.",
                               telefone: "(11) 3744-7492",
                               email: "contato@casamariahelenapaulina.org.br",
+                              foto: "",
                               data: Timestamp(date: Date()),
                               banco: Banco(banco: "Banco Itaú",
                                            agencia: "0062",
