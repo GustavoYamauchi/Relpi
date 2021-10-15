@@ -138,6 +138,19 @@ class EstoqueViewModel : ObservableObject {
         }
     }
     
+    func temItemNaCategoria(categoria: Categorias, itemPesquisado: String) -> Bool{
+        let filtro = data.filter({ ($0.nome.contains("\(itemPesquisado)") || itemPesquisado.isEmpty) && $0.categoria == categoria.rawValue})
+        return filtro.count > 0
+    }
+    
+}
+
+enum Categorias : String{
+    case higiene = "higiene"
+    case alimento = "alimento"
+    case limpeza = "limpeza"
+    case medicamento = "medicamento"
+    case utensilio = "utensilio"
 }
 
 

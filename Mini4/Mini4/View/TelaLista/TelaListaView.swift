@@ -87,11 +87,7 @@ struct TelaListaView: View {
                     }else{
                         
                         VStack(alignment: .leading){
-                            Text("Produto de limpeza")
-                                .padding(.top, 10)
-                                .padding(.leading, 25)
-                                .foregroundColor(Color.primaryButton)
-                                .font(.system(size: 24, weight: .bold, design: .default))
+                            TituloListaView(temItem: viewModel.temItemNaCategoria(categoria: .limpeza, itemPesquisado: itemPesquisado), titulo: "Produto de limpeza")
                             
                             ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "limpeza" })){ item in
                                 ItemListaVerticalView(item: item)
@@ -101,11 +97,7 @@ struct TelaListaView: View {
                             }.padding(.horizontal, 30)
                             .padding(.top, 10)
                             
-                            Text("Medicamentos")
-                                .padding(.top, 10)
-                                .padding(.leading, 25)
-                                .foregroundColor(Color.primaryButton)
-                                .font(.system(size: 24, weight: .bold, design: .default))
+                            TituloListaView(temItem: viewModel.temItemNaCategoria(categoria: .medicamento, itemPesquisado: itemPesquisado), titulo: "Medicamentos")
                             
                             ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "medicamento" })){ item in
                                 ItemListaVerticalView(item: item)
@@ -115,11 +107,7 @@ struct TelaListaView: View {
                             }.padding(.horizontal, 30)
                             .padding(.top, 10)
                             
-                            Text("Higiene pessoal")
-                                .padding(.top, 10)
-                                .padding(.leading, 25)
-                                .foregroundColor(Color.primaryButton)
-                                .font(.system(size: 24, weight: .bold, design: .default))
+                            TituloListaView(temItem: viewModel.temItemNaCategoria(categoria: .higiene, itemPesquisado: itemPesquisado), titulo: "Higiene pessoal")
                             
                             ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "higiene" })){ item in
                                 ItemListaVerticalView(item: item)
@@ -129,11 +117,7 @@ struct TelaListaView: View {
                             }.padding(.horizontal, 30)
                             .padding(.top, 10)
                             
-                            Text("Utensílios de cozinha")
-                                .padding(.top, 10)
-                                .padding(.leading, 25)
-                                .foregroundColor(Color.primaryButton)
-                                .font(.system(size: 24, weight: .bold, design: .default))
+                            TituloListaView(temItem: viewModel.temItemNaCategoria(categoria: .utensilio, itemPesquisado: itemPesquisado), titulo: "Utensílios de cozinha")
                             
                             ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "utensilio" })){ item in
                                 ItemListaVerticalView(item: item)
@@ -143,11 +127,7 @@ struct TelaListaView: View {
                             }.padding(.horizontal, 30)
                             .padding(.top, 10)
                             
-                            Text("Alimento")
-                                .padding(.top, 10)
-                                .padding(.leading, 25)
-                                .foregroundColor(Color.primaryButton)
-                                .font(.system(size: 24, weight: .bold, design: .default))
+                            TituloListaView(temItem: viewModel.temItemNaCategoria(categoria: .alimento, itemPesquisado: itemPesquisado), titulo: "Alimento")
                             
                             ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "alimento" })){ item in
                                 ItemListaVerticalView(item: item)
@@ -172,11 +152,7 @@ struct TelaListaView: View {
                         .padding(.top, 10)
                     }else{
                         VStack(alignment: .leading){
-                            Text("Produto de limpeza")
-                                .padding(.top, 10)
-                                .padding(.leading, 25)
-                                .foregroundColor(Color.primaryButton)
-                                .font(.system(size: 24, weight: .bold, design: .default))
+                            TituloListaView(temItem: viewModel.temItemNaCategoria(categoria: .limpeza, itemPesquisado: itemPesquisado), titulo: "Produto de limpeza")
                             
                             LazyVGrid(columns: gridItemLayout) {
                                 ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "limpeza" })){ item in
@@ -187,11 +163,7 @@ struct TelaListaView: View {
                             }.padding(.horizontal, 30)
                             .padding(.top, 10)
                             
-                            Text("Medicamentos")
-                                .padding(.top, 10)
-                                .padding(.leading, 25)
-                                .foregroundColor(Color.primaryButton)
-                                .font(.system(size: 24, weight: .bold, design: .default))
+                            TituloListaView(temItem: viewModel.temItemNaCategoria(categoria: .medicamento, itemPesquisado: itemPesquisado), titulo: "Medicamentos")
                             
                             LazyVGrid(columns: gridItemLayout) {
                                 ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "medicamento" })){ item in
@@ -203,11 +175,7 @@ struct TelaListaView: View {
                             .padding(.top, 10)
                             
                             
-                            Text("Higiene pessoal")
-                                .padding(.top, 10)
-                                .padding(.leading, 25)
-                                .foregroundColor(Color.primaryButton)
-                                .font(.system(size: 24, weight: .bold, design: .default))
+                            TituloListaView(temItem: viewModel.temItemNaCategoria(categoria: .higiene, itemPesquisado: itemPesquisado), titulo: "Higiene pessoal")
                             
                             LazyVGrid(columns: gridItemLayout) {
                                 ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "higiene" })){ item in
@@ -218,11 +186,7 @@ struct TelaListaView: View {
                             }.padding(.horizontal, 30)
                             .padding(.top, 10)
                             
-                            Text("Utensílios de cozinha")
-                                .padding(.top, 10)
-                                .padding(.leading, 25)
-                                .foregroundColor(Color.primaryButton)
-                                .font(.system(size: 24, weight: .bold, design: .default))
+                            TituloListaView(temItem: viewModel.temItemNaCategoria(categoria: .utensilio, itemPesquisado: itemPesquisado), titulo: "Utensílios de cozinha")
                             
                             LazyVGrid(columns: gridItemLayout) {
                                 ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "utensilio" })){ item in
@@ -233,11 +197,7 @@ struct TelaListaView: View {
                             }.padding(.horizontal, 30)
                             .padding(.top, 10)
                             
-                            Text("Alimento")
-                                .padding(.top, 10)
-                                .padding(.leading, 25)
-                                .foregroundColor(Color.primaryButton)
-                                .font(.system(size: 24, weight: .bold, design: .default))
+                            TituloListaView(temItem: viewModel.temItemNaCategoria(categoria: .alimento, itemPesquisado: itemPesquisado), titulo: "Alimento")
                             
                             LazyVGrid(columns: gridItemLayout) {
                                 ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "alimento" })){ item in
