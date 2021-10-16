@@ -71,6 +71,8 @@
 		A30BA3B3270F6DE400D2222B /* SobreOngView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BA3B1270F6DE400D2222B /* SobreOngView.swift */; };
 		A3ADA90E270CC6BE0005A81E /* Button+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ADA90D270CC6BE0005A81E /* Button+Extension.swift */; };
 		A3AE97EF2717A91B00DEB318 /* DialogCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE97EE2717A91B00DEB318 /* DialogCard.swift */; };
+		A3D22A62271B4CD0003D69FF /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D22A61271B4CD0003D69FF /* CustomTextField.swift */; };
+		A3D22A63271B4CD0003D69FF /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D22A61271B4CD0003D69FF /* CustomTextField.swift */; };
 		BEF9BEAF89CE6E61ADDDD862 /* Pods_Mini4Admin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F05C14CBE999F96C1C742F /* Pods_Mini4Admin.framework */; };
 /* End PBXBuildFile section */
 
@@ -119,6 +121,7 @@
 		A30BA3B1270F6DE400D2222B /* SobreOngView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SobreOngView.swift; sourceTree = "<group>"; };
 		A3ADA90D270CC6BE0005A81E /* Button+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Extension.swift"; sourceTree = "<group>"; };
 		A3AE97EE2717A91B00DEB318 /* DialogCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogCard.swift; sourceTree = "<group>"; };
+		A3D22A61271B4CD0003D69FF /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		AABDF4AB429958E127B17A6B /* Pods-Mini4.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mini4.release.xcconfig"; path = "Target Support Files/Pods-Mini4/Pods-Mini4.release.xcconfig"; sourceTree = "<group>"; };
 		B0F05C14CBE999F96C1C742F /* Pods_Mini4Admin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mini4Admin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -269,6 +272,7 @@
 				1C136A3D27175E0A00D09E9D /* SearchBarView.swift */,
 				A3AE97EE2717A91B00DEB318 /* DialogCard.swift */,
 				1CFC96AB2719E47900B33A9E /* TituloListaView.swift */,
+				A3D22A61271B4CD0003D69FF /* CustomTextField.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -475,6 +479,7 @@
 				1CC810492702336200B9E721 /* SceneDelegate.swift in Sources */,
 				1CC8109C27038A3100B9E721 /* Organizacao.swift in Sources */,
 				A30BA3B2270F6DE400D2222B /* SobreOngView.swift in Sources */,
+				A3D22A62271B4CD0003D69FF /* CustomTextField.swift in Sources */,
 				1C136A412718971800D09E9D /* ItemListaVerticalView.swift in Sources */,
 				1CFC96AC2719E47900B33A9E /* TituloListaView.swift in Sources */,
 				1C136A27270CC6F400D09E9D /* EstoqueViewModel.swift in Sources */,
@@ -519,6 +524,7 @@
 				1CFC96AD2719E47900B33A9E /* TituloListaView.swift in Sources */,
 				1CC8109D27038A3100B9E721 /* Organizacao.swift in Sources */,
 				1CC8109927038A3100B9E721 /* Endereco.swift in Sources */,
+				A3D22A63271B4CD0003D69FF /* CustomTextField.swift in Sources */,
 				1C136A24270BA39E00D09E9D /* EnderecoFormView.swift in Sources */,
 				1C136A3C270E402B00D09E9D /* OngView.swift in Sources */,
 				1CC8109F27038A3100B9E721 /* Item.swift in Sources */,
