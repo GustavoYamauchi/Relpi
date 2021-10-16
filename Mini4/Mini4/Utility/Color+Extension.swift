@@ -33,4 +33,8 @@ extension Color {
     static let yellowBackgroundDialogCard = Color("yellowBackgroundDialogCard")
     static let redBorderDialogCard = Color("redBorderDialogCard")
     static let redBackgroundDialogCard = Color("redBackgroundDialogCard")
+    
+    static let backgroundTextfield = Color("backgroundTextfield")
+    static let textTextfield = Color("textTextfield")
+    static let textPlaceholderTextfield = Color("textPlaceholderTextfield")
 }
