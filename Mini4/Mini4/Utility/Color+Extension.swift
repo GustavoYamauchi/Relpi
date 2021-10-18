@@ -8,13 +8,13 @@
 import SwiftUI
 
 extension Color {
-    // Cores usadas nos APP
-    static let primary = Color("primaryColor")
-    static let secondary = Color("secondaryColor")
-    static let tertiary = Color("tertiaryColor")
-    static let quaternary = Color("quaternaryColor")
-    static let quintenary = Color("quintenaryColor")
-    static let sexternary = Color("sexternaryColor")
+    // Cores da Interface
+    static let primaria = Color("primaria")
+    static let secundaria = Color("secundaria")
+    static let destaque = Color("destaque")
+    static let regular = Color("regular")
+    static let urgencia = Color("urgencia")
+    static let detalhe = Color("detalhe")
     
     // Cores por componentes
     static let primaryButton = Color("primaryButton")
