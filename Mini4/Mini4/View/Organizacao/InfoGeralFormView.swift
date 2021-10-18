@@ -15,7 +15,7 @@ struct InfoGeralFormView: View {
         VStack(alignment: .leading, spacing: 30) {
             Text("Informações Gerais")
                 .padding(.top)
-                .foregroundColor(.sexternary)
+                .foregroundColor(.destaque)
                 .font(.system(size: 24, weight: .bold, design: .default))
             
             CustomTextField(text: $ong.nome, placeholder: "Nome da ONG")

@@ -27,7 +27,7 @@ struct CustomTextField: View {
                 
                 VStack(alignment: .leading, spacing: 6) {
                     
-                    if text != "" && style == .simple {
+                    if text != "" || style == .multiline {
                         Text(placeholder)
                             .foregroundColor(.textPlaceholderTextfield)
                             .matchedGeometryEffect(id: placeholder, in: animation)
@@ -35,7 +35,7 @@ struct CustomTextField: View {
                     
                     ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
                         
-                        if text == "" && style == .simple {
+                        if text == "" {
                             Text(placeholder)
                                 .foregroundColor(.textPlaceholderTextfield)
                                 .matchedGeometryEffect(id: placeholder, in: animation)
@@ -46,6 +46,9 @@ struct CustomTextField: View {
                                 TextField("", text: $text)
                             case .multiline:
                                 MultilineTextField(text: $text, placeholder: placeholder)
+                                    //.background(Color.backgroundTextfield)
+                                    //.foregroundColor(.textTextfield)
+
                         }
                     }
                 }
@@ -79,14 +82,12 @@ struct MultilineTextField: View {
     var body: some View {
         
         VStack(alignment: .leading, spacing: 6) {
-            Text(placeholder)
-                .foregroundColor(.textPlaceholderTextfield)
-                .matchedGeometryEffect(id: placeholder, in: animation)
-            
             TextEditor(text: $text)
-                .colorMultiply(Color.backgroundTextfield)
                 .foregroundColor(.textTextfield)
                 .font(.system(size: 14, weight: .regular, design: .default))
+        }.onAppear() {
+            UITextView.appearance().backgroundColor = UIColor(.backgroundTextfield)
+            UITextView.appearance().textColor = UIColor(.textTextfield)
         }
     }
 }

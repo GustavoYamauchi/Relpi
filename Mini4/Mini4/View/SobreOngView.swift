@@ -31,7 +31,7 @@ struct SobreOngView: View {
                 VStack(alignment: .leading) {
                     Text("\(ong.nome)")
                         .padding(.top)
-                        .foregroundColor(Color.sexternary)
+                        .foregroundColor(Color.destaque)
                         .font(.system(size: 24, weight: .bold, design: .default))
                     
                     Text("\(ong.endereco.cidade)")
@@ -59,7 +59,7 @@ struct SobreOngView: View {
                 VStack(alignment: .leading) {
                     Text("Sobre a ONG")
                         .padding(.top)
-                        .foregroundColor(Color.sexternary)
+                        .foregroundColor(Color.destaque)
                         .font(.system(size: 24, weight: .bold, design: .default))
                 }
                 
