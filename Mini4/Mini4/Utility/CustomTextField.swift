@@ -45,9 +45,10 @@ struct CustomTextField: View {
                             case .simple:
                                 TextField("", text: $text)
                             case .multiline:
-                                MultilineTextField(text: text, placeholder: placeholder)
+                                MultilineTextField(text: $text, placeholder: placeholder)
                                     //.background(Color.backgroundTextfield)
                                     //.foregroundColor(.textTextfield)
+
                         }
                     }
                 }
@@ -74,7 +75,7 @@ struct CustomTextField: View {
 
 struct MultilineTextField: View {
     
-    @State var text: String
+    @Binding var text: String
     @State var placeholder: String
     @Namespace private var animation
 
