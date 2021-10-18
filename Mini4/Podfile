@@ -6,6 +6,7 @@ target 'Mini4' do
   use_frameworks!
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
 
   # Pods for Mini4
 
@@ -16,6 +17,7 @@ target 'Mini4Admin' do
   use_frameworks!
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
 
   # Pods for Mini4
 
