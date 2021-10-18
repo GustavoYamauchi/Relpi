@@ -48,4 +48,20 @@ class ImageStorageService {
             }
         }
     }
+    
+    func downloadImage(urlString: String, completion: @escaping (UIImage?, Error?) -> Void) {
+        guard let url = URL(string: urlString) else { return }
+        
+        DispatchQueue.global(qos: .userInteractive).async {
+            URLSession.shared.dataTask(with: url) { data, res, error  in
+                if let error = error {
+                    completion(nil, error)
+                }
+                
+                if let data = data, let image = UIImage(data: data) {
+                    completion(image, nil)
+                }
+            }.resume()
+        }
+    }
 }

@@ -103,6 +103,7 @@ struct OngFormView: View {
                     ong.endereco = enderecoViewModel.data.first ?? Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: "")
                     ong.banco = bancoViewModel.data.first ?? Banco(banco: "", agencia: "", conta: "", pix: "")
                     ongRascunho = ong
+                    getImage()
 
                 }
                 .navigationBarBackButtonHidden(true)
@@ -131,6 +132,16 @@ struct OngFormView: View {
             enderecoViewModel.addEnderecoData(endereco: ong.endereco)
             bancoViewModel.addBancoData(banco: ong.banco)
             self.ongRascunho = getNewOrg()
+        }
+    }
+    
+    private func getImage() {
+        if let foto = ong.foto {
+            ImageStorageService.shared.downloadImage(urlString: foto) { image, err in
+                DispatchQueue.main.async {
+                    selectedImage = image
+                }
+            }
         }
     }
     
