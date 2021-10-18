@@ -36,14 +36,6 @@ enum ColorStyle {
     }
 }
 
-struct CardModifier: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .cornerRadius(15)
-            .shadow(color: Color.clear, radius: 15, x: 0, y: 0)
-    }
-}
-
 struct DialogCard: View {
     var text: String
     var colorStyle: ColorStyle
@@ -63,12 +55,3 @@ struct DialogCard: View {
         .fixedSize(horizontal: false, vertical: true)
     }
 }
-
-//struct DialogCard_Previews: PreviewProvider {
-//    
-//    var text = "Lorem ipsum dolor sit amet. consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-//    
-//    static var previews: some View {
-//        DialogCard(text: $text)
-//    }
-//}
