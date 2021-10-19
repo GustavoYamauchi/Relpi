@@ -14,8 +14,8 @@ struct ItemListaVerticalView: View {
         ZStack{
             RoundedRectangle(cornerRadius: 15)
                 .foregroundColor(item.urgente ?
-                                    item.visivel ? Color.tertiary : Color.tertiary.opacity(0.5) :
-                            item.visivel ? Color("quaternaryColor"): Color("tertiaryColor").opacity(0.5))
+                                    item.visivel ? Color.urgencia : Color.urgencia.opacity(0.5) :
+                                    item.visivel ? Color.regular : Color.urgencia.opacity(0.5))
             HStack(alignment: .center){
                 NavigationLink(destination: EditarLista(item: item).environmentObject(estoqueViewModel), label: {
                     Image("\(item.categoria)Icon")
