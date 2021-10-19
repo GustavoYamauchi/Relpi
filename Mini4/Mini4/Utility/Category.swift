@@ -12,12 +12,12 @@ struct Category: View {
 //    @ObservedObject var viewModel: BancoViewModel
     
     @State var toggle: Bool = false
-    @State var title: String = "Title"
+    @State var title: String = "Categoria"
     @State var array = [""]
     @Binding var selected: String
     
     var body: some View {
-        Button("Teste") {
+        Button("\(selected)") {
             self.toggle.toggle()
         }
         .buttonStyle(.primaryButton)

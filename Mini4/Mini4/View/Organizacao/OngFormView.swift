@@ -76,7 +76,7 @@ struct OngFormView: View {
                 .padding([.leading, .trailing], 30)
                 .toolbar {
                     HStack{
-                        NavigationLink(destination: TelaListaView(viewModel: EstoqueViewModel(ong.id!), data: ong.data),
+                        NavigationLink(destination: TelaListaView(data: ong.data).environmentObject(EstoqueViewModel(ong.id!)),
                         label: {
                             Text("Lista")
                         })

@@ -9,7 +9,7 @@ import SwiftUI
 import Firebase
 
 struct TelaListaView: View {
-    @ObservedObject var viewModel: EstoqueViewModel
+    @EnvironmentObject var viewModel: EstoqueViewModel
     var data: Timestamp
     var gridItemLayout = [GridItem(.adaptive(minimum: 150, maximum: .infinity), spacing: 30), GridItem(.adaptive(minimum: 150, maximum: .infinity), spacing: 30)]
     
