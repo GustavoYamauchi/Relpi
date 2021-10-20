@@ -70,11 +70,17 @@ struct TelaListaView: View {
             DialogCard(text: "Para realizar a doação, entre em contato com a ONG. Nossa plataforma apenas cataloga os itens demandados! :)", colorStyle: .yellow)
                 .padding(.vertical, 20)
             
-            Button("Adicionar itens na caixa de doação") {
-                print("Adicionar itens na caixa de doação")
-            }.buttonStyle(PrimaryButton())
-            .padding(.vertical, 20)
-            
+                
+                
+                Button(action: {}, label: {
+                    NavigationLink(destination: EditarLista().environmentObject(viewModel), label: {
+                        Text("Adicionar itens na caixa de doação")
+                    })
+                })
+                .buttonStyle(PrimaryButton())
+                .padding(.vertical, 20)
+                
+        
                 if listaVertical{
                     if !listaCategorizada{
                         ForEach(viewModel.data.filter({$0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty})){ item in

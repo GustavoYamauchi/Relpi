@@ -20,7 +20,7 @@ struct ItemListaView: View {
                 NavigationLink(destination: EditarLista(item: item).environmentObject(estoqueViewModel),
                                label: {
                                 Spacer()
-                                Image("\(item.categoria)Icon")
+                                Image("\(item.categoria.lowercased())Icon")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 150, height: 150, alignment: .center)

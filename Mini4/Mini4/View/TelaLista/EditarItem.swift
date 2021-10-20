@@ -10,25 +10,32 @@ import SwiftUI
 
 struct EditarLista: View {
 
-    @State var item = Item(nome: "Item", categoria: "medicamento", quantidade: 10, urgente: false, visivel: true)
+    @State var item = Item(nome: "", categoria: "Medicamento", quantidade: 0, urgente: false, visivel: true)
     @EnvironmentObject var viewModel : EstoqueViewModel
     var body: some View {
         VStack{
-            
-            
-            Image("\(item.categoria)Icon")
+            Image("\(item.categoria.lowercased())Icon")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 300, height: 300, alignment: .center)
+                .padding(.top, 10)
             
             Spacer()
             
-            VStack (alignment: .leading){
+            VStack (alignment: .leading, spacing: 22){
+                
+                Text("Editar Item")
+                    .padding(.leading, 30)
+                    .padding(.top, 10)
+                    .foregroundColor(Color.primaryButton)
+                    .font(.system(size: 24, weight: .bold, design: .default))
+                
+                
                 
                 CustomTextField(text: $item.nome, placeholder: "Nome").padding(.horizontal, 30)
                     
                 
-                Category(array: ["higiene","alimento","limpeza","medicamento","utensilio"], selected: $item.categoria)
+                Category(array: ["Higiene","Alimento","Limpeza","Medicamento","Utensilio"], selected: $item.categoria)
                 
                 HStack{
                     Quantity(qtd: $item.quantidade)
@@ -36,20 +43,25 @@ struct EditarLista: View {
                     Spacer()
                     
                     Toggle(isOn: $item.urgente, label: {
-                        Text("urgente")
-                            .foregroundColor(.sexternary)
-                            .font(.system(size: 24, weight: .bold, design: .default))
+                        Text("Urgente")
+                            .foregroundColor(.textPlaceholderTextfield)
+                            .font(.system(size: 14, weight: .bold, design: .default))
+                            .padding(.leading, 80)
                     })
-                    .toggleStyle(SwitchToggleStyle(tint: .sexternary))
-                    .padding(.leading, 50)
-                }.padding(30)
+                    .toggleStyle(SwitchToggleStyle(tint: .destaque))
+                    
+                }.padding(.horizontal, 30)
                 
                 Button("Salvar", action: {
                     if item.id != nil {
                         viewModel.updateItem(item: item)
                     }
                     else {
-                        viewModel.addItemData(item: item)
+                        if item.nome != "" {
+                            viewModel.addItemData(item: item)
+                        }
+                        
+                        
                     }
                     
                 }).buttonStyle(.primaryButton)
@@ -65,11 +77,11 @@ struct EditarLista: View {
                     }
                 }).buttonStyle(.deleteButton)
                 
-            }.frame(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height/2).background(Color.primary).cornerRadius(30, corners: [.topLeft, .topRight])
+            }.frame(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height*3/5).background(Color.primaria).cornerRadius(30, corners: [.topLeft, .topRight])
 
         }.background(item.urgente ?
-                        item.visivel ? Color.tertiary : Color.tertiary.opacity(0.5) :
-                item.visivel ? Color("quaternaryColor"): Color("tertiaryColor").opacity(0.5))
+                        item.visivel ? Color.urgencia : Color.urgencia.opacity(0.5) :
+                        item.visivel ? Color.regular: Color.regular.opacity(0.5))
     }
 }
 

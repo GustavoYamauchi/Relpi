@@ -18,7 +18,7 @@ struct ItemListaVerticalView: View {
                                     item.visivel ? Color.regular : Color.urgencia.opacity(0.5))
             HStack(alignment: .center){
                 NavigationLink(destination: EditarLista(item: item).environmentObject(estoqueViewModel), label: {
-                    Image("\(item.categoria)Icon")
+                    Image("\(item.categoria.lowercased())Icon")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 40, height: 40, alignment: .center)

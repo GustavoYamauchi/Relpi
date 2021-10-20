@@ -17,15 +17,26 @@ struct Category: View {
     @Binding var selected: String
     
     var body: some View {
-        Button("\(selected)") {
+        Button(action: {
             self.toggle.toggle()
-        }
-        .buttonStyle(.primaryButton)
+        }, label: {
+            HStack{
+                Text("\(selected)")
+                    .foregroundColor(.textPlaceholderTextfield)
+                Spacer()
+                Text("...")
+                    .foregroundColor(.textPlaceholderTextfield)
+            }
+        })
+        .buttonStyle(.categoryButton)
         .sheet(isPresented: $toggle, content: {
             ZStack{
-                Color.primary
+                Color.primaria
                 VStack{
                     Text(title)
+                        .padding(.top, 10)
+                        .foregroundColor(Color.primaryButton)
+                        .font(.system(size: 24, weight: .bold, design: .default))
                     PickerCustom(array: array, select: $selected)
                     Button("Ok"){
                         self.toggle.toggle()

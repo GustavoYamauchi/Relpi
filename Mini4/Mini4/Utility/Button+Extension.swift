@@ -13,6 +13,7 @@ enum Styles {
     case secondaryButton
     case textButton
     case deleteButton
+    case categoryButton
 }
 
 struct PrimaryButton: ButtonStyle {
@@ -54,6 +55,19 @@ struct TextButton: ButtonStyle {
     }
 }
 
+struct CategoryButton: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .padding()
+            .foregroundColor(Color.textTextfield)
+            .background(Color.backgroundTextfield)
+            .cornerRadius(50)
+            .padding(.horizontal, 30)
+            .font(.system(size: 16, weight: .bold, design: .default))
+    }
+}
+
 struct DeleteButton: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
@@ -75,6 +89,8 @@ extension Button {
             self.buttonStyle(SecondaryButton())
         case .textButton:
             self.buttonStyle(TextButton())
+        case .categoryButton:
+            self.buttonStyle(CategoryButton())
         case .deleteButton:
             self.buttonStyle(DeleteButton())
         }
