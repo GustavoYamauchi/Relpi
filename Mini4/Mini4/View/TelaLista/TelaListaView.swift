@@ -13,6 +13,8 @@ struct TelaListaView: View {
     var data: Timestamp
     var gridItemLayout = [GridItem(.adaptive(minimum: 150, maximum: .infinity), spacing: 30), GridItem(.adaptive(minimum: 150, maximum: .infinity), spacing: 30)]
     
+    var categorias = ["limpeza", "medicamento", "higiene", "utensilio", "alimento"]
+    
     @State var listaVertical = true
     @State var listaCategorizada = false
     @State var mostrarFiltros = false
@@ -85,65 +87,15 @@ struct TelaListaView: View {
         
                 if listaVertical{
                     if !listaCategorizada{
-                        ForEach(viewModel.data.filter({$0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty})){ item in
-                            ItemListaVerticalView(item: item)
-                                .frame(maxWidth: .infinity, minHeight: 55)
-                                .padding(.bottom, 10)
-                            
-                        }.padding(.horizontal, 30)
-                        .padding(.top, 10)
+                        listaVerticalItem(pesquisa: $itemPesquisado)
                     }else{
                         
                         VStack(alignment: .leading){
-                            TituloListaView(temItem: viewModel.temItemNaCategoria(categoria: .limpeza, itemPesquisado: itemPesquisado), titulo: "Produto de limpeza")
                             
-                            ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "limpeza" })){ item in
-                                ItemListaVerticalView(item: item)
-                                    .frame(maxWidth: .infinity, minHeight: 55)
-                                    .padding(.bottom, 10)
-                                
-                            }.padding(.horizontal, 30)
-                            .padding(.top, 10)
+                            ForEach(categorias, id: \.self){ categoria in
+                                listaVerticalItem(pesquisa: $itemPesquisado, categoria: categoria)
+                            }
                             
-                            TituloListaView(temItem: viewModel.temItemNaCategoria(categoria: .medicamento, itemPesquisado: itemPesquisado), titulo: "Medicamentos")
-                            
-                            ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "medicamento" })){ item in
-                                ItemListaVerticalView(item: item)
-                                    .frame(maxWidth: .infinity, minHeight: 55)
-                                    .padding(.bottom, 10)
-                                
-                            }.padding(.horizontal, 30)
-                            .padding(.top, 10)
-                            
-                            TituloListaView(temItem: viewModel.temItemNaCategoria(categoria: .higiene, itemPesquisado: itemPesquisado), titulo: "Higiene pessoal")
-                            
-                            ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "higiene" })){ item in
-                                ItemListaVerticalView(item: item)
-                                    .frame(maxWidth: .infinity, minHeight: 55)
-                                    .padding(.bottom, 10)
-                                
-                            }.padding(.horizontal, 30)
-                            .padding(.top, 10)
-                            
-                            TituloListaView(temItem: viewModel.temItemNaCategoria(categoria: .utensilio, itemPesquisado: itemPesquisado), titulo: "Utensílios de cozinha")
-                            
-                            ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "utensilio" })){ item in
-                                ItemListaVerticalView(item: item)
-                                    .frame(maxWidth: .infinity, minHeight: 55)
-                                    .padding(.bottom, 10)
-                                
-                            }.padding(.horizontal, 30)
-                            .padding(.top, 10)
-                            
-                            TituloListaView(temItem: viewModel.temItemNaCategoria(categoria: .alimento, itemPesquisado: itemPesquisado), titulo: "Alimento")
-                            
-                            ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "alimento" })){ item in
-                                ItemListaVerticalView(item: item)
-                                    .frame(maxWidth: .infinity, minHeight: 55)
-                                    .padding(.bottom, 10)
-                                
-                            }.padding(.horizontal, 30)
-                            .padding(.top, 10)
                         }
                         
                     }

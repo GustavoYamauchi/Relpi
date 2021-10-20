@@ -151,6 +151,27 @@ enum Categorias : String{
     case limpeza = "limpeza"
     case medicamento = "medicamento"
     case utensilio = "utensilio"
+    case vazio = ""
+    var categoria: Categorias {
+        switch self {
+        case .higiene, .alimento, .limpeza, .medicamento, .utensilio:
+            return self
+        default:
+            return .vazio
+        }
+    }
+    var titulo: String {
+        switch self {
+        case .higiene: return "Higiene pessoal"
+        case .alimento: return "Alimento"
+        case .limpeza: return "Produtos de limpeza"
+        case .medicamento: return "Medicamentos"
+        case .utensilio: return "Utensílios de cozinha"
+        default:
+            return ""
+        }
+    }
+    
 }
 
 
