@@ -13,27 +13,35 @@ struct DoadorHome: View {
     @ObservedObject var viewModel = OngViewModel()
     @State var pesquisa: String = ""
     @State var selectedItemTab = 0
-    var isLoggedIn = false
+    private var isLoggedIn = false
+    private let rangeOng = 3
     
     let tabItemNames = ["Home", "Favoritos", "CaixaDoacao"]
     var body: some View {
         VStack {
             ZStack {
                 switch selectedItemTab {
-                    case 0:
-                        ScrollView {
+                case 0:
+                    ScrollView {
+                        VStack(alignment: .leading, spacing: 30) {
                             
-                            VStack(alignment: .leading, spacing: 30) {
-                                
-                                Image("logo_light")
-                                    .frame(minWidth: 0, maxWidth: .infinity)
-                                
-                                SearchBarView(pesquisando: $pesquisa, placeholder: "Search")
-                                
-                                Text("Explorar ONGs")
-                                    .textStyle(TitleStyle())
-                                
-                                if pesquisa == "" {
+                            Image("logo_light")
+                                .frame(minWidth: 0, maxWidth: .infinity)
+                            
+                            SearchBarView(pesquisando: $pesquisa, placeholder: "Search")
+                            
+                            Text("Explorar ONGs")
+                                .textStyle(TitleStyle())
+                            
+                            if pesquisa == "" {
+                                if viewModel.data.count >= rangeOng { //verifica se tem 3 ongs e entrar no if
+                                    ForEach(0..<3) { i in
+                                        NavigationLink(destination: SobreOngView(ong: viewModel.data[i])) {
+                                            Text("\(viewModel.data[i].nome)")
+                                        }
+                                        .buttonStyle(SecondaryButton())
+                                    }
+                                } else { // se tiver menos exibi só elas
                                     ForEach(viewModel.data) { ong in
                                         HStack {
                                             NavigationLink(destination: SobreOngView(ong: ong)) {
@@ -42,45 +50,44 @@ struct DoadorHome: View {
                                             .buttonStyle(SecondaryButton())
                                         }
                                     }
-                                } else {
-                                    ForEach(viewModel.data.filter({ $0.nome.contains(pesquisa) })) { ong in
-                                        HStack {
-                                            NavigationLink(destination: SobreOngView(ong: ong)) {
-                                                Text("\(ong.nome)")
-                                            }
-                                            .buttonStyle(SecondaryButton())
+                                }
+                            } else {
+                                ForEach(viewModel.data.filter({ $0.nome.contains(pesquisa) })) { ong in
+                                    HStack {
+                                        NavigationLink(destination: SobreOngView(ong: ong)) {
+                                            Text("\(ong.nome)")
                                         }
-                                        
+                                        .buttonStyle(SecondaryButton())
                                     }
                                 }
                                 
-                                Button("Ver todas") {
-                                    print("ver todas")
-                                }.buttonStyle(.primaryButton)
-                                
-                                Spacer()
                             }
+                            
+                            Button("Ver todas") {
+                                print("ver todas")
+                            }.buttonStyle(.primaryButton)
                         }
-                    case 1:
-                        if isLoggedIn {
-                            //TODO
-                        } else {
-                            VStack(alignment: .leading, spacing: 30) {
-                                Spacer()
-                                
-                                DialogCard(text: "Para favoritar ONGs e salvar itens na sua caixa de doação, faça login :)", colorStyle: .green)
-                                
-                                Button("Registrar") {
-                                    print("registrar")
-                                }.buttonStyle(.textButton)
-                                
-                                Spacer()
-                            }
-                        }
-                    default:
-                        Text("Caixa de doacão")
-                            .frame(minWidth: 0, maxWidth: .infinity)
                     }
+                case 1:
+                    if isLoggedIn {
+                        //TODO
+                    } else {
+                        VStack(alignment: .leading, spacing: 30) {
+                            Spacer()
+                            
+                            DialogCard(text: "Para favoritar ONGs e salvar itens na sua caixa de doação, faça login :)", colorStyle: .green)
+                            
+                            Button("Registrar") {
+                                print("registrar")
+                            }.buttonStyle(.textButton)
+                            
+                            Spacer()
+                        }
+                    }
+                default:
+                    Text("Caixa de doacão")
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                }
             }
             
             Spacer()
