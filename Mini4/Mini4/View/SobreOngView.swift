@@ -10,64 +10,73 @@ import SwiftUI
 struct SobreOngView: View {
     
     @State private var ong: Organizacao
-    @State var search: String = ""
+    @State private var selectedImage: UIImage?
     
     @ObservedObject var enderecoViewModel: EnderecoViewModel
     @ObservedObject var bancoViewModel: BancoViewModel
-    
+    @ObservedObject var estoqueViewModel: EstoqueViewModel
+        
     init(ong: Organizacao) {
         self.ong = ong
         self.enderecoViewModel = EnderecoViewModel(ong.id!)
         self.bancoViewModel = BancoViewModel(ong.id!)
+        self.estoqueViewModel = EstoqueViewModel(ong.id!)
     }
     
     var body: some View {
-        
         ScrollView {
             
             VStack(alignment: .leading, spacing: 30) {
                 
                 //Nome e Cidade da ONG
-                VStack(alignment: .leading) {
-                    Text("\(ong.nome)")
-                        .padding(.top)
-                        .foregroundColor(Color.destaque)
-                        .font(.system(size: 24, weight: .bold, design: .default))
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(ong.nome)
+                        .textStyle(TitleStyle())
                     
-                    Text("\(ong.endereco.cidade)")
+                    Text(ong.endereco.cidade)
+                        .textStyle(ContentStyle())
                 }
-                
-                SearchBarView(pesquisando: $search, placeholder: "Search")
-                
+                                
                 // Card dos itens
-                HStack(spacing: 30) {
-                    Image("ImagePlaceholder")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                    
-                    Image("ImagePlaceholder")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
+                HStack {
+                    ForEach(0..<2) { i in
+                        ItemListaView(item: estoqueViewModel.data[i])
+                            .frame(maxHeight: 220)
+                    }
+                    .padding(.horizontal, 30)
                 }
                 
                 // Listar todos os itens da ONG
-                Button("Lista completa") {
-                    print("Lista completa")
-                }.buttonStyle(.primaryButton)
+                Button(action: {}) {
+                    NavigationLink(destination: TelaListaView(viewModel: EstoqueViewModel(ong.id!), data: ong.data),
+                    label: {
+                        Text("Lista completa")
+                    })
+                }
+                .buttonStyle(.primaryButton)
                 
                 // Infos sobre a ONG
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 8) {
                     Text("Sobre a ONG")
-                        .padding(.top)
-                        .foregroundColor(Color.destaque)
-                        .font(.system(size: 24, weight: .bold, design: .default))
+                        .textStyle(TitleStyle())
+                    
+                    if selectedImage != nil {
+                        Image(uiImage: selectedImage!)
+                            .resizable()
+                            .cornerRadius(15)
+                            .aspectRatio(contentMode: .fit)
+                            .padding(.horizontal, 30)
+                    } else {
+                        Image("ImagePlaceholder")
+                            .resizable()
+                            .cornerRadius(15)
+                            .aspectRatio(contentMode: .fit)
+                            .padding(.horizontal, 30)
+                    }
+                    
+                    Text(ong.descricao)
+                        .textStyle(ContentStyle())
                 }
-                
-                Image("ImagePlaceholder")
-                    .resizable()
-                    .frame(height: 170)
-                
-                Text("\(ong.descricao)")
                 
                 // Contribuir com a ONG
                 Button("Contribua") {
@@ -77,14 +86,26 @@ struct SobreOngView: View {
             }
             
         }.onAppear {
-            if let banco = bancoViewModel.data.first, let enderecoVM = enderecoViewModel.data.first {
+            getImage()
+            if let banco = bancoViewModel.data.first,
+               let enderecoVM = enderecoViewModel.data.first {
                 self.ong.banco = banco
                 self.ong.endereco = enderecoVM
             }
+            
+            self.ong.estoque = estoqueViewModel.data
         }
-        
     }
     
+    private func getImage() {
+        if let foto = ong.foto {
+            ImageStorageService.shared.downloadImage(urlString: foto) { image, err in
+                DispatchQueue.main.async {
+                    selectedImage = image
+                }
+            }
+        }
+    }
 }
 
 struct SobreOngView_Previews: PreviewProvider {

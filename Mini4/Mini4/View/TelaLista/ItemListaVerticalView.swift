@@ -33,6 +33,7 @@ struct ItemListaVerticalView: View {
                 
             }
         }
+        //.frame(height: 50)
     }
 }
 //

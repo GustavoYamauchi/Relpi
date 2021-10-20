@@ -37,4 +37,6 @@ extension Color {
     static let backgroundTextfield = Color("backgroundTextfield")
     static let textTextfield = Color("textTextfield")
     static let textPlaceholderTextfield = Color("textPlaceholderTextfield")
+    
+    static let textContent = Color("textContent")
 }

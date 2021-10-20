@@ -77,6 +77,8 @@
 		A30BA3AE270F5C9F00D2222B /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BA3AC270F5C9F00D2222B /* Color+Extension.swift */; };
 		A30BA3B2270F6DE400D2222B /* SobreOngView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BA3B1270F6DE400D2222B /* SobreOngView.swift */; };
 		A30BA3B3270F6DE400D2222B /* SobreOngView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BA3B1270F6DE400D2222B /* SobreOngView.swift */; };
+		A3568F03271E2ADB00216732 /* Text+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3568F02271E2ADB00216732 /* Text+Extension.swift */; };
+		A35E8994271F715800F8E901 /* Text+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3568F02271E2ADB00216732 /* Text+Extension.swift */; };
 		A3ADA90E270CC6BE0005A81E /* Button+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ADA90D270CC6BE0005A81E /* Button+Extension.swift */; };
 		A3AE97EF2717A91B00DEB318 /* DialogCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE97EE2717A91B00DEB318 /* DialogCard.swift */; };
 		A3D22A62271B4CD0003D69FF /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D22A61271B4CD0003D69FF /* CustomTextField.swift */; };
@@ -132,6 +134,7 @@
 		8BCF2D9E271E00B500E13139 /* Quantity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quantity.swift; sourceTree = "<group>"; };
 		A30BA3AC270F5C9F00D2222B /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		A30BA3B1270F6DE400D2222B /* SobreOngView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SobreOngView.swift; sourceTree = "<group>"; };
+		A3568F02271E2ADB00216732 /* Text+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Extension.swift"; sourceTree = "<group>"; };
 		A3ADA90D270CC6BE0005A81E /* Button+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Extension.swift"; sourceTree = "<group>"; };
 		A3AE97EE2717A91B00DEB318 /* DialogCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogCard.swift; sourceTree = "<group>"; };
 		A3D22A61271B4CD0003D69FF /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -298,6 +301,7 @@
 				A3AE97EE2717A91B00DEB318 /* DialogCard.swift */,
 				1CFC96AB2719E47900B33A9E /* TituloListaView.swift */,
 				A3D22A61271B4CD0003D69FF /* CustomTextField.swift */,
+				A3568F02271E2ADB00216732 /* Text+Extension.swift */,
 				8BCF2D9E271E00B500E13139 /* Quantity.swift */,
 			);
 			path = Utility;
@@ -499,6 +503,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3568F03271E2ADB00216732 /* Text+Extension.swift in Sources */,
 				1C136A3E27175E0A00D09E9D /* SearchBarView.swift in Sources */,
 				1CC810472702336200B9E721 /* AppDelegate.swift in Sources */,
 				A30BA3AD270F5C9F00D2222B /* Color+Extension.swift in Sources */,
@@ -542,6 +547,7 @@
 				1C136A422718971800D09E9D /* ItemListaVerticalView.swift in Sources */,
 				1C136A2B270CCD3B00D09E9D /* EstoqueFormView.swift in Sources */,
 				1C136A25270BA41500D09E9D /* EnderecoViewModel.swift in Sources */,
+				A35E8994271F715800F8E901 /* Text+Extension.swift in Sources */,
 				1C136A3F27175E0A00D09E9D /* SearchBarView.swift in Sources */,
 				A30BA3B3270F6DE400D2222B /* SobreOngView.swift in Sources */,
 				1C136A28270CC6F400D09E9D /* EstoqueViewModel.swift in Sources */,
