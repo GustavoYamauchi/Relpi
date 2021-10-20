@@ -29,6 +29,7 @@ struct ItemListaVerticalView: View {
                 Spacer()
             }
         }
+        //.frame(height: 50)
     }
 }
 
