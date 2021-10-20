@@ -9,9 +9,9 @@ import SwiftUI
 
 struct FiltroModal: View {
     
-    @Binding var mostrarCategorias : Bool
-    @Binding var mostrarApenasUrgentes : Bool
-    @Binding var mostrandoView : Bool
+    @Binding var mostrarCategorias: Bool
+    @Binding var mostrarApenasUrgentes: Bool
+    @Binding var mostrandoView: Bool
     
     var body: some View {
         VStack(alignment: .center) {
@@ -25,23 +25,29 @@ struct FiltroModal: View {
                 Text("Agrupar por categoria")
                     .font(.system(size: 18, weight: .regular, design: .default))
                 
-                Toggle("Agrupar Categorias", isOn: $mostrarCategorias).labelsHidden()
+                Toggle("Agrupar Categorias", isOn: $mostrarCategorias)
+                    .labelsHidden()
+                    .toggleStyle(SwitchToggleStyle(tint: .destaque))
             }.padding(.top, 30)
             
             HStack(spacing: 15){
                 Text("Exibir apenas itens urgentes")
                     .font(.system(size: 18, weight: .regular, design: .default))
                 
-                Toggle("Agrupar Categorias", isOn: $mostrarApenasUrgentes).labelsHidden()
+                Toggle("Agrupar Categorias", isOn: $mostrarApenasUrgentes)
+                    .labelsHidden()
+                    .toggleStyle(SwitchToggleStyle(tint: .destaque))
             }.padding(.top, 30)
             
             Button("Aplicar filtros") {
-                print("Aplicar o filtro e fechar")
+                mostrandoView = false
             }.buttonStyle(.primaryButton)
             .padding(.top, 30)
             
             Button("Limpar filtros") {
-                print("Aplicar o filtro e fechar")
+                mostrarCategorias = false
+                mostrarApenasUrgentes = false
+                mostrandoView = false
             }.buttonStyle(.secondaryButton)
             .padding(.top, 30)
             
