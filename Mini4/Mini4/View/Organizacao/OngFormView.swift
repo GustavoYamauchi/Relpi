@@ -88,6 +88,16 @@ struct OngFormView: View {
                 .padding([.leading, .trailing], 30)
                 .toolbar {
                     HStack{
+                        NavigationLink(destination: LoginView(),
+                        label: {
+                            Text("Login")
+                        })
+                        
+                        NavigationLink(destination: CadastroView(),
+                        label: {
+                            Text("Cadastrar")
+                        })
+                        
                         NavigationLink(destination: TelaListaView(viewModel: EstoqueViewModel(ong.id!), data: ong.data),
                         label: {
                             Text("Lista")

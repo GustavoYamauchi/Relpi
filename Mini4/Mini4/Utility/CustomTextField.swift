@@ -10,6 +10,7 @@ import SwiftUI
 enum StyleTextField {
     case simple
     case multiline
+    case password
 }
 
 struct CustomTextField: View {
@@ -27,7 +28,7 @@ struct CustomTextField: View {
                 
                 VStack(alignment: .leading, spacing: 6) {
                     
-                    if text != "" && style == .simple {
+                    if text != "" && (style == .simple || style == .password) {
                         Text(placeholder)
                             .foregroundColor(.textPlaceholderTextfield)
                             .matchedGeometryEffect(id: placeholder, in: animation)
@@ -35,7 +36,7 @@ struct CustomTextField: View {
                     
                     ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
                         
-                        if text == "" && style == .simple {
+                        if text == "" && (style == .simple || style == .password) {
                             Text(placeholder)
                                 .foregroundColor(.textPlaceholderTextfield)
                                 .matchedGeometryEffect(id: placeholder, in: animation)
@@ -46,6 +47,9 @@ struct CustomTextField: View {
                                 TextField("", text: $text)
                             case .multiline:
                                 MultilineTextField(text: text, placeholder: placeholder)
+                            case .password:
+                                SecureField(placeholder, text: $text)
+                                    .textContentType(.password)
                         }
                     }
                 }
@@ -54,13 +58,13 @@ struct CustomTextField: View {
         .padding(.vertical, 15)
         .padding(.horizontal)
         .background(Color.backgroundTextfield)
-        .foregroundColor(.textTextfield)
+        .foregroundColor(.black)
         .cornerRadius(cornerRadius())
         .font(.system(size: 14, weight: .regular, design: .default))
     }
     
     private func cornerRadius() -> CGFloat {
-        if style == .simple {
+        if style == .simple || style == .password {
             if text == "" {
                 return 50
             }

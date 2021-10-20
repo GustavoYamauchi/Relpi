@@ -7,6 +7,7 @@ target 'Mini4' do
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
+  pod 'Firebase/Auth'
 
   # Pods for Mini4
 
@@ -18,6 +19,7 @@ target 'Mini4Admin' do
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
+  pod 'Firebase/Auth'
 
   # Pods for Mini4
 
