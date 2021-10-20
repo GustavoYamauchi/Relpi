@@ -9,8 +9,9 @@ import SwiftUI
 
 struct FiltroModal: View {
     
-    @State var mostrarCategorias : Bool = false
-    @State var mostrarApenasUrgentes : Bool = false
+    @Binding var mostrarCategorias : Bool
+    @Binding var mostrarApenasUrgentes : Bool
+    @Binding var mostrandoView : Bool
     
     var body: some View {
         VStack(alignment: .center) {
@@ -50,8 +51,8 @@ struct FiltroModal: View {
     }
 }
 
-struct FiltroModal_Previews: PreviewProvider {
-    static var previews: some View {
-        FiltroModal()
-    }
-}
+//struct FiltroModal_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FiltroModal()
+//    }
+//}
