@@ -25,6 +25,7 @@ struct EnderecoFormView: View {
             TextField("CEP", text: $endereco.cep).textFieldStyle(RoundedBorderTextFieldStyle())
             TextField("Rua", text: $endereco.logradouro).textFieldStyle(RoundedBorderTextFieldStyle())
             TextField("Numero", text: $endereco.numero).textFieldStyle(RoundedBorderTextFieldStyle())
+            TextField("Estado", text: $endereco.estado).textFieldStyle(RoundedBorderTextFieldStyle())
 //            TextField("Complemento", text: $endereco.complemento).textFieldStyle(RoundedBorderTextFieldStyle())
             TextField("Bairro", text: $endereco.bairro).textFieldStyle(RoundedBorderTextFieldStyle())
             TextField("Cidade", text: $endereco.cidade).textFieldStyle(RoundedBorderTextFieldStyle())

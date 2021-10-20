@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ItemListaVerticalView: View {
     var item : Item
+    @EnvironmentObject var estoqueViewModel: EstoqueViewModel
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 15)
@@ -16,25 +17,28 @@ struct ItemListaVerticalView: View {
                                     item.visivel ? Color.urgencia : Color.urgencia.opacity(0.5) :
                                     item.visivel ? Color.regular : Color.urgencia.opacity(0.5))
             HStack(alignment: .center){
-                Image("\(item.categoria)Icon")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 40, height: 40, alignment: .center)
-                    .padding(.leading, 15)
-                Text(item.nome)
-                    .font((.system(size: 20, weight: .regular, design: .rounded)))
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(Color.white)
-                    .padding(.horizontal, 10)
-                Spacer()
+                NavigationLink(destination: EditarLista(item: item).environmentObject(estoqueViewModel), label: {
+                    Image("\(item.categoria.lowercased())Icon")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 40, height: 40, alignment: .center)
+                        .padding(.leading, 15)
+                    Text(item.nome)
+                        .font((.system(size: 20, weight: .regular, design: .rounded)))
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(Color.white)
+                        .padding(.horizontal, 10)
+                    Spacer()
+                })
+                
             }
         }
         //.frame(height: 50)
     }
 }
-
-struct itemListaVerticalView_Previews: PreviewProvider {
-    static var previews: some View {
-        ItemListaVerticalView(item: Item(id: "", nome: "Vtnc", categoria: "", quantidade: 3, urgente: true, visivel: true))
-    }
-}
+//
+//struct itemListaVerticalView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ItemListaVerticalView(item: Item(id: "", nome: "", categoria: "", quantidade: 3, urgente: true, visivel: true))
+//    }
+//}

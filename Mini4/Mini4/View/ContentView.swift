@@ -68,7 +68,6 @@ struct custView : View{
 //                    }
 //                }
             }
-            Category(title: "Fdc", array: ["A", "B", "C", "D"], selected: $msg)
         }
     }
 }

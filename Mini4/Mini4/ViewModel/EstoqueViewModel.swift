@@ -34,7 +34,7 @@ class EstoqueViewModel : ObservableObject {
                         id: i.document.documentID,
                         nome: self.castString(i.document.get("nome")),
                         categoria: self.castString(i.document.get("categoria")),
-                        quantidade: self.castInt(i.document.get("numero")),
+                        quantidade: self.castInt(i.document.get("quantidade")),
                         urgente: self.castBool(i.document.get("urgente")),
                         visivel: self.castBool(i.document.get("visivel"))
                     )
@@ -45,7 +45,7 @@ class EstoqueViewModel : ObservableObject {
                         if self.data[j].id == i.document.documentID{
                             self.data[j].nome = self.castString(i.document.get("nome"))
                             self.data[j].categoria = self.castString(i.document.get("categoria"))
-                            self.data[j].quantidade = self.castInt(i.document.get("numero"))
+                            self.data[j].quantidade = self.castInt(i.document.get("quantidade"))
                             self.data[j].urgente = self.castBool(i.document.get("urgente"))
                             self.data[j].visivel = self.castBool(i.document.get("visivel"))
                         }

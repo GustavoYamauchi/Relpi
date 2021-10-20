@@ -24,6 +24,8 @@
 		1C136A3F27175E0A00D09E9D /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A3D27175E0A00D09E9D /* SearchBarView.swift */; };
 		1C136A412718971800D09E9D /* ItemListaVerticalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A402718971800D09E9D /* ItemListaVerticalView.swift */; };
 		1C136A422718971800D09E9D /* ItemListaVerticalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A402718971800D09E9D /* ItemListaVerticalView.swift */; };
+		1C5CC92E272094410078EC01 /* FiltroModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5CC92D272094410078EC01 /* FiltroModal.swift */; };
+		1C5CC92F272094410078EC01 /* FiltroModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5CC92D272094410078EC01 /* FiltroModal.swift */; };
 		1CC810472702336200B9E721 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC810462702336200B9E721 /* AppDelegate.swift */; };
 		1CC810492702336200B9E721 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC810482702336200B9E721 /* SceneDelegate.swift */; };
 		1CC8104B2702336200B9E721 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8104A2702336200B9E721 /* ContentView.swift */; };
@@ -68,6 +70,9 @@
 		8B12DA572710BE5900A19E3B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B12DA552710BE5900A19E3B /* Category.swift */; };
 		8B12DA592710BE9700A19E3B /* PickerCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B12DA582710BE9700A19E3B /* PickerCustom.swift */; };
 		8B12DA5A2710BE9700A19E3B /* PickerCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B12DA582710BE9700A19E3B /* PickerCustom.swift */; };
+		8BCF2D9D271DF2D400E13139 /* EditarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF2D9C271DF2D400E13139 /* EditarItem.swift */; };
+		8BCF2D9F271E00B500E13139 /* Quantity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF2D9E271E00B500E13139 /* Quantity.swift */; };
+		8BCF2DA0271E00B500E13139 /* Quantity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF2D9E271E00B500E13139 /* Quantity.swift */; };
 		A30BA3AD270F5C9F00D2222B /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BA3AC270F5C9F00D2222B /* Color+Extension.swift */; };
 		A30BA3AE270F5C9F00D2222B /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BA3AC270F5C9F00D2222B /* Color+Extension.swift */; };
 		A30BA3B2270F6DE400D2222B /* SobreOngView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BA3B1270F6DE400D2222B /* SobreOngView.swift */; };
@@ -90,6 +95,7 @@
 		1C136A39270E399E00D09E9D /* ItemListaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListaView.swift; sourceTree = "<group>"; };
 		1C136A3D27175E0A00D09E9D /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		1C136A402718971800D09E9D /* ItemListaVerticalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListaVerticalView.swift; sourceTree = "<group>"; };
+		1C5CC92D272094410078EC01 /* FiltroModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltroModal.swift; sourceTree = "<group>"; };
 		1CC810432702336200B9E721 /* Mini4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mini4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CC810462702336200B9E721 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CC810482702336200B9E721 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +130,8 @@
 		85E49097270B989A009CD6FE /* ContatoFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatoFormView.swift; sourceTree = "<group>"; };
 		8B12DA552710BE5900A19E3B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		8B12DA582710BE9700A19E3B /* PickerCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerCustom.swift; sourceTree = "<group>"; };
+		8BCF2D9C271DF2D400E13139 /* EditarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarItem.swift; sourceTree = "<group>"; };
+		8BCF2D9E271E00B500E13139 /* Quantity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quantity.swift; sourceTree = "<group>"; };
 		A30BA3AC270F5C9F00D2222B /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		A30BA3B1270F6DE400D2222B /* SobreOngView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SobreOngView.swift; sourceTree = "<group>"; };
 		A3568F02271E2ADB00216732 /* Text+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Extension.swift"; sourceTree = "<group>"; };
@@ -159,8 +167,10 @@
 			isa = PBXGroup;
 			children = (
 				1C136A36270E391C00D09E9D /* TelaListaView.swift */,
+				1C5CC92D272094410078EC01 /* FiltroModal.swift */,
 				1C136A39270E399E00D09E9D /* ItemListaView.swift */,
 				1C136A402718971800D09E9D /* ItemListaVerticalView.swift */,
+				8BCF2D9C271DF2D400E13139 /* EditarItem.swift */,
 			);
 			path = TelaLista;
 			sourceTree = "<group>";
@@ -292,6 +302,7 @@
 				1CFC96AB2719E47900B33A9E /* TituloListaView.swift */,
 				A3D22A61271B4CD0003D69FF /* CustomTextField.swift */,
 				A3568F02271E2ADB00216732 /* Text+Extension.swift */,
+				8BCF2D9E271E00B500E13139 /* Quantity.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -496,8 +507,10 @@
 				1C136A3E27175E0A00D09E9D /* SearchBarView.swift in Sources */,
 				1CC810472702336200B9E721 /* AppDelegate.swift in Sources */,
 				A30BA3AD270F5C9F00D2222B /* Color+Extension.swift in Sources */,
+				8BCF2D9F271E00B500E13139 /* Quantity.swift in Sources */,
 				1CC810492702336200B9E721 /* SceneDelegate.swift in Sources */,
 				1CC8109C27038A3100B9E721 /* Organizacao.swift in Sources */,
+				1C5CC92E272094410078EC01 /* FiltroModal.swift in Sources */,
 				A30BA3B2270F6DE400D2222B /* SobreOngView.swift in Sources */,
 				A3D22A62271B4CD0003D69FF /* CustomTextField.swift in Sources */,
 				1C136A412718971800D09E9D /* ItemListaVerticalView.swift in Sources */,
@@ -538,12 +551,14 @@
 				1C136A3F27175E0A00D09E9D /* SearchBarView.swift in Sources */,
 				A30BA3B3270F6DE400D2222B /* SobreOngView.swift in Sources */,
 				1C136A28270CC6F400D09E9D /* EstoqueViewModel.swift in Sources */,
+				8BCF2DA0271E00B500E13139 /* Quantity.swift in Sources */,
 				8B12DA5A2710BE9700A19E3B /* PickerCustom.swift in Sources */,
 				1CFC96AA2718BF8D00B33A9E /* DialogCard.swift in Sources */,
 				1CC810B027064ABF00B9E721 /* BancoFormView.swift in Sources */,
 				85E49094270B9402009CD6FE /* InfoGeralFormView.swift in Sources */,
 				85E49098270B989A009CD6FE /* ContatoFormView.swift in Sources */,
 				1C136A38270E391C00D09E9D /* TelaListaView.swift in Sources */,
+				1C5CC92F272094410078EC01 /* FiltroModal.swift in Sources */,
 				A30BA3AE270F5C9F00D2222B /* Color+Extension.swift in Sources */,
 				1CFC96AD2719E47900B33A9E /* TituloListaView.swift in Sources */,
 				1CC8109D27038A3100B9E721 /* Organizacao.swift in Sources */,
@@ -551,6 +566,7 @@
 				A3D22A63271B4CD0003D69FF /* CustomTextField.swift in Sources */,
 				1C136A24270BA39E00D09E9D /* EnderecoFormView.swift in Sources */,
 				1C136A3C270E402B00D09E9D /* OngView.swift in Sources */,
+				8BCF2D9D271DF2D400E13139 /* EditarItem.swift in Sources */,
 				1CC8109F27038A3100B9E721 /* Item.swift in Sources */,
 				1C136A3B270E399E00D09E9D /* ItemListaView.swift in Sources */,
 				1CD911DE270B778F007B2D05 /* BancoViewModel.swift in Sources */,
