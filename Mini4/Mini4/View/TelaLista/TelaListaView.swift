@@ -15,6 +15,8 @@ struct TelaListaView: View {
     
     @State var listaVertical = true
     @State var listaCategorizada = false
+    @State var mostrarFiltros = false
+    @State var apenasUrgente = false
     @State var itemPesquisado = ""
     
     var body: some View {
@@ -27,7 +29,7 @@ struct TelaListaView: View {
                     .foregroundColor(listaCategorizada ? .primaryButton : .backgroundPrimarySearch)
                     .frame(width: 40, height: 40, alignment: .center)
                     .onTapGesture {
-                        listaCategorizada.toggle()
+                        mostrarFiltros = true
                     }
                 
                 Spacer()
@@ -223,6 +225,9 @@ struct TelaListaView: View {
         }
         .onAppear{
             viewModel.data.sort {$0.urgente && !$1.urgente}
+        }
+        .sheet(isPresented: $mostrarFiltros){
+            FiltroModal(mostrarCategorias: $listaCategorizada, mostrarApenasUrgentes: $apenasUrgente, mostrandoView: $mostrarFiltros)
         }
         
     }
