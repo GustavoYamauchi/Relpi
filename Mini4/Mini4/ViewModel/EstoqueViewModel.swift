@@ -12,6 +12,10 @@ import FirebaseFirestore
 
 class EstoqueViewModel : ObservableObject {
     @Published var data = [Item]()
+    @State var listaVertical = true
+    @State var listaCategorizada = false
+    @State var mostrarFiltros = false
+    @State var apenasUrgente = false
 
     //for reading purpose it will automatically add data when we write data to firestore.
     private var dbEstoque = Firestore.firestore().collection("ng")
@@ -139,7 +143,7 @@ class EstoqueViewModel : ObservableObject {
     }
     
     func temItemNaCategoria(categoria: Categorias, itemPesquisado: String) -> Bool{
-        let filtro = data.filter({ ($0.nome.contains("\(itemPesquisado)") || itemPesquisado.isEmpty) && $0.categoria == categoria.rawValue})
+        let filtro = data.filter({ ($0.nome.contains("\(itemPesquisado)") || itemPesquisado.isEmpty) && $0.categoria == categoria.rawValue && $0.visivel})
         return filtro.count > 0
     }
     

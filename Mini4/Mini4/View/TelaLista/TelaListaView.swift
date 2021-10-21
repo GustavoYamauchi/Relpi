@@ -87,87 +87,22 @@ struct TelaListaView: View {
         
                 if listaVertical{
                     if !listaCategorizada{
-                        listaVerticalItem(pesquisa: $itemPesquisado)
+                        ListaVerticalItem(pesquisa: $itemPesquisado)
                     }else{
-                        
                         VStack(alignment: .leading){
-                            
                             ForEach(categorias, id: \.self){ categoria in
-                                listaVerticalItem(pesquisa: $itemPesquisado, categoria: categoria)
+                                ListaVerticalItem(pesquisa: $itemPesquisado, categoria: categoria)
                             }
-                            
                         }
-                        
                     }
-                    
                 }else{
                     if !listaCategorizada{
-                        LazyVGrid(columns: gridItemLayout) {
-                            ForEach(viewModel.data.filter({$0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty})){ item in
-                                ItemListaView(item: item)
-                                    .frame(minWidth: 50, minHeight: 220)
-                                    .padding(.bottom, 10)
-                            }
-                        }.padding(.horizontal, 30)
-                        .padding(.top, 10)
+                        ListaGridItem(pesquisa: $itemPesquisado)
                     }else{
                         VStack(alignment: .leading){
-                            TituloListaView(temItem: viewModel.temItemNaCategoria(categoria: .limpeza, itemPesquisado: itemPesquisado), titulo: "Produto de limpeza")
-                            
-                            LazyVGrid(columns: gridItemLayout) {
-                                ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "limpeza" })){ item in
-                                    ItemListaView(item: item)
-                                        .frame(minWidth: 50, minHeight: 220)
-                                        .padding(.bottom, 10)
-                                }
-                            }.padding(.horizontal, 30)
-                            .padding(.top, 10)
-                            
-                            TituloListaView(temItem: viewModel.temItemNaCategoria(categoria: .medicamento, itemPesquisado: itemPesquisado), titulo: "Medicamentos")
-                            
-                            LazyVGrid(columns: gridItemLayout) {
-                                ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "medicamento" })){ item in
-                                    ItemListaView(item: item)
-                                        .frame(minWidth: 50, minHeight: 220)
-                                        .padding(.bottom, 10)
-                                }
-                            }.padding(.horizontal, 30)
-                            .padding(.top, 10)
-                            
-                            
-                            TituloListaView(temItem: viewModel.temItemNaCategoria(categoria: .higiene, itemPesquisado: itemPesquisado), titulo: "Higiene pessoal")
-                            
-                            LazyVGrid(columns: gridItemLayout) {
-                                ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "higiene" })){ item in
-                                    ItemListaView(item: item)
-                                        .frame(minWidth: 50, minHeight: 220)
-                                        .padding(.bottom, 10)
-                                }
-                            }.padding(.horizontal, 30)
-                            .padding(.top, 10)
-                            
-                            TituloListaView(temItem: viewModel.temItemNaCategoria(categoria: .utensilio, itemPesquisado: itemPesquisado), titulo: "Utensílios de cozinha")
-                            
-                            LazyVGrid(columns: gridItemLayout) {
-                                ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "utensilio" })){ item in
-                                    ItemListaView(item: item)
-                                        .frame(minWidth: 50, minHeight: 220)
-                                        .padding(.bottom, 10)
-                                }
-                            }.padding(.horizontal, 30)
-                            .padding(.top, 10)
-                            
-                            TituloListaView(temItem: viewModel.temItemNaCategoria(categoria: .alimento, itemPesquisado: itemPesquisado), titulo: "Alimento")
-                            
-                            LazyVGrid(columns: gridItemLayout) {
-                                ForEach(viewModel.data.filter({ ($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty) && $0.categoria == "alimento" })){ item in
-                                    ItemListaView(item: item)
-                                        .frame(minWidth: 50, minHeight: 220)
-                                        .padding(.bottom, 10)
-                                }
-                            }.padding(.horizontal, 30)
-                            .padding(.top, 10)
-                            
+                            ForEach(categorias, id: \.self){ categoria in
+                                ListaGridItem(pesquisa: $itemPesquisado, categoria: categoria)
+                            }
                         }
                         
                     }
