@@ -12,6 +12,10 @@ import FirebaseFirestore
 
 class EstoqueViewModel : ObservableObject {
     @Published var data = [Item]()
+    @Published var listaVertical = true
+    @Published var listaCategorizada = false
+    @Published var mostrarFiltros = false
+    @Published var apenasUrgente = false
 
     //for reading purpose it will automatically add data when we write data to firestore.
     private var dbEstoque = Firestore.firestore().collection("ng")
@@ -139,7 +143,8 @@ class EstoqueViewModel : ObservableObject {
     }
     
     func temItemNaCategoria(categoria: Categorias, itemPesquisado: String) -> Bool{
-        let filtro = data.filter({ ($0.nome.contains("\(itemPesquisado)") || itemPesquisado.isEmpty) && $0.categoria == categoria.rawValue})
+        let filtro = data.filter({ ($0.nome.contains("\(itemPesquisado)") || itemPesquisado.isEmpty) && $0.categoria == categoria.rawValue && $0.visivel  && ($0.urgente || !apenasUrgente)})
+        print("filtro: \(filtro.count) de \(filtro.first?.categoria ?? "")")
         return filtro.count > 0
     }
     
@@ -151,6 +156,27 @@ enum Categorias : String{
     case limpeza = "limpeza"
     case medicamento = "medicamento"
     case utensilio = "utensilio"
+    case vazio = ""
+    var categoria: Categorias {
+        switch self {
+        case .higiene, .alimento, .limpeza, .medicamento, .utensilio:
+            return self
+        default:
+            return .vazio
+        }
+    }
+    var titulo: String {
+        switch self {
+        case .higiene: return "Higiene pessoal"
+        case .alimento: return "Alimento"
+        case .limpeza: return "Produtos de limpeza"
+        case .medicamento: return "Medicamentos"
+        case .utensilio: return "Utensílios de cozinha"
+        default:
+            return ""
+        }
+    }
+    
 }
 
 
