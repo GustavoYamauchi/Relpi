@@ -15,6 +15,7 @@ struct CadastroView: View {
     @State var confirmarSenha: String = ""
     @State var apresentarAlerta = false
     @State var mensagem: String = ""
+    @EnvironmentObject var ongViewModel: OngViewModel
     
     @State var showOngForm = false
     
@@ -46,7 +47,7 @@ struct CadastroView: View {
             }.buttonStyle(.primaryButton)
                         
             if showOngForm {
-                NavigationLink(destination: OngFormView(ong: $novaOrganizacao, isEditing: false), isActive: $showOngForm) {
+                NavigationLink(destination: OngFormView(ong: $novaOrganizacao, isEditing: false).environmentObject(ongViewModel), isActive: $showOngForm) {
                     EmptyView()
                 }
             }
@@ -57,7 +58,7 @@ struct CadastroView: View {
                 Text("Já possui uma conta?")
 
                 Button(action: {}, label: {
-                    NavigationLink(destination: LoginView(), label: { Text("Login") })
+                    NavigationLink(destination: LoginView().environmentObject(ongViewModel), label: { Text("Login") })
                 }).buttonStyle(.textButton)
                     
             }

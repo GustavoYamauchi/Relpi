@@ -38,7 +38,7 @@ class OngViewModel : ObservableObject {
                         email: self.castString(i.document.get("email")),
                         foto: self.castString(i.document.get("foto")),
                         data: Timestamp.init(date: Date()),
-                        banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
+                        banco: Banco(banco: "31231", agencia: "", conta: "", pix: ""),
                         endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: "")
                     )
                     self.data.append(msgData)
@@ -207,6 +207,13 @@ class OngViewModel : ObservableObject {
         }
     }
 
+    func gerarNovaOng() -> Organizacao {
+        return Organizacao(
+            nome: "", cnpj: "", descricao: "", telefone: "", email: "",
+            data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
+            endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
+    }
+    
     func mockOngMariaHelena() -> Organizacao {
         let ong = Organizacao(nome: "Casa Maria Helena Paulina",
                               cnpj: "69.107.142/0001-59",

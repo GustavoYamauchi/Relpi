@@ -10,7 +10,7 @@ import Firebase
 import FirebaseFirestore
 
 struct OngFormView: View {
-    @ObservedObject var ongViewModel = OngViewModel()
+    @EnvironmentObject var ongViewModel: OngViewModel
     @ObservedObject var enderecoViewModel: EnderecoViewModel
     @ObservedObject var bancoViewModel: BancoViewModel
     
@@ -34,10 +34,13 @@ struct OngFormView: View {
         self._ong = ong
         self.ongRascunho = ong.wrappedValue
     
-//        self.onvV
         self.enderecoViewModel = EnderecoViewModel(ong.wrappedValue.id!)
+        print(ong.wrappedValue.id!)
         self.bancoViewModel = BancoViewModel(ong.wrappedValue.id!)
 //        self.selectedImage = selectedImage
+        
+        print(ongRascunho.id!)
+
     }
     
     var body: some View {
@@ -110,11 +113,20 @@ struct OngFormView: View {
                 }
                 .navigationBarTitle("", displayMode: .inline)
                 .onAppear {
-                    ong.endereco = enderecoViewModel.data.first ?? Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: "")
+                    ong.endereco = enderecoViewModel.data.first ?? Endereco(logradouro: "1", numero: "", bairro: "", cidade: "", cep: "", estado: "")
                     ong.banco = bancoViewModel.data.first ?? Banco(banco: "", agencia: "", conta: "", pix: "")
                     ongRascunho = ong
                     getImage()
                     print(ong.id!)
+                    
+//                    getImage()
+//                    if let banco = bancoViewModel.data.first,
+//                       let enderecoVM = enderecoViewModel.data.first {
+//                        self.ong.banco =
+//                        self.ong.endereco = enderecoVM
+//                    }
+                    
+//                    self.ong.estoque = estoqueViewModel.data
 
                 }
                 .navigationBarBackButtonHidden(true)

@@ -15,7 +15,7 @@ struct ContentView: View {
             #if Mini4
             DoadorHome()
             #else
-            CadastroView()
+            CadastroView().environmentObject(OngViewModel())
             
             #endif
         }
