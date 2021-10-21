@@ -32,7 +32,7 @@ struct CadastroView: View {
             
             Text("Cadastre a sua ONG")
                 .padding(.top)
-                .foregroundColor(Color.sexternary)
+                .foregroundColor(Color.primaria)
                 .font(.system(size: 24, weight: .bold, design: .default))
             
             CustomTextField(text: $email, placeholder: "E-mail")
@@ -44,9 +44,13 @@ struct CadastroView: View {
             Button("Cadastrar") {
                 cadastrar()
             }.buttonStyle(.primaryButton)
+                        
+            if showOngForm {
+                NavigationLink(destination: OngFormView(ong: $novaOrganizacao, isEditing: false), isActive: $showOngForm) {
+                    EmptyView()
+                }
+            }
             
-            NavigationLink(destination: OngFormView(ong: $novaOrganizacao, isEditing: false), isActive: $showOngForm) { EmptyView() }
-
             Spacer()
             
             VStack(alignment: .center, spacing: 10) {
@@ -74,13 +78,11 @@ struct CadastroView: View {
                 }
                 
                 if let authResult = authResult {
-                    mensagem = "Cadastro feito com sucesso"
-                    apresentarAlerta.toggle()
                     
                     let id = authResult.user.uid
                     
                     novaOrganizacao.id = id
-                    
+                                                            
                     showOngForm.toggle()
                 }
             }

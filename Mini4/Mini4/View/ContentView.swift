@@ -15,7 +15,8 @@ struct ContentView: View {
             #if Mini4
             DoadorHome()
             #else
-            custView().navigationTitle("Home")
+            CadastroView()
+            
             #endif
         }
     }

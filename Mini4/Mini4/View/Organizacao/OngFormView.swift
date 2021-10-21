@@ -34,6 +34,7 @@ struct OngFormView: View {
         self._ong = ong
         self.ongRascunho = ong.wrappedValue
     
+//        self.onvV
         self.enderecoViewModel = EnderecoViewModel(ong.wrappedValue.id!)
         self.bancoViewModel = BancoViewModel(ong.wrappedValue.id!)
 //        self.selectedImage = selectedImage
@@ -98,12 +99,8 @@ struct OngFormView: View {
                             Text("Cadastrar")
                         })
                         
-                        NavigationLink(destination: TelaListaView(viewModel: EstoqueViewModel(ong.id!), data: ong.data),
-
                         NavigationLink(destination: TelaListaView(data: ong.data).environmentObject(EstoqueViewModel(ong.id!)),
-                        label: {
-                            Text("Lista")
-                        })
+                                       label: { Text("Lista") })
                         
                         Button("Alterar foto") {
                             self.sourceType = .photoLibrary
@@ -117,6 +114,7 @@ struct OngFormView: View {
                     ong.banco = bancoViewModel.data.first ?? Banco(banco: "", agencia: "", conta: "", pix: "")
                     ongRascunho = ong
                     getImage()
+                    print(ong.id!)
 
                 }
                 .navigationBarBackButtonHidden(true)

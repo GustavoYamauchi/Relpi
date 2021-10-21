@@ -50,7 +50,7 @@ struct CustomTextField: View {
                                 TextField("", text: $text)
                                 
                             case .multiline:
-                                MultilineTextField(text: text, placeholder: placeholder)
+                                MultilineTextField(text: $text, placeholder: placeholder)
                                 
                             case .password:
                                 SecureField(placeholder, text: $text)

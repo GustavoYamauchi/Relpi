@@ -48,12 +48,12 @@ struct SobreOngView: View {
                 
                 // Listar todos os itens da ONG
                 Button(action: {}) {
-                    NavigationLink(destination: TelaListaView(viewModel: EstoqueViewModel(ong.id!), data: ong.data),
-                    label: {
-                        Text("Lista completa")
-                    })
+                    NavigationLink(destination: TelaListaView(data: ong.data).environmentObject(EstoqueViewModel(ong.id!)),
+                                   label: { Text("Lista Completa") })
                 }
                 .buttonStyle(.primaryButton)
+                
+                
                 
                 // Infos sobre a ONG
                 VStack(alignment: .leading, spacing: 8) {

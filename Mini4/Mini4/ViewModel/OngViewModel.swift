@@ -82,12 +82,12 @@ class OngViewModel : ObservableObject {
     }
     
     func addOrgData(org: Organizacao, image: UIImage?){
-        let ong1 = dbOng.document()
+        let ong1 = dbOng.document(org.id!)
         let banco = dbOng.document(ong1.documentID).collection("banco").document("principal")
         let endereco = dbOng.document(ong1.documentID).collection("endereco").document("principal")
         let estoque = dbOng.document(ong1.documentID).collection("estoque").document("item0")
                 
-        var ongData = ["id": ong1.documentID,
+        var ongData = ["id": org.id!,
                        "cnpj": org.cnpj,
                        "nome": org.nome,
                        "descricao": org.descricao,

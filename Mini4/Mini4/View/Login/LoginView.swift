@@ -22,7 +22,7 @@ struct LoginView: View {
             
             Text("Entrar na sua ONG")
                 .padding(.top)
-                .foregroundColor(Color.sexternary)
+                .foregroundColor(Color.primaria)
                 .font(.system(size: 24, weight: .bold, design: .default))
             
             CustomTextField(text: $email, placeholder: "E-mail")
