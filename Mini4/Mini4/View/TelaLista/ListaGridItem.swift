@@ -20,7 +20,7 @@ struct ListaGridItem: View {
         }
         
         LazyVGrid(columns: gridItemLayout) {
-            ForEach(viewModel.data.filter({ ($0.nome.contains(pesquisa) || pesquisa.isEmpty) && ($0.categoria == categoria || categoria.isEmpty) && $0.visivel})){ item in
+            ForEach(viewModel.data.filter({ ($0.nome.contains(pesquisa) || pesquisa.isEmpty) && ($0.categoria == categoria || categoria.isEmpty) && $0.visivel && ($0.urgente || !viewModel.apenasUrgente) })){ item in
                 ItemListaView(item: item)
                     .frame(minWidth: 50, minHeight: 220)
                     .padding(.bottom, 10)

@@ -17,7 +17,7 @@ struct ListaVerticalItem: View {
             TituloListaView(temItem: viewModel.temItemNaCategoria(categoria: Categorias(rawValue: categoria) ?? .vazio, itemPesquisado: pesquisa), titulo: Categorias(rawValue: categoria)?.titulo ?? "")
         }
         
-        ForEach(viewModel.data.filter({($0.nome.contains(pesquisa) || pesquisa.isEmpty) && ($0.categoria == categoria || categoria.isEmpty) && $0.visivel})){ item in
+        ForEach(viewModel.data.filter({($0.nome.contains(pesquisa) || pesquisa.isEmpty) && ($0.categoria == categoria || categoria.isEmpty) && $0.visivel && ($0.urgente || !viewModel.apenasUrgente) })){ item in
             ItemListaVerticalView(item: item)
                 .frame(maxWidth: .infinity, minHeight: 55)
                 .padding(.bottom, 10)

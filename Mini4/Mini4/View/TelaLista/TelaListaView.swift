@@ -11,14 +11,9 @@ import Firebase
 struct TelaListaView: View {
     @EnvironmentObject var viewModel: EstoqueViewModel
     var data: Timestamp
-    var gridItemLayout = [GridItem(.adaptive(minimum: 150, maximum: .infinity), spacing: 30), GridItem(.adaptive(minimum: 150, maximum: .infinity), spacing: 30)]
     
     var categorias = ["limpeza", "medicamento", "higiene", "utensilio", "alimento"]
-    
-    @State var listaVertical = true
-    @State var listaCategorizada = false
-    @State var mostrarFiltros = false
-    @State var apenasUrgente = false
+
     @State var itemPesquisado = ""
     
     var body: some View {
@@ -28,28 +23,28 @@ struct TelaListaView: View {
             HStack{
                 Image("filter")
                     .renderingMode(.template)
-                    .foregroundColor(listaCategorizada ? .primaryButton : .backgroundPrimarySearch)
+                    .foregroundColor(viewModel.listaCategorizada || viewModel.apenasUrgente ? .primaryButton : .backgroundPrimarySearch)
                     .frame(width: 40, height: 40, alignment: .center)
                     .onTapGesture {
-                        mostrarFiltros = true
+                        viewModel.mostrarFiltros = true
                     }
                 
                 Spacer()
                 Image("collection")
                     .renderingMode(.template)
-                    .foregroundColor(!listaVertical ? .primaryButton : .backgroundPrimarySearch)
+                    .foregroundColor(!viewModel.listaVertical ? .primaryButton : .backgroundPrimarySearch)
                     .frame(width: 40, height: 40, alignment: .center)
                     .padding(.trailing, 20)
                     .onTapGesture {
-                        listaVertical = false
+                        viewModel.listaVertical = false
                     }
                 
                 Image("table")
                     .renderingMode(.template)
-                    .foregroundColor(listaVertical ? .primaryButton : .backgroundPrimarySearch)
+                    .foregroundColor(viewModel.listaVertical ? .primaryButton : .backgroundPrimarySearch)
                     .frame(width: 40, height: 40, alignment: .center)
                     .onTapGesture {
-                        listaVertical = true
+                        viewModel.listaVertical = true
                     }
                 
             }.padding(.horizontal, 30)
@@ -85,8 +80,8 @@ struct TelaListaView: View {
                 .padding(.vertical, 20)
                 
         
-                if listaVertical{
-                    if !listaCategorizada{
+                if viewModel.listaVertical{
+                    if !viewModel.listaCategorizada{
                         ListaVerticalItem(pesquisa: $itemPesquisado)
                     }else{
                         VStack(alignment: .leading){
@@ -96,7 +91,7 @@ struct TelaListaView: View {
                         }
                     }
                 }else{
-                    if !listaCategorizada{
+                    if !viewModel.listaCategorizada{
                         ListaGridItem(pesquisa: $itemPesquisado)
                     }else{
                         VStack(alignment: .leading){
@@ -113,8 +108,8 @@ struct TelaListaView: View {
         .onAppear{
             viewModel.data.sort {$0.urgente && !$1.urgente}
         }
-        .sheet(isPresented: $mostrarFiltros){
-            FiltroModal(mostrarCategorias: $listaCategorizada, mostrarApenasUrgentes: $apenasUrgente, mostrandoView: $mostrarFiltros)
+        .sheet(isPresented: $viewModel.mostrarFiltros){
+            FiltroModal(mostrarCategorias: $viewModel.listaCategorizada, mostrarApenasUrgentes: $viewModel.apenasUrgente, mostrandoView: $viewModel.mostrarFiltros)
         }
         
     }
