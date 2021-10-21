@@ -33,7 +33,7 @@ struct OngFormView: View {
         
         self._ong = ong
         self.ongRascunho = ong.wrappedValue
-        
+    
         self.enderecoViewModel = EnderecoViewModel(ong.wrappedValue.id!)
         self.bancoViewModel = BancoViewModel(ong.wrappedValue.id!)
 //        self.selectedImage = selectedImage

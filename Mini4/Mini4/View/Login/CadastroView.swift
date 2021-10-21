@@ -7,6 +7,7 @@
 
 import SwiftUI
 import FirebaseAuth
+import Firebase
 
 struct CadastroView: View {
     @State var email: String = ""
@@ -14,6 +15,14 @@ struct CadastroView: View {
     @State var confirmarSenha: String = ""
     @State var apresentarAlerta = false
     @State var mensagem: String = ""
+    
+    @State var showOngForm = false
+    
+    @State var novaOrganizacao = Organizacao(
+        nome: "", cnpj: "", descricao: "", telefone: "", email: "",
+        data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
+        endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
+    
     
     var body: some View {
         VStack(alignment: .leading, spacing: 30){
@@ -32,10 +41,12 @@ struct CadastroView: View {
             CustomTextField(text: $senha, placeholder: "Senha", style: .password)
             CustomTextField(text: $confirmarSenha, placeholder: "Confirmar senha", style: .password)
                         
-            Button("Entrar") {
+            Button("Cadastrar") {
                 cadastrar()
             }.buttonStyle(.primaryButton)
             
+            NavigationLink(destination: OngFormView(ong: $novaOrganizacao, isEditing: false), isActive: $showOngForm) { EmptyView() }
+
             Spacer()
             
             VStack(alignment: .center, spacing: 10) {
@@ -60,14 +71,21 @@ struct CadastroView: View {
                 if let err = error {
                     mensagem = err.localizedDescription
                     apresentarAlerta.toggle()
-                } else {
+                }
+                
+                if let authResult = authResult {
                     mensagem = "Cadastro feito com sucesso"
                     apresentarAlerta.toggle()
-
+                    
+                    let id = authResult.user.uid
+                    
+                    novaOrganizacao.id = id
+                    
+                    showOngForm.toggle()
                 }
             }
         } else {
-            mensagem = "A senha não bate"
+            mensagem = "As senhas não correspondem"
             apresentarAlerta.toggle()
         }
     }
