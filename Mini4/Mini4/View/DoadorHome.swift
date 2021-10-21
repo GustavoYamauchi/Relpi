@@ -6,60 +6,94 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct DoadorHome: View {
     
     @ObservedObject var viewModel = OngViewModel()
-    @State var search: String = ""
+    @State var pesquisa: String = ""
     @State var selectedItemTab = 0
+    private var isLoggedIn = false
+    private let rangeOng = 3
     
     let tabItemNames = ["Home", "Favoritos", "CaixaDoacao"]
     var body: some View {
-        VStack{
-            ZStack{
-                
+        VStack {
+            ZStack {
                 switch selectedItemTab {
                 case 0:
-                    VStack(alignment: .leading, spacing: 30){
-                        Image("logo_light")
-                        
-                        SearchBarView(pesquisando: $search, placeholder: "Search")
-                        
-                        Text("Explorar ONGs")
-                            .padding(.top)
-                            .foregroundColor(Color.sexternary)
-                            .font(.system(size: 24, weight: .bold, design: .default))
-                            .padding(.leading)
-                        
-                        ForEach(viewModel.data) { ong in
-                            HStack {
-                                NavigationLink(destination: SobreOngView(ong: ong)) {
-                                    Text("\(ong.nome)")
+                    ScrollView {
+                        VStack(alignment: .leading, spacing: 30) {
+                            
+                            Image("logo_light")
+                                .frame(minWidth: 0, maxWidth: .infinity)
+                            
+                            SearchBarView(pesquisando: $pesquisa, placeholder: "Search")
+                            
+                            Text("Explorar ONGs")
+                                .textStyle(TitleStyle())
+                            
+                            if pesquisa == "" {
+                                if viewModel.data.count >= rangeOng { //verifica se tem 3 ongs e entrar no if
+                                    ForEach(0..<3) { i in
+                                        NavigationLink(destination: SobreOngView(ong: viewModel.data[i])) {
+                                            Text("\(viewModel.data[i].nome)")
+                                        }
+                                        .buttonStyle(SecondaryButton())
+                                    }
+                                } else { // se tiver menos exibi só elas
+                                    ForEach(viewModel.data) { ong in
+                                        HStack {
+                                            NavigationLink(destination: SobreOngView(ong: ong)) {
+                                                Text("\(ong.nome)")
+                                            }
+                                            .buttonStyle(SecondaryButton())
+                                        }
+                                    }
                                 }
-                                .buttonStyle(SecondaryButton())
+                            } else {
+                                ForEach(viewModel.data.filter({ $0.nome.contains(pesquisa) })) { ong in
+                                    HStack {
+                                        NavigationLink(destination: SobreOngView(ong: ong)) {
+                                            Text("\(ong.nome)")
+                                        }
+                                        .buttonStyle(SecondaryButton())
+                                    }
+                                }
+                                
                             }
+                            
+                            Button("Ver todas") {
+                                print("ver todas")
+                            }.buttonStyle(.primaryButton)
                         }
-                        
-                        Button("Ver todas") {
-                            print("ver todas")
-                        }.buttonStyle(.primaryButton)
+                    }
+                case 1:
+                    if isLoggedIn {
+                        //TODO
+                    } else {
+                        VStack(alignment: .leading, spacing: 30) {
+                            Spacer()
+                            
+                            DialogCard(text: "Para favoritar ONGs e salvar itens na sua caixa de doação, faça login :)", colorStyle: .green)
+                            
+                            Button("Registrar") {
+                                print("registrar")
+                            }.buttonStyle(.textButton)
+                            
+                            Spacer()
+                        }
                     }
                 default:
-                    VStack{
-                        DialogCard(text: "Para favoritar ONGs e salvar itens na sua caixa de doação, faça login :)", colorStyle: .green)
-                        
-                        Button("Registrar") {
-                            print("registrar")
-                        }.buttonStyle(.textButton)
-                    }
+                    Text("Caixa de doacão")
+                        .frame(minWidth: 0, maxWidth: .infinity)
                 }
-                
             }
             
             Spacer()
             
-            HStack{
-                ForEach(0..<3){ num in
+            HStack {
+                ForEach(0..<3) { num in
                     Button(action: {selectedItemTab = num}, label: {
                         Spacer()
                         Image(tabItemNames[num])

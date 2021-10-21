@@ -99,9 +99,12 @@ struct OngFormView: View {
                         })
                         
                         NavigationLink(destination: TelaListaView(viewModel: EstoqueViewModel(ong.id!), data: ong.data),
+
+                        NavigationLink(destination: TelaListaView(data: ong.data).environmentObject(EstoqueViewModel(ong.id!)),
                         label: {
                             Text("Lista")
                         })
+                        
                         Button("Alterar foto") {
                             self.sourceType = .photoLibrary
                             self.isImagePickerDisplaying.toggle()
