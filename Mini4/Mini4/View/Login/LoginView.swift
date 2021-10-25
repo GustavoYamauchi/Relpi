@@ -17,17 +17,8 @@ struct LoginView: View {
     
     @State var showOngForm = false
     @EnvironmentObject var ongViewModel: OngViewModel
-
+    @EnvironmentObject var loginViewModel: LoginViewModel
     
-    @State var ong: Organizacao
-    
-    init() {
-        ong = Organizacao(
-            nome: "", cnpj: "", descricao: "", telefone: "", email: "",
-            data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
-            endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
-    }
-        
     var body: some View {
         VStack(alignment: .leading, spacing: 30){
             Image("logo_light")
@@ -49,7 +40,7 @@ struct LoginView: View {
             }.buttonStyle(.primaryButton)
                         
             if showOngForm {
-                NavigationLink(destination: OngFormView(ong: $ong, isEditing: true).environmentObject(ongViewModel), isActive: $showOngForm) {
+                NavigationLink(destination: OngHomeView(ong: ongViewModel.getOng(id: loginViewModel.id)), isActive: $showOngForm) {
                     EmptyView()
                 }
             }
@@ -73,33 +64,12 @@ struct LoginView: View {
     }
     
     func login() {
-        Auth.auth().signIn(withEmail: email, password: senha) { authResult, error in
-            if let err = error {
-                print(err.localizedDescription)
-                apresentarAlerta.toggle()
-                self.mensagem = err.localizedDescription
-                
-            } else {
-                
-                let id = authResult?.user.uid
-                if let ongBd = ongViewModel.data.first(where: { $0.id == id}) {
-                    ong = ongBd
-//
-                    print(ong.nome)
-                    print(ong.banco.banco)
-//                    var enderecoViewModel = EnderecoViewModel(id!)
-//                    var bancoViewModel = BancoViewModel(id!)
-//                                    
-//                    ong.endereco = enderecoViewModel.data.first ?? Endereco(logradouro: "1", numero: "", bairro: "", cidade: "", cep: "", estado: "")
-//                    ong.banco = bancoViewModel.data.first ?? Banco(banco: "", agencia: "", conta: "", pix: "")
-                } else {
-                    ong.id = id
-                }
-                
-                showOngForm.toggle()
-                
-            }
+        loginViewModel.login(email: email, senha: senha)
+        
+        if loginViewModel.autenticado {
+            showOngForm = true
         }
+        
     }
 }
 

@@ -31,7 +31,7 @@ class LoginViewModel: ObservableObject {
     }
     
     func login(email: String, senha: String) {
-        Auth.auth().signIn(withEmail: email, password: senha) { [weak self] authResult, error in
+        auth.signIn(withEmail: email, password: senha) { [weak self] authResult, error in
             if let err = error {
                 print(err.localizedDescription)
                 self?.mensagem = err.localizedDescription
@@ -46,10 +46,22 @@ class LoginViewModel: ObservableObject {
         }
     }
     
+    func logout() {
+        do {
+            try auth.signOut()
+            DispatchQueue.main.async {
+                self.autenticado = false
+            }
+        } catch let signOutError as NSError {
+            print(signOutError)
+        }
+    }
+    
     func cadastrar(email: String, senha: String) {
-        Auth.auth().createUser(withEmail: email, password: senha) { [weak self] authResult, error in
+        auth.createUser(withEmail: email, password: senha) { [weak self] authResult, error in
             if let err = error {
                 self?.mensagem = err.localizedDescription
+                print("erro")
             }
             
             if authResult != nil {
