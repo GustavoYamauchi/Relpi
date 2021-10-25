@@ -19,18 +19,21 @@ struct ItemListaView: View {
             VStack(alignment: .center){
                 NavigationLink(destination: EditarLista(item: item).environmentObject(estoqueViewModel),
                                label: {
-                                Spacer()
-                                Image("\(item.categoria.lowercased())Icon")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 150, height: 150, alignment: .center)
-                                Spacer()
-                                Text(item.nome)
-                                    .font((.system(size: 20, weight: .regular, design: .rounded)))
-                                    .multilineTextAlignment(.center)
-                                    .foregroundColor(Color.white)
-                                    .padding(.bottom, 15)
-                                    .padding(.horizontal, 10)
+                                VStack{
+                                    Spacer()
+                                    Image("\(item.categoria.lowercased())Icon")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 150, height: 150, alignment: .center)
+                                    Spacer()
+                                    Text(item.nome)
+                                        .font((.system(size: 20, weight: .regular, design: .rounded)))
+                                        .multilineTextAlignment(.center)
+                                        .foregroundColor(Color.white)
+                                        .padding(.bottom, 15)
+                                        .padding(.horizontal, 10)
+                                }
+                                
                                })
                
             }
