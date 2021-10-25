@@ -13,12 +13,11 @@ import FirebaseStorage
 
 class OngViewModel : ObservableObject {
     @Published var data = [Organizacao]()
-    
+        
     //for reading purpose it will automatically add data when we write data to firestore.
     private let dbOng = Firestore.firestore().collection("ong")
     
     init() {
-        
         dbOng.addSnapshotListener({ (snap_, err) in
             guard let snap = snap_ else {return}
             
@@ -29,7 +28,8 @@ class OngViewModel : ObservableObject {
             
             for i in snap.documentChanges{
                 if i.type == .added{
-                    let msgData = Organizacao(
+                    
+                    var msgData = Organizacao(
                         id: i.document.documentID,
                         nome: self.castString(i.document.get("nome")),
                         cnpj: self.castString(i.document.get("cnpj")),
@@ -41,7 +41,58 @@ class OngViewModel : ObservableObject {
                         banco: Banco(banco: "31231", agencia: "", conta: "", pix: ""),
                         endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: "")
                     )
-                    self.data.append(msgData)
+                    
+                    let group = DispatchGroup()
+                    
+                    group.enter()
+                    
+                    self.dbOng.document(msgData.id!).collection("banco").getDocuments { endData, err in
+                        guard let endData = endData else { return }
+
+                        for j in endData.documentChanges {
+
+                            let bancoData = j.document.data()
+                            let nome = self.castString(bancoData["banco"])
+                            let agencia = self.castString(bancoData["agencia"])
+                            let pix = self.castString(bancoData["pix"])
+                            let conta = self.castString(bancoData["conta"])
+                            let banco = Banco(id: self.castString(bancoData["id"]), banco: nome, agencia: agencia, conta: conta, pix: pix)
+                            
+                            msgData.banco = banco
+                            print("MSG: \(msgData.banco.banco)")
+                        }
+                        
+                        group.leave()
+                    }
+                    
+                    group.enter()
+                    
+                    self.dbOng.document(msgData.id!).collection("endereco").getDocuments { endData, err in
+                        guard let endData = endData else { return }
+
+                        for j in endData.documentChanges {
+
+                            let enderecoData = j.document.data()
+
+                            let cidade = self.castString(enderecoData["cidade"])
+                            let logradouro = self.castString(enderecoData["logradouro"])
+                            let numero = self.castString(enderecoData["numero"])
+                            let estado = self.castString(enderecoData["estado"])
+                            let cep = self.castString(enderecoData["cep"])
+                            let bairro = self.castString(enderecoData["bairro"])
+                            let id = self.castString(enderecoData["id"])
+                            
+                            let endereco = Endereco(id: id, logradouro: logradouro, numero: numero, bairro: bairro, cidade: cidade, cep: cep, estado: estado)
+                            
+                            msgData.endereco = endereco
+                        }
+                        
+                        group.leave()
+                    }
+                                                            
+                    group.notify(queue: .main) {
+                        self.data.append(msgData)
+                    }
                 }
                 if i.type == .modified{
                     for j in 0..<self.data.count{
@@ -63,6 +114,7 @@ class OngViewModel : ObservableObject {
                     })!)
                 }
             }
+            
             
         })
     }
@@ -210,6 +262,16 @@ class OngViewModel : ObservableObject {
     func gerarNovaOng() -> Organizacao {
         return Organizacao(
             nome: "", cnpj: "", descricao: "", telefone: "", email: "",
+            data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
+            endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
+    }
+    
+    func getOng(id: String) -> Organizacao {
+        print("id getOng \(id)")
+                
+        let ong = self.data.first(where: { $0.id == id} )
+        return ong ?? Organizacao(
+            nome: "n tem ong", cnpj: "", descricao: "", telefone: "", email: "",
             data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
             endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
     }

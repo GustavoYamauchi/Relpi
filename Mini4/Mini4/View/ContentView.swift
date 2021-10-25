@@ -10,22 +10,27 @@ import Firebase
 import FirebaseFirestore
 
 struct ContentView: View {
+    @EnvironmentObject var loginViewModel: LoginViewModel
+    @ObservedObject var ongViewModel = OngViewModel()
+    
     var body: some View {
         NavigationView{
             #if Mini4
             DoadorHome()
             #else
-            CadastroView().environmentObject(OngViewModel())
+            
+            if loginViewModel.autenticado {
+                OngHomeView(ong: ongViewModel.getOng(id: loginViewModel.id))
+            } else {
+                CadastroView().environmentObject(OngViewModel())
+            }
             
             #endif
+        }.onAppear {
+            loginViewModel.autenticado = loginViewModel.isAuthenticated
         }
     }
-}
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
 }
 
 #if Mini4
