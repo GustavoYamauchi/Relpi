@@ -15,6 +15,7 @@ struct CadastroView: View {
     @State var confirmarSenha: String = ""
     @State var apresentarAlerta = false
     @State var mensagem: String = ""
+    
     @EnvironmentObject var ongViewModel: OngViewModel
     @EnvironmentObject var loginViewModel: LoginViewModel
     
@@ -31,50 +32,57 @@ struct CadastroView: View {
             Image("logo_light")
                 .frame(minWidth: 0, maxWidth: .infinity)
             
-            Spacer()
+            Spacer(minLength: 0)
             
-            Text("Cadastre a sua ONG")
-                .padding(.top)
-                .foregroundColor(Color.primaria)
-                .font(.system(size: 24, weight: .bold, design: .default))
-            
-            CustomTextField(text: $email, placeholder: "E-mail")
-                .autocapitalization(.none)
-                .textContentType(.emailAddress)
-            CustomTextField(text: $senha, placeholder: "Senha", style: .password)
-            CustomTextField(text: $confirmarSenha, placeholder: "Confirmar senha", style: .password)
-                        
-            Button("Cadastrar") {
-                cadastrar()
-            }.buttonStyle(.primaryButton)
-                        
-            if showOngForm {
-                NavigationLink(destination: OngFormView(ong: $novaOrganizacao, isEditing: false).environmentObject(ongViewModel), isActive: $showOngForm) {
-                    EmptyView()
+            Group {
+                Text("Cadastre a sua ONG")
+                    .padding(.top)
+                    .foregroundColor(Color.primaria)
+                    .font(.system(size: 24, weight: .bold, design: .default))
+                
+                CustomTextField(text: $email, placeholder: "E-mail")
+                    .autocapitalization(.none)
+                    .textContentType(.emailAddress)
+                    .padding(.horizontal, 30)
+                
+                CustomTextField(text: $senha, placeholder: "Senha", style: .password)
+                    .padding(.horizontal, 30)
+                
+                CustomTextField(text: $confirmarSenha, placeholder: "Confirmar senha", style: .password)
+                    .padding(.horizontal, 30)
+                
+                if apresentarAlerta {
+                    DialogCard(text: mensagem, colorStyle: .red)
+                }
+                
+                Button("Cadastrar") {
+                    cadastrar()
+                }.buttonStyle(.primaryButton)
+                
+                if showOngForm {
+                    NavigationLink(destination: OngFormView(ong: $novaOrganizacao, isEditing: false)
+                                    .environmentObject(ongViewModel), isActive: $showOngForm) {
+                        EmptyView()
+                    }
                 }
             }
             
-            Spacer()
+            Spacer(minLength: 0)
             
             VStack(alignment: .center, spacing: 10) {
                 Text("Já possui uma conta?")
-
+                
                 Button(action: {}, label: {
                     NavigationLink(destination: LoginView().environmentObject(ongViewModel), label: { Text("Login") })
                 }).buttonStyle(.textButton)
-                    
             }
             
-        }.padding(.horizontal, 30)
-        .padding(.vertical, 50)
-        .alert(isPresented: $apresentarAlerta) {
-            Alert(title: Text("Cadastro"), message: Text(mensagem), dismissButton: Alert.Button.default(Text("OK")))
         }
+        .padding(.vertical, 50)
     }
     
     func cadastrar() {
         if senha == confirmarSenha {
-            
             loginViewModel.cadastrar(email: email, senha: senha) { result in
                 
                 switch result {
