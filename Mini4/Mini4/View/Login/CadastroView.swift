@@ -16,6 +16,7 @@ struct CadastroView: View {
     @State var apresentarAlerta = false
     @State var mensagem: String = ""
     @EnvironmentObject var ongViewModel: OngViewModel
+    @EnvironmentObject var loginViewModel: LoginViewModel
     
     @State var showOngForm = false
     
@@ -28,6 +29,7 @@ struct CadastroView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 30){
             Image("logo_light")
+                .frame(minWidth: 0, maxWidth: .infinity)
             
             Spacer()
             
@@ -72,21 +74,20 @@ struct CadastroView: View {
     
     func cadastrar() {
         if senha == confirmarSenha {
-            Auth.auth().createUser(withEmail: email, password: senha) { [self] authResult, error in
-                if let err = error {
-                    mensagem = err.localizedDescription
+            
+            loginViewModel.cadastrar(email: email, senha: senha) { result in
+                
+                switch result {
+                case .success:
+                    novaOrganizacao.id = loginViewModel.id
+                    showOngForm.toggle()
+                    
+                case .failure:
+                    mensagem = loginViewModel.mensagem
                     apresentarAlerta.toggle()
                 }
-                
-                if let authResult = authResult {
-                    
-                    let id = authResult.user.uid
-                    
-                    novaOrganizacao.id = id
-                                                            
-                    showOngForm.toggle()
-                }
             }
+            
         } else {
             mensagem = "As senhas não correspondem"
             apresentarAlerta.toggle()

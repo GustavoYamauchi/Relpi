@@ -22,6 +22,7 @@ struct LoginView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 30){
             Image("logo_light")
+                .frame(minWidth: 0, maxWidth: .infinity)
             
             Spacer()
             
@@ -64,12 +65,16 @@ struct LoginView: View {
     }
     
     func login() {
-        loginViewModel.login(email: email, senha: senha)
-        
-        if loginViewModel.autenticado {
-            showOngForm = true
+        loginViewModel.login(email: email, senha: senha) { result in
+            switch result {
+            case .success:
+                showOngForm = true
+            
+            case .failure:
+                mensagem = loginViewModel.mensagem
+                apresentarAlerta.toggle()
+            }
         }
-        
     }
 }
 
