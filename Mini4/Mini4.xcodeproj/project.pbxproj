@@ -71,7 +71,6 @@
 		8578A636270E23520064497C /* Button+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ADA90D270CC6BE0005A81E /* Button+Extension.swift */; };
 		85A3306A271E0D4700230D40 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A33068271E009E00230D40 /* LoginView.swift */; };
 		85A3306B271E0D4900230D40 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A33068271E009E00230D40 /* LoginView.swift */; };
-		85A44FB327231DF100947218 /* OngLogadaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A44FB227231DF100947218 /* OngLogadaViewModel.swift */; };
 		85AC8807270F66E400BFDF96 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC8806270F66E400BFDF96 /* ImagePickerView.swift */; };
 		85E49094270B9402009CD6FE /* InfoGeralFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E49093270B9402009CD6FE /* InfoGeralFormView.swift */; };
 		85E49098270B989A009CD6FE /* ContatoFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E49097270B989A009CD6FE /* ContatoFormView.swift */; };
@@ -140,7 +139,6 @@
 		8553EDCB2704F17900DB408D /* OngHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngHomeView.swift; sourceTree = "<group>"; };
 		855EB88C2718F24D004468EC /* ImageStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorageService.swift; sourceTree = "<group>"; };
 		85A33068271E009E00230D40 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		85A44FB227231DF100947218 /* OngLogadaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngLogadaViewModel.swift; sourceTree = "<group>"; };
 		85AC8806270F66E400BFDF96 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		85E49093270B9402009CD6FE /* InfoGeralFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoGeralFormView.swift; sourceTree = "<group>"; };
 		85E49097270B989A009CD6FE /* ContatoFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatoFormView.swift; sourceTree = "<group>"; };
@@ -262,7 +260,6 @@
 				1C136A20270B9AEC00D09E9D /* EnderecoViewModel.swift */,
 				1C136A26270CC6F400D09E9D /* EstoqueViewModel.swift */,
 				854B99002722DBB900B1CEF9 /* LoginViewModel.swift */,
-				85A44FB227231DF100947218 /* OngLogadaViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -595,7 +592,6 @@
 				1CC810B027064ABF00B9E721 /* BancoFormView.swift in Sources */,
 				85E49094270B9402009CD6FE /* InfoGeralFormView.swift in Sources */,
 				85E49098270B989A009CD6FE /* ContatoFormView.swift in Sources */,
-				85A44FB327231DF100947218 /* OngLogadaViewModel.swift in Sources */,
 				1C136A38270E391C00D09E9D /* TelaListaView.swift in Sources */,
 				1C5CC92F272094410078EC01 /* FiltroModal.swift in Sources */,
 				A30BA3AE270F5C9F00D2222B /* Color+Extension.swift in Sources */,

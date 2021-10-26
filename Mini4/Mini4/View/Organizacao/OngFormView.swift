@@ -90,6 +90,8 @@ struct OngFormView: View {
                                         
                 }
                 .padding([.leading, .trailing], 30)
+                
+                // TODO: REMOVER
                 .toolbar {
                     HStack{
                         NavigationLink(destination: LoginView(),
@@ -105,6 +107,7 @@ struct OngFormView: View {
                         NavigationLink(destination: TelaListaView(data: ong.data).environmentObject(EstoqueViewModel(ong.id!)),
                                        label: { Text("Lista") })
                         
+                        // não remover
                         Button("Alterar foto") {
                             self.sourceType = .photoLibrary
                             self.isImagePickerDisplaying.toggle()
