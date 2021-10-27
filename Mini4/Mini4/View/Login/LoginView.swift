@@ -60,7 +60,7 @@ struct LoginView: View {
                 Text("Ainda não possui conta?")
 
                 Button(action: {}, label: {
-                    NavigationLink(destination: CadastroView(), label: { Text("Cadastrar") })
+                    NavigationLink(destination: CadastroView(viewModel: .init(mode: .cadastro, usuario: .ong)), label: { Text("Cadastrar") })
                 }).buttonStyle(.textButton)
                     
             }

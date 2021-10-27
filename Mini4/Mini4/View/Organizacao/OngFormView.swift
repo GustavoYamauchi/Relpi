@@ -99,7 +99,7 @@ struct OngFormView: View {
                             Text("Login")
                         })
                         
-                        NavigationLink(destination: CadastroView(),
+                        NavigationLink(destination: CadastroView(viewModel: .init(mode: .cadastro, usuario: .ong)),
                         label: {
                             Text("Cadastrar")
                         })
