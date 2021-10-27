@@ -26,23 +26,31 @@ struct LoginView: View {
             
             Spacer()
             
-            Text("Entrar na sua ONG")
-                .padding(.top)
-                .foregroundColor(Color.primaria)
-                .font(.system(size: 24, weight: .bold, design: .default))
-            
-            CustomTextField(text: $email, placeholder: "E-mail")
-                .autocapitalization(.none)
-                .textContentType(.emailAddress)
-            CustomTextField(text: $senha, placeholder: "Senha", style: .password)
-            
-            Button("Entrar") {
-                login()
-            }.buttonStyle(.primaryButton)
-                        
-            if showOngForm {
-                NavigationLink(destination: OngHomeView(ong: ongViewModel.getOng(id: loginViewModel.id)), isActive: $showOngForm) {
-                    EmptyView()
+            Group {
+                Text("Entrar na sua ONG")
+                    .padding(.top)
+                    .foregroundColor(Color.primaria)
+                    .font(.system(size: 24, weight: .bold, design: .default))
+                
+                CustomTextField(text: $email, placeholder: "E-mail")
+                    .autocapitalization(.none)
+                    .textContentType(.emailAddress)
+                    .padding(.horizontal, 30)
+                CustomTextField(text: $senha, placeholder: "Senha", style: .password)
+                    .padding(.horizontal, 30)
+                
+                if apresentarAlerta {
+                    DialogCard(text: mensagem, colorStyle: .red)
+                }
+                
+                Button("Entrar") {
+                    login()
+                }.buttonStyle(.primaryButton)
+                            
+                if showOngForm {
+                    NavigationLink(destination: OngHomeView(ong: ongViewModel.getOng(id: loginViewModel.id)), isActive: $showOngForm) {
+                        EmptyView()
+                    }
                 }
             }
             
@@ -57,11 +65,8 @@ struct LoginView: View {
                     
             }
             
-        }.padding(.horizontal, 30)
-        .padding(.vertical, 50)
-        .alert(isPresented: $apresentarAlerta) {
-            Alert(title: Text("Login"), message: Text(mensagem), dismissButton: Alert.Button.default(Text("OK")))
         }
+        .padding(.vertical, 50)
     }
     
     func login() {
