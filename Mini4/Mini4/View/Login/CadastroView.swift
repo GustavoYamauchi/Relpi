@@ -10,11 +10,10 @@ import FirebaseAuth
 import Firebase
 
 struct CadastroView: View {
-    @State var email: String = ""
-    @State var senha: String = ""
-    @State var confirmarSenha: String = ""
-    @State var apresentarAlerta = false
-    @State var mensagem: String = ""
+    
+    @ObservedObject var viewModel: LoginCadastroViewModel
+    
+//    @State var apresentarAlerta = false
     
     @EnvironmentObject var ongViewModel: OngViewModel
     @EnvironmentObject var loginViewModel: LoginViewModel
@@ -25,6 +24,30 @@ struct CadastroView: View {
         nome: "", cnpj: "", descricao: "", telefone: "", email: ""/*, data: Timestamp(date: Date())*/, banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
         endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
     
+    var tituloView: some View {
+        Text(viewModel.titulo)
+            .padding(.top)
+            .foregroundColor(Color("destaque"))
+            .font(.system(size: 24, weight: .bold, design: .default))
+            .padding(.horizontal, 30)
+    }
+    
+    var emailTextField: some View {
+        CustomTextField(text: $viewModel.email, placeholder: "E-mail")
+            .autocapitalization(.none)
+            .textContentType(.emailAddress)
+            .padding(.horizontal, 30)
+    }
+    
+    var senhaTextField: some View {
+        CustomTextField(text: $viewModel.senha, placeholder: "Senha", style: .password)
+            .padding(.horizontal, 30)
+    }
+    
+    var confirmarSenhaTextField: some View {
+        CustomTextField(text: $viewModel.confirmarSenha, placeholder: "Confirmar senha", style: .password)
+            .padding(.horizontal, 30)
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 30){
@@ -34,70 +57,44 @@ struct CadastroView: View {
             Spacer(minLength: 0)
             
             Group {
-                Text("Cadastre a sua ONG")
-                    .padding(.top)
-                    .foregroundColor(Color.primaria)
-                    .font(.system(size: 24, weight: .bold, design: .default))
-                
-                CustomTextField(text: $email, placeholder: "E-mail")
-                    .autocapitalization(.none)
-                    .textContentType(.emailAddress)
-                    .padding(.horizontal, 30)
-                
-                CustomTextField(text: $senha, placeholder: "Senha", style: .password)
-                    .padding(.horizontal, 30)
-                
-                CustomTextField(text: $confirmarSenha, placeholder: "Confirmar senha", style: .password)
-                    .padding(.horizontal, 30)
-                
-                if apresentarAlerta {
-                    DialogCard(text: mensagem, colorStyle: .red)
+                tituloView
+                emailTextField
+                senhaTextField
+                if viewModel.mode == .cadastro {
+                    confirmarSenhaTextField
                 }
                 
-                Button("Cadastrar") {
-                    cadastrar()
-                }.buttonStyle(.primaryButton)
+                if viewModel.apresentarAlerta {
+                    DialogCard(text: viewModel.mensagem, colorStyle: .red)
+                }
                 
-                if showOngForm {
-                    NavigationLink(destination: OngFormView(ong: $novaOrganizacao, isEditing: false)
-                                    .environmentObject(ongViewModel), isActive: $showOngForm) {
-                        EmptyView()
-                    }
+                Button(viewModel.botao) {
+                    viewModel.botaoApertado()
+                }.buttonStyle(.primaryButton)
+            
+                NavigationLink(destination: Text("Cadastrado") , isActive: $viewModel.encaminharOngForm) {
+                    EmptyView()
+                }
+                
+                NavigationLink(destination: Text("Logado") , isActive: $viewModel.encaminharOngHome) {
+                    EmptyView()
                 }
             }
             
             Spacer(minLength: 0)
             
             VStack(alignment: .center, spacing: 10) {
-                Text("Já possui uma conta?")
+                Text(viewModel.rodape)
                 
                 Button(action: {}, label: {
-                    NavigationLink(destination: LoginView().environmentObject(ongViewModel), label: { Text("Login") })
+                    NavigationLink(destination:
+                                    CadastroView(viewModel: .init(mode: (viewModel.mode == .cadastro) ? .login : .cadastro, usuario: .ong))
+                                    .environmentObject(ongViewModel),
+                                   label: { Text(viewModel.botaoRodape) })
                 }).buttonStyle(.textButton)
+                                    
             }
-            
-        }
-        .padding(.vertical, 50)
-    }
-    
-    func cadastrar() {
-        if senha == confirmarSenha {
-            loginViewModel.cadastrar(email: email, senha: senha) { result in
-                
-                switch result {
-                case .success:
-                    novaOrganizacao.id = loginViewModel.id
-                    showOngForm.toggle()
-                    
-                case .failure:
-                    mensagem = loginViewModel.mensagem
-                    apresentarAlerta.toggle()
-                }
-            }
-            
-        } else {
-            mensagem = "As senhas não correspondem"
-            apresentarAlerta.toggle()
+            .padding(.vertical, 50)
         }
     }
 }

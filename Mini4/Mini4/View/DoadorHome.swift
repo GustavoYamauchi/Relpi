@@ -63,9 +63,14 @@ struct DoadorHome: View {
                                 
                             }
                             
-                            Button("Ver todas") {
-                                print("ver todas")
-                            }.buttonStyle(.primaryButton)
+                            Button(action: {}) {
+                                NavigationLink(destination: ExplorarOngView(ongs: viewModel.data),
+                                               label: {
+                                                Text("Ver todas")
+                                                    .frame(minWidth: 0, maxWidth: .infinity)
+                                               })
+                            }
+                            .buttonStyle(.primaryButton)
                         }
                     }
                 case 1:
