@@ -7,7 +7,7 @@
 
 import Firebase
 
-struct Organizacao: Identifiable {
+struct Organizacao: Identifiable, Codable {
     var id: String?
     var nome: String
     var cnpj: String
@@ -15,8 +15,10 @@ struct Organizacao: Identifiable {
     var telefone: String
     var email: String
     var foto: String?
-    var data: Timestamp
+    //var data: Timestamp
     var banco: Banco
     var endereco: Endereco
     var estoque: [Item]?
 }
+
+

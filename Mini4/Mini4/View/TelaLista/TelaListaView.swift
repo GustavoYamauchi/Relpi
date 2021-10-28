@@ -10,7 +10,7 @@ import Firebase
 
 struct TelaListaView: View {
     @EnvironmentObject var viewModel: EstoqueViewModel
-    var data: Timestamp
+    //var data: Timestamp
     var gridItemLayout = [GridItem(.adaptive(minimum: 150, maximum: .infinity), spacing: 30), GridItem(.adaptive(minimum: 150, maximum: .infinity), spacing: 30)]
     
     @State var listaVertical = true
@@ -233,7 +233,7 @@ struct TelaListaView: View {
     }
     
     func converteData() -> String{
-        let date = Date(timeIntervalSince1970: TimeInterval(self.data.seconds))
+        //let date = Date(timeIntervalSince1970: TimeInterval(self.data.seconds))
         
         let formatador = DateFormatter()
         let formatadorHora = DateFormatter()
@@ -245,7 +245,7 @@ struct TelaListaView: View {
         if let dateFormate = DateFormatter.dateFormat(fromTemplate: template, options: 0, locale: formatador.locale), let hourFormate = DateFormatter.dateFormat(fromTemplate: templateHora, options: 0, locale: formatador.locale){
             formatador.dateFormat = dateFormate
             formatadorHora.dateFormat = hourFormate
-            return "\(formatador.string(from: date)) às \(formatadorHora.string(from: date))"
+            //return "\(formatador.string(from: date)) às \(formatadorHora.string(from: date))"
         }
         return ""
     }
