@@ -104,7 +104,7 @@ struct OngFormView: View {
                             Text("Cadastrar")
                         })
                         
-                        NavigationLink(destination: TelaListaView(/*data: ong.data*/).environmentObject(EstoqueViewModel(ong.id!)),
+                        NavigationLink(destination: TelaListaView(data: ong.data).environmentObject(EstoqueViewModel(ong.id!)),
                                        label: { Text("Lista") })
                         
                         // não remover
@@ -189,7 +189,7 @@ struct OngFormView: View {
     
     private func getNewOrg() -> Organizacao {
         return Organizacao(
-            nome: "", cnpj: "", descricao: "", telefone: "", email: ""/*, data: Timestamp(date: Date())*/, banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
+            nome: "", cnpj: "", descricao: "", telefone: "", email: "", data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
             endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
     }
     
@@ -208,7 +208,7 @@ struct OngFormView: View {
 
 struct OngFormView_Previews: PreviewProvider {
     @State static var ong: Organizacao = Organizacao(
-        nome: "", cnpj: "", descricao: "", telefone: "", email: ""/*, data: Timestamp(date: Date())*/, banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
+        nome: "", cnpj: "", descricao: "", telefone: "", email: "", data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
         endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
     
     static var previews: some View {

@@ -40,7 +40,7 @@ class OngViewModel : ObservableObject {
                         telefone: self.castString(i.document.get("telefone")),
                         email: self.castString(i.document.get("email")),
                         foto: self.castString(i.document.get("foto")),
-                        //data: Timestamp.init(date: Date()),
+                        data: Timestamp.init(date: Date()),
                         banco: Banco(banco: "31231", agencia: "", conta: "", pix: ""),
                         endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: "")
                     )
@@ -268,7 +268,7 @@ class OngViewModel : ObservableObject {
 
     func gerarNovaOng() -> Organizacao {
         return Organizacao(
-            nome: "", cnpj: "", descricao: "", telefone: "", email: ""/*, data: Timestamp(date: Date())*/, banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
+            nome: "", cnpj: "", descricao: "", telefone: "", email: "", data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
             endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
     }
     
@@ -277,7 +277,7 @@ class OngViewModel : ObservableObject {
                 
         let ong = self.data.first(where: { $0.id == id} )
         return ong ?? Organizacao(
-            nome: "n tem ong", cnpj: "", descricao: "", telefone: "", email: ""/*, data: Timestamp(date: Date())*/, banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
+            nome: "n tem ong", cnpj: "", descricao: "", telefone: "", email: "", data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
             endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
     }
     
@@ -292,7 +292,7 @@ class OngViewModel : ObservableObject {
                               telefone: "(11) 3744-7492",
                               email: "contato@casamariahelenapaulina.org.br",
                               foto: "",
-                              //data: Timestamp(date: Date()),
+                              data: Timestamp(date: Date()),
                               banco: Banco(banco: "Banco Itaú",
                                            agencia: "0062",
                                            conta: "35.926-0",
