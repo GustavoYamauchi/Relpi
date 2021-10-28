@@ -9,6 +9,7 @@ import SwiftUI
 import Firebase
 
 struct OngHomeView: View {
+    let userService: UserServiceProtocol = UserService()
     
     var ong: Organizacao
     @EnvironmentObject var estoqueViewModel: EstoqueViewModel
@@ -82,7 +83,7 @@ struct OngHomeView: View {
             
         }
         
-        .navigationBarItems(trailing:  Button(action: {}, label: {
+        .navigationBarItems(trailing:  Button(action: { userService.logout() }, label: {
             Text("Logout")
                 .foregroundColor(Color.primaryButton)
                 .font(.system(size: 16, weight: .bold, design: .default))

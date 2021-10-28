@@ -72,6 +72,10 @@
 		85A3306A271E0D4700230D40 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A33068271E009E00230D40 /* LoginView.swift */; };
 		85A3306B271E0D4900230D40 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A33068271E009E00230D40 /* LoginView.swift */; };
 		85AC8807270F66E400BFDF96 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC8806270F66E400BFDF96 /* ImagePickerView.swift */; };
+		85DAA31B2729CCB500CD7696 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DAA31A2729CCB500CD7696 /* UserService.swift */; };
+		85DAA31D2729CD8200CD7696 /* LoginCadastroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DAA31C2729CD8200CD7696 /* LoginCadastroViewModel.swift */; };
+		85DAA31E2729CD8200CD7696 /* LoginCadastroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DAA31C2729CD8200CD7696 /* LoginCadastroViewModel.swift */; };
+		85DAA31F2729D88900CD7696 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DAA31A2729CCB500CD7696 /* UserService.swift */; };
 		85E49094270B9402009CD6FE /* InfoGeralFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E49093270B9402009CD6FE /* InfoGeralFormView.swift */; };
 		85E49098270B989A009CD6FE /* ContatoFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E49097270B989A009CD6FE /* ContatoFormView.swift */; };
 		85F5F0AD27208AE40068BE8B /* CadastroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F5F0AC27208AE40068BE8B /* CadastroView.swift */; };
@@ -149,6 +153,8 @@
 		855EB88C2718F24D004468EC /* ImageStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorageService.swift; sourceTree = "<group>"; };
 		85A33068271E009E00230D40 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		85AC8806270F66E400BFDF96 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		85DAA31A2729CCB500CD7696 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		85DAA31C2729CD8200CD7696 /* LoginCadastroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCadastroViewModel.swift; sourceTree = "<group>"; };
 		85E49093270B9402009CD6FE /* InfoGeralFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoGeralFormView.swift; sourceTree = "<group>"; };
 		85E49097270B989A009CD6FE /* ContatoFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatoFormView.swift; sourceTree = "<group>"; };
 		85F5F0AC27208AE40068BE8B /* CadastroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroView.swift; sourceTree = "<group>"; };
@@ -316,6 +322,8 @@
 			children = (
 				85A33068271E009E00230D40 /* LoginView.swift */,
 				85F5F0AC27208AE40068BE8B /* CadastroView.swift */,
+				85DAA31C2729CD8200CD7696 /* LoginCadastroViewModel.swift */,
+				85DAA31A2729CCB500CD7696 /* UserService.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -566,6 +574,7 @@
 				855EB88D2718F24D004468EC /* ImageStorageService.swift in Sources */,
 				A319FAC527275DFD001C5073 /* EditarItem.swift in Sources */,
 				1C136A2A270CCD3B00D09E9D /* EstoqueFormView.swift in Sources */,
+				85DAA31B2729CCB500CD7696 /* UserService.swift in Sources */,
 				8553EDCC2704F17900DB408D /* OngHomeView.swift in Sources */,
 				A319FAC627275E2B001C5073 /* ImagePickerView.swift in Sources */,
 				1CC8109827038A3100B9E721 /* Endereco.swift in Sources */,
@@ -574,6 +583,7 @@
 				1CC8109E27038A3100B9E721 /* Item.swift in Sources */,
 				85F5F0AD27208AE40068BE8B /* CadastroView.swift in Sources */,
 				1CC810A227038E7400B9E721 /* OngViewModel.swift in Sources */,
+				85DAA31D2729CD8200CD7696 /* LoginCadastroViewModel.swift in Sources */,
 				1CD911DD270B7224007B2D05 /* BancoViewModel.swift in Sources */,
 				1C136A3A270E399E00D09E9D /* ItemListaView.swift in Sources */,
 				85A3306B271E0D4900230D40 /* LoginView.swift in Sources */,
@@ -609,6 +619,8 @@
 				8B12DA5A2710BE9700A19E3B /* PickerCustom.swift in Sources */,
 				1CFC96AA2718BF8D00B33A9E /* DialogCard.swift in Sources */,
 				1CC810B027064ABF00B9E721 /* BancoFormView.swift in Sources */,
+				85DAA31E2729CD8200CD7696 /* LoginCadastroViewModel.swift in Sources */,
+				85DAA31F2729D88900CD7696 /* UserService.swift in Sources */,
 				85E49094270B9402009CD6FE /* InfoGeralFormView.swift in Sources */,
 				A319FAC327275C51001C5073 /* ExplorarOngView.swift in Sources */,
 				85E49098270B989A009CD6FE /* ContatoFormView.swift in Sources */,
