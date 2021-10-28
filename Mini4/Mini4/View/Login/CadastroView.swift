@@ -72,10 +72,12 @@ struct CadastroView: View {
                 Button(viewModel.botao) {
                     viewModel.botaoApertado()
                 }.buttonStyle(.primaryButton)
-            }
             
-            if showOngForm {
-                NavigationLink(destination: OngFormView(ong: $novaOrganizacao, isEditing: false).environmentObject(ongViewModel), isActive: $showOngForm) {
+                NavigationLink(destination: Text("Cadastrado") , isActive: $viewModel.encaminharOngForm) {
+                    EmptyView()
+                }
+                
+                NavigationLink(destination: Text("Logado") , isActive: $viewModel.encaminharOngHome) {
                     EmptyView()
                 }
             }

@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import FirebaseAuth
+import Firebase
 
 class LoginCadastroViewModel: ObservableObject {
     
@@ -21,7 +23,8 @@ class LoginCadastroViewModel: ObservableObject {
     private let userService: UserServiceProtocol
     
     @Published var encaminharOngForm = false
-    
+    @Published var encaminharOngHome = false
+        
     init(mode: Mode, usuario: Usuario, userService: UserServiceProtocol = UserService()) {
         self.mode = mode
         self.usuario = usuario
@@ -75,7 +78,8 @@ class LoginCadastroViewModel: ObservableObject {
                 userService.cadastrar(email: email, senha: senha) { [weak self] result in
                     switch result {
                     case .success(let user):
-                        user.uid
+                        print(user.uid)
+                        self?.encaminharOngForm = true
                         
                     case .failure(let err):
                         self?.mensagem = err.localizedDescription
@@ -93,7 +97,8 @@ class LoginCadastroViewModel: ObservableObject {
             userService.login(email: email, senha: senha) { [weak self] result in
                 switch result {
                 case .success(let user):
-                    user.uid
+                    print(user.uid)
+                    self?.encaminharOngHome = true
                     
                 case .failure(let err):
                     self?.mensagem = err.localizedDescription
@@ -103,7 +108,18 @@ class LoginCadastroViewModel: ObservableObject {
         }
     }
     
-//    func createOng(idOng: String)
+    func createOng(idOng: String) -> Organizacao {
+        return Organizacao(id: idOng, nome: "", cnpj: "", descricao: "", telefone: "", email: "",
+                              data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
+                              endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
+    }
+    
+    func getOng(idOng: String) -> Organizacao {
+//        ongService.getOng()
+        return Organizacao(id: idOng, nome: "Vai ser implementado", cnpj: "", descricao: "", telefone: "", email: "",
+                              data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
+                              endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
+    }
 }
 
 extension LoginCadastroViewModel {
