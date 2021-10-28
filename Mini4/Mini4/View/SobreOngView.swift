@@ -36,24 +36,36 @@ struct SobreOngView: View {
                     Text(ong.endereco.cidade)
                         .textStyle(ContentStyle())
                 }
-                                
-                // Card dos itens
-                HStack {
+                
+                let itemCount = ong.estoque?.count ?? 0
+                
+                if itemCount > 2 {
+                    HStack {
                     ForEach(0..<2) { i in
-                        ItemListaView(item: estoqueViewModel.data[i])
+                        ItemListaVerticalView(item: ong.estoque![i])
                             .frame(maxHeight: 220)
                     }
                     .padding(.horizontal, 30)
+                    }
+                    
+                    Button(action: {}) {
+                        NavigationLink(destination: TelaListaView(data: ong.data).environmentObject(EstoqueViewModel(ong.id!)),
+                                       label: {
+                                        Text("Lista Completa")
+                                       })
+                    }
+                    .buttonStyle(.primaryButton)
+                } else {
+                    if itemCount != 0 {
+                        HStack {
+                            ForEach(0..<estoqueViewModel.data.count) { i in
+                                ItemListaVerticalView(item: estoqueViewModel.data[i])
+                                    .frame(maxHeight: 220)
+                            }
+                            .padding(.horizontal, 30)
+                        }
+                    }
                 }
-                
-                // Listar todos os itens da ONG
-                Button(action: {}) {
-                    NavigationLink(destination: TelaListaView(data: ong.data).environmentObject(EstoqueViewModel(ong.id!)),
-                                   label: { Text("Lista Completa") })
-                }
-                .buttonStyle(.primaryButton)
-                
-                
                 
                 // Infos sobre a ONG
                 VStack(alignment: .leading, spacing: 8) {
