@@ -4,7 +4,7 @@
 //
 //  Created by Gustavo Rigor on 28/09/21.
 //
-
+import Combine
 import SwiftUI
 import Firebase
 import FirebaseFirestore
@@ -13,11 +13,14 @@ import FirebaseStorage
 
 class OngViewModel : ObservableObject {
     @Published var data = [Organizacao]()
+    
+    private let ongService: OngServiceProtocol
         
     //for reading purpose it will automatically add data when we write data to firestore.
     private let dbOng = Firestore.firestore().collection("ong")
     
-    init() {
+    init(ongService: OngServiceProtocol = OngService()) {
+        self.ongService = ongService
         dbOng.addSnapshotListener({ (snap_, err) in
             guard let snap = snap_ else {return}
             
@@ -99,7 +102,7 @@ class OngViewModel : ObservableObject {
                         if self.data[j].id == i.document.documentID{
                             self.data[j].cnpj = self.castString(i.document.get("cnpj"))
                             self.data[j].nome = self.castString(i.document.get("nome"))
-                            self.data[j].data = self.castTimestamp(i.document.get("data"))
+                            //self.data[j].data = self.castTimestamp(i.document.get("data"))
                             self.data[j].descricao = self.castString(i.document.get("descricao"))
                             self.data[j].telefone = self.castString(i.document.get("telefone"))
                             if self.data[j].foto != nil {
@@ -131,6 +134,10 @@ class OngViewModel : ObservableObject {
             return timestamp
         }
         return Timestamp(date: Date())
+    }
+    
+    private func createOrg(id: String, ong: Organizacao) -> AnyPublisher<Void, Error>{
+        return ongService.create(ong).eraseToAnyPublisher()
     }
     
     func addOrgData(org: Organizacao, image: UIImage?){
@@ -261,8 +268,7 @@ class OngViewModel : ObservableObject {
 
     func gerarNovaOng() -> Organizacao {
         return Organizacao(
-            nome: "", cnpj: "", descricao: "", telefone: "", email: "",
-            data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
+            nome: "", cnpj: "", descricao: "", telefone: "", email: "", data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
             endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
     }
     
@@ -271,9 +277,12 @@ class OngViewModel : ObservableObject {
                 
         let ong = self.data.first(where: { $0.id == id} )
         return ong ?? Organizacao(
-            nome: "n tem ong", cnpj: "", descricao: "", telefone: "", email: "",
-            data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
+            nome: "n tem ong", cnpj: "", descricao: "", telefone: "", email: "", data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
             endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
+    }
+    
+    private func idAtual() -> AnyPublisher<String, Error>{
+        return Just("").setFailureType(to: Error.self).eraseToAnyPublisher()
     }
     
     func mockOngMariaHelena() -> Organizacao {

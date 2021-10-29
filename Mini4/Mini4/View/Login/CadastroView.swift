@@ -19,8 +19,7 @@ struct CadastroView: View {
     @State var showOngForm = false
     
     @State var novaOrganizacao = Organizacao(
-        nome: "", cnpj: "", descricao: "", telefone: "", email: "",
-        data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
+        nome: "", cnpj: "", descricao: "", telefone: "", email: "", data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
         endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
     
     var tituloView: some View {

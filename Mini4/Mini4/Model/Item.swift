@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Item: Identifiable {
+struct Item: Identifiable, Codable {
     var id: String?
     var nome: String
     var categoria: String

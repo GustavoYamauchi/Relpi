@@ -10,6 +10,7 @@ import Firebase
 
 struct TelaListaView: View {
     @EnvironmentObject var viewModel: EstoqueViewModel
+    
     var data: Timestamp
     
     var categorias = ["limpeza", "medicamento", "higiene", "utensilio", "alimento"]

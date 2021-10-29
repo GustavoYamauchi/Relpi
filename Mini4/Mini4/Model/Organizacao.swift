@@ -6,8 +6,9 @@
 //
 
 import Firebase
+import FirebaseFirestoreSwift
 
-struct Organizacao: Identifiable, Equatable{
+struct Organizacao: Identifiable, Codable, Equatable {
     var id: String?
     var nome: String
     var cnpj: String
@@ -31,3 +32,5 @@ struct Organizacao: Identifiable, Equatable{
             lhs.data == rhs.data
     }
 }
+
+
