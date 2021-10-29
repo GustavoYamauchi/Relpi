@@ -82,7 +82,10 @@ struct OngHomeView: View {
             
         }
         
-        .navigationBarItems(trailing:  Button(action: {}, label: {
+        .navigationBarItems(trailing:  Button(action: {
+            let vm = LoginViewModel()
+            vm.logout()
+        }, label: {
             Text("Logout")
                 .foregroundColor(Color.primaryButton)
                 .font(.system(size: 16, weight: .bold, design: .default))

@@ -121,7 +121,7 @@ class EstoqueViewModel : ObservableObject {
             }
             print("success")
         }
-        atualizarTimestamp()
+        //atualizarTimestamp()
     }
     
     func deleteItem(item: Item){
