@@ -42,12 +42,13 @@ struct OngHomeView: View {
                     .padding(.horizontal, 30)
                 }
                 
-                if itens.count < 2{
+                if ong.id != nil{
                     Button(action: {}) {
                         NavigationLink(destination: TelaListaView(data: ong.data).environmentObject(EstoqueViewModel(ong.id!)),
                                        label: { Text("Lista Completa") })
                     }
                     .buttonStyle(.primaryButton)
+                    .padding(.vertical, 20)
                 }
                 
                 // Infos sobre a ONG
@@ -62,11 +63,16 @@ struct OngHomeView: View {
                             .aspectRatio(contentMode: .fit)
                             .padding(.horizontal, 30)
                     } else {
-                        Image("ImagePlaceholder")
-                            .resizable()
-                            .cornerRadius(15)
-                            .aspectRatio(contentMode: .fit)
-                            .padding(.horizontal, 30)
+                        ZStack{
+                            Rectangle().fill(Color.backgroundPrimarySearch)
+                                .cornerRadius(15)
+                                .frame(maxWidth: .infinity, maxHeight: 220)
+                            Image("placeholder")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .padding(30)
+                        }
+                        .padding(.horizontal, 30)
                     }
                     
                     Text(ong.descricao)
@@ -74,10 +80,14 @@ struct OngHomeView: View {
                 }.padding(.top, 20)
                 
                 // Contribuir com a ONG
-                Button("Ver perfil") {
-                    print("F")
-                }.buttonStyle(.primaryButton)
-                .padding(.top, 20)
+                if ong.id != nil{
+                    Button(action: {}) {
+                        NavigationLink(destination: SobreOngView(ong: ong).environmentObject(estoqueViewModel),
+                                       label: { Text("Ver perfil") })
+                    }
+                    .buttonStyle(.primaryButton)
+                    .padding(.top, 20)
+                }
             }
             
         }
