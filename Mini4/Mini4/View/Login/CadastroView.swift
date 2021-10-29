@@ -12,9 +12,7 @@ import Firebase
 struct CadastroView: View {
     
     @ObservedObject var viewModel: LoginCadastroViewModel
-    
-//    @State var apresentarAlerta = false
-    
+        
     @EnvironmentObject var ongViewModel: OngViewModel
     @EnvironmentObject var loginViewModel: LoginViewModel
     
@@ -73,7 +71,7 @@ struct CadastroView: View {
                     viewModel.botaoApertado()
                 }.buttonStyle(.primaryButton)
             
-                NavigationLink(destination: Text("Cadastrado") , isActive: $viewModel.encaminharOngForm) {
+                NavigationLink(destination: NewOngFormView(viewModel: .init(modo: .cadastro)), isActive: $viewModel.encaminharOngForm) {
                     EmptyView()
                 }
                 

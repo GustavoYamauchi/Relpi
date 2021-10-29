@@ -1,0 +1,115 @@
+//
+//  NewOngFormView.swift
+//  Mini4Admin
+//
+//  Created by Beatriz Sato on 28/10/21.
+//
+
+import SwiftUI
+import Firebase
+
+struct NewOngFormView: View {
+    @ObservedObject var viewModel: OngFormViewModel
+    
+    // upload de foto
+    @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
+    @State private var selectedImage: UIImage?
+    @State private var isImagePickerDisplaying = false
+    
+    @State var pageIndex: Int = 0
+    
+    init(viewModel: OngFormViewModel) {
+        self.viewModel = viewModel
+    }
+    
+    var body: some View {
+        ScrollView {
+            VStack {
+                Image(uiImage: viewModel.selectedImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                
+                Spacer()
+                
+                VStack(spacing: 30) {
+                    
+                    getFormView(pageIndex: pageIndex)
+                    
+                    HStack {
+                        if pageIndex > 0 {
+                            Button("Anterior") {
+                                previousPage()
+                            }
+                        }
+                        
+                        Spacer()
+                        
+                        if pageIndex < 3 {
+                            Button("Próximo") {
+                                nextPage()
+                            }
+                        }
+                    }.foregroundColor(Color("primaryButton"))
+                    .font(.system(size: 16, weight: .bold, design: .default))
+
+                    Button("Salvar") {
+                        viewModel.salvar()
+                    }.buttonStyle(PrimaryButton())
+                    
+                    Button("Cancelar") {
+//                        ongRascunho = ong
+                        print("CANCELA TUDO")
+                    }.buttonStyle(SecondaryButton())
+                                        
+                }
+                .padding([.leading, .trailing], 30)
+                .toolbar {
+                    // não remover
+                    Button("Alterar foto") {
+                        self.sourceType = .photoLibrary
+                        self.isImagePickerDisplaying.toggle()
+                    }
+                    
+                }
+                .navigationBarTitle("", displayMode: .inline)
+                .navigationBarBackButtonHidden(true)
+                .sheet(isPresented: self.$isImagePickerDisplaying) {
+                    ImagePickerView(selectedImage: $selectedImage, sourceType: self.sourceType)
+                }
+            }
+        }
+    }
+    
+    private func nextPage() {
+        if pageIndex < 2 {
+            pageIndex += 1
+        } else {
+            print("última página")
+        }
+    }
+    
+    private func previousPage() {
+        if pageIndex > 0 {
+            pageIndex -= 1
+        } else {
+            print("primeira página")
+        }
+    }
+    
+    private func getNewOrg() -> Organizacao {
+        return Organizacao(
+            nome: "", cnpj: "", descricao: "", telefone: "", email: "",
+            data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
+            endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
+    }
+    
+    @ViewBuilder func getFormView(pageIndex: Int) -> some View {
+        switch pageIndex {
+        case 0: InfoGeralFormView(ong: $viewModel.ong)
+//        case 1: EnderecoFormView(viewModel: enderecoViewModel, endereco: $ongRascunho.endereco, isEditing: true)
+        case 1: ContatoFormView(ong: $viewModel.ong)
+//        case 3: BancoFormView(viewModel: bancoViewModel, banco: $ongRascunho.banco, isEditing: true)
+        default: InfoGeralFormView(ong: $viewModel.ong)
+        }
+    }
+}
