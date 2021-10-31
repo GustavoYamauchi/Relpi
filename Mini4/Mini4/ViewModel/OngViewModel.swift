@@ -136,9 +136,9 @@ class OngViewModel : ObservableObject {
         return Timestamp(date: Date())
     }
     
-    private func createOrg(id: String, ong: Organizacao) -> AnyPublisher<Void, Error>{
-        return ongService.create(ong).eraseToAnyPublisher()
-    }
+//    private func createOrg(id: String, ong: Organizacao) -> AnyPublisher<Void, Error>{
+//        return ongService.create(ong).eraseToAnyPublisher()
+//    }
     
     func addOrgData(org: Organizacao, image: UIImage?){
         let ong1 = dbOng.document(org.id!)

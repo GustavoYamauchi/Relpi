@@ -81,7 +81,7 @@ struct NewOngFormView: View {
     }
     
     private func nextPage() {
-        if pageIndex < 2 {
+        if pageIndex < 1 {
             pageIndex += 1
         } else {
             print("última página")
