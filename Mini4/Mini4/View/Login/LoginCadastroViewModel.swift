@@ -31,6 +31,10 @@ class LoginCadastroViewModel: ObservableObject {
         self.userService = userService
     }
     
+    var id: String? {
+        return userService.usuarioAtual()?.uid
+    }
+    
     var titulo: String {
         switch mode {
         case .cadastro:

@@ -67,7 +67,6 @@
 		854B99012722DBB900B1CEF9 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854B99002722DBB900B1CEF9 /* LoginViewModel.swift */; };
 		854B99022722DBB900B1CEF9 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854B99002722DBB900B1CEF9 /* LoginViewModel.swift */; };
 		8553EDCA2704E6A300DB408D /* DoadorHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8553EDC92704E6A300DB408D /* DoadorHome.swift */; };
-		8553EDCC2704F17900DB408D /* OngHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8553EDCB2704F17900DB408D /* OngHomeView.swift */; };
 		855EB88D2718F24D004468EC /* ImageStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855EB88C2718F24D004468EC /* ImageStorageService.swift */; };
 		855EB88E2718F24D004468EC /* ImageStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855EB88C2718F24D004468EC /* ImageStorageService.swift */; };
 		8578A636270E23520064497C /* Button+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ADA90D270CC6BE0005A81E /* Button+Extension.swift */; };
@@ -289,14 +288,13 @@
 		1CC810A427038FE100B9E721 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				85EA0262272E044700FE1471 /* OngHome */,
 				85A33067271DF83700230D40 /* Login */,
+				85EA0262272E044700FE1471 /* OngHome */,
 				8589EBE7270B935900EA906C /* Organizacao */,
 				1C136A35270E38FC00D09E9D /* TelaLista */,
 				1CC8104A2702336200B9E721 /* ContentView.swift */,
 				8553EDC92704E6A300DB408D /* DoadorHome.swift */,
 				A30BA3B1270F6DE400D2222B /* SobreOngView.swift */,
-				8553EDCB2704F17900DB408D /* OngHomeView.swift */,
 				1C136A29270CCD3B00D09E9D /* EstoqueFormView.swift */,
 				A319FAC127275C51001C5073 /* ExplorarOngView.swift */,
 			);
@@ -308,6 +306,7 @@
 			children = (
 				855EB88C2718F24D004468EC /* ImageStorageService.swift */,
 				1C7DF8D4272B1E2300D227CA /* OngService.swift */,
+				85DAA31A2729CCB500CD7696 /* UserService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -315,14 +314,10 @@
 		8589EBE7270B935900EA906C /* Organizacao */ = {
 			isa = PBXGroup;
 			children = (
-				1CC810A92703B0B000B9E721 /* OngFormView.swift */,
-				85E49093270B9402009CD6FE /* InfoGeralFormView.swift */,
-				1C136A22270BA39E00D09E9D /* EnderecoFormView.swift */,
-				85E49097270B989A009CD6FE /* ContatoFormView.swift */,
-				1CC810AE27064AB800B9E721 /* BancoFormView.swift */,
-				85AC8806270F66E400BFDF96 /* ImagePickerView.swift */,
 				8592BE15272B41A2002165EF /* OngFormViewModel.swift */,
 				8592BE17272B41B1002165EF /* NewOngFormView.swift */,
+				85EA0265272E3DA000FE1471 /* Subviews */,
+				1CC810A92703B0B000B9E721 /* OngFormView.swift */,
 			);
 			path = Organizacao;
 			sourceTree = "<group>";
@@ -330,9 +325,8 @@
 		85A33067271DF83700230D40 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				85F5F0AC27208AE40068BE8B /* CadastroView.swift */,
 				85DAA31C2729CD8200CD7696 /* LoginCadastroViewModel.swift */,
-				85DAA31A2729CCB500CD7696 /* UserService.swift */,
+				85F5F0AC27208AE40068BE8B /* CadastroView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -341,8 +335,21 @@
 			isa = PBXGroup;
 			children = (
 				85EA0263272E045E00FE1471 /* OngHomeViewModel.swift */,
+				8553EDCB2704F17900DB408D /* OngHomeView.swift */,
 			);
 			path = OngHome;
+			sourceTree = "<group>";
+		};
+		85EA0265272E3DA000FE1471 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				85E49093270B9402009CD6FE /* InfoGeralFormView.swift */,
+				1C136A22270BA39E00D09E9D /* EnderecoFormView.swift */,
+				85E49097270B989A009CD6FE /* ContatoFormView.swift */,
+				1CC810AE27064AB800B9E721 /* BancoFormView.swift */,
+				85AC8806270F66E400BFDF96 /* ImagePickerView.swift */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		90B278108663E2C3B71189CA /* Frameworks */ = {
@@ -592,7 +599,6 @@
 				A319FAC527275DFD001C5073 /* EditarItem.swift in Sources */,
 				1C136A2A270CCD3B00D09E9D /* EstoqueFormView.swift in Sources */,
 				85DAA31B2729CCB500CD7696 /* UserService.swift in Sources */,
-				8553EDCC2704F17900DB408D /* OngHomeView.swift in Sources */,
 				A319FAC627275E2B001C5073 /* ImagePickerView.swift in Sources */,
 				1CC8109827038A3100B9E721 /* Endereco.swift in Sources */,
 				8B12DA562710BE5900A19E3B /* Category.swift in Sources */,

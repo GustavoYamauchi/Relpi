@@ -71,8 +71,10 @@ struct CadastroView: View {
                     EmptyView()
                 }
                 
-                NavigationLink(destination: Text("Logado") , isActive: $viewModel.encaminharOngHome) {
-                    EmptyView()
+                if let id = viewModel.id {
+                    NavigationLink(destination: OngHomeView(viewModel: .init(idOng: id)).environmentObject(EstoqueViewModel(id)) , isActive: $viewModel.encaminharOngHome) {
+                        EmptyView()
+                    }
                 }
             }
             

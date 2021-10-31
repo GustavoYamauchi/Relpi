@@ -12,10 +12,8 @@ struct OngHomeView: View {
     let userService: UserServiceProtocol = UserService()
     @ObservedObject var viewModel: OngHomeViewModel
     
-    
-//    var ong: Organizacao
     @EnvironmentObject var estoqueViewModel: EstoqueViewModel
-    @State private var selectedImage: UIImage?
+    
     @State var itemPesquisado = ""
     @State var itens: [Item] = [Item(nome: "item0", categoria: "alimento", quantidade: 2, urgente: true, visivel: true), Item(nome: "item1", categoria: "alimento", quantidade: 2, urgente: false, visivel: true)]
     
@@ -58,28 +56,25 @@ struct OngHomeView: View {
                     Text("Sobre a ONG")
                         .textStyle(TitleStyle())
                     
-                    if selectedImage != nil {
-                        Image(uiImage: selectedImage!)
-                            .resizable()
-                            .cornerRadius(15)
-                            .aspectRatio(contentMode: .fit)
-                            .padding(.horizontal, 30)
-                    } else {
-                        Image("ImagePlaceholder")
-                            .resizable()
-                            .cornerRadius(15)
-                            .aspectRatio(contentMode: .fit)
-                            .padding(.horizontal, 30)
-                    }
+                    Image(uiImage: viewModel.selectedImage)
+                        .resizable()
+                        .cornerRadius(15)
+                        .aspectRatio(contentMode: .fit)
+                        .padding(.horizontal, 30)
                     
                     Text(viewModel.ong.descricao)
                         .textStyle(ContentStyle())
+                    
                 }.padding(.top, 20)
                 
                 // Contribuir com a ONG
-                Button("Ver perfil") {
-                    print("F")
-                }.buttonStyle(.primaryButton)
+
+                // TODO: Direcionar para a tela "Sobre ONG" certa!!! conferir o figma
+                
+                Button(action: {}, label: {
+                    NavigationLink(destination: NewOngFormView(viewModel: .init(modo: .perfil)),
+                                   label: { Text("Ver Perfil") } )
+                }).buttonStyle(.primaryButton)
                 .padding(.top, 20)
             }
             
@@ -98,28 +93,12 @@ struct OngHomeView: View {
             populaItens()
         })
         
-        .onAppear{
-            getImage()
-        }
-        
     }
     func populaItens(){
         if estoqueViewModel.data.count > 1{
             itens =  estoqueViewModel.data
         }
     }
-    
-    private func getImage() {
-        if let foto = viewModel.ong.foto {
-            ImageStorageService.shared.downloadImage(urlString: foto) { image, err in
-                DispatchQueue.main.async {
-                    selectedImage = image
-                }
-            }
-        }
-    }
-    
-    
 }
 
 

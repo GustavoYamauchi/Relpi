@@ -16,7 +16,8 @@ class OngFormViewModel: ObservableObject {
     
     @Published var ong: Organizacao
     @Published var selectedImage: UIImage
-    
+    @Published var redirectHome = false
+        
     init(modo: Modo,
          userService: UserServiceProtocol = UserService(),
          ongService: OngServiceProtocol = OngService())
@@ -44,13 +45,12 @@ class OngFormViewModel: ObservableObject {
                 print("pegando ong da viewmodel")
                 fetchOng(idOng: id)
             }
-            
-            fetchImage()
         }
     }
     
     private func fetchImage() {
         if let foto = ong.foto {
+            print("pegando imagemmmmm")
             ImageStorageService.shared.downloadImage(urlString: foto) { [weak self] image, err in
                 DispatchQueue.main.async {
                     if let image = image {
@@ -67,6 +67,7 @@ class OngFormViewModel: ObservableObject {
             switch result {
             case .success(let org):
                 self?.ong = org
+                self?.fetchImage()
 
             case .failure(let err):
                 print(err.localizedDescription)
@@ -83,19 +84,23 @@ class OngFormViewModel: ObservableObject {
                     }
                     print("imageUrl: \(imageUrl)")
                     self?.ong.foto = imageUrl
-                }
-                
-                // adiciona no firebase
-                print("adiciona no firebase")
-                ongService.create(ong) { [weak self] result in
-                    switch result {
-                        case .success:
-                            print("cadastrado com sucesso")
-                            print(self?.ong.foto!)
-                        case .failure(let err):
-                            print(err.localizedDescription)
+                    
+                    // adiciona no firebase
+                    print("adiciona no firebase")
+                    self?.ongService.create(self!.ong) { [weak self] result in
+                        switch result {
+                            case .success:
+                                print("cadastrado com sucesso")
+                                print("foto \(String(describing: self?.ong.foto))")
+                                self?.redirectHome = true
+                                
+                            case .failure(let err):
+                                print(err.localizedDescription)
+                        }
                     }
                 }
+                
+
             
             case .perfil:
                 // atualiza no firebase

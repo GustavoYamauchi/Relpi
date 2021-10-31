@@ -11,9 +11,9 @@ import Firebase
 struct NewOngFormView: View {
     @ObservedObject var viewModel: OngFormViewModel
     
+    @Environment(\.presentationMode) var presentationMode
     // upload de foto
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
-    @State private var selectedImage: UIImage?
     @State private var isImagePickerDisplaying = false
     
     @State var pageIndex: Int = 0
@@ -56,10 +56,16 @@ struct NewOngFormView: View {
                         viewModel.salvar()
                     }.buttonStyle(PrimaryButton())
                     
-                    Button("Cancelar") {
-                        print("CANCELA TUDO")
-                    }.buttonStyle(SecondaryButton())
-                                        
+                    if viewModel.modo == .perfil {
+                        Button("Cancelar") {
+                            print("CANCELA TUDO")
+                            presentationMode.wrappedValue.dismiss()
+                        }.buttonStyle(SecondaryButton())
+                    }
+                    
+                    NavigationLink(destination: OngHomeView(viewModel: .init(idOng: viewModel.ong.id!)), isActive: $viewModel.redirectHome) {
+                        EmptyView()
+                    }  
                 }
                 .padding([.leading, .trailing], 30)
                 .toolbar {
