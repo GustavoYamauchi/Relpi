@@ -10,7 +10,6 @@ import Firebase
 import FirebaseFirestore
 
 struct EnderecoFormView: View {
-    @ObservedObject var viewModel: EnderecoViewModel
     
     @Binding var endereco: Endereco
     var isEditing: Bool
@@ -22,24 +21,16 @@ struct EnderecoFormView: View {
                 .foregroundColor(Color("primaryButton"))
                 .font(.system(size: 24, weight: .bold, design: .default))
             
-            TextField("CEP", text: $endereco.cep).textFieldStyle(RoundedBorderTextFieldStyle())
-            TextField("Rua", text: $endereco.logradouro).textFieldStyle(RoundedBorderTextFieldStyle())
-            TextField("Numero", text: $endereco.numero).textFieldStyle(RoundedBorderTextFieldStyle())
-            TextField("Estado", text: $endereco.estado).textFieldStyle(RoundedBorderTextFieldStyle())
-//            TextField("Complemento", text: $endereco.complemento).textFieldStyle(RoundedBorderTextFieldStyle())
-            TextField("Bairro", text: $endereco.bairro).textFieldStyle(RoundedBorderTextFieldStyle())
-            TextField("Cidade", text: $endereco.cidade).textFieldStyle(RoundedBorderTextFieldStyle())
-
+            CustomTextField(text: $endereco.cep, placeholder: "CEP")
+            CustomTextField(text: $endereco.logradouro, placeholder: "Rua")
+            CustomTextField(text: $endereco.numero, placeholder: "Numero e Complemento")
+            CustomTextField(text: $endereco.estado, placeholder: "Estado")
+            CustomTextField(text: $endereco.bairro, placeholder: "Bairro")
+            CustomTextField(text: $endereco.cidade, placeholder: "Cidade")
         }
         .onAppear {
-//            defineEndereco()
             endereco = (isEditing) ? endereco : Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: "")
         }
     }
     
-    func defineEndereco(){
-        if let primeiroEndereco = viewModel.data.first{
-            endereco = primeiroEndereco
-        }
-    }
 }

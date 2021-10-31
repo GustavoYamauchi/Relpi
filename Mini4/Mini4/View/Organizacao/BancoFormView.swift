@@ -10,8 +10,6 @@ import Firebase
 import FirebaseFirestore
 
 struct BancoFormView: View {
-    @ObservedObject var viewModel: BancoViewModel
-    
     @Binding var banco: Banco
     
     var isEditing: Bool
@@ -23,21 +21,13 @@ struct BancoFormView: View {
                 .foregroundColor(Color("primaryButton"))
                 .font(.system(size: 24, weight: .bold, design: .default))
             
-            TextField("nome do banco", text: $banco.banco).textFieldStyle(RoundedBorderTextFieldStyle())
-            TextField("agencia", text: $banco.agencia).textFieldStyle(RoundedBorderTextFieldStyle())
-            TextField("conta", text: $banco.conta).textFieldStyle(RoundedBorderTextFieldStyle())
-            TextField("pix", text: $banco.pix).textFieldStyle(RoundedBorderTextFieldStyle())
+            CustomTextField(text: $banco.banco, placeholder: "Nome do banco")
+            CustomTextField(text: $banco.agencia, placeholder: "Agencia")
+            CustomTextField(text: $banco.conta, placeholder: "Conta")
+            CustomTextField(text: $banco.pix, placeholder: "Chave Pix")
         }
-        
         .onAppear {
-//            defineBanco()
             banco = (isEditing) ? banco : Banco(banco: "", agencia: "", conta: "", pix: "")
-        }
-    }
-    
-    func defineBanco(){
-        if let primeiroBanco = viewModel.data.first{
-            banco = primeiroBanco
         }
     }
 }

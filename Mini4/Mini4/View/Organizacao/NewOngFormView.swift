@@ -57,7 +57,6 @@ struct NewOngFormView: View {
                     }.buttonStyle(PrimaryButton())
                     
                     Button("Cancelar") {
-//                        ongRascunho = ong
                         print("CANCELA TUDO")
                     }.buttonStyle(SecondaryButton())
                                         
@@ -69,19 +68,18 @@ struct NewOngFormView: View {
                         self.sourceType = .photoLibrary
                         self.isImagePickerDisplaying.toggle()
                     }
-                    
                 }
                 .navigationBarTitle("", displayMode: .inline)
                 .navigationBarBackButtonHidden(true)
                 .sheet(isPresented: self.$isImagePickerDisplaying) {
-                    ImagePickerView(selectedImage: $selectedImage, sourceType: self.sourceType)
+                    ImagePickerView(selectedImage: $viewModel.selectedImage, sourceType: self.sourceType)
                 }
             }
         }
     }
     
     private func nextPage() {
-        if pageIndex < 1 {
+        if pageIndex < 3 {
             pageIndex += 1
         } else {
             print("última página")
@@ -105,11 +103,11 @@ struct NewOngFormView: View {
     
     @ViewBuilder func getFormView(pageIndex: Int) -> some View {
         switch pageIndex {
-        case 0: InfoGeralFormView(ong: $viewModel.ong)
-//        case 1: EnderecoFormView(viewModel: enderecoViewModel, endereco: $ongRascunho.endereco, isEditing: true)
-        case 1: ContatoFormView(ong: $viewModel.ong)
-//        case 3: BancoFormView(viewModel: bancoViewModel, banco: $ongRascunho.banco, isEditing: true)
-        default: InfoGeralFormView(ong: $viewModel.ong)
+            case 0: InfoGeralFormView(ong: $viewModel.ong)
+            case 1: EnderecoFormView(endereco: $viewModel.ong.endereco, isEditing: true)
+            case 2: ContatoFormView(ong: $viewModel.ong)
+            case 3: BancoFormView(banco: $viewModel.ong.banco, isEditing: true)
+            default: InfoGeralFormView(ong: $viewModel.ong)
         }
     }
 }

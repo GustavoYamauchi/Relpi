@@ -12,10 +12,7 @@ import Firebase
 struct CadastroView: View {
     
     @ObservedObject var viewModel: LoginCadastroViewModel
-        
-    @EnvironmentObject var ongViewModel: OngViewModel
-    @EnvironmentObject var loginViewModel: LoginViewModel
-    
+            
     @State var showOngForm = false
     
     @State var novaOrganizacao = Organizacao(
@@ -86,8 +83,7 @@ struct CadastroView: View {
                 
                 Button(action: {}, label: {
                     NavigationLink(destination:
-                                    CadastroView(viewModel: .init(mode: (viewModel.mode == .cadastro) ? .login : .cadastro, usuario: .ong))
-                                    .environmentObject(ongViewModel),
+                                    CadastroView(viewModel: .init(mode: (viewModel.mode == .cadastro) ? .login : .cadastro, usuario: .ong)),
                                    label: { Text(viewModel.botaoRodape) })
                 }).buttonStyle(.textButton)
                                     

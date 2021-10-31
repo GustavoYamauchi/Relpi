@@ -29,7 +29,7 @@ class OngFormViewModel: ObservableObject {
  
         if modo == .cadastro {
             ong = Organizacao(id: userService.usuarioAtual()?.uid,
-                nome: "Nova Ong", cnpj: "", descricao: "", telefone: "", email: "",
+                nome: "", cnpj: "", descricao: "", telefone: "", email: "",
                 data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
                 endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
             
@@ -75,20 +75,31 @@ class OngFormViewModel: ObservableObject {
     }
 
     func salvar() {
-        if modo == .cadastro {
-            // adiciona no firebase
-            print("adiciona no firebase")
-            ongService.create(ong) { result in
-                switch result {
-                    case .success:
-                        print("cadastrado com sucesso")
-                    case .failure(let err):
+        switch modo {
+            case .cadastro:
+                ImageStorageService.shared.uploadImage(orgName: ong.nome, image: selectedImage) { [weak self] imageUrl, err in
+                    if let err = err {
                         print(err.localizedDescription)
+                    }
+                    print("imageUrl: \(imageUrl)")
+                    self?.ong.foto = imageUrl
                 }
-            }
-        } else {
-            // atualiza no firebase
-            print("atualiza no firebase")
+                
+                // adiciona no firebase
+                print("adiciona no firebase")
+                ongService.create(ong) { [weak self] result in
+                    switch result {
+                        case .success:
+                            print("cadastrado com sucesso")
+                            print(self?.ong.foto!)
+                        case .failure(let err):
+                            print(err.localizedDescription)
+                    }
+                }
+            
+            case .perfil:
+                // atualiza no firebase
+                print("atualiza no firebase")
         }
     }
 }

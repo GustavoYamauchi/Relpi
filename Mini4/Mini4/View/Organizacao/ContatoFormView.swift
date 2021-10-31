@@ -17,8 +17,10 @@ struct ContatoFormView: View {
                 .foregroundColor(Color("primaryButton"))
                 .font(.system(size: 24, weight: .bold, design: .default))
             
-            TextField("Telefone", text: $ong.telefone).textFieldStyle(RoundedBorderTextFieldStyle())
-            TextField("E-mail", text: $ong.email).textFieldStyle(RoundedBorderTextFieldStyle())
+            CustomTextField(text: $ong.telefone, placeholder: "Telefone")
+            CustomTextField(text: $ong.email, placeholder: "E-mail")
+                .autocapitalization(.none)
+                .textContentType(.emailAddress)
         }
     }
 }

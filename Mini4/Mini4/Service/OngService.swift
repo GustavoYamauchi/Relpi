@@ -20,8 +20,10 @@ final class OngService: OngServiceProtocol{
     
     func create(_ ong: Organizacao, completion: @escaping (Result<Void, Error>) -> Void) {
         do {
-            _ = try self.db.collection("ong").addDocument(from: ong)
-            completion(.success(()))
+            if let id = ong.id {
+                _ = try self.db.collection("ong").document(id).setData(from: ong)
+                    completion(.success(()))
+            }
         } catch {
             completion(.failure(error))
         }

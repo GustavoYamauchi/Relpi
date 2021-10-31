@@ -10,9 +10,10 @@ import Firebase
 
 struct OngHomeView: View {
     let userService: UserServiceProtocol = UserService()
+    @ObservedObject var viewModel: OngHomeViewModel
     
     
-    var ong: Organizacao
+//    var ong: Organizacao
     @EnvironmentObject var estoqueViewModel: EstoqueViewModel
     @State private var selectedImage: UIImage?
     @State var itemPesquisado = ""
@@ -26,7 +27,7 @@ struct OngHomeView: View {
                 .foregroundColor(Color.primaryButton)
                 .font(.system(size: 24, weight: .bold, design: .default))
             
-            Text("\(ong.nome)")
+            Text("\(viewModel.ong.nome)")
                 .padding(.leading, 25)
                 .foregroundColor(Color.gray)
                 .font(.system(size: 14, weight: .regular, design: .default))
@@ -46,7 +47,7 @@ struct OngHomeView: View {
                 
                 if itens.count < 2{
                     Button(action: {}) {
-                        NavigationLink(destination: TelaListaView(data: ong.data).environmentObject(EstoqueViewModel(ong.id!)),
+                        NavigationLink(destination: TelaListaView(data: viewModel.ong.data).environmentObject(EstoqueViewModel(viewModel.ong.id!)),
                                        label: { Text("Lista Completa") })
                     }
                     .buttonStyle(.primaryButton)
@@ -71,7 +72,7 @@ struct OngHomeView: View {
                             .padding(.horizontal, 30)
                     }
                     
-                    Text(ong.descricao)
+                    Text(viewModel.ong.descricao)
                         .textStyle(ContentStyle())
                 }.padding(.top, 20)
                 
@@ -93,7 +94,7 @@ struct OngHomeView: View {
         .navigationBarTitle("", displayMode: .inline)
         
         
-        .onChange(of: ong, perform: { _ in
+        .onChange(of: viewModel.ong, perform: { _ in
             populaItens()
         })
         
@@ -109,7 +110,7 @@ struct OngHomeView: View {
     }
     
     private func getImage() {
-        if let foto = ong.foto {
+        if let foto = viewModel.ong.foto {
             ImageStorageService.shared.downloadImage(urlString: foto) { image, err in
                 DispatchQueue.main.async {
                     selectedImage = image
@@ -122,10 +123,10 @@ struct OngHomeView: View {
 }
 
 
-struct OngHomeView_Previews: PreviewProvider {
-    @State static var ong = OngViewModel()
-    
-    static var previews: some View {
-        OngHomeView(ong: ong.mockOngMariaHelena())
-    }
-}
+//struct OngHomeView_Previews: PreviewProvider {
+//    @State static var ong = OngViewModel()
+//    
+//    static var previews: some View {
+//        OngHomeView(viewModel: .init(idOng: ong))
+//    }
+//}
