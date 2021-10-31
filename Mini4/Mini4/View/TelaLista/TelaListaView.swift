@@ -84,20 +84,24 @@ struct TelaListaView: View {
                 if viewModel.listaVertical{
                     if !viewModel.listaCategorizada{
                         ListaVerticalItem(pesquisa: $itemPesquisado)
+                            .environmentObject(viewModel)
                     }else{
                         VStack(alignment: .leading){
                             ForEach(categorias, id: \.self){ categoria in
                                 ListaVerticalItem(pesquisa: $itemPesquisado, categoria: categoria)
+                                    .environmentObject(viewModel)
                             }
                         }
                     }
                 }else{
                     if !viewModel.listaCategorizada{
                         ListaGridItem(pesquisa: $itemPesquisado)
+                            .environmentObject(viewModel)
                     }else{
                         VStack(alignment: .leading){
                             ForEach(categorias, id: \.self){ categoria in
                                 ListaGridItem(pesquisa: $itemPesquisado, categoria: categoria)
+                                    .environmentObject(viewModel)
                             }
                         }
                         

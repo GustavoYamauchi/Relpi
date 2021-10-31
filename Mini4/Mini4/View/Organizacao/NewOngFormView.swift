@@ -63,7 +63,7 @@ struct NewOngFormView: View {
                         }.buttonStyle(SecondaryButton())
                     }
                     
-                    NavigationLink(destination: OngHomeView(viewModel: .init(idOng: viewModel.ong.id!)), isActive: $viewModel.redirectHome) {
+                    NavigationLink(destination: OngHomeView(viewModel: .init(idOng: viewModel.ong.id!)).environmentObject(EstoqueViewModel(viewModel.ong.id!)), isActive: $viewModel.redirectHome) {
                         EmptyView()
                     }  
                 }

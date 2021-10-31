@@ -21,6 +21,7 @@ struct ListaVerticalItem: View {
             ItemListaVerticalView(item: item)
                 .frame(maxWidth: .infinity, minHeight: 55)
                 .padding(.bottom, 10)
+                .environmentObject(viewModel)
             
         }.padding(.horizontal, 30)
         .padding(.top, 10)

@@ -24,6 +24,7 @@ struct ListaGridItem: View {
                 ItemListaView(item: item)
                     .frame(minWidth: 50, minHeight: 220)
                     .padding(.bottom, 10)
+                    .environmentObject(viewModel)
             }
         }.padding(.horizontal, 30)
         .padding(.top, 10)

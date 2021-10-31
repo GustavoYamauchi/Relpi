@@ -39,13 +39,14 @@ struct OngHomeView: View {
                     ForEach(0..<2) { i in
                         ItemListaView(item: itens[i])
                             .frame(maxHeight: 220)
+                            .environmentObject(estoqueViewModel)
                     }
                     .padding(.horizontal, 30)
                 }
                 
                 if itens.count < 2{
                     Button(action: {}) {
-                        NavigationLink(destination: TelaListaView(data: viewModel.ong.data).environmentObject(EstoqueViewModel(viewModel.ong.id!)),
+                        NavigationLink(destination: TelaListaView(data: viewModel.ong.data).environmentObject(estoqueViewModel),
                                        label: { Text("Lista Completa") })
                     }
                     .buttonStyle(.primaryButton)
@@ -100,12 +101,3 @@ struct OngHomeView: View {
         }
     }
 }
-
-
-//struct OngHomeView_Previews: PreviewProvider {
-//    @State static var ong = OngViewModel()
-//    
-//    static var previews: some View {
-//        OngHomeView(viewModel: .init(idOng: ong))
-//    }
-//}
