@@ -54,10 +54,3 @@ final class OngHomeViewModel: ObservableObject {
         }
     }
 }
-
-struct HomeView: View {
-    
-    var body: some View {
-        Text("logado")
-    }
-}

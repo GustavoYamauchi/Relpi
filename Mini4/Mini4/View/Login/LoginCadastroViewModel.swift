@@ -112,18 +112,6 @@ class LoginCadastroViewModel: ObservableObject {
         }
     }
     
-    func createOng(idOng: String) -> Organizacao {
-        return Organizacao(id: idOng, nome: "", cnpj: "", descricao: "", telefone: "", email: "",
-                           data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
-                              endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
-    }
-    
-    func getOng(idOng: String) -> Organizacao {
-//        ongService.getOng()
-        return Organizacao(id: idOng, nome: "Vai ser implementado", cnpj: "", descricao: "", telefone: "", email: "",
-                           data: Timestamp(date: Date()),  banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
-                              endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
-    }
 }
 
 extension LoginCadastroViewModel {

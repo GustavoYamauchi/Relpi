@@ -14,7 +14,7 @@ protocol OngServiceProtocol {
     func getOng(idOng: String, completion: @escaping (Result<Organizacao, Error>) -> Void)
 }
 
-final class OngService: OngServiceProtocol{
+final class OngService: OngServiceProtocol {
 
     private let db = Firestore.firestore()
     

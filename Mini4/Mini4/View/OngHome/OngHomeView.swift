@@ -89,12 +89,11 @@ struct OngHomeView: View {
         
         .navigationBarTitle("", displayMode: .inline)
         
-        
         .onChange(of: viewModel.ong, perform: { _ in
             populaItens()
         })
-        
     }
+    
     func populaItens(){
         if estoqueViewModel.data.count > 1{
             itens =  estoqueViewModel.data
