@@ -12,11 +12,14 @@ import Firebase
 // nas outras telas, usa o binding?
 
 final class OngHomeViewModel: ObservableObject {
+    
     let ongService: OngServiceProtocol
     
     @Published var ong: Organizacao
     @Published var selectedImage: UIImage
         
+    // MARK: Inicializador
+    
     init(idOng: String, ongService: OngServiceProtocol = OngService()) {
         self.ongService = ongService
         
@@ -27,6 +30,36 @@ final class OngHomeViewModel: ObservableObject {
         fetchOng(idOng: idOng)
         
     }
+    
+    
+    // MARK: Elementos da View
+    
+    var bemVindoLabel: String {
+        return "Bem-vindo!"
+    }
+    
+    var nomeOngLabel: String {
+        return ong.nome
+    }
+    
+    var listaButtonLabel: String {
+        return "Lista Completa"
+    }
+    
+    var sobreOngLabel: String {
+        return "Sobre a ONG"
+    }
+    
+    var verPerfilButtonLabel: String {
+        return "Ver perfil"
+    }
+    
+    var logoutLabel: String {
+        return "Logout"
+    }
+    
+    
+    // MARK: Métodos
     
     private func fetchOng(idOng: String) {
         ongService.getOng(idOng: idOng) { [weak self] result in

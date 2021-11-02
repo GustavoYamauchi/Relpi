@@ -12,13 +12,9 @@ import Firebase
 struct CadastroView: View {
     
     @ObservedObject var viewModel: LoginCadastroViewModel
-            
-    @State var showOngForm = false
+
     
-    @State var novaOrganizacao = Organizacao(
-        nome: "", cnpj: "", descricao: "", telefone: "", email: "", data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
-        endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
-    
+    // MARK: Subviews
     var tituloView: some View {
         Text(viewModel.titulo)
             .padding(.top)
@@ -44,6 +40,9 @@ struct CadastroView: View {
             .padding(.horizontal, 30)
     }
     
+    
+    // MARK: View
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 30){
             Image("logo_light")
@@ -55,6 +54,7 @@ struct CadastroView: View {
                 tituloView
                 emailTextField
                 senhaTextField
+                
                 if viewModel.mode == .cadastro {
                     confirmarSenhaTextField
                 }
@@ -63,8 +63,8 @@ struct CadastroView: View {
                     DialogCard(text: viewModel.mensagem, colorStyle: .red)
                 }
                 
-                Button(viewModel.botao) {
-                    viewModel.botaoApertado()
+                Button(viewModel.botaoCadastrarEntrar) {
+                    viewModel.cadastrarLogar()
                 }.buttonStyle(.primaryButton)
             
                 NavigationLink(destination: NewOngFormView(viewModel: .init(modo: .cadastro)), isActive: $viewModel.encaminharOngForm) {
@@ -81,12 +81,12 @@ struct CadastroView: View {
             Spacer(minLength: 0)
             
             VStack(alignment: .center, spacing: 10) {
-                Text(viewModel.rodape)
+                Text(viewModel.temContaLabel)
                 
                 Button(action: {}, label: {
                     NavigationLink(destination:
                                     CadastroView(viewModel: .init(mode: (viewModel.mode == .cadastro) ? .login : .cadastro, usuario: .ong)),
-                                   label: { Text(viewModel.botaoRodape) })
+                                   label: { Text(viewModel.temContaBotaoLabel) })
                 }).buttonStyle(.textButton)
                                     
             }

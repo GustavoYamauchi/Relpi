@@ -9,6 +9,7 @@ import SwiftUI
 import Firebase
 
 struct OngHomeView: View {
+    
     let userService: UserServiceProtocol = UserService()
     @ObservedObject var viewModel: OngHomeViewModel
     
@@ -17,19 +18,29 @@ struct OngHomeView: View {
     @State var itemPesquisado = ""
     @State var itens: [Item] = [Item(nome: "item0", categoria: "alimento", quantidade: 2, urgente: true, visivel: true), Item(nome: "item1", categoria: "alimento", quantidade: 2, urgente: false, visivel: true)]
     
+    
+    // MARK: Subviews
+    
+    var tituloLabel: some View {
+        Text(viewModel.bemVindoLabel)
+            .padding(.top, 10)
+            .padding(.leading, 25)
+            .foregroundColor(Color.primaryButton)
+            .font(.system(size: 24, weight: .bold, design: .default))
+    }
+    
+    var nomeOngLabel: some View {
+        Text(viewModel.nomeOngLabel)
+            .padding(.leading, 25)
+            .foregroundColor(Color.gray)
+            .font(.system(size: 14, weight: .regular, design: .default))
+            .padding(.bottom, 10)
+    }
+    
     var body: some View {
         VStack(alignment: .leading){
-            Text("Bem vindo!")
-                .padding(.top, 10)
-                .padding(.leading, 25)
-                .foregroundColor(Color.primaryButton)
-                .font(.system(size: 24, weight: .bold, design: .default))
-            
-            Text("\(viewModel.ong.nome)")
-                .padding(.leading, 25)
-                .foregroundColor(Color.gray)
-                .font(.system(size: 14, weight: .regular, design: .default))
-                .padding(.bottom, 10)
+            tituloLabel
+            nomeOngLabel
             
             SearchBarView(pesquisando: $itemPesquisado, placeholder: "Pesquisar")
                 .padding(.vertical, 20)
@@ -47,14 +58,14 @@ struct OngHomeView: View {
                 if itens.count < 2{
                     Button(action: {}) {
                         NavigationLink(destination: TelaListaView(data: viewModel.ong.data).environmentObject(estoqueViewModel),
-                                       label: { Text("Lista Completa") })
+                                       label: { Text(viewModel.listaButtonLabel) })
                     }
                     .buttonStyle(.primaryButton)
                 }
                 
                 // Infos sobre a ONG
                 VStack(alignment: .leading, spacing: 20) {
-                    Text("Sobre a ONG")
+                    Text(viewModel.sobreOngLabel)
                         .textStyle(TitleStyle())
                     
                     Image(uiImage: viewModel.selectedImage)
@@ -74,7 +85,7 @@ struct OngHomeView: View {
                 
                 Button(action: {}, label: {
                     NavigationLink(destination: NewOngFormView(viewModel: .init(modo: .perfil)),
-                                   label: { Text("Ver Perfil") } )
+                                   label: { Text(viewModel.verPerfilButtonLabel) } )
                 }).buttonStyle(.primaryButton)
                 .padding(.top, 20)
             }
@@ -82,7 +93,7 @@ struct OngHomeView: View {
         }
         
         .navigationBarItems(trailing:  Button(action: { userService.logout() }, label: {
-            Text("Logout")
+            Text(viewModel.logoutLabel)
                 .foregroundColor(Color.primaryButton)
                 .font(.system(size: 16, weight: .bold, design: .default))
         }))

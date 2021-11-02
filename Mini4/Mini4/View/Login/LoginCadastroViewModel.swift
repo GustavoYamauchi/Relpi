@@ -11,29 +11,39 @@ import Firebase
 
 class LoginCadastroViewModel: ObservableObject {
     
+    private let userService: UserServiceProtocol
+    
     let mode: Mode
     let usuario: Usuario
+    
+    var id: String? {
+        return userService.usuarioAtual()?.uid
+    }
 
+    // elementos do formulário
+    
     @Published var email = ""
     @Published var senha = ""
     @Published var confirmarSenha = ""
     @Published var mensagem = ""
+    
+    // controlador de estado
+    
     @Published var apresentarAlerta = false
-    
-    private let userService: UserServiceProtocol
-    
     @Published var encaminharOngForm = false
     @Published var encaminharOngHome = false
+    
         
+    // MARK: Inicializador
+    
     init(mode: Mode, usuario: Usuario, userService: UserServiceProtocol = UserService()) {
         self.mode = mode
         self.usuario = usuario
         self.userService = userService
     }
     
-    var id: String? {
-        return userService.usuarioAtual()?.uid
-    }
+    
+    // MARK: Elementos da View
     
     var titulo: String {
         switch mode {
@@ -44,7 +54,7 @@ class LoginCadastroViewModel: ObservableObject {
         }
     }
     
-    var botao: String {
+    var botaoCadastrarEntrar: String {
         switch mode {
         case .cadastro:
             return "Cadastrar"
@@ -54,7 +64,7 @@ class LoginCadastroViewModel: ObservableObject {
         }
     }
     
-    var rodape: String {
+    var temContaLabel: String {
         switch mode {
         case .cadastro:
             return "Já possui uma conta?"
@@ -64,7 +74,7 @@ class LoginCadastroViewModel: ObservableObject {
         }
     }
     
-    var botaoRodape: String {
+    var temContaBotaoLabel: String {
         switch mode {
         case .cadastro:
             return "Entrar"
@@ -74,7 +84,9 @@ class LoginCadastroViewModel: ObservableObject {
         }
     }
     
-    func botaoApertado() {
+    // MARK: User intent (ações do usuário)
+    
+    func cadastrarLogar() {
         switch mode {
         case .cadastro:
              print("Cadastrar")
