@@ -99,8 +99,6 @@ class OngFormViewModel: ObservableObject {
                         }
                     }
                 }
-                
-
             
             case .perfil:
                 // atualiza no firebase
