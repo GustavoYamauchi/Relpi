@@ -62,6 +62,8 @@
 		1CFC96AC2719E47900B33A9E /* TituloListaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFC96AB2719E47900B33A9E /* TituloListaView.swift */; };
 		1CFC96AD2719E47900B33A9E /* TituloListaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFC96AB2719E47900B33A9E /* TituloListaView.swift */; };
 		6DA4B72157C3CB7B233CA050 /* Pods_Mini4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5D085BED330F0CD78C4E26 /* Pods_Mini4.framework */; };
+		850C71F92731912300902BFC /* EstoqueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850C71F82731912300902BFC /* EstoqueService.swift */; };
+		850C71FA2731912300902BFC /* EstoqueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850C71F82731912300902BFC /* EstoqueService.swift */; };
 		853BC76C2710D418007C589D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 853BC76B2710D418007C589D /* GoogleService-Info.plist */; };
 		853BC76E2710D483007C589D /* GoogleService-Info-admin.plist in Resources */ = {isa = PBXBuildFile; fileRef = 853BC76D2710D483007C589D /* GoogleService-Info-admin.plist */; };
 		854B99012722DBB900B1CEF9 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854B99002722DBB900B1CEF9 /* LoginViewModel.swift */; };
@@ -148,6 +150,7 @@
 		3F5D085BED330F0CD78C4E26 /* Pods_Mini4.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mini4.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5743B9CDD5620E7CBB873A75 /* Pods-Mini4Admin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mini4Admin.release.xcconfig"; path = "Target Support Files/Pods-Mini4Admin/Pods-Mini4Admin.release.xcconfig"; sourceTree = "<group>"; };
 		83A6578411934C5392EA1241 /* Pods-Mini4.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mini4.debug.xcconfig"; path = "Target Support Files/Pods-Mini4/Pods-Mini4.debug.xcconfig"; sourceTree = "<group>"; };
+		850C71F82731912300902BFC /* EstoqueService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstoqueService.swift; sourceTree = "<group>"; };
 		853BC76B2710D418007C589D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		853BC76D2710D483007C589D /* GoogleService-Info-admin.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-admin.plist"; sourceTree = "<group>"; };
 		854B99002722DBB900B1CEF9 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -307,6 +310,7 @@
 				855EB88C2718F24D004468EC /* ImageStorageService.swift */,
 				1C7DF8D4272B1E2300D227CA /* OngService.swift */,
 				85DAA31A2729CCB500CD7696 /* UserService.swift */,
+				850C71F82731912300902BFC /* EstoqueService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -577,6 +581,7 @@
 				A319FACA27275E6D001C5073 /* BancoFormView.swift in Sources */,
 				A319FAC727275E3E001C5073 /* InfoGeralFormView.swift in Sources */,
 				A3568F03271E2ADB00216732 /* Text+Extension.swift in Sources */,
+				850C71F92731912300902BFC /* EstoqueService.swift in Sources */,
 				1C136A3E27175E0A00D09E9D /* SearchBarView.swift in Sources */,
 				854B99012722DBB900B1CEF9 /* LoginViewModel.swift in Sources */,
 				1CC810472702336200B9E721 /* AppDelegate.swift in Sources */,
@@ -625,6 +630,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				850C71FA2731912300902BFC /* EstoqueService.swift in Sources */,
 				1CC81078270237F400B9E721 /* AppDelegate.swift in Sources */,
 				85F5F0AE27208AE40068BE8B /* CadastroView.swift in Sources */,
 				855EB88E2718F24D004468EC /* ImageStorageService.swift in Sources */,

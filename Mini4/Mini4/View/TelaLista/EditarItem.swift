@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct EditarLista: View {
+struct EditarItem: View {
 
     @State var item = Item(nome: "", categoria: "Medicamento", quantidade: 0, urgente: false, visivel: true)
     @EnvironmentObject var viewModel : EstoqueViewModel

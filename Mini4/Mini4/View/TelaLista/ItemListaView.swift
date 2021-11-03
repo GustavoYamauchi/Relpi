@@ -10,14 +10,16 @@ import SwiftUI
 struct ItemListaView: View {
     var item : Item
     @EnvironmentObject var estoqueViewModel: EstoqueViewModel
+    
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 15)
                 .foregroundColor(item.urgente ?
                                     item.visivel ? Color.urgencia : Color.urgencia.opacity(0.5) :
                                     item.visivel ? Color.regular : Color.urgencia.opacity(0.5))
+            
             VStack(alignment: .center){
-                NavigationLink(destination: EditarLista(item: item).environmentObject(estoqueViewModel),
+                NavigationLink(destination: EditarItem(item: item).environmentObject(estoqueViewModel),
                                label: {
                                 VStack{
                                     Spacer()

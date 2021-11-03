@@ -43,15 +43,11 @@ final class OngService: OngServiceProtocol {
                 
                 guard let ong = ongs?.first else { return }
 
-                DispatchQueue.main.async {
-                    print("pegou ong")
-                    completion(.success(ong!))
-                }
+                completion(.success(ong!))
                 
             } catch let error {
                 completion(.failure(error))
             }
-            
         }
     }
     

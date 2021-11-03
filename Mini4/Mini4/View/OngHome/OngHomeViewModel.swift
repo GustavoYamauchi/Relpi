@@ -14,22 +14,10 @@ import Firebase
 final class OngHomeViewModel: ObservableObject {
     
     let ongService: OngServiceProtocol
+    let estoqueService: EstoqueServiceProtocol
     
     @Published var ong: Organizacao
     @Published var selectedImage: UIImage
-        
-    // MARK: Inicializador
-    
-    init(idOng: String, ongService: OngServiceProtocol = OngService()) {
-        self.ongService = ongService
-        
-        selectedImage = UIImage(named: "ImagePlaceholder") ?? UIImage(systemName: "camera")!
-        
-        self.ong = Organizacao(id: idOng, nome: "", cnpj: "", descricao: "", telefone: "", email: "", foto: "", data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""), endereco: Endereco( logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""), estoque: [Item]())
-        
-        fetchOng(idOng: idOng)
-        
-    }
     
     
     // MARK: Elementos da View
@@ -42,7 +30,7 @@ final class OngHomeViewModel: ObservableObject {
         return ong.nome
     }
     
-    var listaButtonLabel: String {
+    var listaCompletaButtonLabel: String {
         return "Lista Completa"
     }
     
@@ -58,6 +46,23 @@ final class OngHomeViewModel: ObservableObject {
         return "Logout"
     }
     
+        
+    // MARK: Inicializador
+    
+    init(idOng: String,
+         ongService: OngServiceProtocol = OngService(),
+         estoqueService: EstoqueServiceProtocol = EstoqueService()
+    ) {
+        self.ongService = ongService
+        self.estoqueService = estoqueService
+        
+        selectedImage = UIImage(named: "ImagePlaceholder") ?? UIImage(systemName: "camera")!
+        
+        self.ong = Organizacao(id: idOng, nome: "", cnpj: "", descricao: "", telefone: "", email: "", foto: "", data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""), endereco: Endereco( logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""), estoque: [Item]())
+        
+        fetchOng(idOng: idOng)
+    }
+    
     
     // MARK: Métodos
     
@@ -66,8 +71,9 @@ final class OngHomeViewModel: ObservableObject {
 
             switch result {
             case .success(let ong):
-                    self?.ong = ong
-                    self?.fetchImage()
+                self?.ong = ong
+                self?.fetchImage()
+                self?.fetchItems()
 
             case .failure(let err):
                 print(err.localizedDescription)
@@ -85,5 +91,30 @@ final class OngHomeViewModel: ObservableObject {
                 }
             }
         }
+    }
+    
+    private func fetchItems() {
+        estoqueService.getItems(idOng: ong.id!) { result in
+            switch result {
+            case .success(let items):
+                DispatchQueue.main.async {
+                    self.ong.estoque = items
+                }
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func itensEstocados() -> Int {
+        return ong.estoque?.count ?? 0
+    }
+    
+    func item(at index: Int) -> Item {
+        if let estoque = ong.estoque {
+            return estoque[index]
+        }
+        return Item(nome: "", categoria: "", quantidade: 0, urgente: false, visivel: false)
     }
 }

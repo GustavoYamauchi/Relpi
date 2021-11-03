@@ -73,7 +73,7 @@ struct TelaListaView: View {
                 
                 
                 Button(action: {}, label: {
-                    NavigationLink(destination: EditarLista().environmentObject(viewModel), label: {
+                    NavigationLink(destination: EditarItem().environmentObject(viewModel), label: {
                         Text("Adicionar itens na caixa de doação")
                     })
                 })
