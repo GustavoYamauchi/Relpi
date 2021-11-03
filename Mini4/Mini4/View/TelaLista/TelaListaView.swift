@@ -12,7 +12,6 @@ struct TelaListaView: View {
     @EnvironmentObject var viewModel: EstoqueViewModel
     @ObservedObject var telaViewModel: TelaListaViewModel
 
-    @State var itemPesquisado = ""
     
     var body: some View {
         
@@ -60,17 +59,15 @@ struct TelaListaView: View {
                 .font(.system(size: 14, weight: .regular, design: .default))
                 .padding(.bottom, 10)
             
-            SearchBarView(pesquisando: $itemPesquisado, placeholder: "Pesquisar")
+            SearchBarView(pesquisando: $telaViewModel.itemPesquisado, placeholder: "Pesquisar")
                 .padding(.vertical, 20)
             
             ScrollView{
             DialogCard(text: "Para realizar a doação, entre em contato com a ONG. Nossa plataforma apenas cataloga os itens demandados! :)", colorStyle: .yellow)
                 .padding(.vertical, 20)
             
-                
-                
                 Button(action: {}, label: {
-                    NavigationLink(destination: EditarItem().environmentObject(viewModel), label: {
+                    NavigationLink(destination: EditarItem(itemViewModel: .init(idOng: telaViewModel.idOng, idItem: "", modo: .novoItem)).environmentObject(viewModel), label: {
                         Text("Adicionar itens na caixa de doação")
                     })
                 })
@@ -80,24 +77,26 @@ struct TelaListaView: View {
         
                 if telaViewModel.listaVertical{
                     if !telaViewModel.listaCategorizada{
-                        ListaVerticalItem(pesquisa: $itemPesquisado)
+                        ListaVerticalItem(telaViewModel: telaViewModel)
                             .environmentObject(viewModel)
+                        
                     }else{
                         VStack(alignment: .leading){
                             ForEach(telaViewModel.categorias, id: \.self){ categoria in
-                                ListaVerticalItem(pesquisa: $itemPesquisado, categoria: categoria)
+                                ListaVerticalItem(categoria: categoria, telaViewModel: telaViewModel)
                                     .environmentObject(viewModel)
                             }
                         }
                     }
                 }else{
                     if !telaViewModel.listaCategorizada{
-                        ListaGridItem(pesquisa: $itemPesquisado)
+                        ListaGridItem(telaViewModel: telaViewModel)
                             .environmentObject(viewModel)
+                        
                     }else{
                         VStack(alignment: .leading){
                             ForEach(telaViewModel.categorias, id: \.self){ categoria in
-                                ListaGridItem(pesquisa: $itemPesquisado, categoria: categoria)
+                                ListaGridItem(categoria: categoria, telaViewModel: telaViewModel)
                                     .environmentObject(viewModel)
                             }
                         }

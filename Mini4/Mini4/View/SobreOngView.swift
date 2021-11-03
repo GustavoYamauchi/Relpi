@@ -42,7 +42,7 @@ struct SobreOngView: View {
                 if itemCount > 2 {
                     HStack {
                     ForEach(0..<2) { i in
-                        ItemListaVerticalView(item: ong.estoque![i])
+                        ItemListaVerticalView(viewModel: .init(idOng: ong.id!, idItem: ong.estoque![i].id!))
                             .frame(maxHeight: 220)
                     }
                     .padding(.horizontal, 30)
@@ -59,7 +59,7 @@ struct SobreOngView: View {
                     if itemCount != 0 {
                         HStack {
                             ForEach(0..<estoqueViewModel.data.count) { i in
-                                ItemListaVerticalView(item: estoqueViewModel.data[i])
+                                ItemListaVerticalView(viewModel: .init(idOng: ong.id!, idItem: ong.estoque![i].id!)) 
                                     .frame(maxHeight: 220)
                             }
                             .padding(.horizontal, 30)

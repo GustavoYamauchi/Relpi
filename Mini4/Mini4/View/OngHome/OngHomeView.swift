@@ -46,7 +46,7 @@ struct OngHomeView: View {
             ScrollView{
                 HStack {
                     ForEach(0..<viewModel.itensEstocados(), id: \.self) { i in
-                        ItemListaView(item: viewModel.item(at: i))
+                        ItemListaView(viewModel: .init(idOng: viewModel.ong.id!, idItem: viewModel.item(at: i).id!))
                             .frame(maxHeight: 220)
                             .environmentObject(estoqueViewModel)
                     }

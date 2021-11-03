@@ -10,7 +10,7 @@ import Firebase
 
 final class TelaListaViewModel: ObservableObject {
     private let estoqueService: EstoqueServiceProtocol
-    private let idOng: String
+    let idOng: String
     
     var data: Timestamp
     var categorias = ["limpeza", "medicamento", "higiene", "utensilio", "alimento"]
@@ -19,6 +19,8 @@ final class TelaListaViewModel: ObservableObject {
     @Published var apenasUrgente = false
     @Published var mostrarFiltros = false
     @Published var listaVertical = true
+    @Published var itemPesquisado = ""
+//    var categoria: String = ""
     
     @Published var items: [Item] = [Item]()
     
@@ -26,6 +28,8 @@ final class TelaListaViewModel: ObservableObject {
         self.idOng = idOng
         self.estoqueService = estoqueService
         self.data = data
+        
+        fetchItems()
     }
     
     var dataAtualizada: String {

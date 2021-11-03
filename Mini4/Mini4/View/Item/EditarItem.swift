@@ -10,11 +10,13 @@ import SwiftUI
 
 struct EditarItem: View {
 
-    @State var item = Item(nome: "", categoria: "Medicamento", quantidade: 0, urgente: false, visivel: true)
     @EnvironmentObject var viewModel : EstoqueViewModel
+    
+    @ObservedObject var itemViewModel: FormItemViewModel
+    
     var body: some View {
         VStack{
-            Image("\(item.categoria.lowercased())Icon")
+            Image(itemViewModel.imagemNome)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 300, height: 300, alignment: .center)
@@ -24,25 +26,22 @@ struct EditarItem: View {
             
             VStack (alignment: .leading, spacing: 22){
                 
-                Text("Editar Item")
+                Text(itemViewModel.titulo)
                     .padding(.leading, 30)
                     .padding(.top, 10)
                     .foregroundColor(Color.primaryButton)
                     .font(.system(size: 24, weight: .bold, design: .default))
-                
-                
-                
-                CustomTextField(text: $item.nome, placeholder: "Nome").padding(.horizontal, 30)
+                                
+                CustomTextField(text: $itemViewModel.item.nome, placeholder: "Nome").padding(.horizontal, 30)
                     
-                
-                Category(array: ["Higiene","Alimento","Limpeza","Medicamento","Utensilio"], selected: $item.categoria)
+                Category(array: ["Higiene","Alimento","Limpeza","Medicamento","Utensilio"], selected: $itemViewModel.item.categoria)
                 
                 HStack{
-                    Quantity(qtd: $item.quantidade)
+                    Quantity(qtd: $itemViewModel.item.quantidade)
                     
                     Spacer()
                     
-                    Toggle(isOn: $item.urgente, label: {
+                    Toggle(isOn: $itemViewModel.item.urgente, label: {
                         Text("Urgente")
                             .foregroundColor(.textPlaceholderTextfield)
                             .font(.system(size: 14, weight: .bold, design: .default))
@@ -53,12 +52,12 @@ struct EditarItem: View {
                 }.padding(.horizontal, 30)
                 
                 Button("Salvar", action: {
-                    if item.id != nil {
-                        viewModel.updateItem(item: item)
+                    if itemViewModel.item.id != nil {
+                        viewModel.updateItem(item: itemViewModel.item)
                     }
                     else {
-                        if item.nome != "" {
-                            viewModel.addItemData(item: item)
+                        if itemViewModel.item.nome != "" {
+                            viewModel.addItemData(item: itemViewModel.item)
                         }
                         
                         
@@ -67,21 +66,21 @@ struct EditarItem: View {
                 }).buttonStyle(.primaryButton)
                 
                 Button("Ocutar", action: {
-                    item.visivel.toggle()
+                    itemViewModel.item.visivel.toggle()
                     
                 }).buttonStyle(.secondaryButton)
                 
                 Button("Excluir", action: {
-                    if item.id != nil {
-                        viewModel.deleteItem(item: item)
+                    if itemViewModel.item.id != nil {
+                        viewModel.deleteItem(item: itemViewModel.item)
                     }
                 }).buttonStyle(.deleteButton)
                 
             }.frame(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height*3/5).background(Color.primaria).cornerRadius(30, corners: [.topLeft, .topRight])
 
-        }.background(item.urgente ?
-                        item.visivel ? Color.urgencia : Color.urgencia.opacity(0.5) :
-                        item.visivel ? Color.regular: Color.regular.opacity(0.5))
+        }.background(itemViewModel.item.urgente ?
+                        itemViewModel.item.visivel ? Color.urgencia : Color.urgencia.opacity(0.5) :
+                        itemViewModel.item.visivel ? Color.regular: Color.regular.opacity(0.5))
     }
 }
 

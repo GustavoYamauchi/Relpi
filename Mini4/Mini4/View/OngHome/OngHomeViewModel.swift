@@ -20,7 +20,7 @@ final class OngHomeViewModel: ObservableObject {
     @Published var selectedImage: UIImage
     
     
-    // MARK: Elementos da View
+    //MARK: - Elementos da View
     
     var bemVindoLabel: String {
         return "Bem-vindo!"
@@ -47,7 +47,7 @@ final class OngHomeViewModel: ObservableObject {
     }
     
         
-    // MARK: Inicializador
+    //MARK: - Inicializador
     
     init(idOng: String,
          ongService: OngServiceProtocol = OngService(),
@@ -64,7 +64,7 @@ final class OngHomeViewModel: ObservableObject {
     }
     
     
-    // MARK: Métodos
+    //MARK: - Métodos
     
     private func fetchOng(idOng: String) {
         ongService.getOng(idOng: idOng) { [weak self] result in

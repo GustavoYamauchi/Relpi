@@ -8,27 +8,28 @@
 import SwiftUI
 
 struct ItemListaView: View {
-    var item : Item
     @EnvironmentObject var estoqueViewModel: EstoqueViewModel
+    
+    @ObservedObject var viewModel: ItemViewModel
     
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 15)
-                .foregroundColor(item.urgente ?
-                                    item.visivel ? Color.urgencia : Color.urgencia.opacity(0.5) :
-                                    item.visivel ? Color.regular : Color.urgencia.opacity(0.5))
+                .foregroundColor(viewModel.item.urgente ?
+                                    viewModel.item.visivel ? Color.urgencia : Color.urgencia.opacity(0.5) :
+                                    viewModel.item.visivel ? Color.regular : Color.urgencia.opacity(0.5))
             
             VStack(alignment: .center){
-                NavigationLink(destination: EditarItem(item: item).environmentObject(estoqueViewModel),
+                NavigationLink(destination: EditarItem(itemViewModel: .init(idOng: viewModel.idOng, idItem: viewModel.item.id!, modo: .editarItem)).environmentObject(estoqueViewModel),
                                label: {
                                 VStack{
                                     Spacer()
-                                    Image("\(item.categoria.lowercased())Icon")
+                                    Image(viewModel.imagemNome)
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
                                         .frame(width: 150, height: 150, alignment: .center)
                                     Spacer()
-                                    Text(item.nome)
+                                    Text(viewModel.titulo)
                                         .font((.system(size: 20, weight: .regular, design: .rounded)))
                                         .multilineTextAlignment(.center)
                                         .foregroundColor(Color.white)
@@ -42,9 +43,3 @@ struct ItemListaView: View {
         }
     }
 }
-//
-//struct ItemListaView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ItemListaView(item: Item(id: "", nome: "", categoria: "", quantidade: 3, urgente: true, visivel: true))
-//    }
-//}

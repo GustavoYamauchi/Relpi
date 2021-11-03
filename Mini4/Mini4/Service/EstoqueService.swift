@@ -11,6 +11,7 @@ import FirebaseFirestore
 protocol EstoqueServiceProtocol {
     func addItem(idOng: String, item: Item, completion: @escaping (Result<Void, Error>) -> Void)
     func getItems(idOng: String, completion: @escaping (Result<[Item], Error>) -> Void)
+    func getItem(idOng: String, idItem: String, completion: @escaping (Result<Item, Error>) -> Void)
 }
 
 final class EstoqueService: EstoqueServiceProtocol {
@@ -47,5 +48,27 @@ final class EstoqueService: EstoqueServiceProtocol {
         }
     }
     
+    func getItem(idOng: String, idItem: String, completion: @escaping (Result<Item, Error>) -> Void) {
+        // pegar todos os itens da coleção "estoque" do documento referente à idOng
+        let query = ongRef.document(idOng).collection("estoque").whereField("id", isEqualTo: idItem)
+        query.getDocuments { (snapshot, err) in
+            if let err = err {
+                completion(.failure(err))
+            }
+            
+            do {
+                let itens = try snapshot?.documents.map {
+                    try $0.data(as: Item.self)
+                }
+                                
+                if let item = itens?.first {
+                    completion(.success(item!))
+                }
+                
+            } catch let err {
+                completion(.failure(err))
+            }
+        }
+    }
     
 }
