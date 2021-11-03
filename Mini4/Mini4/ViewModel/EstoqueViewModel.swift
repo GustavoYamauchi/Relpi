@@ -151,11 +151,11 @@ class EstoqueViewModel : ObservableObject {
 }
 
 enum Categorias : String{
-    case higiene = "higiene"
-    case alimento = "alimento"
-    case limpeza = "limpeza"
-    case medicamento = "medicamento"
-    case utensilio = "utensilio"
+    case higiene = "Higiene"
+    case alimento = "Alimento"
+    case limpeza = "Limpeza"
+    case medicamento = "Medicamento"
+    case utensilio = "Utensilio"
     case vazio = ""
     var categoria: Categorias {
         switch self {

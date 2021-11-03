@@ -16,7 +16,7 @@ struct OngHomeView: View {
     @EnvironmentObject var estoqueViewModel: EstoqueViewModel
     
     @State var itemPesquisado = ""
-    @State var itens: [Item] = [Item(nome: "item0", categoria: "alimento", quantidade: 2, urgente: true, visivel: true), Item(nome: "item1", categoria: "alimento", quantidade: 2, urgente: false, visivel: true)]
+    @State var itens: [Item] = [Item(nome: "item0", categoria: "Alimento", quantidade: 2, urgente: true, visivel: true), Item(nome: "item1", categoria: "Alimento", quantidade: 2, urgente: false, visivel: true)]
     
     
     // MARK: Subviews
@@ -55,13 +55,13 @@ struct OngHomeView: View {
                     .padding(.horizontal, 30)
                 }
                 
-                if itens.count < 2{
+                //if itens.count < 2{
                     Button(action: {}) {
                         NavigationLink(destination: TelaListaView(data: viewModel.ong.data).environmentObject(estoqueViewModel),
                                        label: { Text(viewModel.listaButtonLabel) })
                     }
                     .buttonStyle(.primaryButton)
-                }
+                //}
                 
                 // Infos sobre a ONG
                 VStack(alignment: .leading, spacing: 20) {

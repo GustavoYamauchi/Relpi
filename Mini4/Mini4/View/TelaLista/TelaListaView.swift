@@ -13,7 +13,7 @@ struct TelaListaView: View {
     
     var data: Timestamp
     
-    var categorias = ["limpeza", "medicamento", "higiene", "utensilio", "alimento"]
+    var categorias = ["Limpeza", "Medicamento", "Higiene", "Utensilio", "Alimento"]
 
     @State var itemPesquisado = ""
     
