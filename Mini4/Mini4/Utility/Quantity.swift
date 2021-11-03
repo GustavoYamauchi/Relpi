@@ -33,8 +33,9 @@ struct Quantity: View {
 
             Text("\(qtd)")
                 .foregroundColor(.textPlaceholderTextfield)
+                .frame(minWidth: 10, idealWidth: 30, maxWidth: 60)
                 .font(.system(size: 16, weight: .bold, design: .default))
-                .padding(.horizontal, 17)
+                //.padding(.horizontal, 17)
 
             Button(action: {
                 qtd += 1

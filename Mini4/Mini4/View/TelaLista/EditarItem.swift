@@ -42,13 +42,24 @@ struct EditarLista: View {
                     
                     Spacer()
                     
-                    Toggle(isOn: $item.urgente, label: {
-                        Text("Urgente")
-                            .foregroundColor(.textPlaceholderTextfield)
-                            .font(.system(size: 14, weight: .bold, design: .default))
-                            .padding(.leading, 80)
-                    })
-                    .toggleStyle(SwitchToggleStyle(tint: .destaque))
+                    Text("Urgente")
+                        .foregroundColor(.textPlaceholderTextfield)
+                        .lineLimit(1)
+                        .font(.system(size: 14, weight: .bold, design: .default))
+                        .padding(.trailing, 10)
+                    
+                    Toggle("Agrupar Categorias", isOn: $item.urgente)
+                        .labelsHidden()
+                        .toggleStyle(SwitchToggleStyle(tint: .destaque))
+                    
+//                    Toggle(isOn: $item.urgente, label: {
+//                        Text("Urgente")
+//                            .foregroundColor(.textPlaceholderTextfield)
+//                            .lineLimit(1)
+//                            .font(.system(size: 14, weight: .bold, design: .default))
+////                            .padding(.leading, 80)
+//                    })
+//                    .toggleStyle(SwitchToggleStyle(tint: .destaque))
                     
                 }.padding(.horizontal, 30)
                 
