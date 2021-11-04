@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ItemListaVerticalView: View {
-    @EnvironmentObject var estoqueViewModel: EstoqueViewModel
     @ObservedObject var viewModel: ItemViewModel
     
     var body: some View {
@@ -18,7 +17,7 @@ struct ItemListaVerticalView: View {
                                     viewModel.item.visivel ? Color.urgencia : Color.urgencia.opacity(0.5) :
                                     viewModel.item.visivel ? Color.regular : Color.urgencia.opacity(0.5))
             HStack(alignment: .center){
-                NavigationLink(destination: EditarItem(itemViewModel: .init(idOng: viewModel.idOng, idItem: viewModel.item.id!, modo: .editarItem)).environmentObject(estoqueViewModel), label: {
+                NavigationLink(destination: EditarItem(itemViewModel: .init(idOng: viewModel.idOng, idItem: viewModel.item.id!, modo: .editarItem)), label: {
                     Image(viewModel.imagemNome)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -37,9 +36,4 @@ struct ItemListaVerticalView: View {
         //.frame(height: 50)
     }
 }
-//
-//struct itemListaVerticalView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ItemListaVerticalView(item: Item(id: "", nome: "", categoria: "", quantidade: 3, urgente: true, visivel: true))
-//    }
-//}
+

@@ -12,9 +12,12 @@ protocol EstoqueServiceProtocol {
     func addItem(idOng: String, item: Item, completion: @escaping (Result<Void, Error>) -> Void)
     func getItems(idOng: String, completion: @escaping (Result<[Item], Error>) -> Void)
     func getItem(idOng: String, idItem: String, completion: @escaping (Result<Item, Error>) -> Void)
+    func updateItem(idOng: String, item: Item, completion: @escaping (Result<Void, Error>) -> Void)
+    func deleteItem(idOng: String, idItem: String, completion: @escaping (Result<Void, Error>) -> Void)
 }
 
 final class EstoqueService: EstoqueServiceProtocol {
+
     private let ongRef = Firestore.firestore().collection("ong")
     
     func addItem(idOng: String, item: Item, completion: @escaping (Result<Void, Error>) -> Void) {
@@ -69,6 +72,33 @@ final class EstoqueService: EstoqueServiceProtocol {
                 completion(.failure(err))
             }
         }
+    }
+    
+    func updateItem(idOng: String, item: Item, completion: @escaping (Result<Void, Error>) -> Void) {
+        ongRef.document(idOng).collection("estoque").document(item.id!).updateData([
+            "nome": item.nome,
+            "categoria": item.categoria,
+            "quantidade": item.quantidade,
+            "urgente": item.urgente,
+            "visivel": item.visivel
+        ]) { err in
+            if let err = err {
+                completion(.failure(err))
+            }
+        }
+        
+        completion(.success(()))
+    }
+    
+    func deleteItem(idOng: String, idItem: String, completion: @escaping (Result<Void, Error>) -> Void) {
+ 
+        ongRef.document(idOng).collection("estoque").document(idItem).delete { erro in
+            if let err = erro {
+                completion(.failure(err))
+            }
+        }
+        
+        completion(.success(()))
     }
     
 }

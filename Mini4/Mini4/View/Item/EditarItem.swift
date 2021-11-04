@@ -9,8 +9,6 @@ import Foundation
 import SwiftUI
 
 struct EditarItem: View {
-
-    @EnvironmentObject var viewModel : EstoqueViewModel
     
     @ObservedObject var itemViewModel: FormItemViewModel
     
@@ -52,17 +50,7 @@ struct EditarItem: View {
                 }.padding(.horizontal, 30)
                 
                 Button("Salvar", action: {
-                    if itemViewModel.item.id != nil {
-                        viewModel.updateItem(item: itemViewModel.item)
-                    }
-                    else {
-                        if itemViewModel.item.nome != "" {
-                            viewModel.addItemData(item: itemViewModel.item)
-                        }
-                        
-                        
-                    }
-                    
+                    itemViewModel.salvar()
                 }).buttonStyle(.primaryButton)
                 
                 Button("Ocutar", action: {
@@ -70,11 +58,12 @@ struct EditarItem: View {
                     
                 }).buttonStyle(.secondaryButton)
                 
-                Button("Excluir", action: {
-                    if itemViewModel.item.id != nil {
-                        viewModel.deleteItem(item: itemViewModel.item)
-                    }
-                }).buttonStyle(.deleteButton)
+                if itemViewModel.modo == .editarItem {
+                    Button("Excluir", action: {
+                        itemViewModel.excluirItem()
+                    }).buttonStyle(.deleteButton)
+                }
+
                 
             }.frame(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height*3/5).background(Color.primaria).cornerRadius(30, corners: [.topLeft, .topRight])
 

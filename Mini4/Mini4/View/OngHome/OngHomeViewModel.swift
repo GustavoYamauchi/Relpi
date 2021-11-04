@@ -19,7 +19,6 @@ final class OngHomeViewModel: ObservableObject {
     @Published var ong: Organizacao
     @Published var selectedImage: UIImage
     
-    
     //MARK: - Elementos da View
     
     var bemVindoLabel: String {

@@ -9,9 +9,7 @@ import SwiftUI
 import Firebase
 
 struct TelaListaView: View {
-    @EnvironmentObject var viewModel: EstoqueViewModel
     @ObservedObject var telaViewModel: TelaListaViewModel
-
     
     var body: some View {
         
@@ -67,7 +65,7 @@ struct TelaListaView: View {
                 .padding(.vertical, 20)
             
                 Button(action: {}, label: {
-                    NavigationLink(destination: EditarItem(itemViewModel: .init(idOng: telaViewModel.idOng, idItem: "", modo: .novoItem)).environmentObject(viewModel), label: {
+                    NavigationLink(destination: EditarItem(itemViewModel: .init(idOng: telaViewModel.idOng, idItem: "", modo: .novoItem)), label: {
                         Text("Adicionar itens na caixa de doação")
                     })
                 })
@@ -78,26 +76,22 @@ struct TelaListaView: View {
                 if telaViewModel.listaVertical{
                     if !telaViewModel.listaCategorizada{
                         ListaVerticalItem(telaViewModel: telaViewModel)
-                            .environmentObject(viewModel)
                         
                     }else{
                         VStack(alignment: .leading){
                             ForEach(telaViewModel.categorias, id: \.self){ categoria in
                                 ListaVerticalItem(categoria: categoria, telaViewModel: telaViewModel)
-                                    .environmentObject(viewModel)
                             }
                         }
                     }
                 }else{
                     if !telaViewModel.listaCategorizada{
                         ListaGridItem(telaViewModel: telaViewModel)
-                            .environmentObject(viewModel)
                         
                     }else{
                         VStack(alignment: .leading){
                             ForEach(telaViewModel.categorias, id: \.self){ categoria in
                                 ListaGridItem(categoria: categoria, telaViewModel: telaViewModel)
-                                    .environmentObject(viewModel)
                             }
                         }
                         
@@ -105,9 +99,6 @@ struct TelaListaView: View {
                     
                 }
             }
-        }
-        .onAppear{
-//            viewModel.items.sort {$0.urgente && !$1.urgente}
         }
         .sheet(isPresented: $telaViewModel.mostrarFiltros){
             FiltroModal(mostrarCategorias: $telaViewModel.listaCategorizada, mostrarApenasUrgentes: $telaViewModel.apenasUrgente, mostrandoView: $telaViewModel.mostrarFiltros)

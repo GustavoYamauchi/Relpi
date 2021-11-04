@@ -24,6 +24,8 @@ final class TelaListaViewModel: ObservableObject {
     
     @Published var items: [Item] = [Item]()
     
+    // MARK: - Inicializador
+    
     init(idOng: String, data: Timestamp, estoqueService: EstoqueServiceProtocol = EstoqueService()) {
         self.idOng = idOng
         self.estoqueService = estoqueService
@@ -31,6 +33,9 @@ final class TelaListaViewModel: ObservableObject {
         
         fetchItems()
     }
+    
+    
+    // MARK: - Métodos
     
     var dataAtualizada: String {
         let date = Date(timeIntervalSince1970: TimeInterval(self.data.seconds))
@@ -64,4 +69,11 @@ final class TelaListaViewModel: ObservableObject {
             }
         }
     }
+    
+    func temItemNaCategoria(categoria: Categorias) -> Bool{
+        let filtro = items.filter({ ($0.nome.contains("\(itemPesquisado)") || itemPesquisado.isEmpty) && $0.categoria == categoria.rawValue && $0.visivel  && ($0.urgente || !apenasUrgente)})
+        print("filtro: \(filtro.count) de \(filtro.first?.categoria ?? "")")
+        return filtro.count > 0
+    }
+    
 }

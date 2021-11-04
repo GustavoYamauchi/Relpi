@@ -217,6 +217,7 @@
 				1C5CC9302720ACC70078EC01 /* ListaVerticalItem.swift */,
 				1C5CC9332721CC130078EC01 /* ListaGridItem.swift */,
 				85FA07F82732C68F00F7D8C7 /* TelaListaViewModel.swift */,
+				850CBD1D273390A400B846BB /* ItemLista */,
 				1C5CC92D272094410078EC01 /* FiltroModal.swift */,
 			);
 			path = TelaLista;
@@ -311,6 +312,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		850CBD1D273390A400B846BB /* ItemLista */ = {
+			isa = PBXGroup;
+			children = (
+				1C136A39270E399E00D09E9D /* ItemListaView.swift */,
+				1C136A402718971800D09E9D /* ItemListaVerticalView.swift */,
+				85FA07FD2732FCA300F7D8C7 /* ItemViewModel.swift */,
+			);
+			path = ItemLista;
+			sourceTree = "<group>";
+		};
 		855EB88B2718F22A004468EC /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,9 +377,6 @@
 		85FA07FC2732F6EF00F7D8C7 /* Item */ = {
 			isa = PBXGroup;
 			children = (
-				1C136A39270E399E00D09E9D /* ItemListaView.swift */,
-				1C136A402718971800D09E9D /* ItemListaVerticalView.swift */,
-				85FA07FD2732FCA300F7D8C7 /* ItemViewModel.swift */,
 				8BCF2D9C271DF2D400E13139 /* EditarItem.swift */,
 				85FA0800273313D500F7D8C7 /* FormItemViewModel.swift */,
 			);

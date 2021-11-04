@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ItemListaView: View {
-    @EnvironmentObject var estoqueViewModel: EstoqueViewModel
     
     @ObservedObject var viewModel: ItemViewModel
     
@@ -20,7 +19,7 @@ struct ItemListaView: View {
                                     viewModel.item.visivel ? Color.regular : Color.urgencia.opacity(0.5))
             
             VStack(alignment: .center){
-                NavigationLink(destination: EditarItem(itemViewModel: .init(idOng: viewModel.idOng, idItem: viewModel.item.id!, modo: .editarItem)).environmentObject(estoqueViewModel),
+                NavigationLink(destination: EditarItem(itemViewModel: .init(idOng: viewModel.idOng, idItem: viewModel.item.id!, modo: .editarItem)),
                                label: {
                                 VStack{
                                     Spacer()

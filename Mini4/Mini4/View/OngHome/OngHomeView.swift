@@ -12,9 +12,6 @@ struct OngHomeView: View {
     
     let userService: UserServiceProtocol = UserService()
     @ObservedObject var viewModel: OngHomeViewModel
-    
-    @EnvironmentObject var estoqueViewModel: EstoqueViewModel
-    
     @State var itemPesquisado = ""
     
     // MARK: Subviews
@@ -48,14 +45,13 @@ struct OngHomeView: View {
                     ForEach(0..<viewModel.itensEstocados(), id: \.self) { i in
                         ItemListaView(viewModel: .init(idOng: viewModel.ong.id!, idItem: viewModel.item(at: i).id!))
                             .frame(maxHeight: 220)
-                            .environmentObject(estoqueViewModel)
                     }
                     .padding(.horizontal, 30)
                 }
                 
 //                if viewModel.itensEstocados() > 2{
                     Button(action: {}) {
-                        NavigationLink(destination: TelaListaView(telaViewModel: .init(idOng: viewModel.ong.id!, data: viewModel.ong.data)).environmentObject(estoqueViewModel),
+                        NavigationLink(destination: TelaListaView(telaViewModel: .init(idOng: viewModel.ong.id!, data: viewModel.ong.data)),
                                        label: { Text(viewModel.listaCompletaButtonLabel) })
                     }
                     .buttonStyle(.primaryButton)

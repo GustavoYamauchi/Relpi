@@ -18,6 +18,8 @@ class OngFormViewModel: ObservableObject {
     @Published var selectedImage: UIImage
     @Published var redirectHome = false
         
+    // MARK: - Inicializador
+    
     init(modo: Modo,
          userService: UserServiceProtocol = UserService(),
          ongService: OngServiceProtocol = OngService())
@@ -47,6 +49,8 @@ class OngFormViewModel: ObservableObject {
             }
         }
     }
+    
+    // MARK: - Métodos
     
     private func fetchImage() {
         if let foto = ong.foto {

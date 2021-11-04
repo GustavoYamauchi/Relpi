@@ -15,7 +15,7 @@ final class ItemViewModel: ObservableObject {
     @Published var item: Item
     
     
-    //MARK: - Views
+    // MARK: - Views
     var titulo: String {
         return item.nome
     }
@@ -27,12 +27,18 @@ final class ItemViewModel: ObservableObject {
         return "\(item.categoria.lowercased())Icon"
     }
     
+    
+    // MARK: - Inicializador
+    
     init(idOng: String, idItem: String, estoqueService: EstoqueServiceProtocol = EstoqueService()) {
         self.idOng = idOng
         self.estoqueService = estoqueService
         self.item = Item(id: idItem, nome: "", categoria: "", quantidade: 0, urgente: false, visivel: false)
         self.fetchItem(idOng: idOng, idItem: idItem)
     }
+    
+    
+    // MARK: - Métodos
     
     private func fetchItem(idOng: String, idItem: String) {
         estoqueService.getItem(idOng: idOng, idItem: idItem) { [weak self] result in
