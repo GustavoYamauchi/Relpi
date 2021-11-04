@@ -28,6 +28,7 @@ struct ContentView: View {
         }.onAppear {
             loginViewModel.autenticado = loginViewModel.isAuthenticated
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 
 }

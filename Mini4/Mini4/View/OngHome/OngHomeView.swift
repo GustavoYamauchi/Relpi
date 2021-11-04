@@ -56,12 +56,14 @@ struct OngHomeView: View {
 //                }
 
                 
+                //if itens.count < 2{
 //                if viewModel.itensEstocados() > 2{
                     Button(action: {}) {
                         NavigationLink(destination: TelaListaView(telaViewModel: .init(idOng: viewModel.ong.id!, data: viewModel.ong.data)),
                                        label: { Text(viewModel.listaCompletaButtonLabel) })
                     }
                     .buttonStyle(.primaryButton)
+                //}
 //                }
                 
                 // Infos sobre a ONG

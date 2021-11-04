@@ -9,6 +9,7 @@ import SwiftUI
 import Firebase
 
 struct TelaListaView: View {
+
     @ObservedObject var telaViewModel: TelaListaViewModel
     
     var body: some View {
