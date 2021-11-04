@@ -42,15 +42,15 @@ struct OngHomeView: View {
             
             ScrollView{
                 HStack {
-                    ForEach(0..<2) { i in
-                        if viewModel.itensEstocados() > 0 {
+                    if viewModel.itensEstocados() > 0 {
+                        ForEach((viewModel.itensEstocados() >= 2) ? 0..<2 : 0..<1) { i in
                             if let id = viewModel.ongItens()[i].id {
                                 ItemListaView(viewModel: .init(idOng: viewModel.ong.id!, idItem: id))
                                     .frame(maxHeight: 220)
                             }
-                        }
+                        }.padding(.horizontal, 30)
                     }
-                    .padding(.horizontal, 30)
+                    
                 }
                 
 //                if viewModel.itensEstocados() > 2{
