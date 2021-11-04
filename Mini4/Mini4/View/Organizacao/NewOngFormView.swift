@@ -22,6 +22,7 @@ struct NewOngFormView: View {
         self.viewModel = viewModel
     }
     
+    //MARK: - View
     var body: some View {
         ScrollView {
             VStack {
@@ -84,6 +85,7 @@ struct NewOngFormView: View {
         }
     }
     
+    // MARK: - Métodos
     private func nextPage() {
         if pageIndex < 3 {
             pageIndex += 1
@@ -107,6 +109,7 @@ struct NewOngFormView: View {
             endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
     }
     
+    // MARK: - Form Subview
     @ViewBuilder func getFormView(pageIndex: Int) -> some View {
         switch pageIndex {
             case 0: InfoGeralFormView(ong: $viewModel.ong)

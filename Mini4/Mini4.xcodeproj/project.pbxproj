@@ -62,6 +62,8 @@
 		1CFC96AC2719E47900B33A9E /* TituloListaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFC96AB2719E47900B33A9E /* TituloListaView.swift */; };
 		1CFC96AD2719E47900B33A9E /* TituloListaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFC96AB2719E47900B33A9E /* TituloListaView.swift */; };
 		6DA4B72157C3CB7B233CA050 /* Pods_Mini4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5D085BED330F0CD78C4E26 /* Pods_Mini4.framework */; };
+		850C71F92731912300902BFC /* EstoqueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850C71F82731912300902BFC /* EstoqueService.swift */; };
+		850C71FA2731912300902BFC /* EstoqueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850C71F82731912300902BFC /* EstoqueService.swift */; };
 		853BC76C2710D418007C589D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 853BC76B2710D418007C589D /* GoogleService-Info.plist */; };
 		853BC76E2710D483007C589D /* GoogleService-Info-admin.plist in Resources */ = {isa = PBXBuildFile; fileRef = 853BC76D2710D483007C589D /* GoogleService-Info-admin.plist */; };
 		854B99012722DBB900B1CEF9 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854B99002722DBB900B1CEF9 /* LoginViewModel.swift */; };
@@ -82,6 +84,11 @@
 		85EA0264272E045E00FE1471 /* OngHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EA0263272E045E00FE1471 /* OngHomeViewModel.swift */; };
 		85F5F0AD27208AE40068BE8B /* CadastroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F5F0AC27208AE40068BE8B /* CadastroView.swift */; };
 		85F5F0AE27208AE40068BE8B /* CadastroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F5F0AC27208AE40068BE8B /* CadastroView.swift */; };
+		85FA07F92732C68F00F7D8C7 /* TelaListaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA07F82732C68F00F7D8C7 /* TelaListaViewModel.swift */; };
+		85FA07FA2732C68F00F7D8C7 /* TelaListaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA07F82732C68F00F7D8C7 /* TelaListaViewModel.swift */; };
+		85FA07FE2732FCA300F7D8C7 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA07FD2732FCA300F7D8C7 /* ItemViewModel.swift */; };
+		85FA07FF2732FCA300F7D8C7 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA07FD2732FCA300F7D8C7 /* ItemViewModel.swift */; };
+		85FA0801273313D500F7D8C7 /* FormItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA0800273313D500F7D8C7 /* FormItemViewModel.swift */; };
 		8B12DA562710BE5900A19E3B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B12DA552710BE5900A19E3B /* Category.swift */; };
 		8B12DA572710BE5900A19E3B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B12DA552710BE5900A19E3B /* Category.swift */; };
 		8B12DA592710BE9700A19E3B /* PickerCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B12DA582710BE9700A19E3B /* PickerCustom.swift */; };
@@ -148,6 +155,7 @@
 		3F5D085BED330F0CD78C4E26 /* Pods_Mini4.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mini4.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5743B9CDD5620E7CBB873A75 /* Pods-Mini4Admin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mini4Admin.release.xcconfig"; path = "Target Support Files/Pods-Mini4Admin/Pods-Mini4Admin.release.xcconfig"; sourceTree = "<group>"; };
 		83A6578411934C5392EA1241 /* Pods-Mini4.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mini4.debug.xcconfig"; path = "Target Support Files/Pods-Mini4/Pods-Mini4.debug.xcconfig"; sourceTree = "<group>"; };
+		850C71F82731912300902BFC /* EstoqueService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstoqueService.swift; sourceTree = "<group>"; };
 		853BC76B2710D418007C589D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		853BC76D2710D483007C589D /* GoogleService-Info-admin.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-admin.plist"; sourceTree = "<group>"; };
 		854B99002722DBB900B1CEF9 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -163,6 +171,9 @@
 		85E49097270B989A009CD6FE /* ContatoFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatoFormView.swift; sourceTree = "<group>"; };
 		85EA0263272E045E00FE1471 /* OngHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngHomeViewModel.swift; sourceTree = "<group>"; };
 		85F5F0AC27208AE40068BE8B /* CadastroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroView.swift; sourceTree = "<group>"; };
+		85FA07F82732C68F00F7D8C7 /* TelaListaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaListaViewModel.swift; sourceTree = "<group>"; };
+		85FA07FD2732FCA300F7D8C7 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
+		85FA0800273313D500F7D8C7 /* FormItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormItemViewModel.swift; sourceTree = "<group>"; };
 		8B12DA552710BE5900A19E3B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		8B12DA582710BE9700A19E3B /* PickerCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerCustom.swift; sourceTree = "<group>"; };
 		8BCF2D9C271DF2D400E13139 /* EditarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarItem.swift; sourceTree = "<group>"; };
@@ -203,12 +214,11 @@
 			isa = PBXGroup;
 			children = (
 				1C136A36270E391C00D09E9D /* TelaListaView.swift */,
-				1C5CC92D272094410078EC01 /* FiltroModal.swift */,
-				1C136A39270E399E00D09E9D /* ItemListaView.swift */,
-				1C136A402718971800D09E9D /* ItemListaVerticalView.swift */,
-				8BCF2D9C271DF2D400E13139 /* EditarItem.swift */,
 				1C5CC9302720ACC70078EC01 /* ListaVerticalItem.swift */,
 				1C5CC9332721CC130078EC01 /* ListaGridItem.swift */,
+				85FA07F82732C68F00F7D8C7 /* TelaListaViewModel.swift */,
+				850CBD1D273390A400B846BB /* ItemLista */,
+				1C5CC92D272094410078EC01 /* FiltroModal.swift */,
 			);
 			path = TelaLista;
 			sourceTree = "<group>";
@@ -292,6 +302,7 @@
 				85EA0262272E044700FE1471 /* OngHome */,
 				8589EBE7270B935900EA906C /* Organizacao */,
 				1C136A35270E38FC00D09E9D /* TelaLista */,
+				85FA07FC2732F6EF00F7D8C7 /* Item */,
 				1CC8104A2702336200B9E721 /* ContentView.swift */,
 				8553EDC92704E6A300DB408D /* DoadorHome.swift */,
 				A30BA3B1270F6DE400D2222B /* SobreOngView.swift */,
@@ -301,12 +312,23 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		850CBD1D273390A400B846BB /* ItemLista */ = {
+			isa = PBXGroup;
+			children = (
+				1C136A39270E399E00D09E9D /* ItemListaView.swift */,
+				1C136A402718971800D09E9D /* ItemListaVerticalView.swift */,
+				85FA07FD2732FCA300F7D8C7 /* ItemViewModel.swift */,
+			);
+			path = ItemLista;
+			sourceTree = "<group>";
+		};
 		855EB88B2718F22A004468EC /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				855EB88C2718F24D004468EC /* ImageStorageService.swift */,
 				1C7DF8D4272B1E2300D227CA /* OngService.swift */,
 				85DAA31A2729CCB500CD7696 /* UserService.swift */,
+				850C71F82731912300902BFC /* EstoqueService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -314,8 +336,8 @@
 		8589EBE7270B935900EA906C /* Organizacao */ = {
 			isa = PBXGroup;
 			children = (
-				8592BE15272B41A2002165EF /* OngFormViewModel.swift */,
 				8592BE17272B41B1002165EF /* NewOngFormView.swift */,
+				8592BE15272B41A2002165EF /* OngFormViewModel.swift */,
 				85EA0265272E3DA000FE1471 /* Subviews */,
 				1CC810A92703B0B000B9E721 /* OngFormView.swift */,
 			);
@@ -325,8 +347,8 @@
 		85A33067271DF83700230D40 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				85DAA31C2729CD8200CD7696 /* LoginCadastroViewModel.swift */,
 				85F5F0AC27208AE40068BE8B /* CadastroView.swift */,
+				85DAA31C2729CD8200CD7696 /* LoginCadastroViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -334,8 +356,8 @@
 		85EA0262272E044700FE1471 /* OngHome */ = {
 			isa = PBXGroup;
 			children = (
-				85EA0263272E045E00FE1471 /* OngHomeViewModel.swift */,
 				8553EDCB2704F17900DB408D /* OngHomeView.swift */,
+				85EA0263272E045E00FE1471 /* OngHomeViewModel.swift */,
 			);
 			path = OngHome;
 			sourceTree = "<group>";
@@ -350,6 +372,15 @@
 				85AC8806270F66E400BFDF96 /* ImagePickerView.swift */,
 			);
 			path = Subviews;
+			sourceTree = "<group>";
+		};
+		85FA07FC2732F6EF00F7D8C7 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				8BCF2D9C271DF2D400E13139 /* EditarItem.swift */,
+				85FA0800273313D500F7D8C7 /* FormItemViewModel.swift */,
+			);
+			path = Item;
 			sourceTree = "<group>";
 		};
 		90B278108663E2C3B71189CA /* Frameworks */ = {
@@ -577,10 +608,12 @@
 				A319FACA27275E6D001C5073 /* BancoFormView.swift in Sources */,
 				A319FAC727275E3E001C5073 /* InfoGeralFormView.swift in Sources */,
 				A3568F03271E2ADB00216732 /* Text+Extension.swift in Sources */,
+				850C71F92731912300902BFC /* EstoqueService.swift in Sources */,
 				1C136A3E27175E0A00D09E9D /* SearchBarView.swift in Sources */,
 				854B99012722DBB900B1CEF9 /* LoginViewModel.swift in Sources */,
 				1CC810472702336200B9E721 /* AppDelegate.swift in Sources */,
 				A30BA3AD270F5C9F00D2222B /* Color+Extension.swift in Sources */,
+				85FA07F92732C68F00F7D8C7 /* TelaListaViewModel.swift in Sources */,
 				8BCF2D9F271E00B500E13139 /* Quantity.swift in Sources */,
 				1CC810492702336200B9E721 /* SceneDelegate.swift in Sources */,
 				A319FAC827275E58001C5073 /* EnderecoFormView.swift in Sources */,
@@ -605,6 +638,7 @@
 				A319FAC927275E6A001C5073 /* ContatoFormView.swift in Sources */,
 				1CC8109E27038A3100B9E721 /* Item.swift in Sources */,
 				85F5F0AD27208AE40068BE8B /* CadastroView.swift in Sources */,
+				85FA07FE2732FCA300F7D8C7 /* ItemViewModel.swift in Sources */,
 				1CC810A227038E7400B9E721 /* OngViewModel.swift in Sources */,
 				85DAA31D2729CD8200CD7696 /* LoginCadastroViewModel.swift in Sources */,
 				1CD911DD270B7224007B2D05 /* BancoViewModel.swift in Sources */,
@@ -625,10 +659,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				850C71FA2731912300902BFC /* EstoqueService.swift in Sources */,
 				1CC81078270237F400B9E721 /* AppDelegate.swift in Sources */,
 				85F5F0AE27208AE40068BE8B /* CadastroView.swift in Sources */,
 				855EB88E2718F24D004468EC /* ImageStorageService.swift in Sources */,
 				8592BE16272B41A2002165EF /* OngFormViewModel.swift in Sources */,
+				85FA07FF2732FCA300F7D8C7 /* ItemViewModel.swift in Sources */,
 				85AC8807270F66E400BFDF96 /* ImagePickerView.swift in Sources */,
 				1CC81079270237F400B9E721 /* SceneDelegate.swift in Sources */,
 				1C136A422718971800D09E9D /* ItemListaVerticalView.swift in Sources */,
@@ -648,6 +684,7 @@
 				85DAA31E2729CD8200CD7696 /* LoginCadastroViewModel.swift in Sources */,
 				85DAA31F2729D88900CD7696 /* UserService.swift in Sources */,
 				85E49094270B9402009CD6FE /* InfoGeralFormView.swift in Sources */,
+				85FA07FA2732C68F00F7D8C7 /* TelaListaViewModel.swift in Sources */,
 				A319FAC327275C51001C5073 /* ExplorarOngView.swift in Sources */,
 				85E49098270B989A009CD6FE /* ContatoFormView.swift in Sources */,
 				1C136A38270E391C00D09E9D /* TelaListaView.swift in Sources */,
@@ -671,6 +708,7 @@
 				1C5CC9322720AE9B0078EC01 /* ListaVerticalItem.swift in Sources */,
 				1CC8107A270237F400B9E721 /* ContentView.swift in Sources */,
 				1CC8109B27038A3100B9E721 /* Banco.swift in Sources */,
+				85FA0801273313D500F7D8C7 /* FormItemViewModel.swift in Sources */,
 				8B12DA572710BE5900A19E3B /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
