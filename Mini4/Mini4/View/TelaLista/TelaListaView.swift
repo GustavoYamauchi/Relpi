@@ -11,6 +11,7 @@ import Firebase
 struct TelaListaView: View {
 
     @ObservedObject var telaViewModel: TelaListaViewModel
+    @State var TrocaDeTela = false
     
     var body: some View {
         
@@ -66,7 +67,7 @@ struct TelaListaView: View {
                 .padding(.vertical, 20)
             
                 Button(action: {}, label: {
-                    NavigationLink(destination: EditarItem(itemViewModel: .init(idOng: telaViewModel.idOng, idItem: "", modo: .novoItem)), label: {
+                    NavigationLink(destination: EditarItem(itemViewModel: .init(idOng: telaViewModel.idOng, idItem: "", modo: .novoItem), novaTela: $TrocaDeTela), label: {
                         Text("Adicionar itens na caixa de doação")
                     })
                 })
@@ -103,6 +104,10 @@ struct TelaListaView: View {
         }
         .sheet(isPresented: $telaViewModel.mostrarFiltros){
             FiltroModal(mostrarCategorias: $telaViewModel.listaCategorizada, mostrarApenasUrgentes: $telaViewModel.apenasUrgente, mostrandoView: $telaViewModel.mostrarFiltros)
+        }
+        .onChange(of: TrocaDeTela) { _ in
+            print("Atualizou os itens")
+            telaViewModel.atualizar()
         }
         
     }

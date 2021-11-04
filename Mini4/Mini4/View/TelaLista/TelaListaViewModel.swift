@@ -76,4 +76,7 @@ final class TelaListaViewModel: ObservableObject {
         return filtro.count > 0
     }
     
+    func atualizar(){
+        fetchItems()
+    }
 }
