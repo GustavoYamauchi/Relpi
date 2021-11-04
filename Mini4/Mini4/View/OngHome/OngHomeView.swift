@@ -12,12 +12,7 @@ struct OngHomeView: View {
     
     let userService: UserServiceProtocol = UserService()
     @ObservedObject var viewModel: OngHomeViewModel
-    
-    @EnvironmentObject var estoqueViewModel: EstoqueViewModel
-    
     @State var itemPesquisado = ""
-    @State var itens: [Item] = [Item(nome: "item0", categoria: "Alimento", quantidade: 2, urgente: true, visivel: true), Item(nome: "item1", categoria: "Alimento", quantidade: 2, urgente: false, visivel: true)]
-    
     
     // MARK: Subviews
     
@@ -47,21 +42,22 @@ struct OngHomeView: View {
             
             ScrollView{
                 HStack {
-                    ForEach(0..<2) { i in
-                        ItemListaView(item: itens[i])
+                    ForEach(0..<viewModel.itensEstocados(), id: \.self) { i in
+                        ItemListaView(viewModel: .init(idOng: viewModel.ong.id!, idItem: viewModel.item(at: i).id!))
                             .frame(maxHeight: 220)
-                            .environmentObject(estoqueViewModel)
                     }
                     .padding(.horizontal, 30)
                 }
                 
                 //if itens.count < 2{
+//                if viewModel.itensEstocados() > 2{
                     Button(action: {}) {
-                        NavigationLink(destination: TelaListaView(data: viewModel.ong.data).environmentObject(estoqueViewModel),
-                                       label: { Text(viewModel.listaButtonLabel) })
+                        NavigationLink(destination: TelaListaView(telaViewModel: .init(idOng: viewModel.ong.id!, data: viewModel.ong.data)),
+                                       label: { Text(viewModel.listaCompletaButtonLabel) })
                     }
                     .buttonStyle(.primaryButton)
                 //}
+//                }
                 
                 // Infos sobre a ONG
                 VStack(alignment: .leading, spacing: 20) {
@@ -99,15 +95,6 @@ struct OngHomeView: View {
         }))
         
         .navigationBarTitle("", displayMode: .inline)
-        
-        .onChange(of: viewModel.ong, perform: { _ in
-            populaItens()
-        })
-    }
-    
-    func populaItens(){
-        if estoqueViewModel.data.count > 1{
-            itens =  estoqueViewModel.data
-        }
+
     }
 }
