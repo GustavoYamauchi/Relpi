@@ -49,36 +49,19 @@ struct EditarItem: View {
                         .labelsHidden()
                         .toggleStyle(SwitchToggleStyle(tint: .destaque))
                     
-//                    Toggle(isOn: $item.urgente, label: {
-//                        Text("Urgente")
-//                            .foregroundColor(.textPlaceholderTextfield)
-//                            .lineLimit(1)
-//                            .font(.system(size: 14, weight: .bold, design: .default))
-////                            .padding(.leading, 80)
-//                    })
-//                    .toggleStyle(SwitchToggleStyle(tint: .destaque))
-//=======
-//                    Toggle(isOn: $itemViewModel.item.urgente, label: {
-//                        Text("Urgente")
-//                            .foregroundColor(.textPlaceholderTextfield)
-//                            .font(.system(size: 14, weight: .bold, design: .default))
-//                            .padding(.leading, 80)
-//                    })
-//                    .toggleStyle(SwitchToggleStyle(tint: .destaque))
-//>>>>>>> refatora/dev:Mini4/Mini4/View/Item/EditarItem.swift
-                    
                 }.padding(.horizontal, 30)
                 
                 Button("Salvar", action: {
                     itemViewModel.salvar()
                 }).buttonStyle(.primaryButton)
-                
-                Button("Ocutar", action: {
-                    itemViewModel.item.visivel.toggle()
-                    
-                }).buttonStyle(.secondaryButton)
+
                 
                 if itemViewModel.modo == .editarItem {
+                    Button("Ocutar", action: {
+                        itemViewModel.item.visivel.toggle()
+                        
+                    }).buttonStyle(.secondaryButton)
+                    
                     Button("Excluir", action: {
                         itemViewModel.excluirItem()
                     }).buttonStyle(.deleteButton)

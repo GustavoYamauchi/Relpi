@@ -41,22 +41,18 @@ struct OngHomeView: View {
                 .padding(.vertical, 20)
             
             ScrollView{
-//                if viewModel.itensEstocados() < 2 {
-                    HStack {
-                        ForEach(0..<2) { i in
-                            if viewModel.itensEstocados() > 0 {
-                                if let id = viewModel.ongItens()[i].id {
-                                    ItemListaView(viewModel: .init(idOng: viewModel.ong.id!, idItem: id))
-                                        .frame(maxHeight: 220)
-                                }
+                HStack {
+                    ForEach(0..<2) { i in
+                        if viewModel.itensEstocados() > 0 {
+                            if let id = viewModel.ongItens()[i].id {
+                                ItemListaView(viewModel: .init(idOng: viewModel.ong.id!, idItem: id))
+                                    .frame(maxHeight: 220)
                             }
                         }
-                        .padding(.horizontal, 30)
                     }
-//                }
-
+                    .padding(.horizontal, 30)
+                }
                 
-                //if itens.count < 2{
 //                if viewModel.itensEstocados() > 2{
                     Button(action: {}) {
                         NavigationLink(destination: TelaListaView(telaViewModel: .init(idOng: viewModel.ong.id!, data: viewModel.ong.data)),
@@ -64,7 +60,6 @@ struct OngHomeView: View {
                     }
                     .buttonStyle(.primaryButton)
                 //}
-//                }
                 
                 // Infos sobre a ONG
                 VStack(alignment: .leading, spacing: 20) {
