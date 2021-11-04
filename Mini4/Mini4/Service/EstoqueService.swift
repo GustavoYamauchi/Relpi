@@ -21,12 +21,22 @@ final class EstoqueService: EstoqueServiceProtocol {
     private let ongRef = Firestore.firestore().collection("ong")
     
     func addItem(idOng: String, item: Item, completion: @escaping (Result<Void, Error>) -> Void) {
-        do {
-            _ = try ongRef.document(idOng).collection("estoque").addDocument(from: item)
-                completion(.success(()))
-        } catch {
-            completion(.failure(error))
+        let itemNovo = ongRef.document(idOng).collection("estoque").document()
+        let id = itemNovo.documentID
+        
+        itemNovo.setData([
+            "id": id,
+            "nome":  self.castString(item.nome),
+            "categoria":  self.castString(item.categoria),
+            "quantidade":  item.quantidade,
+            "urgente":  item.urgente,
+            "visivel":  item.visivel
+        ]) { (err) in
+            if let erro = err {
+                completion(.failure(erro))
+            }
         }
+        completion(.success(()))
     }
     
     func getItems(idOng: String, completion: @escaping (Result<[Item], Error>) -> Void) {
@@ -101,4 +111,24 @@ final class EstoqueService: EstoqueServiceProtocol {
         completion(.success(()))
     }
     
+    func castString(_ variable: Any?) -> String{
+        if let str = variable as? String{
+            return str
+        }
+        return ""
+    }
+    
+    func castInt(_ variable: Any?) -> Int{
+        if let int = variable as? Int{
+            return int
+        }
+        return 0
+    }
+    
+    func castBool(_ variable: Any?) -> Bool{
+        if let bool = variable as? Bool{
+            return bool
+        }
+        return false
+    }
 }

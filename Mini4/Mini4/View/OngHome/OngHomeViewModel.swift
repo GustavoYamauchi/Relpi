@@ -114,6 +114,13 @@ final class OngHomeViewModel: ObservableObject {
         if let estoque = ong.estoque {
             return estoque[index]
         }
-        return Item(nome: "", categoria: "", quantidade: 0, urgente: false, visivel: false)
+        return Item(id: "1", nome: "", categoria: "", quantidade: 0, urgente: false, visivel: false)
+    }
+    
+    func ongItens() -> [Item] {
+        if let estoque = ong.estoque {
+            return estoque
+        }
+        return [Item]()
     }
 }
