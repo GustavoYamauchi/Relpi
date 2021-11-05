@@ -18,7 +18,7 @@ final class OngHomeViewModel: ObservableObject {
     
     @Published var ong: Organizacao
     @Published var selectedImage: UIImage
-    @State var trocaDeTela: Bool = false
+    @Published var voltouTela: Bool = false
     
     //MARK: - Elementos da View
     

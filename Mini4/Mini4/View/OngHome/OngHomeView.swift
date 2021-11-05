@@ -13,7 +13,6 @@ struct OngHomeView: View {
     let userService: UserServiceProtocol = UserService()
     @ObservedObject var viewModel: OngHomeViewModel
     @State var itemPesquisado = ""
-    @State var TrocaDeTela: Bool = false
     
     // MARK: Subviews
     
@@ -46,7 +45,7 @@ struct OngHomeView: View {
                     ForEach(0..<2) { i in
                         if viewModel.itensEstocados() > 0 {
                             if let id = viewModel.ongItens()[i].id {
-                                ItemListaView(viewModel: .init(idOng: viewModel.ong.id!, idItem: id), novaTela: $TrocaDeTela)
+                                ItemListaView(viewModel: .init(idOng: viewModel.ong.id!, idItem: id), novaTela: $viewModel.voltouTela)
                                     .frame(maxHeight: 220)
                             }
                         }
@@ -89,7 +88,7 @@ struct OngHomeView: View {
                 .padding(.top, 20)
             }
             
-        }.onChange(of: TrocaDeTela) { _ in
+        }.onChange(of: viewModel.voltouTela) { _ in
             viewModel.atualizar()
         }
         

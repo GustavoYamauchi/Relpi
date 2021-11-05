@@ -11,7 +11,6 @@ import Firebase
 struct TelaListaView: View {
 
     @ObservedObject var telaViewModel: TelaListaViewModel
-    @State var TrocaDeTela = false
     
     var body: some View {
         
@@ -67,7 +66,7 @@ struct TelaListaView: View {
                 .padding(.vertical, 20)
             
                 Button(action: {}, label: {
-                    NavigationLink(destination: EditarItem(itemViewModel: .init(idOng: telaViewModel.idOng, idItem: "", modo: .novoItem), novaTela: $TrocaDeTela), label: {
+                    NavigationLink(destination: EditarItem(itemViewModel: .init(idOng: telaViewModel.idOng, idItem: "", modo: .novoItem), novaTela: $telaViewModel.voltouTela), label: {
                         Text("Adicionar itens na caixa de doação")
                     })
                 })
@@ -77,12 +76,12 @@ struct TelaListaView: View {
         
                 if telaViewModel.listaVertical{
                     if !telaViewModel.listaCategorizada{
-                        ListaVerticalItem(telaViewModel: telaViewModel, trocaDeTela: $TrocaDeTela)
+                        ListaVerticalItem(telaViewModel: telaViewModel, trocaDeTela: $telaViewModel.voltouTela)
                         
                     }else{
                         VStack(alignment: .leading){
                             ForEach(telaViewModel.categorias, id: \.self){ categoria in
-                                ListaVerticalItem(categoria: categoria, telaViewModel: telaViewModel, trocaDeTela: $TrocaDeTela)
+                                ListaVerticalItem(categoria: categoria, telaViewModel: telaViewModel, trocaDeTela: $telaViewModel.voltouTela)
                             }
                         }
                     }
@@ -105,8 +104,7 @@ struct TelaListaView: View {
         .sheet(isPresented: $telaViewModel.mostrarFiltros){
             FiltroModal(mostrarCategorias: $telaViewModel.listaCategorizada, mostrarApenasUrgentes: $telaViewModel.apenasUrgente, mostrandoView: $telaViewModel.mostrarFiltros)
         }
-        .onChange(of: TrocaDeTela) { _ in
-            print("Atualiza, mano")
+        .onChange(of: telaViewModel.voltouTela) { _ in
             telaViewModel.atualizar()
         }
         

@@ -11,7 +11,7 @@ struct SobreOngView: View {
     
     @State private var ong: Organizacao
     @State private var selectedImage: UIImage?
-    @State private var temp: Bool = false
+    @State private var temp: Bool = false //TODO: Ver de tirar esse cara aqui e colocar na viewModel dessa tela.
     
     @ObservedObject var enderecoViewModel: EnderecoViewModel
     @ObservedObject var bancoViewModel: BancoViewModel
