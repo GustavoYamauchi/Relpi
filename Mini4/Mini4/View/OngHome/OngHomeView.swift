@@ -99,6 +99,6 @@ struct OngHomeView: View {
         }))
         
         .navigationBarTitle("", displayMode: .inline)
-
+        .navigationBarHidden(true)
     }
 }
