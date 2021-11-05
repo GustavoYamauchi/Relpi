@@ -10,6 +10,7 @@ import SwiftUI
 struct ItemListaView: View {
     
     @ObservedObject var viewModel: ItemViewModel
+    @Binding var novaTela: Bool
     
     var body: some View {
         ZStack{
@@ -19,7 +20,7 @@ struct ItemListaView: View {
                                     viewModel.item.visivel ? Color.regular : Color.urgencia.opacity(0.5))
             
             VStack(alignment: .center){
-                NavigationLink(destination: EditarItem(itemViewModel: .init(idOng: viewModel.idOng, idItem: viewModel.item.id!, modo: .editarItem)),
+                NavigationLink(destination: EditarItem(itemViewModel: .init(idOng: viewModel.idOng, idItem: viewModel.item.id!, modo: .editarItem), novaTela: $novaTela),
                                label: {
                                 VStack{
                                     Spacer()

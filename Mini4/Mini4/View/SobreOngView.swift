@@ -11,6 +11,7 @@ struct SobreOngView: View {
     
     @State private var ong: Organizacao
     @State private var selectedImage: UIImage?
+    @State private var temp: Bool = false //TODO: Ver de tirar esse cara aqui e colocar na viewModel dessa tela.
     
     @ObservedObject var enderecoViewModel: EnderecoViewModel
     @ObservedObject var bancoViewModel: BancoViewModel
@@ -42,7 +43,7 @@ struct SobreOngView: View {
                 if itemCount > 2 {
                     HStack {
                     ForEach(0..<2) { i in
-                        ItemListaVerticalView(viewModel: .init(idOng: ong.id!, idItem: ong.estoque![i].id!))
+                        ItemListaVerticalView(viewModel: .init(idOng: ong.id!, idItem: ong.estoque![i].id!), trocaDeTela: $temp )
                             .frame(maxHeight: 220)
                     }
                     .padding(.horizontal, 30)
@@ -59,7 +60,7 @@ struct SobreOngView: View {
                     if itemCount != 0 {
                         HStack {
                             ForEach(0..<estoqueViewModel.data.count) { i in
-                                ItemListaVerticalView(viewModel: .init(idOng: ong.id!, idItem: ong.estoque![i].id!)) 
+                                ItemListaVerticalView(viewModel: .init(idOng: ong.id!, idItem: ong.estoque![i].id!), trocaDeTela: $temp)
                                     .frame(maxHeight: 220)
                             }
                             .padding(.horizontal, 30)

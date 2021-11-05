@@ -45,7 +45,7 @@ struct OngHomeView: View {
                     if viewModel.itensEstocados() > 0 {
                         ForEach((viewModel.itensEstocados() >= 2) ? 0..<2 : 0..<1) { i in
                             if let id = viewModel.ongItens()[i].id {
-                                ItemListaView(viewModel: .init(idOng: viewModel.ong.id!, idItem: id))
+                                ItemListaView(viewModel: .init(idOng: viewModel.ong.id!, idItem: id), novaTela: $viewModel.voltouTela)
                                     .frame(maxHeight: 220)
                             }
                         }.padding(.horizontal, 30)
@@ -88,6 +88,8 @@ struct OngHomeView: View {
                 .padding(.top, 20)
             }
             
+        }.onChange(of: viewModel.voltouTela) { _ in
+            viewModel.atualizar()
         }
         
         .navigationBarItems(trailing:  Button(action: { userService.logout() }, label: {

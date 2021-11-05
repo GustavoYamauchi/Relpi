@@ -11,6 +11,7 @@ import SwiftUI
 struct EditarItem: View {
     
     @ObservedObject var itemViewModel: FormItemViewModel
+    @Binding var novaTela: Bool
     
     var body: some View {
         VStack{
@@ -53,6 +54,7 @@ struct EditarItem: View {
                 
                 Button("Salvar", action: {
                     itemViewModel.salvar()
+                    novaTela.toggle()
                 }).buttonStyle(.primaryButton)
 
                 

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ItemListaVerticalView: View {
     @ObservedObject var viewModel: ItemViewModel
+    @Binding var trocaDeTela: Bool
     
     var body: some View {
         ZStack{
@@ -17,7 +18,7 @@ struct ItemListaVerticalView: View {
                                     viewModel.item.visivel ? Color.urgencia : Color.urgencia.opacity(0.5) :
                                     viewModel.item.visivel ? Color.regular : Color.urgencia.opacity(0.5))
             HStack(alignment: .center){
-                NavigationLink(destination: EditarItem(itemViewModel: .init(idOng: viewModel.idOng, idItem: viewModel.item.id!, modo: .editarItem)), label: {
+                NavigationLink(destination: EditarItem(itemViewModel: .init(idOng: viewModel.idOng, idItem: viewModel.item.id!, modo: .editarItem), novaTela: $trocaDeTela), label: {
                     Image(viewModel.imagemNome)
                         .resizable()
                         .aspectRatio(contentMode: .fit)

@@ -10,6 +10,7 @@ import SwiftUI
 struct ListaGridItem: View {
 
     var categoria: String = ""
+    @State var fdc = false
     
     @ObservedObject var telaViewModel: TelaListaViewModel
     
@@ -23,7 +24,7 @@ struct ListaGridItem: View {
         
         LazyVGrid(columns: gridItemLayout) {
             ForEach(telaViewModel.items.filter({ ($0.nome.contains(telaViewModel.itemPesquisado) || telaViewModel.itemPesquisado.isEmpty) && ($0.categoria == categoria || categoria.isEmpty) && $0.visivel && ($0.urgente || !telaViewModel.apenasUrgente) })){ item in
-                ItemListaView(viewModel: .init(idOng: telaViewModel.idOng, idItem: item.id!))
+                ItemListaView(viewModel: .init(idOng: telaViewModel.idOng, idItem: item.id!), novaTela: $fdc)
                     .frame(minWidth: 50, minHeight: 220)
                     .padding(.bottom, 10)
             }

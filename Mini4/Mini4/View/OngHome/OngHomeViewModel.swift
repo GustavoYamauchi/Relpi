@@ -18,6 +18,7 @@ final class OngHomeViewModel: ObservableObject {
     
     @Published var ong: Organizacao
     @Published var selectedImage: UIImage
+    @Published var voltouTela: Bool = false
     
     //MARK: - Elementos da View
     
@@ -122,5 +123,9 @@ final class OngHomeViewModel: ObservableObject {
             return estoque
         }
         return [Item]()
+    }
+    
+    func atualizar(){
+        fetchItems()
     }
 }

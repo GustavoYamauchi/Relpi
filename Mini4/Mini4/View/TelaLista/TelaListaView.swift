@@ -66,7 +66,7 @@ struct TelaListaView: View {
                 .padding(.vertical, 20)
             
                 Button(action: {}, label: {
-                    NavigationLink(destination: EditarItem(itemViewModel: .init(idOng: telaViewModel.idOng, idItem: "", modo: .novoItem)), label: {
+                    NavigationLink(destination: EditarItem(itemViewModel: .init(idOng: telaViewModel.idOng, idItem: "", modo: .novoItem), novaTela: $telaViewModel.voltouTela), label: {
                         Text("Adicionar itens na caixa de doação")
                     })
                 })
@@ -76,12 +76,12 @@ struct TelaListaView: View {
         
                 if telaViewModel.listaVertical{
                     if !telaViewModel.listaCategorizada{
-                        ListaVerticalItem(telaViewModel: telaViewModel)
+                        ListaVerticalItem(telaViewModel: telaViewModel, trocaDeTela: $telaViewModel.voltouTela)
                         
                     }else{
                         VStack(alignment: .leading){
                             ForEach(telaViewModel.categorias, id: \.self){ categoria in
-                                ListaVerticalItem(categoria: categoria, telaViewModel: telaViewModel)
+                                ListaVerticalItem(categoria: categoria, telaViewModel: telaViewModel, trocaDeTela: $telaViewModel.voltouTela)
                             }
                         }
                     }
@@ -103,6 +103,9 @@ struct TelaListaView: View {
         }
         .sheet(isPresented: $telaViewModel.mostrarFiltros){
             FiltroModal(mostrarCategorias: $telaViewModel.listaCategorizada, mostrarApenasUrgentes: $telaViewModel.apenasUrgente, mostrandoView: $telaViewModel.mostrarFiltros)
+        }
+        .onChange(of: telaViewModel.voltouTela) { _ in
+            telaViewModel.atualizar()
         }
         
     }
