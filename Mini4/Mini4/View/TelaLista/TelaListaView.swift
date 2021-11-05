@@ -77,12 +77,12 @@ struct TelaListaView: View {
         
                 if telaViewModel.listaVertical{
                     if !telaViewModel.listaCategorizada{
-                        ListaVerticalItem(telaViewModel: telaViewModel)
+                        ListaVerticalItem(telaViewModel: telaViewModel, trocaDeTela: $TrocaDeTela)
                         
                     }else{
                         VStack(alignment: .leading){
                             ForEach(telaViewModel.categorias, id: \.self){ categoria in
-                                ListaVerticalItem(categoria: categoria, telaViewModel: telaViewModel)
+                                ListaVerticalItem(categoria: categoria, telaViewModel: telaViewModel, trocaDeTela: $TrocaDeTela)
                             }
                         }
                     }
@@ -106,7 +106,7 @@ struct TelaListaView: View {
             FiltroModal(mostrarCategorias: $telaViewModel.listaCategorizada, mostrarApenasUrgentes: $telaViewModel.apenasUrgente, mostrandoView: $telaViewModel.mostrarFiltros)
         }
         .onChange(of: TrocaDeTela) { _ in
-            print("Atualizou os itens")
+            print("Atualiza, mano")
             telaViewModel.atualizar()
         }
         
