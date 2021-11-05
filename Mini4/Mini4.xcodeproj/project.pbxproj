@@ -82,6 +82,7 @@
 		85DAA31F2729D88900CD7696 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DAA31A2729CCB500CD7696 /* UserService.swift */; };
 		85E1332B2735A89400F9DEDB /* EditarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF2D9C271DF2D400E13139 /* EditarItem.swift */; };
 		85E1332C2735A89600F9DEDB /* FormItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA0800273313D500F7D8C7 /* FormItemViewModel.swift */; };
+		85E133312735B49D00F9DEDB /* ExplorarOngViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E133302735B49D00F9DEDB /* ExplorarOngViewModel.swift */; };
 		85E49094270B9402009CD6FE /* InfoGeralFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E49093270B9402009CD6FE /* InfoGeralFormView.swift */; };
 		85E49098270B989A009CD6FE /* ContatoFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E49097270B989A009CD6FE /* ContatoFormView.swift */; };
 		85EA0264272E045E00FE1471 /* OngHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EA0263272E045E00FE1471 /* OngHomeViewModel.swift */; };
@@ -169,6 +170,7 @@
 		85B0CCA2273478C2002EFCEC /* DoadorHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoadorHomeViewModel.swift; sourceTree = "<group>"; };
 		85DAA31A2729CCB500CD7696 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		85DAA31C2729CD8200CD7696 /* LoginCadastroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCadastroViewModel.swift; sourceTree = "<group>"; };
+		85E133302735B49D00F9DEDB /* ExplorarOngViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorarOngViewModel.swift; sourceTree = "<group>"; };
 		85E49093270B9402009CD6FE /* InfoGeralFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoGeralFormView.swift; sourceTree = "<group>"; };
 		85E49097270B989A009CD6FE /* ContatoFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatoFormView.swift; sourceTree = "<group>"; };
 		85EA0263272E045E00FE1471 /* OngHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngHomeViewModel.swift; sourceTree = "<group>"; };
@@ -300,16 +302,13 @@
 		1CC810A427038FE100B9E721 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				85E1332D2735B32A00F9DEDB /* ONG */,
 				85A33067271DF83700230D40 /* Login */,
-				85EA0262272E044700FE1471 /* OngHome */,
-				8589EBE7270B935900EA906C /* Organizacao */,
 				1C136A35270E38FC00D09E9D /* TelaLista */,
-				85FA07FC2732F6EF00F7D8C7 /* Item */,
-				85B0CCA1273478AA002EFCEC /* DoadorHome */,
+				85E1332E2735B35B00F9DEDB /* Doador */,
 				1CC8104A2702336200B9E721 /* ContentView.swift */,
 				A30BA3B1270F6DE400D2222B /* SobreOngView.swift */,
 				1C136A29270CCD3B00D09E9D /* EstoqueFormView.swift */,
-				A319FAC127275C51001C5073 /* ExplorarOngView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -362,6 +361,34 @@
 				85B0CCA2273478C2002EFCEC /* DoadorHomeViewModel.swift */,
 			);
 			path = DoadorHome;
+			sourceTree = "<group>";
+		};
+		85E1332D2735B32A00F9DEDB /* ONG */ = {
+			isa = PBXGroup;
+			children = (
+				8589EBE7270B935900EA906C /* Organizacao */,
+				85FA07FC2732F6EF00F7D8C7 /* Item */,
+				85EA0262272E044700FE1471 /* OngHome */,
+			);
+			path = ONG;
+			sourceTree = "<group>";
+		};
+		85E1332E2735B35B00F9DEDB /* Doador */ = {
+			isa = PBXGroup;
+			children = (
+				85B0CCA1273478AA002EFCEC /* DoadorHome */,
+				85E1332F2735B37100F9DEDB /* ExplorarOng */,
+			);
+			path = Doador;
+			sourceTree = "<group>";
+		};
+		85E1332F2735B37100F9DEDB /* ExplorarOng */ = {
+			isa = PBXGroup;
+			children = (
+				A319FAC127275C51001C5073 /* ExplorarOngView.swift */,
+				85E133302735B49D00F9DEDB /* ExplorarOngViewModel.swift */,
+			);
+			path = ExplorarOng;
 			sourceTree = "<group>";
 		};
 		85EA0262272E044700FE1471 /* OngHome */ = {
@@ -629,6 +656,7 @@
 				8BCF2D9F271E00B500E13139 /* Quantity.swift in Sources */,
 				85E1332B2735A89400F9DEDB /* EditarItem.swift in Sources */,
 				1CC810492702336200B9E721 /* SceneDelegate.swift in Sources */,
+				85E133312735B49D00F9DEDB /* ExplorarOngViewModel.swift in Sources */,
 				A319FAC827275E58001C5073 /* EnderecoFormView.swift in Sources */,
 				1CC8109C27038A3100B9E721 /* Organizacao.swift in Sources */,
 				1C5CC92E272094410078EC01 /* FiltroModal.swift in Sources */,

@@ -63,7 +63,7 @@ struct DoadorHome: View {
                             }
                             
                             Button(action: {}) {
-                                NavigationLink(destination: ExplorarOngView(ongs: doadorViewModel.ongs),
+                                NavigationLink(destination: ExplorarOngView(viewModel: .init(ongs: doadorViewModel.ongs)),
                                                label: {
                                                 Text(doadorViewModel.botaoTodasOngs)
                                                     .frame(minWidth: 0, maxWidth: .infinity)
