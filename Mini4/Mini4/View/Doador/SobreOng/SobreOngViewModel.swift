@@ -14,6 +14,7 @@ final class SobreOngViewModel: ObservableObject {
     
     @Published var ong: Organizacao
     @Published var image: UIImage
+    @Published var trocaTela: Bool = false
     
     init(ongService: OngServiceProtocol = OngService(),
          estoqueService: EstoqueServiceProtocol = EstoqueService(),
