@@ -19,6 +19,7 @@ class OngFormViewModel: ObservableObject {
     @Published var redirectHome = false
     @Published var apresentaFeedback = false
     @Published var mensagem = ""
+    var atualizaImagem = false
     var cor: ColorStyle = .green
         
     // MARK: - Inicializador
@@ -73,46 +74,79 @@ class OngFormViewModel: ObservableObject {
             }
         }
     }
-
+    
+    func deleteOng() {
+        ongService.deleteOng(idOng: ong.id!) { [weak self] result in
+            switch result {
+            case .success():
+                print("deletado")
+                // tem que ir pra cadastro view
+                
+            case .failure(let err):
+                self?.mensagem = err.localizedDescription
+                self?.cor = .red
+                self?.apresentaFeedback = true
+            }
+        }
+    
+    }
+    
+    
     func salvar() {
         switch modo {
             case .cadastro:
-            ImageStorageService.shared.uploadImage(orgName: ong.nome, image: selectedImage) { [weak self] imageUrl, err in
-                if let err = err {
+                salvaComImagem()
+            
+            case .perfil:
+                // verifica se quer atualizar imagem
+                salvaSemImagem()
+        }
+    }
+    
+    private func salvaSemImagem() {
+        // atualiza no firebase sem atualizar imagem
+        self.ongService.create(self.ong) { [weak self] result in
+            switch result {
+            case .success:
+                self?.mensagem = "Atualizado com sucesso!"
+                self?.apresentaFeedback = true
+                
+            case .failure(let err):
+                self?.mensagem = err.localizedDescription
+                self?.apresentaFeedback = true
+            }
+        }
+    }
+    
+    
+    private func salvaComImagem() {
+        ImageStorageService.shared.uploadImage(orgName: ong.nome, image: selectedImage) { [weak self] imageUrl, err in
+            if let err = err {
+                self?.mensagem = err.localizedDescription
+                self?.apresentaFeedback = true
+            }
+            
+            self?.ong.foto = imageUrl
+            
+            // adiciona no firebase
+            self?.ongService.create(self!.ong) { [weak self] result in
+                switch result {
+                case .success:
+                    if self?.modo == .cadastro {
+                        self?.redirectHome = true
+                    } else {
+                        self?.mensagem = "Atualizado com sucesso!"
+                        self?.apresentaFeedback = true
+                    }
+                    
+                case .failure(let err):
                     self?.mensagem = err.localizedDescription
                     self?.apresentaFeedback = true
                 }
-
-                self?.ong.foto = imageUrl
-                
-                // adiciona no firebase
-                self?.ongService.create(self!.ong) { [weak self] result in
-                    switch result {
-                        case .success:
-                            self?.redirectHome = true
-                            
-                        case .failure(let err):
-                            self?.mensagem = err.localizedDescription
-                            self?.apresentaFeedback = true
-                    }
-                }
             }
-            
-            case .perfil:
-                // atualiza no firebase
-                self.ongService.create(self.ong) { [weak self] result in
-                    switch result {
-                        case .success:
-                            self?.mensagem = "Atualizado com sucesso!"
-                            self?.apresentaFeedback = true
-                            
-                        case .failure(let err):
-                            self?.mensagem = err.localizedDescription
-                            self?.apresentaFeedback = true
-                    }
-                }
         }
     }
+    
 }
 
 extension OngFormViewModel {
