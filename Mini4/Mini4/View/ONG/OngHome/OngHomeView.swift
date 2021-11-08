@@ -91,14 +91,12 @@ struct OngHomeView: View {
         }.onChange(of: viewModel.voltouTela) { _ in
             viewModel.atualizar()
         }
-        
         .navigationBarItems(trailing:  Button(action: { userService.logout() }, label: {
             Text(viewModel.logoutLabel)
                 .foregroundColor(Color.primaryButton)
                 .font(.system(size: 16, weight: .bold, design: .default))
         }))
-        
+        .navigationBarBackButtonHidden(true)
         .navigationBarTitle("", displayMode: .inline)
-        .navigationBarHidden(true)
     }
 }
