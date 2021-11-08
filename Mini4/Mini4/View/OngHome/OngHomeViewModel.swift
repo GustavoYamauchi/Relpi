@@ -19,6 +19,7 @@ final class OngHomeViewModel: ObservableObject {
     @Published var ong: Organizacao
     @Published var selectedImage: UIImage
     @Published var voltouTela: Bool = false
+    @Published var isLoading: Bool = true
     
     //MARK: - Elementos da View
     
@@ -67,21 +68,22 @@ final class OngHomeViewModel: ObservableObject {
     //MARK: - Métodos
     
     private func fetchOng(idOng: String) {
+        isLoading = true
         ongService.getOng(idOng: idOng) { [weak self] result in
-
             switch result {
             case .success(let ong):
                 self?.ong = ong
                 self?.fetchImage()
                 self?.fetchItems()
-
             case .failure(let err):
                 print(err.localizedDescription)
             }
+            self?.isLoading = false
         }
     }
     
     private func fetchImage() {
+        isLoading = true
         if let foto = ong.foto {
             ImageStorageService.shared.downloadImage(urlString: foto) { [weak self] image, err in
                 DispatchQueue.main.async {
@@ -91,19 +93,21 @@ final class OngHomeViewModel: ObservableObject {
                 }
             }
         }
+        self.isLoading = false
     }
     
     private func fetchItems() {
+        isLoading = true
         estoqueService.getItems(idOng: ong.id!) { result in
             switch result {
             case .success(let items):
                 DispatchQueue.main.async {
                     self.ong.estoque = items
                 }
-                
             case .failure(let error):
                 print(error.localizedDescription)
             }
+            self.isLoading = true
         }
     }
     
