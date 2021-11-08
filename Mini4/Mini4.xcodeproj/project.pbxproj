@@ -64,6 +64,7 @@
 		6DA4B72157C3CB7B233CA050 /* Pods_Mini4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5D085BED330F0CD78C4E26 /* Pods_Mini4.framework */; };
 		850C71F92731912300902BFC /* EstoqueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850C71F82731912300902BFC /* EstoqueService.swift */; };
 		850C71FA2731912300902BFC /* EstoqueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850C71F82731912300902BFC /* EstoqueService.swift */; };
+		8521234627399ECB00A4AEF3 /* SobreOngViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8521234527399ECB00A4AEF3 /* SobreOngViewModel.swift */; };
 		853BC76C2710D418007C589D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 853BC76B2710D418007C589D /* GoogleService-Info.plist */; };
 		853BC76E2710D483007C589D /* GoogleService-Info-admin.plist in Resources */ = {isa = PBXBuildFile; fileRef = 853BC76D2710D483007C589D /* GoogleService-Info-admin.plist */; };
 		854B99012722DBB900B1CEF9 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854B99002722DBB900B1CEF9 /* LoginViewModel.swift */; };
@@ -102,9 +103,7 @@
 		A30BA3AD270F5C9F00D2222B /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BA3AC270F5C9F00D2222B /* Color+Extension.swift */; };
 		A30BA3AE270F5C9F00D2222B /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BA3AC270F5C9F00D2222B /* Color+Extension.swift */; };
 		A30BA3B2270F6DE400D2222B /* SobreOngView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BA3B1270F6DE400D2222B /* SobreOngView.swift */; };
-		A30BA3B3270F6DE400D2222B /* SobreOngView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BA3B1270F6DE400D2222B /* SobreOngView.swift */; };
 		A319FAC227275C51001C5073 /* ExplorarOngView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319FAC127275C51001C5073 /* ExplorarOngView.swift */; };
-		A319FAC327275C51001C5073 /* ExplorarOngView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319FAC127275C51001C5073 /* ExplorarOngView.swift */; };
 		A319FAC427275DD9001C5073 /* OngFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC810A92703B0B000B9E721 /* OngFormView.swift */; };
 		A319FAC627275E2B001C5073 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC8806270F66E400BFDF96 /* ImagePickerView.swift */; };
 		A319FAC727275E3E001C5073 /* InfoGeralFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E49093270B9402009CD6FE /* InfoGeralFormView.swift */; };
@@ -158,6 +157,7 @@
 		5743B9CDD5620E7CBB873A75 /* Pods-Mini4Admin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mini4Admin.release.xcconfig"; path = "Target Support Files/Pods-Mini4Admin/Pods-Mini4Admin.release.xcconfig"; sourceTree = "<group>"; };
 		83A6578411934C5392EA1241 /* Pods-Mini4.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mini4.debug.xcconfig"; path = "Target Support Files/Pods-Mini4/Pods-Mini4.debug.xcconfig"; sourceTree = "<group>"; };
 		850C71F82731912300902BFC /* EstoqueService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstoqueService.swift; sourceTree = "<group>"; };
+		8521234527399ECB00A4AEF3 /* SobreOngViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SobreOngViewModel.swift; sourceTree = "<group>"; };
 		853BC76B2710D418007C589D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		853BC76D2710D483007C589D /* GoogleService-Info-admin.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-admin.plist"; sourceTree = "<group>"; };
 		854B99002722DBB900B1CEF9 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -307,7 +307,6 @@
 				1C136A35270E38FC00D09E9D /* TelaLista */,
 				85E1332E2735B35B00F9DEDB /* Doador */,
 				1CC8104A2702336200B9E721 /* ContentView.swift */,
-				A30BA3B1270F6DE400D2222B /* SobreOngView.swift */,
 				1C136A29270CCD3B00D09E9D /* EstoqueFormView.swift */,
 			);
 			path = View;
@@ -321,6 +320,15 @@
 				85FA07FD2732FCA300F7D8C7 /* ItemViewModel.swift */,
 			);
 			path = ItemLista;
+			sourceTree = "<group>";
+		};
+		8521234427399EB600A4AEF3 /* SobreOng */ = {
+			isa = PBXGroup;
+			children = (
+				A30BA3B1270F6DE400D2222B /* SobreOngView.swift */,
+				8521234527399ECB00A4AEF3 /* SobreOngViewModel.swift */,
+			);
+			path = SobreOng;
 			sourceTree = "<group>";
 		};
 		855EB88B2718F22A004468EC /* Service */ = {
@@ -378,6 +386,7 @@
 			children = (
 				85B0CCA1273478AA002EFCEC /* DoadorHome */,
 				85E1332F2735B37100F9DEDB /* ExplorarOng */,
+				8521234427399EB600A4AEF3 /* SobreOng */,
 			);
 			path = Doador;
 			sourceTree = "<group>";
@@ -686,6 +695,7 @@
 				1C136A37270E391C00D09E9D /* TelaListaView.swift in Sources */,
 				8B12DA592710BE9700A19E3B /* PickerCustom.swift in Sources */,
 				1C7DF8D5272B1E2300D227CA /* OngService.swift in Sources */,
+				8521234627399ECB00A4AEF3 /* SobreOngViewModel.swift in Sources */,
 				A319FAC427275DD9001C5073 /* OngFormView.swift in Sources */,
 				1C5CC9342721CC130078EC01 /* ListaGridItem.swift in Sources */,
 				A319FAC227275C51001C5073 /* ExplorarOngView.swift in Sources */,
@@ -715,7 +725,6 @@
 				8592BE18272B41B1002165EF /* NewOngFormView.swift in Sources */,
 				A35E8994271F715800F8E901 /* Text+Extension.swift in Sources */,
 				1C136A3F27175E0A00D09E9D /* SearchBarView.swift in Sources */,
-				A30BA3B3270F6DE400D2222B /* SobreOngView.swift in Sources */,
 				1C136A28270CC6F400D09E9D /* EstoqueViewModel.swift in Sources */,
 				8BCF2DA0271E00B500E13139 /* Quantity.swift in Sources */,
 				8B12DA5A2710BE9700A19E3B /* PickerCustom.swift in Sources */,
@@ -725,7 +734,6 @@
 				85DAA31F2729D88900CD7696 /* UserService.swift in Sources */,
 				85E49094270B9402009CD6FE /* InfoGeralFormView.swift in Sources */,
 				85FA07FA2732C68F00F7D8C7 /* TelaListaViewModel.swift in Sources */,
-				A319FAC327275C51001C5073 /* ExplorarOngView.swift in Sources */,
 				85E49098270B989A009CD6FE /* ContatoFormView.swift in Sources */,
 				1C136A38270E391C00D09E9D /* TelaListaView.swift in Sources */,
 				1C5CC92F272094410078EC01 /* FiltroModal.swift in Sources */,

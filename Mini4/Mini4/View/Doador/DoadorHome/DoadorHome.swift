@@ -36,7 +36,7 @@ struct DoadorHome: View {
                             if pesquisa == "" {
                                 if doadorViewModel.quantidadeOngs() >= doadorViewModel.rangeOng { //verifica se tem 3 ongs e entrar no if
                                     ForEach(0..<3) { i in
-                                        NavigationLink(destination: SobreOngView(ong: doadorViewModel.ong(at: i))) {
+                                        NavigationLink(destination: SobreOngView(viewModel: .init(ong: doadorViewModel.ong(at: i)))) {
                                             Text(doadorViewModel.ongName(at: i))
                                         }
                                         .buttonStyle(SecondaryButton())
@@ -44,7 +44,7 @@ struct DoadorHome: View {
                                 } else { // se tiver menos exibi só elas
                                     ForEach(doadorViewModel.ongs) { ong in
                                         HStack {
-                                            NavigationLink(destination: SobreOngView(ong: ong)) {
+                                            NavigationLink(destination: SobreOngView(viewModel: .init(ong: ong))) {
                                                 Text("\(ong.nome)")
                                             }
                                             .buttonStyle(SecondaryButton())
@@ -54,7 +54,7 @@ struct DoadorHome: View {
                             } else {
                                 ForEach(doadorViewModel.ongs.filter({ $0.nome.contains(pesquisa) })) { ong in
                                     HStack {
-                                        NavigationLink(destination: SobreOngView(ong: ong)) {
+                                        NavigationLink(destination: SobreOngView(viewModel: .init(ong:ong))) {
                                             Text("\(ong.nome)")
                                         }
                                         .buttonStyle(SecondaryButton())
