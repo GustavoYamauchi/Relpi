@@ -91,14 +91,24 @@ struct OngHomeView: View {
         }.onChange(of: viewModel.voltouTela) { _ in
             viewModel.atualizar()
         }
-        
-        .navigationBarItems(trailing:  Button(action: { userService.logout() }, label: {
-            Text(viewModel.logoutLabel)
-                .foregroundColor(Color.primaryButton)
-                .font(.system(size: 16, weight: .bold, design: .default))
-        }))
-        
+        .navigationBarItems(trailing:
+                                ZStack {
+            NavigationLink(destination: CadastroView(viewModel: .init(mode: .cadastro, usuario: .ong)), tag: 1, selection: $viewModel.tag) {
+                EmptyView()
+            }
+            
+            Button(action: {
+                userService.logout()
+//                print("Qual o problema dessa função?") O cara que está programando
+                self.viewModel.tag = 1
+            }, label: {
+                Text(viewModel.logoutLabel)
+                    .foregroundColor(Color.primaryButton)
+                    .font(.system(size: 16, weight: .bold, design: .default))
+            })
+        }
+        )
+        .navigationBarBackButtonHidden(true)
         .navigationBarTitle("", displayMode: .inline)
-        .navigationBarHidden(true)
     }
 }
