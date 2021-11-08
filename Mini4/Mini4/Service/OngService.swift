@@ -12,6 +12,7 @@ import FirebaseFirestoreSwift
 protocol OngServiceProtocol {
     func create(_ ong: Organizacao, completion: @escaping (Result<Void, Error>) -> Void)
     func getOng(idOng: String, completion: @escaping (Result<Organizacao, Error>) -> Void)
+    func fetchOngs(completion: @escaping (Result<[Organizacao], Error>) -> Void)
 }
 
 final class OngService: OngServiceProtocol {
@@ -61,4 +62,26 @@ final class OngService: OngServiceProtocol {
             }
         }.eraseToAnyPublisher()
     }
+    
+    func fetchOngs(completion: @escaping (Result<[Organizacao], Error>) -> Void) {
+        db.collection("ong").getDocuments { (snapshot, err) in
+            if let err = err {
+                completion(.failure(err))
+            }
+            
+            do {
+                let ongs = try snapshot?.documents.map {
+                    try $0.data(as: Organizacao.self)
+                }
+                
+                if let ongsExistentes = ongs?.compactMap({ $0 }) {
+                    completion(.success(ongsExistentes))
+                }
+                
+            } catch let error {
+                completion(.failure(error))
+            }
+        }
+    }
+    
 }
