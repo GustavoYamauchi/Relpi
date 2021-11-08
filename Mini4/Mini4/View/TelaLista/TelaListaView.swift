@@ -65,14 +65,23 @@ struct TelaListaView: View {
             DialogCard(text: "Para realizar a doação, entre em contato com a ONG. Nossa plataforma apenas cataloga os itens demandados! :)", colorStyle: .yellow)
                 .padding(.vertical, 20)
             
+                #if Mini4
+                Button(action: {
+                    print("TODO: Fazer caixa de doação(?) resp: Não no mvp")
+                }, label: {
+                    Text("Adicionar itens na caixa de doação")
+                })
+                .buttonStyle(PrimaryButton())
+                .padding(.vertical, 20)
+                #else
                 Button(action: {}, label: {
                     NavigationLink(destination: EditarItem(itemViewModel: .init(idOng: telaViewModel.idOng, idItem: "", modo: .novoItem), novaTela: $telaViewModel.voltouTela), label: {
-                        Text("Adicionar itens na caixa de doação")
+                        Text("Adicionar item")
                     })
                 })
                 .buttonStyle(PrimaryButton())
                 .padding(.vertical, 20)
-                
+                #endif
         
                 if telaViewModel.listaVertical{
                     if !telaViewModel.listaCategorizada{
