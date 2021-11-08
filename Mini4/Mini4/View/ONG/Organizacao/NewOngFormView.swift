@@ -36,6 +36,10 @@ struct NewOngFormView: View {
                     
                     getFormView(pageIndex: pageIndex)
                     
+                    if viewModel.apresentaFeedback {
+                        DialogCard(text: viewModel.mensagem, colorStyle: viewModel.cor)
+                    }
+                    
                     HStack {
                         if pageIndex > 0 {
                             Button("Anterior") {
@@ -59,18 +63,17 @@ struct NewOngFormView: View {
                     
                     if viewModel.modo == .perfil {
                         Button("Cancelar") {
-                            print("CANCELA TUDO")
+                            viewModel.apresentaFeedback = false
                             presentationMode.wrappedValue.dismiss()
                         }.buttonStyle(SecondaryButton())
                     }
                     
-                    NavigationLink(destination: OngHomeView(viewModel: .init(idOng: viewModel.ong.id!)).environmentObject(EstoqueViewModel(viewModel.ong.id!)), isActive: $viewModel.redirectHome) {
+                    NavigationLink(destination: OngHomeView(viewModel: .init(idOng: viewModel.ong.id!)), isActive: $viewModel.redirectHome) {
                         EmptyView()
                     }  
                 }
                 .padding([.leading, .trailing], 30)
                 .toolbar {
-                    // não remover
                     Button("Alterar foto") {
                         self.sourceType = .photoLibrary
                         self.isImagePickerDisplaying.toggle()
@@ -100,13 +103,6 @@ struct NewOngFormView: View {
         } else {
             print("primeira página")
         }
-    }
-    
-    private func getNewOrg() -> Organizacao {
-        return Organizacao(
-            nome: "", cnpj: "", descricao: "", telefone: "", email: "",
-            data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
-            endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
     }
     
     // MARK: - Form Subview

@@ -17,6 +17,9 @@ class OngFormViewModel: ObservableObject {
     @Published var ong: Organizacao
     @Published var selectedImage: UIImage
     @Published var redirectHome = false
+    @Published var apresentaFeedback = false
+    @Published var mensagem = ""
+    var cor: ColorStyle = .green
         
     // MARK: - Inicializador
     
@@ -30,21 +33,13 @@ class OngFormViewModel: ObservableObject {
         
         selectedImage = UIImage(named: "ImagePlaceholder") ?? UIImage(systemName: "camera")!
  
-        if modo == .cadastro {
-            ong = Organizacao(id: userService.usuarioAtual()?.uid,
-                nome: "", cnpj: "", descricao: "", telefone: "", email: "",
-                data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
-                endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
-            
-        } else {
-            // TODO: pega do firebase
-            ong = Organizacao(id: userService.usuarioAtual()?.uid,
-                nome: "antes de pegar", cnpj: "", descricao: "", telefone: "", email: "",
-                data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
-                endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
-            
+        ong = Organizacao(id: userService.usuarioAtual()?.uid,
+            nome: "", cnpj: "", descricao: "", telefone: "", email: "",
+            data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
+            endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
+        
+        if modo == .perfil {
             if let id = userService.usuarioAtual()?.uid {
-                print("pegando ong da viewmodel")
                 fetchOng(idOng: id)
             }
         }
@@ -54,7 +49,6 @@ class OngFormViewModel: ObservableObject {
     
     private func fetchImage() {
         if let foto = ong.foto {
-            print("pegando imagemmmmm")
             ImageStorageService.shared.downloadImage(urlString: foto) { [weak self] image, err in
                 DispatchQueue.main.async {
                     if let image = image {
@@ -74,7 +68,8 @@ class OngFormViewModel: ObservableObject {
                 self?.fetchImage()
 
             case .failure(let err):
-                print(err.localizedDescription)
+                self?.cor = .red
+                self?.mensagem = err.localizedDescription
             }
         }
     }
@@ -82,31 +77,40 @@ class OngFormViewModel: ObservableObject {
     func salvar() {
         switch modo {
             case .cadastro:
-                ImageStorageService.shared.uploadImage(orgName: ong.nome, image: selectedImage) { [weak self] imageUrl, err in
-                    if let err = err {
-                        print(err.localizedDescription)
-                    }
-                    print("imageUrl: \(imageUrl)")
-                    self?.ong.foto = imageUrl
-                    
-                    // adiciona no firebase
-                    print("adiciona no firebase")
-                    self?.ongService.create(self!.ong) { [weak self] result in
-                        switch result {
-                            case .success:
-                                print("cadastrado com sucesso")
-                                print("foto \(String(describing: self?.ong.foto))")
-                                self?.redirectHome = true
-                                
-                            case .failure(let err):
-                                print(err.localizedDescription)
-                        }
+            ImageStorageService.shared.uploadImage(orgName: ong.nome, image: selectedImage) { [weak self] imageUrl, err in
+                if let err = err {
+                    self?.mensagem = err.localizedDescription
+                    self?.apresentaFeedback = true
+                }
+
+                self?.ong.foto = imageUrl
+                
+                // adiciona no firebase
+                self?.ongService.create(self!.ong) { [weak self] result in
+                    switch result {
+                        case .success:
+                            self?.redirectHome = true
+                            
+                        case .failure(let err):
+                            self?.mensagem = err.localizedDescription
+                            self?.apresentaFeedback = true
                     }
                 }
+            }
             
             case .perfil:
                 // atualiza no firebase
-                print("atualiza no firebase")
+                self.ongService.create(self.ong) { [weak self] result in
+                    switch result {
+                        case .success:
+                            self?.mensagem = "Atualizado com sucesso!"
+                            self?.apresentaFeedback = true
+                            
+                        case .failure(let err):
+                            self?.mensagem = err.localizedDescription
+                            self?.apresentaFeedback = true
+                    }
+                }
         }
     }
 }

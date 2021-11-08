@@ -53,13 +53,11 @@ struct OngHomeView: View {
                     
                 }
                 
-//                if viewModel.itensEstocados() > 2{
-                    Button(action: {}) {
-                        NavigationLink(destination: TelaListaView(telaViewModel: .init(idOng: viewModel.ong.id!, data: viewModel.ong.data)),
-                                       label: { Text(viewModel.listaCompletaButtonLabel) })
-                    }
-                    .buttonStyle(.primaryButton)
-                //}
+                Button(action: {}) {
+                    NavigationLink(destination: TelaListaView(telaViewModel: .init(idOng: viewModel.ong.id!, data: viewModel.ong.data)),
+                                   label: { Text(viewModel.listaCompletaButtonLabel) })
+                }
+                .buttonStyle(.primaryButton)
                 
                 // Infos sobre a ONG
                 VStack(alignment: .leading, spacing: 20) {
