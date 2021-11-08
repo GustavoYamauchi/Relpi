@@ -57,6 +57,7 @@ struct CadastroView: View {
                 
                 if viewModel.mode == .cadastro {
                     confirmarSenhaTextField
+                        .navigationBarBackButtonHidden(true)
                 }
                 
                 if viewModel.apresentarAlerta {
