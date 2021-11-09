@@ -44,6 +44,7 @@ struct CadastroView: View {
     // MARK: View
     
     var body: some View {
+
         
         GeometryReader { geometry in
             VStack(alignment: .leading, spacing: geometry.size.height * 0.02){
@@ -59,42 +60,56 @@ struct CadastroView: View {
                     
                     if viewModel.mode == .cadastro {
                         confirmarSenhaTextField
+                            .navigationBarBackButtonHidden(true)
                     }
+
                     
-                    if viewModel.apresentarAlerta {
-                        DialogCard(text: viewModel.mensagem, colorStyle: .red)
-                    }
+                    Spacer(minLength: 0)
                     
-                    Button(viewModel.botaoCadastrarEntrar) {
-                        viewModel.cadastrarLogar()
-                    }.buttonStyle(.primaryButton)
-                
-                    NavigationLink(destination: NewOngFormView(viewModel: .init(modo: .cadastro)), isActive: $viewModel.encaminharOngForm) {
-                        EmptyView()
-                    }
+                    Group {
+                        tituloView
+                        emailTextField
+                        senhaTextField
+                        
+                        if viewModel.mode == .cadastro {
+                            confirmarSenhaTextField
+                        }
+                        
+                        if viewModel.apresentarAlerta {
+                            DialogCard(text: viewModel.mensagem, colorStyle: .red)
+                        }
+                        
+                        Button(viewModel.botaoCadastrarEntrar) {
+                            viewModel.cadastrarLogar()
+                        }.buttonStyle(.primaryButton)
                     
-                    if let id = viewModel.id {
-                        NavigationLink(destination: OngHomeView(viewModel: .init(idOng: id)).environmentObject(EstoqueViewModel(id)) , isActive: $viewModel.encaminharOngHome) {
+                        NavigationLink(destination: NewOngFormView(viewModel: .init(modo: .cadastro)), isActive: $viewModel.encaminharOngForm) {
                             EmptyView()
                         }
+                        
+                        if let id = viewModel.id {
+                            NavigationLink(destination: OngHomeView(viewModel: .init(idOng: id)).environmentObject(EstoqueViewModel(id)) , isActive: $viewModel.encaminharOngHome) {
+                                EmptyView()
+                            }
+                        }
                     }
-                }
-                
-                Spacer(minLength: 0)
-                
-                VStack(alignment: .center, spacing: 10) {
-                    Text(viewModel.temContaLabel)
                     
-                    Button(action: {}, label: {
-                        NavigationLink(destination:
-                                        CadastroView(viewModel: .init(mode: (viewModel.mode == .cadastro) ? .login : .cadastro, usuario: .ong)),
-                                       label: { Text(viewModel.temContaBotaoLabel) })
-                    }).buttonStyle(.textButton)
-                                        
+                    Spacer(minLength: 0)
+                    
+                    VStack(alignment: .center, spacing: 10) {
+                        Text(viewModel.temContaLabel)
+                        
+                        Button(action: {}, label: {
+                            NavigationLink(destination:
+                                            CadastroView(viewModel: .init(mode: (viewModel.mode == .cadastro) ? .login : .cadastro, usuario: .ong)),
+                                           label: { Text(viewModel.temContaBotaoLabel) })
+                        }).buttonStyle(.textButton)
+                                            
+                    }
+                    .padding(.bottom, 50)
                 }
-                .padding(.bottom, 50)
+                
             }
-            
         }
     }
 }

@@ -9,6 +9,24 @@ import SwiftUI
 
 struct ItemListaVerticalView: View {
     @ObservedObject var viewModel: ItemViewModel
+    @Binding var trocaDeTela: Bool
+    
+    // MARK: Subviews
+    var itemView: some View {
+        HStack(alignment: .center){
+            Image(viewModel.imagemNome)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 40, height: 40, alignment: .center)
+                .padding(.leading, 15)
+            Text(viewModel.titulo)
+                .font((.system(size: 20, weight: .regular, design: .rounded)))
+                .multilineTextAlignment(.center)
+                .foregroundColor(Color.white)
+                .padding(.horizontal, 10)
+            Spacer()
+        }
+    }
     
     var body: some View {
         ZStack{
@@ -16,22 +34,14 @@ struct ItemListaVerticalView: View {
                 .foregroundColor(viewModel.item.urgente ?
                                     viewModel.item.visivel ? Color.urgencia : Color.urgencia.opacity(0.5) :
                                     viewModel.item.visivel ? Color.regular : Color.urgencia.opacity(0.5))
-            HStack(alignment: .center){
-                NavigationLink(destination: EditarItem(itemViewModel: .init(idOng: viewModel.idOng, idItem: viewModel.item.id!, modo: .editarItem)), label: {
-                    Image(viewModel.imagemNome)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 40, height: 40, alignment: .center)
-                        .padding(.leading, 15)
-                    Text(viewModel.titulo)
-                        .font((.system(size: 20, weight: .regular, design: .rounded)))
-                        .multilineTextAlignment(.center)
-                        .foregroundColor(Color.white)
-                        .padding(.horizontal, 10)
-                    Spacer()
-                })
+            #if Mini4
+            itemView
+            #else
+            NavigationLink(destination: EditarItem(itemViewModel: .init(idOng: viewModel.idOng, idItem: viewModel.item.id!, modo: .editarItem), novaTela: $trocaDeTela), label: {
+                itemView
+            })
+            #endif
                 
-            }
         }
         //.frame(height: 50)
     }

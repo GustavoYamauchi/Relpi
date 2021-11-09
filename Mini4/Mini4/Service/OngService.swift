@@ -12,12 +12,15 @@ import FirebaseFirestoreSwift
 protocol OngServiceProtocol {
     func create(_ ong: Organizacao, completion: @escaping (Result<Void, Error>) -> Void)
     func getOng(idOng: String, completion: @escaping (Result<Organizacao, Error>) -> Void)
+    func deleteOng(idOng: String, completion: @escaping (Result<Void, Error>) -> Void)
+    func fetchOngs(completion: @escaping (Result<[Organizacao], Error>) -> Void)
 }
 
 final class OngService: OngServiceProtocol {
 
     private let db = Firestore.firestore()
     
+    // cria um novo e atualiza
     func create(_ ong: Organizacao, completion: @escaping (Result<Void, Error>) -> Void) {
         do {
             if let id = ong.id {
@@ -50,15 +53,36 @@ final class OngService: OngServiceProtocol {
             }
         }
     }
-    
-    func createCombine(_ ong: Organizacao) -> AnyPublisher<Void, Error> {
-        return Future<Void, Error>{ promise in
-            do{
-                _ = try self.db.collection("ong").addDocument(from: ong)
-                promise(.success(()))
-            } catch {
-                promise(.failure(error))
+
+    func fetchOngs(completion: @escaping (Result<[Organizacao], Error>) -> Void) {
+        db.collection("ong").getDocuments { (snapshot, err) in
+            if let err = err {
+                completion(.failure(err))
             }
-        }.eraseToAnyPublisher()
+            
+            do {
+                let ongs = try snapshot?.documents.map {
+                    try $0.data(as: Organizacao.self)
+                }
+                
+                if let ongsExistentes = ongs?.compactMap({ $0 }) {
+                    completion(.success(ongsExistentes))
+                }
+                
+            } catch let error {
+                completion(.failure(error))
+            }
+        }
     }
+    
+    func deleteOng(idOng: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        db.document(idOng).delete{ erro in
+            if let err = erro {
+                completion(.failure(err))
+            }
+            
+            completion(.success(()))
+        }
+    }
+    
 }

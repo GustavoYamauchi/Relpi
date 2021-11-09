@@ -158,7 +158,7 @@ class OngViewModel : ObservableObject {
         
         if let image = image {
             
-            ImageStorageService.shared.uploadImage(orgName: org.nome, image: image) { urlString, err in
+            ImageStorageService.shared.uploadImage(idOng: org.id!, image: image) { urlString, err in
                 ongData["foto"] = urlString
                 
                 ong1.setData(ongData) { (err) in
@@ -231,7 +231,7 @@ class OngViewModel : ObservableObject {
         
         if let image = image {
             
-            ImageStorageService.shared.uploadImage(orgName: ong.nome, image: image) { urlString, error in
+            ImageStorageService.shared.uploadImage(idOng: ong.id!, image: image) { urlString, error in
                 
                 ongData["foto"] = urlString
                 

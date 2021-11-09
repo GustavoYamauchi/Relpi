@@ -15,7 +15,8 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             #if Mini4
-            DoadorHome()
+            DoadorHome(doadorViewModel: .init())
+
             #else
             
             if loginViewModel.autenticado {

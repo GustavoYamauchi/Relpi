@@ -19,6 +19,7 @@ final class TelaListaViewModel: ObservableObject {
     @Published var apenasUrgente = false
     @Published var mostrarFiltros = false
     @Published var listaVertical = true
+    @Published var voltouTela = true
     @Published var itemPesquisado = ""
 //    var categoria: String = ""
     
@@ -76,4 +77,7 @@ final class TelaListaViewModel: ObservableObject {
         return filtro.count > 0
     }
     
+    func atualizar(){
+        fetchItems()
+    }
 }

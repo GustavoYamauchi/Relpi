@@ -45,7 +45,7 @@ struct OngHomeView: View {
                     if viewModel.itensEstocados() > 0 {
                         ForEach((viewModel.itensEstocados() >= 2) ? 0..<2 : 0..<1) { i in
                             if let id = viewModel.ongItens()[i].id {
-                                ItemListaView(viewModel: .init(idOng: viewModel.ong.id!, idItem: id))
+                                ItemListaView(viewModel: .init(idOng: viewModel.ong.id!, idItem: id), novaTela: $viewModel.voltouTela)
                                     .frame(maxHeight: 220)
                             }
                         }.padding(.horizontal, 30)
@@ -53,13 +53,11 @@ struct OngHomeView: View {
                     
                 }
                 
-//                if viewModel.itensEstocados() > 2{
-                    Button(action: {}) {
-                        NavigationLink(destination: TelaListaView(telaViewModel: .init(idOng: viewModel.ong.id!, data: viewModel.ong.data)),
-                                       label: { Text(viewModel.listaCompletaButtonLabel) })
-                    }
-                    .buttonStyle(.primaryButton)
-                //}
+                Button(action: {}) {
+                    NavigationLink(destination: TelaListaView(telaViewModel: .init(idOng: viewModel.ong.id!, data: viewModel.ong.data)),
+                                   label: { Text(viewModel.listaCompletaButtonLabel) })
+                }
+                .buttonStyle(.primaryButton)
                 
                 // Infos sobre a ONG
                 VStack(alignment: .leading, spacing: 20) {
@@ -88,15 +86,27 @@ struct OngHomeView: View {
                 .padding(.top, 20)
             }
             
+        }.onChange(of: viewModel.voltouTela) { _ in
+            viewModel.atualizar()
         }
-        
-        .navigationBarItems(trailing:  Button(action: { userService.logout() }, label: {
-            Text(viewModel.logoutLabel)
-                .foregroundColor(Color.primaryButton)
-                .font(.system(size: 16, weight: .bold, design: .default))
-        }))
-        
+        .navigationBarItems(trailing:
+                                ZStack {
+            NavigationLink(destination: CadastroView(viewModel: .init(mode: .cadastro, usuario: .ong)), tag: 1, selection: $viewModel.tag) {
+                EmptyView()
+            }
+            
+            Button(action: {
+                userService.logout()
+//                print("Qual o problema dessa função?") O cara que está programando
+                self.viewModel.tag = 1
+            }, label: {
+                Text(viewModel.logoutLabel)
+                    .foregroundColor(Color.primaryButton)
+                    .font(.system(size: 16, weight: .bold, design: .default))
+            })
+        }
+        )
+        .navigationBarBackButtonHidden(true)
         .navigationBarTitle("", displayMode: .inline)
-
     }
 }

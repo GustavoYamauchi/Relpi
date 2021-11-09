@@ -12,6 +12,9 @@ struct EditarItem: View {
     
     @ObservedObject var itemViewModel: FormItemViewModel
     @Environment(\.presentationMode) var presentationMode
+    @Binding var novaTela: Bool
+    
+
     var body: some View {
         GeometryReader { geometry in
             VStack{
@@ -27,7 +30,9 @@ struct EditarItem: View {
                     .frame(width: geometry.size.height * CGFloat(img), height: geometry.size.height * CGFloat(img), alignment: .center)
                     .padding(.top, geometry.size.height * CGFloat(geometryProp))
                 
+
                 Spacer()
+
                 
             
                 ZStack{
@@ -62,13 +67,13 @@ struct EditarItem: View {
                         
                         Button("Salvar", action: {
                             itemViewModel.salvar()
+                            novaTela.toggle()
                         }).buttonStyle(.primaryButton)
                         
                         
                         
                         Button("Ocutar", action: {
                             itemViewModel.item.visivel.toggle()
-                            
                         }).buttonStyle(.secondaryButton)
                         
                         
@@ -115,8 +120,3 @@ struct RoundedCorner: Shape {
     }
 }
 
-
-
-struct EditarItem_Previews: PreviewProvider{
-    static var previews: some View{ EditarItem(itemViewModel: FormItemViewModel(idOng: "", idItem: "", modo: .editarItem))}
-}

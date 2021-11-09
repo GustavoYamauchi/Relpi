@@ -10,13 +10,13 @@ import UIKit
 
 struct DoadorHome: View {
     
-    @ObservedObject var viewModel = OngViewModel()
+    @ObservedObject var doadorViewModel: DoadorHomeViewModel
+    
     @State var pesquisa: String = ""
     @State var selectedItemTab = 0
-    private var isLoggedIn = false
-    private let rangeOng = 3
     
     let tabItemNames = ["Home", "Favoritos", "CaixaDoacao"]
+    
     var body: some View {
         VStack {
             ZStack {
@@ -25,26 +25,26 @@ struct DoadorHome: View {
                     ScrollView {
                         VStack(alignment: .leading, spacing: 30) {
                             
-                            Image("logo_light")
+                            Image(doadorViewModel.nomeImagemLogo)
                                 .frame(minWidth: 0, maxWidth: .infinity)
                             
-                            SearchBarView(pesquisando: $pesquisa, placeholder: "Search")
+                            SearchBarView(pesquisando: $pesquisa, placeholder: doadorViewModel.searchBarPlaceholder)
                             
-                            Text("Explorar ONGs")
+                            Text(doadorViewModel.explorarOngLabel)
                                 .textStyle(TitleStyle())
                             
                             if pesquisa == "" {
-                                if viewModel.data.count >= rangeOng { //verifica se tem 3 ongs e entrar no if
+                                if doadorViewModel.quantidadeOngs() >= doadorViewModel.rangeOng { //verifica se tem 3 ongs e entrar no if
                                     ForEach(0..<3) { i in
-                                        NavigationLink(destination: SobreOngView(ong: viewModel.data[i])) {
-                                            Text("\(viewModel.data[i].nome)")
+                                        NavigationLink(destination: SobreOngView(viewModel: .init(ong: doadorViewModel.ong(at: i)))) {
+                                            Text(doadorViewModel.ongName(at: i))
                                         }
                                         .buttonStyle(SecondaryButton())
                                     }
                                 } else { // se tiver menos exibi só elas
-                                    ForEach(viewModel.data) { ong in
+                                    ForEach(doadorViewModel.ongs) { ong in
                                         HStack {
-                                            NavigationLink(destination: SobreOngView(ong: ong)) {
+                                            NavigationLink(destination: SobreOngView(viewModel: .init(ong: ong))) {
                                                 Text("\(ong.nome)")
                                             }
                                             .buttonStyle(SecondaryButton())
@@ -52,35 +52,35 @@ struct DoadorHome: View {
                                     }
                                 }
                             } else {
-                                ForEach(viewModel.data.filter({ $0.nome.contains(pesquisa) })) { ong in
+                                ForEach(doadorViewModel.ongs.filter({ $0.nome.contains(pesquisa) })) { ong in
                                     HStack {
-                                        NavigationLink(destination: SobreOngView(ong: ong)) {
+                                        NavigationLink(destination: SobreOngView(viewModel: .init(ong:ong))) {
                                             Text("\(ong.nome)")
                                         }
                                         .buttonStyle(SecondaryButton())
                                     }
                                 }
-                                
                             }
                             
                             Button(action: {}) {
-                                NavigationLink(destination: ExplorarOngView(ongs: viewModel.data),
+                                NavigationLink(destination: ExplorarOngView(viewModel: .init(ongs: doadorViewModel.ongs)),
                                                label: {
-                                                Text("Ver todas")
+                                                Text(doadorViewModel.botaoTodasOngs)
                                                     .frame(minWidth: 0, maxWidth: .infinity)
                                                })
                             }
                             .buttonStyle(.primaryButton)
                         }
                     }
+                    
                 case 1:
-                    if isLoggedIn {
+                    if doadorViewModel.isLoggedIn {
                         //TODO
                     } else {
                         VStack(alignment: .leading, spacing: 30) {
                             Spacer()
                             
-                            DialogCard(text: "Para favoritar ONGs e salvar itens na sua caixa de doação, faça login :)", colorStyle: .green)
+                            DialogCard(text: doadorViewModel.mensagemLogin, colorStyle: .green)
                             
                             Button("Registrar") {
                                 print("registrar")
@@ -90,7 +90,7 @@ struct DoadorHome: View {
                         }
                     }
                 default:
-                    Text("Caixa de doacão")
+                    Text("Caixa de doação")
                         .frame(minWidth: 0, maxWidth: .infinity)
                 }
             }
@@ -113,9 +113,4 @@ struct DoadorHome: View {
     
 }
 
-struct DoadorHome_Previews: PreviewProvider {
-    static var previews: some View {
-        DoadorHome()
-    }
-}
 
