@@ -11,21 +11,20 @@ import SwiftUI
 struct EditarItem: View {
     
     @ObservedObject var itemViewModel: FormItemViewModel
-    
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
         GeometryReader { geometry in
             VStack{
                 
-                let propEditando = (itemViewModel.modo == .novoItem) ? 2.0 : 1.0
-//                let geo = geometry.size.height
-                let geometryProp = ((geometry.size.height > 700) ? 0.03 : 0.01) * propEditando
+                //Calculos para proporçao
+//                let propEditando = (itemViewModel.modo == .novoItem) ? 1.5 : 1.0
+                let geometryProp = ((geometry.size.height > 700) ? 0.03 : 0.01)// * propEditando
+                let img = (geometry.size.height > 1000) ? 0.4 : 0.3
                 
-                let img = ((geometry.size.height > 1000) ? 0.4 : 0.03)
                 Image(itemViewModel.imagemNome)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: geometry.size.height * CGFloat(img), height: geometry.size.height * CGFloat(img), alignment: .center)
-//                    .background(Color.blue)
                     .padding(.top, geometry.size.height * CGFloat(geometryProp))
                 
                 Spacer()
@@ -63,17 +62,24 @@ struct EditarItem: View {
                         
                         Button("Salvar", action: {
                             itemViewModel.salvar()
-                        }).buttonStyle(.primaryButton).padding(10)
+                        }).buttonStyle(.primaryButton)
+                        
+                        
+                        
+                        Button("Ocutar", action: {
+                            itemViewModel.item.visivel.toggle()
+                            
+                        }).buttonStyle(.secondaryButton)
                         
                         
                         if itemViewModel.modo == .editarItem {
-                            Button("Ocutar", action: {
-                                itemViewModel.item.visivel.toggle()
-                                
-                            }).buttonStyle(.secondaryButton)
-                            
                             Button("Excluir", action: {
                                 itemViewModel.excluirItem()
+                            }).buttonStyle(.deleteButton)
+                        }
+                        else {
+                            Button("Cancelar", action: {
+                                presentationMode.wrappedValue.dismiss()
                             }).buttonStyle(.deleteButton)
                         }
                         
@@ -81,10 +87,7 @@ struct EditarItem: View {
                     }
                     .background(Color.primaria).cornerRadius(30, corners: [.topLeft, .topRight])
                     
-                }.frame(width: UIScreen.main.bounds.size.width/*, height: UIScreen.main.bounds.size.height*3/5*/)
-                
-                //.position(x: geometry.size.width/2, y: geometry.size.height * 0.3)
-            
+                }.frame(width: UIScreen.main.bounds.size.width)
             
             }.background(itemViewModel.item.urgente ?
                             itemViewModel.item.visivel ? Color.urgencia : Color.urgencia.opacity(0.5) :
