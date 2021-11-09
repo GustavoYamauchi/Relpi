@@ -15,7 +15,8 @@ class OngFormViewModel: ObservableObject {
     let ongService: OngServiceProtocol
     
     @Published var ong: Organizacao
-    @Published var selectedImage: UIImage
+    @Published var selectedImage: UIImage?
+    var downloadedImage: UIImage?
     @Published var redirectHome = false
     @Published var apresentaFeedback = false
     @Published var mensagem = ""
@@ -31,9 +32,7 @@ class OngFormViewModel: ObservableObject {
         self.modo = modo
         self.userService = userService
         self.ongService = ongService
-        
-        selectedImage = UIImage(named: "ImagePlaceholder") ?? UIImage(systemName: "camera")!
- 
+         
         ong = Organizacao(id: userService.usuarioAtual()?.uid,
             nome: "", cnpj: "", descricao: "", telefone: "", email: "",
             data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
@@ -54,6 +53,7 @@ class OngFormViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     if let image = image {
                         self?.selectedImage = image
+                        self?.downloadedImage = image
                     }
                 }
             }
@@ -95,12 +95,21 @@ class OngFormViewModel: ObservableObject {
     func salvar() {
         switch modo {
             case .cadastro:
-                salvaComImagem()
-            
+                if selectedImage != nil {
+                    salvaComImagem()
+                } else {
+                    salvaSemImagem()
+                }
+
             case .perfil:
                 // verifica se quer atualizar imagem
-                salvaSemImagem()
+                if selectedImage != nil && selectedImage?.pngData() != downloadedImage?.pngData() {
+                    salvaComImagem()
+                } else {
+                    salvaSemImagem()
+                }
         }
+        
     }
     
     private func salvaSemImagem() {
@@ -108,8 +117,12 @@ class OngFormViewModel: ObservableObject {
         self.ongService.create(self.ong) { [weak self] result in
             switch result {
             case .success:
-                self?.mensagem = "Atualizado com sucesso!"
-                self?.apresentaFeedback = true
+                if self?.modo == .cadastro {
+                    self?.redirectHome = true
+                } else {
+                    self?.mensagem = "Atualizado com sucesso!"
+                    self?.apresentaFeedback = true
+                }
                 
             case .failure(let err):
                 self?.mensagem = err.localizedDescription
@@ -120,28 +133,31 @@ class OngFormViewModel: ObservableObject {
     
     
     private func salvaComImagem() {
-        ImageStorageService.shared.uploadImage(orgName: ong.nome, image: selectedImage) { [weak self] imageUrl, err in
-            if let err = err {
-                self?.mensagem = err.localizedDescription
-                self?.apresentaFeedback = true
-            }
-            
-            self?.ong.foto = imageUrl
-            
-            // adiciona no firebase
-            self?.ongService.create(self!.ong) { [weak self] result in
-                switch result {
-                case .success:
-                    if self?.modo == .cadastro {
-                        self?.redirectHome = true
-                    } else {
-                        self?.mensagem = "Atualizado com sucesso!"
-                        self?.apresentaFeedback = true
-                    }
-                    
-                case .failure(let err):
+        if selectedImage != nil {
+            ImageStorageService.shared.uploadImage(orgName: ong.nome, image: selectedImage!) { [weak self] imageUrl, err in
+                if let err = err {
                     self?.mensagem = err.localizedDescription
                     self?.apresentaFeedback = true
+                }
+                
+                self?.ong.foto = imageUrl
+                self?.downloadedImage = self?.selectedImage
+                
+                // adiciona no firebase
+                self?.ongService.create(self!.ong) { [weak self] result in
+                    switch result {
+                    case .success:
+                        if self?.modo == .cadastro {
+                            self?.redirectHome = true
+                        } else {
+                            self?.mensagem = "Atualizado com sucesso!"
+                            self?.apresentaFeedback = true
+                        }
+                        
+                    case .failure(let err):
+                        self?.mensagem = err.localizedDescription
+                        self?.apresentaFeedback = true
+                    }
                 }
             }
         }

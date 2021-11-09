@@ -26,9 +26,15 @@ struct NewOngFormView: View {
     var body: some View {
         ScrollView {
             VStack {
-                Image(uiImage: viewModel.selectedImage)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
+                if let image = viewModel.selectedImage{
+                    Image(uiImage: image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                } else {
+                    Image("ImagePlaceholder")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                }
                 
                 Spacer()
                 
