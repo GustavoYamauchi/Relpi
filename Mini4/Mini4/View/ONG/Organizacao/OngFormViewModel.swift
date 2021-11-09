@@ -134,7 +134,7 @@ class OngFormViewModel: ObservableObject {
     
     private func salvaComImagem() {
         if selectedImage != nil {
-            ImageStorageService.shared.uploadImage(orgName: ong.nome, image: selectedImage!) { [weak self] imageUrl, err in
+            ImageStorageService.shared.uploadImage(idOng: ong.id!, image: selectedImage!) { [weak self] imageUrl, err in
                 if let err = err {
                     self?.mensagem = err.localizedDescription
                     self?.apresentaFeedback = true
