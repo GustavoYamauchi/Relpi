@@ -80,9 +80,9 @@ struct SobreOngView: View {
                 }
                 
                 // Contribuir com a ONG
-                Button("Contribua") {
-                    print("Contribua")
-                }.buttonStyle(.primaryButton)
+                NavigationLink(destination: sobreOngDoadorView(viewModel: .init(idOng: viewModel.idOng))) {
+                    Text("Contribua")
+                }.buttonStyle(PrimaryButton())
                 
             }
             
