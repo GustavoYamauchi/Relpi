@@ -11,72 +11,97 @@ import SwiftUI
 struct EditarItem: View {
     
     @ObservedObject var itemViewModel: FormItemViewModel
+    @Environment(\.presentationMode) var presentationMode
     @Binding var novaTela: Bool
     
+
     var body: some View {
-        VStack{
-            Image(itemViewModel.imagemNome)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 300, height: 300, alignment: .center)
-                .padding(.top, 10)
-            
-            Spacer()
-            
-            VStack (alignment: .leading, spacing: 22){
+        GeometryReader { geometry in
+            VStack{
                 
-                Text(itemViewModel.titulo)
-                    .padding(.leading, 30)
-                    .padding(.top, 10)
-                    .foregroundColor(Color.primaryButton)
-                    .font(.system(size: 24, weight: .bold, design: .default))
-                                
-                CustomTextField(text: $itemViewModel.item.nome, placeholder: "Nome").padding(.horizontal, 30)
-                    
-                Category(array: ["Higiene","Alimento","Limpeza","Medicamento","Utensilio"], selected: $itemViewModel.item.categoria)
+                //Calculos para proporçao
+//                let propEditando = (itemViewModel.modo == .novoItem) ? 1.5 : 1.0
+                let geometryProp = ((geometry.size.height > 700) ? 0.03 : 0.01)// * propEditando
+                let img = (geometry.size.height > 1000) ? 0.4 : 0.3
                 
-                HStack{
-                    Quantity(qtd: $itemViewModel.item.quantidade)
-                    
-                    Spacer()
-                    
-                    Text("Urgente")
-                        .foregroundColor(.textPlaceholderTextfield)
-                        .lineLimit(1)
-                        .font(.system(size: 14, weight: .bold, design: .default))
-                        .padding(.trailing, 10)
-                    
-                    Toggle("Agrupar Categorias", isOn: $itemViewModel.item.urgente)
-                        .labelsHidden()
-                        .toggleStyle(SwitchToggleStyle(tint: .destaque))
-                    
-                }.padding(.horizontal, 30)
+                Image(itemViewModel.imagemNome)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: geometry.size.height * CGFloat(img), height: geometry.size.height * CGFloat(img), alignment: .center)
+                    .padding(.top, geometry.size.height * CGFloat(geometryProp))
                 
-                Button("Salvar", action: {
-                    itemViewModel.salvar()
-                    novaTela.toggle()
-                }).buttonStyle(.primaryButton)
+
+                Spacer()
 
                 
-                if itemViewModel.modo == .editarItem {
-                    Button("Ocutar", action: {
-                        itemViewModel.item.visivel.toggle()
+            
+                ZStack{
+                    VStack (alignment: .leading, spacing: geometry.size.height * CGFloat(geometryProp)){
                         
-                    }).buttonStyle(.secondaryButton)
+                        Text(itemViewModel.titulo)
+                            .padding(.leading, 30)
+                            .padding(.top, 30)
+                            .foregroundColor(Color.primaryButton)
+                            .font(.system(size: 24, weight: .bold, design: .default))
+                        
+                        CustomTextField(text: $itemViewModel.item.nome, placeholder: "Nome").padding(.horizontal, 30)
+                        
+                        Category(array: ["Higiene","Alimento","Limpeza","Medicamento","Utensilio"], selected: $itemViewModel.item.categoria)
+                        
+                        HStack{
+                            Quantity(qtd: $itemViewModel.item.quantidade)
+                            
+                            Spacer()
+                            
+                            Text("Urgente")
+                                .foregroundColor(.textPlaceholderTextfield)
+                                .lineLimit(1)
+                                .font(.system(size: 14, weight: .bold, design: .default))
+                                .padding(.trailing, 10)
+                            
+                            Toggle("Agrupar Categorias", isOn: $itemViewModel.item.urgente)
+                                .labelsHidden()
+                                .toggleStyle(SwitchToggleStyle(tint: .destaque))
+                            
+                        }.padding(.horizontal, 30)
+                        
+                        Button("Salvar", action: {
+                            itemViewModel.salvar()
+                            novaTela.toggle()
+                        }).buttonStyle(.primaryButton)
+                        
+                        
+                        
+                        Button("Ocutar", action: {
+                            itemViewModel.item.visivel.toggle()
+                        }).buttonStyle(.secondaryButton)
+                        
+                        
+                        if itemViewModel.modo == .editarItem {
+                            Button("Excluir", action: {
+                                itemViewModel.excluirItem()
+                            }).buttonStyle(.deleteButton)
+                        }
+                        else {
+                            Button("Cancelar", action: {
+                                presentationMode.wrappedValue.dismiss()
+                            }).buttonStyle(.deleteButton)
+                        }
+                        
+                        
+                    }
+                    .background(Color.primaria).cornerRadius(30, corners: [.topLeft, .topRight])
                     
-                    Button("Excluir", action: {
-                        itemViewModel.excluirItem()
-                    }).buttonStyle(.deleteButton)
-                }
-
-                
-            }.frame(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height*3/5).background(Color.primaria).cornerRadius(30, corners: [.topLeft, .topRight])
-
-        }.background(itemViewModel.item.urgente ?
-                        itemViewModel.item.visivel ? Color.urgencia : Color.urgencia.opacity(0.5) :
-                        itemViewModel.item.visivel ? Color.regular: Color.regular.opacity(0.5))
+                }.frame(width: UIScreen.main.bounds.size.width)
+            
+            }.background(itemViewModel.item.urgente ?
+                            itemViewModel.item.visivel ? Color.urgencia : Color.urgencia.opacity(0.5) :
+                            itemViewModel.item.visivel ? Color.regular: Color.regular.opacity(0.5))
+        }
     }
 }
+
+
 
 
 extension View {
@@ -94,3 +119,4 @@ struct RoundedCorner: Shape {
         return Path(path.cgPath)
     }
 }
+
