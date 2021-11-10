@@ -104,18 +104,7 @@ struct OngHomeView: View {
             .navigationBarHidden(true)
             
             if viewModel.isLoading {
-                ZStack {
-                    Color(.white)
-                        .opacity(0.9)
-                        .ignoresSafeArea()
-                    ProgressView("Carregando informações")
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.primaria)
-                        )
-                        .shadow(radius: 10)
-                }
+                LoadingView()
             }
         }
     }

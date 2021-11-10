@@ -111,6 +111,8 @@
 		A319FACA27275E6D001C5073 /* BancoFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC810AE27064AB800B9E721 /* BancoFormView.swift */; };
 		A3568F03271E2ADB00216732 /* Text+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3568F02271E2ADB00216732 /* Text+Extension.swift */; };
 		A35E8994271F715800F8E901 /* Text+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3568F02271E2ADB00216732 /* Text+Extension.swift */; };
+		A386DDB0273AE459002BA7BF /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A386DDAF273AE459002BA7BF /* LoadingView.swift */; };
+		A386DDB1273AE459002BA7BF /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A386DDAF273AE459002BA7BF /* LoadingView.swift */; };
 		A3ADA90E270CC6BE0005A81E /* Button+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ADA90D270CC6BE0005A81E /* Button+Extension.swift */; };
 		A3AE97EF2717A91B00DEB318 /* DialogCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE97EE2717A91B00DEB318 /* DialogCard.swift */; };
 		A3D22A62271B4CD0003D69FF /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D22A61271B4CD0003D69FF /* CustomTextField.swift */; };
@@ -182,6 +184,7 @@
 		A30BA3B1270F6DE400D2222B /* SobreOngView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SobreOngView.swift; sourceTree = "<group>"; };
 		A319FAC127275C51001C5073 /* ExplorarOngView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorarOngView.swift; sourceTree = "<group>"; };
 		A3568F02271E2ADB00216732 /* Text+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Extension.swift"; sourceTree = "<group>"; };
+		A386DDAF273AE459002BA7BF /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		A3ADA90D270CC6BE0005A81E /* Button+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Extension.swift"; sourceTree = "<group>"; };
 		A3AE97EE2717A91B00DEB318 /* DialogCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogCard.swift; sourceTree = "<group>"; };
 		A3D22A61271B4CD0003D69FF /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -405,6 +408,7 @@
 				A3D22A61271B4CD0003D69FF /* CustomTextField.swift */,
 				A3568F02271E2ADB00216732 /* Text+Extension.swift */,
 				8BCF2D9E271E00B500E13139 /* Quantity.swift */,
+				A386DDAF273AE459002BA7BF /* LoadingView.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -607,6 +611,7 @@
 			files = (
 				A319FACA27275E6D001C5073 /* BancoFormView.swift in Sources */,
 				A319FAC727275E3E001C5073 /* InfoGeralFormView.swift in Sources */,
+				A386DDB0273AE459002BA7BF /* LoadingView.swift in Sources */,
 				A3568F03271E2ADB00216732 /* Text+Extension.swift in Sources */,
 				850C71F92731912300902BFC /* EstoqueService.swift in Sources */,
 				1C136A3E27175E0A00D09E9D /* SearchBarView.swift in Sources */,
@@ -685,6 +690,7 @@
 				85DAA31F2729D88900CD7696 /* UserService.swift in Sources */,
 				85E49094270B9402009CD6FE /* InfoGeralFormView.swift in Sources */,
 				85FA07FA2732C68F00F7D8C7 /* TelaListaViewModel.swift in Sources */,
+				A386DDB1273AE459002BA7BF /* LoadingView.swift in Sources */,
 				A319FAC327275C51001C5073 /* ExplorarOngView.swift in Sources */,
 				85E49098270B989A009CD6FE /* ContatoFormView.swift in Sources */,
 				1C136A38270E391C00D09E9D /* TelaListaView.swift in Sources */,

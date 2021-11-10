@@ -92,8 +92,8 @@ final class OngHomeViewModel: ObservableObject {
                     }
                 }
             }
+            self.isLoading = false
         }
-        self.isLoading = false
     }
     
     private func fetchItems() {
@@ -107,7 +107,7 @@ final class OngHomeViewModel: ObservableObject {
             case .failure(let error):
                 print(error.localizedDescription)
             }
-            self.isLoading = true
+            self.isLoading = false
         }
     }
     
