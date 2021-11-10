@@ -34,11 +34,12 @@ struct OngHomeView: View {
     
     var body: some View {
         VStack(alignment: .leading){
+//        VStack(){
             tituloLabel
             nomeOngLabel
             
             SearchBarView(pesquisando: $itemPesquisado, placeholder: "Pesquisar")
-                .padding(.vertical, 20)
+                .padding(.vertical, 10)
             
             ScrollView{
                 HStack {
@@ -48,10 +49,10 @@ struct OngHomeView: View {
                                 ItemListaView(viewModel: .init(idOng: viewModel.ong.id!, idItem: id), novaTela: $viewModel.voltouTela)
                                     .frame(maxHeight: 220)
                             }
-                        }.padding(.horizontal, 30)
+                        }
                     }
                     
-                }
+                }.padding(.horizontal, 30)
                 
                 Button(action: {}) {
                     NavigationLink(destination: TelaListaView(telaViewModel: .init(idOng: viewModel.ong.id!, data: viewModel.ong.data)),
@@ -86,25 +87,27 @@ struct OngHomeView: View {
                 .padding(.top, 20)
             }
             
-        }.onChange(of: viewModel.voltouTela) { _ in
+        }
+        .onChange(of: viewModel.voltouTela) { _ in
             viewModel.atualizar()
         }
         .navigationBarItems(trailing:
-                                ZStack {
-            NavigationLink(destination: CadastroView(viewModel: .init(mode: .cadastro, usuario: .ong)), tag: 1, selection: $viewModel.tag) {
-                EmptyView()
-            }
+                                
+            ZStack {
+                NavigationLink(destination: CadastroView(viewModel: .init(mode: .cadastro, usuario: .ong)), tag: 1, selection: $viewModel.tag){
+                    EmptyView()
+                }
             
-            Button(action: {
-                userService.logout()
-//                print("Qual o problema dessa função?") O cara que está programando
-                self.viewModel.tag = 1
-            }, label: {
-                Text(viewModel.logoutLabel)
-                    .foregroundColor(Color.primaryButton)
-                    .font(.system(size: 16, weight: .bold, design: .default))
-            })
-        }
+                Button(action: {
+                    userService.logout()
+    //                print("Qual o problema dessa função?") O cara que está programando
+                    self.viewModel.tag = 1
+                }, label: {
+                    Text(viewModel.logoutLabel)
+                        .foregroundColor(Color.primaryButton)
+                        .font(.system(size: 16, weight: .bold, design: .default))
+                })
+            }
         )
         .navigationBarBackButtonHidden(true)
         .navigationBarTitle("", displayMode: .inline)
