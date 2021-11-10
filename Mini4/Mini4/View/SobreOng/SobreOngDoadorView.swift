@@ -8,6 +8,7 @@ import SwiftUI
 
 struct sobreOngDoadorView: View {
     @ObservedObject var viewModel: SobreOngDoadorViewModel
+    @Environment(\.openURL) var openURL
     
     var imagemOngView: some View{
         Image(uiImage: viewModel.selectedImage)
@@ -63,7 +64,7 @@ struct sobreOngDoadorView: View {
     
     var visteSiteOngView: some View{
         Button(action: {
-            print("visite o site")
+            openURL(URL(string: "https://www.casamariahelenapaulina.org.br")!)
         }){
             Text("Visite o site")
         }.buttonStyle(.primaryButton)
