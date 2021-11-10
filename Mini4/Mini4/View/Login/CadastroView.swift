@@ -12,7 +12,6 @@ import Firebase
 struct CadastroView: View {
     
     @ObservedObject var viewModel: LoginCadastroViewModel
-
     
     // MARK: Subviews
     var tituloView: some View {
@@ -40,12 +39,9 @@ struct CadastroView: View {
             .padding(.horizontal, 30)
     }
     
-    
     // MARK: View
     
     var body: some View {
-
-        
         GeometryReader { geometry in
             VStack(alignment: .leading, spacing: geometry.size.height * 0.02){
                 Image("logo_light")
@@ -62,55 +58,40 @@ struct CadastroView: View {
                         confirmarSenhaTextField
                             .navigationBarBackButtonHidden(true)
                     }
-
                     
-                    Spacer(minLength: 0)
+                    if viewModel.apresentarAlerta {
+                        DialogCard(text: viewModel.mensagem, colorStyle: .red)
+                    }
                     
-                    Group {
-                        tituloView
-                        emailTextField
-                        senhaTextField
-                        
-                        if viewModel.mode == .cadastro {
-                            confirmarSenhaTextField
-                        }
-                        
-                        if viewModel.apresentarAlerta {
-                            DialogCard(text: viewModel.mensagem, colorStyle: .red)
-                        }
-                        
-                        Button(viewModel.botaoCadastrarEntrar) {
-                            viewModel.cadastrarLogar()
-                        }.buttonStyle(.primaryButton)
+                    Button(viewModel.botaoCadastrarEntrar) {
+                        viewModel.cadastrarLogar()
+                    }.buttonStyle(.primaryButton)
                     
-                        NavigationLink(destination: NewOngFormView(viewModel: .init(modo: .cadastro)), isActive: $viewModel.encaminharOngForm) {
+                    NavigationLink(destination: NewOngFormView(viewModel: .init(modo: .cadastro)), isActive: $viewModel.encaminharOngForm) {
+                        EmptyView()
+                    }
+                    
+                    if let id = viewModel.id {
+                        NavigationLink(destination: OngHomeView(viewModel: .init(idOng: id)).environmentObject(EstoqueViewModel(id)) , isActive: $viewModel.encaminharOngHome) {
                             EmptyView()
                         }
-                        
-                        if let id = viewModel.id {
-                            NavigationLink(destination: OngHomeView(viewModel: .init(idOng: id)).environmentObject(EstoqueViewModel(id)) , isActive: $viewModel.encaminharOngHome) {
-                                EmptyView()
-                            }
-                        }
                     }
-                    
-                    Spacer(minLength: 0)
-                    
-                    VStack(alignment: .center, spacing: 10) {
-                        Text(viewModel.temContaLabel)
-                        
-                        Button(action: {}, label: {
-                            NavigationLink(destination:
-                                            CadastroView(viewModel: .init(mode: (viewModel.mode == .cadastro) ? .login : .cadastro, usuario: .ong)),
-                                           label: { Text(viewModel.temContaBotaoLabel) })
-                        }).buttonStyle(.textButton)
-                                            
-                    }
-                    .padding(.bottom, 50)
                 }
                 
+                Spacer(minLength: 0)
+                
+                VStack(alignment: .center, spacing: 10) {
+                    Text(viewModel.temContaLabel)
+                    
+                    Button(action: {}, label: {
+                        NavigationLink(destination:
+                                        CadastroView(viewModel: .init(mode: (viewModel.mode == .cadastro) ? .login : .cadastro, usuario: .ong)),
+                                       label: { Text(viewModel.temContaBotaoLabel) })
+                    }).buttonStyle(.textButton)
+                    
+                }
+                .padding(.bottom, 50)
             }
         }
     }
 }
-

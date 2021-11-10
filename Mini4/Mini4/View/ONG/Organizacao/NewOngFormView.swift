@@ -24,72 +24,77 @@ struct NewOngFormView: View {
     
     //MARK: - View
     var body: some View {
-        ScrollView {
-            VStack {
-                if let image = viewModel.selectedImage{
-                    Image(uiImage: image)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                } else {
-                    Image("ImagePlaceholder")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                }
-                
-                Spacer()
-                
-                VStack(spacing: 30) {
-                    
-                    getFormView(pageIndex: pageIndex)
-                    
-                    if viewModel.apresentaFeedback {
-                        DialogCard(text: viewModel.mensagem, colorStyle: viewModel.cor)
+        ZStack {
+            ScrollView {
+                VStack {
+                    if let image = viewModel.selectedImage{
+                        Image(uiImage: image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    } else {
+                        Image("ImagePlaceholder")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
                     }
                     
-                    HStack {
-                        if pageIndex > 0 {
-                            Button("Anterior") {
-                                previousPage()
-                            }
+                    Spacer()
+                    
+                    VStack(spacing: 30) {
+                        
+                        getFormView(pageIndex: pageIndex)
+                        
+                        if viewModel.apresentaFeedback {
+                            DialogCard(text: viewModel.mensagem, colorStyle: viewModel.cor)
                         }
                         
-                        Spacer()
-                        
-                        if pageIndex < 3 {
-                            Button("Próximo") {
-                                nextPage()
+                        HStack {
+                            if pageIndex > 0 {
+                                Button("Anterior") {
+                                    previousPage()
+                                }
                             }
+                            
+                            Spacer()
+                            
+                            if pageIndex < 3 {
+                                Button("Próximo") {
+                                    nextPage()
+                                }
+                            }
+                        }.foregroundColor(Color("primaryButton"))
+                        .font(.system(size: 16, weight: .bold, design: .default))
+                        
+                        Button("Salvar") {
+                            viewModel.salvar()
+                        }.buttonStyle(PrimaryButton())
+                        
+                        if viewModel.modo == .perfil {
+                            Button("Cancelar") {
+                                viewModel.apresentaFeedback = false
+                                presentationMode.wrappedValue.dismiss()
+                            }.buttonStyle(SecondaryButton())
                         }
-                    }.foregroundColor(Color("primaryButton"))
-                    .font(.system(size: 16, weight: .bold, design: .default))
-
-                    Button("Salvar") {
-                        viewModel.salvar()
-                    }.buttonStyle(PrimaryButton())
-                    
-                    if viewModel.modo == .perfil {
-                        Button("Cancelar") {
-                            viewModel.apresentaFeedback = false
-                            presentationMode.wrappedValue.dismiss()
-                        }.buttonStyle(SecondaryButton())
+                        
+                        NavigationLink(destination: OngHomeView(viewModel: .init(idOng: viewModel.ong.id!)), isActive: $viewModel.redirectHome) {
+                            EmptyView()
+                        }
                     }
-                    
-                    NavigationLink(destination: OngHomeView(viewModel: .init(idOng: viewModel.ong.id!)), isActive: $viewModel.redirectHome) {
-                        EmptyView()
-                    }  
-                }
-                .padding([.leading, .trailing], 30)
-                .toolbar {
-                    Button("Alterar foto") {
-                        self.sourceType = .photoLibrary
-                        self.isImagePickerDisplaying.toggle()
+                    .padding([.leading, .trailing], 30)
+                    .toolbar {
+                        Button("Alterar foto") {
+                            self.sourceType = .photoLibrary
+                            self.isImagePickerDisplaying.toggle()
+                        }
+                    }
+                    .navigationBarTitle("", displayMode: .inline)
+                    .navigationBarBackButtonHidden(true)
+                    .sheet(isPresented: self.$isImagePickerDisplaying) {
+                        ImagePickerView(selectedImage: $viewModel.selectedImage, sourceType: self.sourceType)
                     }
                 }
-                .navigationBarTitle("", displayMode: .inline)
-                .navigationBarBackButtonHidden(true)
-                .sheet(isPresented: self.$isImagePickerDisplaying) {
-                    ImagePickerView(selectedImage: $viewModel.selectedImage, sourceType: self.sourceType)
-                }
+            }
+            if viewModel.isLoading {
+                LoadingView()
             }
         }
     }
