@@ -32,6 +32,8 @@
 		1C5CC9352721CC130078EC01 /* ListaGridItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5CC9332721CC130078EC01 /* ListaGridItem.swift */; };
 		1C7DF8D5272B1E2300D227CA /* OngService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7DF8D4272B1E2300D227CA /* OngService.swift */; };
 		1C7DF8D6272B1E2300D227CA /* OngService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7DF8D4272B1E2300D227CA /* OngService.swift */; };
+		1C9A05A5273AEB2E004E629B /* SobreOngDoadorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9A05A4273AEB2E004E629B /* SobreOngDoadorView.swift */; };
+		1C9A05A7273AECF4004E629B /* SobreOngDoadorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9A05A6273AECF4004E629B /* SobreOngDoadorViewModel.swift */; };
 		1CC810472702336200B9E721 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC810462702336200B9E721 /* AppDelegate.swift */; };
 		1CC810492702336200B9E721 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC810482702336200B9E721 /* SceneDelegate.swift */; };
 		1CC8104B2702336200B9E721 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8104A2702336200B9E721 /* ContentView.swift */; };
@@ -112,6 +114,8 @@
 		A319FACA27275E6D001C5073 /* BancoFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC810AE27064AB800B9E721 /* BancoFormView.swift */; };
 		A3568F03271E2ADB00216732 /* Text+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3568F02271E2ADB00216732 /* Text+Extension.swift */; };
 		A35E8994271F715800F8E901 /* Text+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3568F02271E2ADB00216732 /* Text+Extension.swift */; };
+		A386DDB3273C4A2E002BA7BF /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A386DDB2273C4A2E002BA7BF /* LoadingView.swift */; };
+		A386DDB4273C4A2E002BA7BF /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A386DDB2273C4A2E002BA7BF /* LoadingView.swift */; };
 		A3ADA90E270CC6BE0005A81E /* Button+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ADA90D270CC6BE0005A81E /* Button+Extension.swift */; };
 		A3AE97EF2717A91B00DEB318 /* DialogCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE97EE2717A91B00DEB318 /* DialogCard.swift */; };
 		A3D22A62271B4CD0003D69FF /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D22A61271B4CD0003D69FF /* CustomTextField.swift */; };
@@ -132,6 +136,8 @@
 		1C5CC9302720ACC70078EC01 /* ListaVerticalItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaVerticalItem.swift; sourceTree = "<group>"; };
 		1C5CC9332721CC130078EC01 /* ListaGridItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaGridItem.swift; sourceTree = "<group>"; };
 		1C7DF8D4272B1E2300D227CA /* OngService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngService.swift; sourceTree = "<group>"; };
+		1C9A05A4273AEB2E004E629B /* SobreOngDoadorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SobreOngDoadorView.swift; sourceTree = "<group>"; };
+		1C9A05A6273AECF4004E629B /* SobreOngDoadorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SobreOngDoadorViewModel.swift; sourceTree = "<group>"; };
 		1CC810432702336200B9E721 /* Mini4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mini4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CC810462702336200B9E721 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CC810482702336200B9E721 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -186,6 +192,7 @@
 		A30BA3B1270F6DE400D2222B /* SobreOngView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SobreOngView.swift; sourceTree = "<group>"; };
 		A319FAC127275C51001C5073 /* ExplorarOngView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorarOngView.swift; sourceTree = "<group>"; };
 		A3568F02271E2ADB00216732 /* Text+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Extension.swift"; sourceTree = "<group>"; };
+		A386DDB2273C4A2E002BA7BF /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		A3ADA90D270CC6BE0005A81E /* Button+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Extension.swift"; sourceTree = "<group>"; };
 		A3AE97EE2717A91B00DEB318 /* DialogCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogCard.swift; sourceTree = "<group>"; };
 		A3D22A61271B4CD0003D69FF /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -225,6 +232,15 @@
 				1C5CC92D272094410078EC01 /* FiltroModal.swift */,
 			);
 			path = TelaLista;
+			sourceTree = "<group>";
+		};
+		1C9A05A3273AEB07004E629B /* SobreOng */ = {
+			isa = PBXGroup;
+			children = (
+				1C9A05A4273AEB2E004E629B /* SobreOngDoadorView.swift */,
+				1C9A05A6273AECF4004E629B /* SobreOngDoadorViewModel.swift */,
+			);
+			path = SobreOng;
 			sourceTree = "<group>";
 		};
 		1CC8103A2702336200B9E721 = {
@@ -306,6 +322,7 @@
 				85A33067271DF83700230D40 /* Login */,
 				1C136A35270E38FC00D09E9D /* TelaLista */,
 				85E1332E2735B35B00F9DEDB /* Doador */,
+				1C9A05A3273AEB07004E629B /* SobreOng */,
 				1CC8104A2702336200B9E721 /* ContentView.swift */,
 				1C136A29270CCD3B00D09E9D /* EstoqueFormView.swift */,
 			);
@@ -452,6 +469,7 @@
 				A3D22A61271B4CD0003D69FF /* CustomTextField.swift */,
 				A3568F02271E2ADB00216732 /* Text+Extension.swift */,
 				8BCF2D9E271E00B500E13139 /* Quantity.swift */,
+				A386DDB2273C4A2E002BA7BF /* LoadingView.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -522,7 +540,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1CC8103E2702336200B9E721 /* Build configuration list for PBXProject "Mini4Admin" */;
+			buildConfigurationList = 1CC8103E2702336200B9E721 /* Build configuration list for PBXProject "Mini4" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -656,6 +674,7 @@
 				85E1332C2735A89600F9DEDB /* FormItemViewModel.swift in Sources */,
 				A319FAC727275E3E001C5073 /* InfoGeralFormView.swift in Sources */,
 				A3568F03271E2ADB00216732 /* Text+Extension.swift in Sources */,
+				1C9A05A5273AEB2E004E629B /* SobreOngDoadorView.swift in Sources */,
 				850C71F92731912300902BFC /* EstoqueService.swift in Sources */,
 				1C136A3E27175E0A00D09E9D /* SearchBarView.swift in Sources */,
 				854B99012722DBB900B1CEF9 /* LoginViewModel.swift in Sources */,
@@ -666,7 +685,9 @@
 				85E1332B2735A89400F9DEDB /* EditarItem.swift in Sources */,
 				1CC810492702336200B9E721 /* SceneDelegate.swift in Sources */,
 				85E133312735B49D00F9DEDB /* ExplorarOngViewModel.swift in Sources */,
+				A386DDB3273C4A2E002BA7BF /* LoadingView.swift in Sources */,
 				A319FAC827275E58001C5073 /* EnderecoFormView.swift in Sources */,
+				1C9A05A7273AECF4004E629B /* SobreOngDoadorViewModel.swift in Sources */,
 				1CC8109C27038A3100B9E721 /* Organizacao.swift in Sources */,
 				1C5CC92E272094410078EC01 /* FiltroModal.swift in Sources */,
 				A30BA3B2270F6DE400D2222B /* SobreOngView.swift in Sources */,
@@ -752,6 +773,7 @@
 				8578A636270E23520064497C /* Button+Extension.swift in Sources */,
 				1CC810AB2703B0B000B9E721 /* OngFormView.swift in Sources */,
 				1CC810A327038E7400B9E721 /* OngViewModel.swift in Sources */,
+				A386DDB4273C4A2E002BA7BF /* LoadingView.swift in Sources */,
 				85EA0264272E045E00FE1471 /* OngHomeViewModel.swift in Sources */,
 				1C5CC9322720AE9B0078EC01 /* ListaVerticalItem.swift in Sources */,
 				1CC8107A270237F400B9E721 /* ContentView.swift in Sources */,
@@ -998,7 +1020,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1CC8103E2702336200B9E721 /* Build configuration list for PBXProject "Mini4Admin" */ = {
+		1CC8103E2702336200B9E721 /* Build configuration list for PBXProject "Mini4" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1CC810552702336400B9E721 /* Debug */,

@@ -22,6 +22,7 @@ class OngFormViewModel: ObservableObject {
     @Published var apresentaFeedback = false
     @Published var mensagem = ""
     var cor: ColorStyle = .green
+    @Published var isLoading = false
         
     // MARK: - Inicializador
     
@@ -52,7 +53,7 @@ class OngFormViewModel: ObservableObject {
     
     private func fetchImage() {
         if let foto = ong.foto {
-
+            isLoading = true
             ImageStorageService.shared.downloadImage(urlString: foto) { [weak self] image, err in
                 if let err = err {
                     print("erro fetch \(err.localizedDescription)")
@@ -64,18 +65,20 @@ class OngFormViewModel: ObservableObject {
                     }
                 }
             }
+            isLoading = false
         }
     }
     
     private func fetchOng(idOng: String) {
         ongService.getOng(idOng: idOng) { [weak self] result in
-
+            self?.isLoading = true
             switch result {
             case .success(let org):
+                self?.isLoading = false
                 self?.ong = org
                 self?.fetchImage()
-
             case .failure(let err):
+                self?.isLoading = false
                 self?.cor = .red
                 self?.mensagem = err.localizedDescription
             }
@@ -100,6 +103,7 @@ class OngFormViewModel: ObservableObject {
     
     
     func salvar() {
+        isLoading = true
         switch modo {
             case .cadastro:
                 if selectedImage != nil {
@@ -107,7 +111,6 @@ class OngFormViewModel: ObservableObject {
                 } else {
                     salvaSemImagem()
                 }
-
             case .perfil:
                 // verifica se quer atualizar imagem
                 if selectedImage != nil && selectedImage?.pngData() != downloadedImage?.pngData() {
@@ -117,13 +120,14 @@ class OngFormViewModel: ObservableObject {
                     salvaSemImagem()
                 }
         }
-        
+        isLoading = false
     }
     
     private func salvaSemImagem() {
         print("salvando sem imagem")
         // atualiza no firebase sem atualizar imagem
         self.ongService.create(self.ong) { [weak self] result in
+            self?.isLoading = true
             switch result {
             case .success:
                 if self?.modo == .cadastro {
@@ -132,8 +136,9 @@ class OngFormViewModel: ObservableObject {
                     self?.mensagem = "Atualizado com sucesso!"
                     self?.apresentaFeedback = true
                 }
-                
+                self?.isLoading = false
             case .failure(let err):
+                self?.isLoading = false
                 self?.mensagem = err.localizedDescription
                 self?.apresentaFeedback = true
             }
@@ -144,6 +149,7 @@ class OngFormViewModel: ObservableObject {
     private func salvaComImagem() {
         if selectedImage != nil {
             print("fazendo upload de imagem")
+            isLoading = true
             ImageStorageService.shared.uploadImage(idOng: ong.id!, image: selectedImage!) { [weak self] imageUrl, err in
                 if let err = err {
                     self?.mensagem = err.localizedDescription
@@ -171,6 +177,7 @@ class OngFormViewModel: ObservableObject {
                     }
                 }
             }
+            isLoading = false
         }
     }
     
