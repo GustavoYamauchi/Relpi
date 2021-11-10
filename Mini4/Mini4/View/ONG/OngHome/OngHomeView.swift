@@ -35,7 +35,6 @@ struct OngHomeView: View {
     var body: some View {
         ZStack {
             VStack(alignment: .leading){
-                //        VStack(){
                 tituloLabel
                 nomeOngLabel
                 
@@ -45,7 +44,8 @@ struct OngHomeView: View {
                 ScrollView{
                     HStack {
                         if viewModel.itensEstocados() > 0 {
-                            ForEach((viewModel.itensEstocados() >= 2) ? 0..<2 : 0..<1) { i in
+                            let qtdItens = ((UIScreen.main.bounds.size.height > 1000) ? ((viewModel.itensEstocados() >= 3 ) ? 3 : 2): 2)
+                            ForEach((viewModel.itensEstocados() >= qtdItens) ? 0..<qtdItens : 0..<1) { i in
                                 if let id = viewModel.ongItens()[i].id {
                                     ItemListaView(viewModel: .init(idOng: viewModel.ong.id!, idItem: id), novaTela: $viewModel.voltouTela)
                                         .frame(maxHeight: 220)
