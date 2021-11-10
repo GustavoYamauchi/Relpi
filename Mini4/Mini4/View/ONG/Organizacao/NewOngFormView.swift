@@ -15,19 +15,20 @@ struct NewOngFormView: View {
     // upload de foto
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State private var isImagePickerDisplaying = false
-    
+        
     @State var pageIndex: Int = 0
-    
-    init(viewModel: OngFormViewModel) {
-        self.viewModel = viewModel
-    }
+        
     
     //MARK: - View
     var body: some View {
         ScrollView {
             VStack {
-                if let image = viewModel.selectedImage{
-                    Image(uiImage: image)
+                if viewModel.selectedImage != nil {
+                    Image(uiImage: viewModel.selectedImage!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                } else if viewModel.downloadedImage != nil {
+                    Image(uiImage: viewModel.downloadedImage!)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                 } else {
@@ -70,6 +71,7 @@ struct NewOngFormView: View {
                     if viewModel.modo == .perfil {
                         Button("Cancelar") {
                             viewModel.apresentaFeedback = false
+                            viewModel.selectedImage = nil
                             presentationMode.wrappedValue.dismiss()
                         }.buttonStyle(SecondaryButton())
                     }

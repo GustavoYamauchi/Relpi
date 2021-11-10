@@ -17,42 +17,49 @@ class OngFormViewModel: ObservableObject {
     @Published var ong: Organizacao
     @Published var selectedImage: UIImage?
     var downloadedImage: UIImage?
+    
     @Published var redirectHome = false
     @Published var apresentaFeedback = false
     @Published var mensagem = ""
-    var atualizaImagem = false
     var cor: ColorStyle = .green
         
     // MARK: - Inicializador
     
     init(modo: Modo,
          userService: UserServiceProtocol = UserService(),
-         ongService: OngServiceProtocol = OngService())
+         ongService: OngServiceProtocol = OngService()
+         )
     {
         self.modo = modo
         self.userService = userService
         self.ongService = ongService
-         
+        
         ong = Organizacao(id: userService.usuarioAtual()?.uid,
             nome: "", cnpj: "", descricao: "", telefone: "", email: "",
             data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
             endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
+        
         
         if modo == .perfil {
             if let id = userService.usuarioAtual()?.uid {
                 fetchOng(idOng: id)
             }
         }
+        
     }
     
     // MARK: - Métodos
     
     private func fetchImage() {
         if let foto = ong.foto {
+
             ImageStorageService.shared.downloadImage(urlString: foto) { [weak self] image, err in
-                DispatchQueue.main.async {
-                    if let image = image {
-                        self?.selectedImage = image
+                if let err = err {
+                    print("erro fetch \(err.localizedDescription)")
+                }
+                
+                if let image = image {
+                    DispatchQueue.main.async {
                         self?.downloadedImage = image
                     }
                 }
@@ -105,6 +112,7 @@ class OngFormViewModel: ObservableObject {
                 // verifica se quer atualizar imagem
                 if selectedImage != nil && selectedImage?.pngData() != downloadedImage?.pngData() {
                     salvaComImagem()
+                    print("perfil com imagem")
                 } else {
                     salvaSemImagem()
                 }
@@ -113,6 +121,7 @@ class OngFormViewModel: ObservableObject {
     }
     
     private func salvaSemImagem() {
+        print("salvando sem imagem")
         // atualiza no firebase sem atualizar imagem
         self.ongService.create(self.ong) { [weak self] result in
             switch result {
@@ -134,15 +143,17 @@ class OngFormViewModel: ObservableObject {
     
     private func salvaComImagem() {
         if selectedImage != nil {
+            print("fazendo upload de imagem")
             ImageStorageService.shared.uploadImage(idOng: ong.id!, image: selectedImage!) { [weak self] imageUrl, err in
                 if let err = err {
                     self?.mensagem = err.localizedDescription
                     self?.apresentaFeedback = true
                 }
-                
+
                 self?.ong.foto = imageUrl
                 self?.downloadedImage = self?.selectedImage
-                
+                self?.selectedImage = nil
+
                 // adiciona no firebase
                 self?.ongService.create(self!.ong) { [weak self] result in
                     switch result {
@@ -153,7 +164,7 @@ class OngFormViewModel: ObservableObject {
                             self?.mensagem = "Atualizado com sucesso!"
                             self?.apresentaFeedback = true
                         }
-                        
+
                     case .failure(let err):
                         self?.mensagem = err.localizedDescription
                         self?.apresentaFeedback = true
