@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Huge.svg",
+      "filename" : "medicamentoIcon-1.png",
       "idiom" : "universal"
     },
     {
@@ -11,7 +11,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "Huge-1.svg",
+      "filename" : "medicamentoIcon.png",
       "idiom" : "universal"
     }
   ],

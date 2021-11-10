@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Endereco: Identifiable {
+struct Endereco: Identifiable, Codable {
     var id: String?
     var logradouro: String
     var numero: String

@@ -12,6 +12,10 @@ import FirebaseFirestore
 
 class EstoqueViewModel : ObservableObject {
     @Published var data = [Item]()
+    @Published var listaVertical = true
+    @Published var listaCategorizada = false
+    @Published var mostrarFiltros = false
+    @Published var apenasUrgente = false
 
     //for reading purpose it will automatically add data when we write data to firestore.
     private var dbEstoque = Firestore.firestore().collection("ng")
@@ -34,7 +38,7 @@ class EstoqueViewModel : ObservableObject {
                         id: i.document.documentID,
                         nome: self.castString(i.document.get("nome")),
                         categoria: self.castString(i.document.get("categoria")),
-                        quantidade: self.castInt(i.document.get("numero")),
+                        quantidade: self.castInt(i.document.get("quantidade")),
                         urgente: self.castBool(i.document.get("urgente")),
                         visivel: self.castBool(i.document.get("visivel"))
                     )
@@ -45,7 +49,7 @@ class EstoqueViewModel : ObservableObject {
                         if self.data[j].id == i.document.documentID{
                             self.data[j].nome = self.castString(i.document.get("nome"))
                             self.data[j].categoria = self.castString(i.document.get("categoria"))
-                            self.data[j].quantidade = self.castInt(i.document.get("numero"))
+                            self.data[j].quantidade = self.castInt(i.document.get("quantidade"))
                             self.data[j].urgente = self.castBool(i.document.get("urgente"))
                             self.data[j].visivel = self.castBool(i.document.get("visivel"))
                         }
@@ -135,6 +139,41 @@ class EstoqueViewModel : ObservableObject {
     func atualizarTimestamp(){
         if let attEstoque = dbEstoque.parent{
             attEstoque.updateData(["data" : Timestamp(date: Date())])
+        }
+    }
+    
+    func temItemNaCategoria(categoria: Categorias, itemPesquisado: String) -> Bool{
+        let filtro = data.filter({ ($0.nome.contains("\(itemPesquisado)") || itemPesquisado.isEmpty) && $0.categoria == categoria.rawValue && $0.visivel  && ($0.urgente || !apenasUrgente)})
+        print("filtro: \(filtro.count) de \(filtro.first?.categoria ?? "")")
+        return filtro.count > 0
+    }
+    
+}
+
+enum Categorias : String{
+    case higiene = "Higiene"
+    case alimento = "Alimento"
+    case limpeza = "Limpeza"
+    case medicamento = "Medicamento"
+    case utensilio = "Utensilio"
+    case vazio = ""
+    var categoria: Categorias {
+        switch self {
+        case .higiene, .alimento, .limpeza, .medicamento, .utensilio:
+            return self
+        default:
+            return .vazio
+        }
+    }
+    var titulo: String {
+        switch self {
+        case .higiene: return "Higiene pessoal"
+        case .alimento: return "Alimento"
+        case .limpeza: return "Produtos de limpeza"
+        case .medicamento: return "Medicamentos"
+        case .utensilio: return "Utensílios de cozinha"
+        default:
+            return ""
         }
     }
     

@@ -6,8 +6,9 @@
 //
 
 import Firebase
+import FirebaseFirestoreSwift
 
-struct Organizacao: Identifiable {
+struct Organizacao: Identifiable, Codable, Equatable {
     var id: String?
     var nome: String
     var cnpj: String
@@ -19,4 +20,17 @@ struct Organizacao: Identifiable {
     var banco: Banco
     var endereco: Endereco
     var estoque: [Item]?
+    
+    static func == (lhs: Organizacao, rhs: Organizacao) -> Bool {
+        return lhs.id == rhs.id &&
+            lhs.nome == rhs.nome &&
+            lhs.cnpj == rhs.cnpj &&
+            lhs.descricao == rhs.descricao &&
+            lhs.telefone == rhs.telefone &&
+            lhs.email == rhs.email &&
+            lhs.foto == rhs.foto &&
+            lhs.data == rhs.data
+    }
 }
+
+

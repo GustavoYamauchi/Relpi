@@ -19,7 +19,8 @@ struct SearchBarView: View {
                 if pesquisando.isEmpty{
                     Image(systemName: "magnifyingglass")
                         .padding(.trailing, 20)
-                }else{
+                        .accentColor(.searchBarIcon)
+                } else {
                     Image(systemName: "xmark")
                         .padding(.trailing, 20)
                         .onTapGesture {
@@ -30,7 +31,7 @@ struct SearchBarView: View {
             .background(RoundedRectangle(cornerRadius: 5).fill(Color.backgroundPrimarySearch))
             .cornerRadius(45)
         }.padding(.horizontal, 25)
-        .padding(.bottom, 10)
+
         
     }
 }

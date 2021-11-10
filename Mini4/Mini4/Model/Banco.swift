@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Banco: Identifiable {
+struct Banco: Identifiable, Codable {
     var id: String?
     var banco: String
     var agencia: String

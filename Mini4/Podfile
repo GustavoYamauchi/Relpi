@@ -6,6 +6,24 @@ target 'Mini4' do
   use_frameworks!
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Analytics'
+  pod 'FirebaseFirestoreSwift', '8.3.0-beta'
+
+  # Pods for Mini4
+
+end
+
+target 'Mini4Admin' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Analytics'
+  pod 'FirebaseFirestoreSwift', '8.3.0-beta'
 
   # Pods for Mini4
 
