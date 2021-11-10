@@ -24,62 +24,68 @@ struct NewOngFormView: View {
     
     //MARK: - View
     var body: some View {
-        ScrollView {
-            VStack {
-                Image(uiImage: viewModel.selectedImage)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                
-                Spacer()
-                
-                VStack(spacing: 30) {
+        ZStack {
+            ScrollView {
+                VStack {
+                    Image(uiImage: viewModel.selectedImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
                     
-                    getFormView(pageIndex: pageIndex)
+                    Spacer()
                     
-                    HStack {
-                        if pageIndex > 0 {
-                            Button("Anterior") {
-                                previousPage()
+                    VStack(spacing: 30) {
+                        
+                        getFormView(pageIndex: pageIndex)
+                        
+                        HStack {
+                            if pageIndex > 0 {
+                                Button("Anterior") {
+                                    previousPage()
+                                }
                             }
+                            
+                            Spacer()
+                            
+                            if pageIndex < 3 {
+                                Button("Próximo") {
+                                    nextPage()
+                                }
+                            }
+                        }.foregroundColor(Color("primaryButton"))
+                        .font(.system(size: 16, weight: .bold, design: .default))
+                        
+                        Button("Salvar") {
+                            viewModel.salvar()
+                        }.buttonStyle(PrimaryButton())
+                        
+                        if viewModel.modo == .perfil {
+                            Button("Cancelar") {
+                                print("CANCELA TUDO")
+                                presentationMode.wrappedValue.dismiss()
+                            }.buttonStyle(SecondaryButton())
                         }
                         
-                        Spacer()
-                        
-                        if pageIndex < 3 {
-                            Button("Próximo") {
-                                nextPage()
-                            }
+                        NavigationLink(destination: OngHomeView(viewModel: .init(idOng: viewModel.ong.id!)).environmentObject(EstoqueViewModel(viewModel.ong.id!)), isActive: $viewModel.redirectHome) {
+                            EmptyView()
                         }
-                    }.foregroundColor(Color("primaryButton"))
-                    .font(.system(size: 16, weight: .bold, design: .default))
-
-                    Button("Salvar") {
-                        viewModel.salvar()
-                    }.buttonStyle(PrimaryButton())
-                    
-                    if viewModel.modo == .perfil {
-                        Button("Cancelar") {
-                            print("CANCELA TUDO")
-                            presentationMode.wrappedValue.dismiss()
-                        }.buttonStyle(SecondaryButton())
                     }
-                    
-                    NavigationLink(destination: OngHomeView(viewModel: .init(idOng: viewModel.ong.id!)).environmentObject(EstoqueViewModel(viewModel.ong.id!)), isActive: $viewModel.redirectHome) {
-                        EmptyView()
-                    }  
-                }
-                .padding([.leading, .trailing], 30)
-                .toolbar {
-                    // não remover
-                    Button("Alterar foto") {
-                        self.sourceType = .photoLibrary
-                        self.isImagePickerDisplaying.toggle()
+                    .padding([.leading, .trailing], 30)
+                    .toolbar {
+                        // não remover
+                        Button("Alterar foto") {
+                            self.sourceType = .photoLibrary
+                            self.isImagePickerDisplaying.toggle()
+                        }
+                    }
+                    .navigationBarTitle("", displayMode: .inline)
+                    .navigationBarBackButtonHidden(true)
+                    .sheet(isPresented: self.$isImagePickerDisplaying) {
+                        ImagePickerView(selectedImage: $viewModel.selectedImage, sourceType: self.sourceType)
                     }
                 }
-                .navigationBarTitle("", displayMode: .inline)
-                .navigationBarBackButtonHidden(true)
-                .sheet(isPresented: self.$isImagePickerDisplaying) {
-                    ImagePickerView(selectedImage: $viewModel.selectedImage, sourceType: self.sourceType)
+                
+                if viewModel.isLoading {
+                    LoadingView()
                 }
             }
         }

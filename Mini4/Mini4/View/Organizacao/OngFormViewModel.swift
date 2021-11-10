@@ -17,6 +17,7 @@ class OngFormViewModel: ObservableObject {
     @Published var ong: Organizacao
     @Published var selectedImage: UIImage
     @Published var redirectHome = false
+    @Published var isLoading: Bool = true
         
     // MARK: - Inicializador
     
@@ -53,6 +54,7 @@ class OngFormViewModel: ObservableObject {
     // MARK: - Métodos
     
     private func fetchImage() {
+        isLoading = true
         if let foto = ong.foto {
             print("pegando imagemmmmm")
             ImageStorageService.shared.downloadImage(urlString: foto) { [weak self] image, err in
@@ -62,10 +64,12 @@ class OngFormViewModel: ObservableObject {
                     }
                 }
             }
+            isLoading = false
         }
     }
     
     private func fetchOng(idOng: String) {
+        isLoading = true
         ongService.getOng(idOng: idOng) { [weak self] result in
 
             switch result {
@@ -76,6 +80,7 @@ class OngFormViewModel: ObservableObject {
             case .failure(let err):
                 print(err.localizedDescription)
             }
+            self?.isLoading = false
         }
     }
 
