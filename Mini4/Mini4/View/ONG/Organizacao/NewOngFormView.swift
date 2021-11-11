@@ -78,8 +78,10 @@ struct NewOngFormView: View {
 
                     }
                         
-                    NavigationLink(destination: OngHomeView(viewModel: .init(idOng: viewModel.ong.id!)), isActive: $viewModel.redirectHome) {
-                        EmptyView()
+                    if viewModel.modo == .cadastro {
+                        NavigationLink(destination: OngHomeView(viewModel: .init(idOng: viewModel.ong.id!)), isActive: $viewModel.redirectHome) {
+                            EmptyView()
+                        }
                     }
                         
                     }

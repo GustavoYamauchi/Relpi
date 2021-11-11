@@ -17,7 +17,7 @@ final class OngHomeViewModel: ObservableObject {
     let estoqueService: EstoqueServiceProtocol
     
     @Published var ong: Organizacao
-    @Published var selectedImage: UIImage
+    @Published var selectedImage: UIImage?
     @Published var voltouTela: Bool = false
     @Published var tag:Int? = nil
     @Published var isLoading = false
@@ -58,8 +58,6 @@ final class OngHomeViewModel: ObservableObject {
         self.ongService = ongService
         self.estoqueService = estoqueService
         
-        selectedImage = UIImage(named: "ImagePlaceholder") ?? UIImage(systemName: "camera")!
-        
         self.ong = Organizacao(id: idOng, nome: "", cnpj: "", descricao: "", telefone: "", email: "", foto: "", data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""), endereco: Endereco( logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""), estoque: [Item]())
         
         fetchOng(idOng: idOng)
@@ -86,15 +84,17 @@ final class OngHomeViewModel: ObservableObject {
     
     private func fetchImage() {
         if let foto = ong.foto {
-            self.isLoading = true
-            ImageStorageService.shared.downloadImage(urlString: foto) { [weak self] image, err in
-                DispatchQueue.main.async {
-                    if let image = image {
-                        self?.selectedImage = image
+            if selectedImage == nil {
+                self.isLoading = true
+                ImageStorageService.shared.downloadImage(urlString: foto) { [weak self] image, err in
+                    DispatchQueue.main.async {
+                        if let image = image {
+                            self?.selectedImage = image
+                        }
                     }
                 }
+                self.isLoading = false
             }
-            self.isLoading = false
         }
     }
     

@@ -66,11 +66,20 @@ struct OngHomeView: View {
                         Text(viewModel.sobreOngLabel)
                             .textStyle(TitleStyle())
                         
-                        Image(uiImage: viewModel.selectedImage)
-                            .resizable()
-                            .cornerRadius(15)
-                            .aspectRatio(contentMode: .fit)
-                            .padding(.horizontal, 30)
+                        if viewModel.selectedImage != nil {
+                            Image(uiImage: viewModel.selectedImage!)
+                                .resizable()
+                                .cornerRadius(15)
+                                .aspectRatio(contentMode: .fit)
+                                .padding(.horizontal, 30)
+                        } else {
+                            Image("ImagePlaceholder")
+                                .resizable()
+                                .cornerRadius(15)
+                                .aspectRatio(contentMode: .fit)
+                                .padding(.horizontal, 30)
+                        }
+
                         
                         Text(viewModel.ong.descricao)
                             .textStyle(ContentStyle())
