@@ -23,6 +23,8 @@ class OngFormViewModel: ObservableObject {
     @Published var mensagem = ""
     var cor: ColorStyle = .green
     @Published var isLoading = false
+    
+    weak var ongHomeViewModel: OngHomeViewModel?
         
     // MARK: - Inicializador
     
@@ -30,7 +32,8 @@ class OngFormViewModel: ObservableObject {
          userService: UserServiceProtocol = UserService(),
          ongService: OngServiceProtocol = OngService(),
          image: UIImage?,
-         ongHome: Organizacao?
+         ongHome: Organizacao?,
+         ongHomeViewModel: OngHomeViewModel?
          )
     {
         self.modo = modo
@@ -42,6 +45,7 @@ class OngFormViewModel: ObservableObject {
             data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
             endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
         
+        self.ongHomeViewModel = ongHomeViewModel
         
         if modo == .perfil {
             if let ong = ongHome {
@@ -87,7 +91,6 @@ class OngFormViewModel: ObservableObject {
                 // verifica se quer atualizar imagem
                 if selectedImage != nil && selectedImage?.pngData() != downloadedImage?.pngData() {
                     salvaComImagem()
-                    print("perfil com imagem")
                 } else {
                     salvaSemImagem()
                 }
@@ -109,6 +112,10 @@ class OngFormViewModel: ObservableObject {
                 } else {
                     self?.mensagem = "Atualizado com sucesso!"
                     self?.apresentaFeedback = true
+                    // faz a ongHomeView model atualizar através de protocolo e delegate
+                    if self?.ongHomeViewModel != nil {
+                        self?.ongHomeViewModel?.atualizarHome()
+                    }
                 }
                 self?.isLoading = false
             case .failure(let err):
@@ -143,6 +150,9 @@ class OngFormViewModel: ObservableObject {
                         } else {
                             self?.mensagem = "Atualizado com sucesso!"
                             self?.apresentaFeedback = true
+                            if self?.ongHomeViewModel != nil {
+                                self?.ongHomeViewModel?.atualizarHomeComImagem()
+                            }
                         }
 
                     case .failure(let err):
@@ -164,3 +174,7 @@ extension OngFormViewModel {
     }
 }
 
+protocol OngFormViewModelDelegate: AnyObject {
+    func atualizarHome()
+    func atualizarHomeComImagem()
+}
