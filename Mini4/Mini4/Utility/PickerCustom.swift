@@ -25,7 +25,7 @@ struct PickerCustom: View {
                 ForEach(array, id: \.self){
                     Text($0)
                 }
-            }
+            }.pickerStyle(.wheel)
         }.padding(30)
     }
     
