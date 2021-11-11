@@ -13,18 +13,23 @@ final class SobreOngViewModel: ObservableObject {
     private let estoqueService: EstoqueServiceProtocol
     
     @Published var ong: Organizacao
-    @Published var image: UIImage
+    @Published var image: UIImage?
     @Published var trocaTela: Bool = false
     
     init(ongService: OngServiceProtocol = OngService(),
          estoqueService: EstoqueServiceProtocol = EstoqueService(),
-         ong: Organizacao) {
+         ong: Organizacao,
+         imagem: UIImage?) {
         self.ong = ong
         self.ongService = ongService
         self.estoqueService = estoqueService
-        self.image = UIImage(named: "ImagePlaceholder") ?? UIImage(systemName: "camera")!
         
-        fetchImage()
+        if let imagemOng = imagem {
+            self.image = imagemOng
+        } else {
+            fetchImage()
+        }
+        
         fetchItems()
     }
     

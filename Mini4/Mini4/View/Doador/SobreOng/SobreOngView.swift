@@ -69,18 +69,27 @@ struct SobreOngView: View {
                     Text("Sobre a ONG")
                         .textStyle(TitleStyle())
                     
-                    Image(uiImage: viewModel.image)
-                        .resizable()
-                        .cornerRadius(15)
-                        .aspectRatio(contentMode: .fit)
-                        .padding(.horizontal, 30)
-                    
+                    if viewModel.image != nil {
+                        Image(uiImage: viewModel.image!)
+                            .resizable()
+                            .cornerRadius(15)
+                            .aspectRatio(contentMode: .fit)
+                            .padding(.horizontal, 30)
+                    } else {
+                        Image("ImagePlaceholder")
+                            .resizable()
+                            .cornerRadius(15)
+                            .aspectRatio(contentMode: .fit)
+                            .padding(.horizontal, 30)
+                    }
+
+
                     Text(viewModel.descricao)
                         .textStyle(ContentStyle())
                 }
                 
                 // Contribuir com a ONG
-                NavigationLink(destination: sobreOngDoadorView(viewModel: .init(idOng: viewModel.idOng))) {
+                NavigationLink(destination: sobreOngDoadorView(viewModel: .init(idOng: viewModel.idOng, image: viewModel.image))) {
                     Text("Contribua")
                 }.buttonStyle(PrimaryButton())
                 

@@ -40,13 +40,20 @@ final class SobreOngDoadorViewModel: ObservableObject {
     //MARK: - Inicializador
     
     init(idOng: String,
+         image: UIImage?,
          ongService: OngServiceProtocol = OngService()
     ) {
         self.ongService = ongService
         
-        selectedImage = UIImage(named: "ImagePlaceholder") ?? UIImage(systemName: "camera")!
-        
         self.ong = Organizacao(id: idOng, nome: "", cnpj: "", descricao: "", telefone: "", email: "", foto: "", data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""), endereco: Endereco( logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""), estoque: [Item]())
+        
+        selectedImage = UIImage(named: "ImagePlaceholder")!
+        
+        if let image = image {
+            selectedImage = image
+        } else {
+            fetchImage()
+        }
         
         fetchOng(idOng: idOng)
     }
@@ -59,7 +66,6 @@ final class SobreOngDoadorViewModel: ObservableObject {
             switch result {
             case .success(let ong):
                 self?.ong = ong
-                self?.fetchImage()
 
             case .failure(let err):
                 print(err.localizedDescription)
