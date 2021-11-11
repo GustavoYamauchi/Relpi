@@ -30,6 +30,7 @@ struct ContentView: View {
             loginViewModel.autenticado = loginViewModel.isAuthenticated
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .accentColor(Color.primaryButton)
     }
 
 }
