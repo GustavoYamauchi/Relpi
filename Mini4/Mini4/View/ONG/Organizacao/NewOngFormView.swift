@@ -78,6 +78,12 @@ struct NewOngFormView: View {
 
                     }
                         
+                    if viewModel.modo == .cadastro {
+                        NavigationLink(destination: OngHomeView(viewModel: .init(idOng: viewModel.ong.id!)), isActive: $viewModel.redirectHome) {
+                            EmptyView()
+                        }
+                    }
+                        
                     }
                     .padding([.leading, .trailing], 30)
                     .toolbar {

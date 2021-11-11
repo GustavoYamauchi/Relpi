@@ -58,6 +58,7 @@ class ImageStorageService {
                     completion(nil, error)
                 }
                 
+                print("downloading image from service")
                 if let data = data, let image = UIImage(data: data) {
                     completion(image, nil)
                 }

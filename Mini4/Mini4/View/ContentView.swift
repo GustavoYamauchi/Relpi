@@ -20,7 +20,7 @@ struct ContentView: View {
             #else
             
             if loginViewModel.autenticado {
-                OngHomeView(viewModel: .init(idOng: loginViewModel.id)).environmentObject(EstoqueViewModel(loginViewModel.id))
+                OngHomeView(viewModel: .init(idOng: loginViewModel.id))
             } else {
                 CadastroView(viewModel: .init(mode: .cadastro, usuario: .ong))
             }

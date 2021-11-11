@@ -28,7 +28,9 @@ class OngFormViewModel: ObservableObject {
     
     init(modo: Modo,
          userService: UserServiceProtocol = UserService(),
-         ongService: OngServiceProtocol = OngService()
+         ongService: OngServiceProtocol = OngService(),
+         image: UIImage?,
+         ongHome: Organizacao?
          )
     {
         self.modo = modo
@@ -42,48 +44,18 @@ class OngFormViewModel: ObservableObject {
         
         
         if modo == .perfil {
-            if let id = userService.usuarioAtual()?.uid {
-                fetchOng(idOng: id)
+            if let ong = ongHome {
+                self.ong = ong
+            }
+            
+            if let image = image {
+                downloadedImage = image
             }
         }
         
     }
     
     // MARK: - Métodos
-    
-    private func fetchImage() {
-        if let foto = ong.foto {
-            isLoading = true
-            ImageStorageService.shared.downloadImage(urlString: foto) { [weak self] image, err in
-                if let err = err {
-                    print("erro fetch \(err.localizedDescription)")
-                }
-                
-                if let image = image {
-                    DispatchQueue.main.async {
-                        self?.downloadedImage = image
-                    }
-                }
-            }
-            isLoading = false
-        }
-    }
-    
-    private func fetchOng(idOng: String) {
-        ongService.getOng(idOng: idOng) { [weak self] result in
-            self?.isLoading = true
-            switch result {
-            case .success(let org):
-                self?.isLoading = false
-                self?.ong = org
-                self?.fetchImage()
-            case .failure(let err):
-                self?.isLoading = false
-                self?.cor = .red
-                self?.mensagem = err.localizedDescription
-            }
-        }
-    }
     
     func deleteOng() {
         ongService.deleteOng(idOng: ong.id!) { [weak self] result in
@@ -132,6 +104,8 @@ class OngFormViewModel: ObservableObject {
             case .success:
                 if self?.modo == .cadastro {
                     self?.redirectHome = true
+                    print("redirect home")
+                    
                 } else {
                     self?.mensagem = "Atualizado com sucesso!"
                     self?.apresentaFeedback = true
