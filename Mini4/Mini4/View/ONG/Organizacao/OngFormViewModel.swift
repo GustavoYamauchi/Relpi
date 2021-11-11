@@ -165,6 +165,51 @@ class OngFormViewModel: ObservableObject {
         }
     }
     
+    //MARK: Métodos validadores
+    func emailValido() -> Bool {
+        // criteria in regex.  See http://regexlib.com
+        let emailTest = NSPredicate(format: "SELF MATCHES %@",
+                                    "^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$")
+        return emailTest.evaluate(with: ong.email)
+    }
+    
+    func cnpjValido() -> Bool{
+        let cnpjTest = NSPredicate(format: "SELF MATCHES %@",
+                                    "[0-9]{2}\\.?[0-9]{3}\\.?[0-9]{3}\\/?[0-9]{4}\\-?[0-9]{2}")
+        return cnpjTest.evaluate(with: ong.cnpj)
+    }
+    
+    func telefoneValido() -> Bool{
+        let telefoneTest = NSPredicate(format: "SELF MATCHES %@",
+                                    "\\(?[0-9]{2}\\)?[0-9]?[0-9]{4}\\-?[0-9]{4}")
+        return telefoneTest.evaluate(with: ong.cnpj)
+    }
+    
+    func agenciaValido() -> Bool{
+        let agenciaTest = NSPredicate(format: "SELF MATCHES %@",
+                                    "[0-9]{4}")
+        return agenciaTest.evaluate(with: ong.banco.agencia)
+    }
+    
+    func contaValido() -> Bool{
+        let contaTest = NSPredicate(format: "SELF MATCHES %@",
+                                    "[0-9]{5}\\-?[0-9]")
+        return contaTest.evaluate(with: ong.banco.conta)
+    }
+    
+    func cepValido() -> Bool{
+        let cepTest = NSPredicate(format: "SELF MATCHES %@",
+                                    "[0-9]{5}\\-?[0-9]{3}")
+        return cepTest.evaluate(with: ong.endereco.cep)
+    }
+    
+    func estadoValido() -> Bool{
+        let estadoTest = NSPredicate(format: "SELF MATCHES %@",
+                                    "[A-Z]{2}")
+        return estadoTest.evaluate(with: ong.endereco.estado)
+    }
+    
+    
 }
 
 extension OngFormViewModel {

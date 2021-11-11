@@ -9,17 +9,17 @@ import Firebase
 import FirebaseFirestoreSwift
 
 struct Organizacao: Identifiable, Codable, Equatable {
-    var id: String?
-    var nome: String
-    var cnpj: String
-    var descricao: String
-    var telefone: String
-    var email: String
-    var foto: String?
-    var data: Timestamp
-    var banco: Banco
+    var id: String? //Sem validacao
+    var nome: String //Sem validacao
+    var cnpj: String //Validado
+    var descricao: String //Sem validacao
+    var telefone: String //Validado
+    var email: String //Validado
+    var foto: String? //Sem validacao
+    var data: Timestamp //Sem validacao
+    var banco: Banco //Validado
     var endereco: Endereco
-    var estoque: [Item]?
+    var estoque: [Item]? //Sem validacao
     
     static func == (lhs: Organizacao, rhs: Organizacao) -> Bool {
         return lhs.id == rhs.id &&
