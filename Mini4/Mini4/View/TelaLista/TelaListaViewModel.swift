@@ -13,7 +13,7 @@ final class TelaListaViewModel: ObservableObject {
     let idOng: String
     
     var data: Timestamp
-    var categorias = ["limpeza", "medicamento", "higiene", "utensilio", "alimento"]
+    var categorias = ["Limpeza", "Medicamento", "Higiene", "Utensilio", "Alimento"]
     
     @Published var listaCategorizada = false
     @Published var apenasUrgente = false
