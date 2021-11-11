@@ -15,6 +15,7 @@ final class SobreOngViewModel: ObservableObject {
     @Published var ong: Organizacao
     @Published var image: UIImage?
     @Published var trocaTela: Bool = false
+    var imageCache = ImageCache.getImageCache()
     
     init(ongService: OngServiceProtocol = OngService(),
          estoqueService: EstoqueServiceProtocol = EstoqueService(),
@@ -57,10 +58,15 @@ final class SobreOngViewModel: ObservableObject {
     
     private func fetchImage() {
         if let foto = ong.foto {
-            ImageStorageService.shared.downloadImage(urlString: foto) { [weak self] image, err in
-                DispatchQueue.main.async {
-                    if let image = image {
-                        self?.image = image
+            if let imageCache = imageCache.get(forKey: foto) {
+                image = imageCache
+            } else {
+                ImageStorageService.shared.downloadImage(urlString: foto) { [weak self] image, err in
+                    DispatchQueue.main.async {
+                        if let image = image {
+                            self?.imageCache.set(forKey: foto, image: image)
+                            self?.image = image
+                        }
                     }
                 }
             }

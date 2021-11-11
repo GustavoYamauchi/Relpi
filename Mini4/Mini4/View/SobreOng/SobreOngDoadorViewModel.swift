@@ -13,7 +13,7 @@ final class SobreOngDoadorViewModel: ObservableObject {
     
     @Published var ong: Organizacao
     @Published var selectedImage: UIImage
-    
+    var imageCache = ImageCache.getImageCache()
     
     //MARK: - Elementos da View
     
@@ -75,10 +75,15 @@ final class SobreOngDoadorViewModel: ObservableObject {
     
     private func fetchImage() {
         if let foto = ong.foto {
-            ImageStorageService.shared.downloadImage(urlString: foto) { [weak self] image, err in
-                DispatchQueue.main.async {
-                    if let image = image {
-                        self?.selectedImage = image
+            if let imageCache = imageCache.get(forKey: foto) {
+                selectedImage = imageCache
+            } else {
+                ImageStorageService.shared.downloadImage(urlString: foto) { [weak self] image, err in
+                    DispatchQueue.main.async {
+                        if let image = image {
+                            self?.imageCache.set(forKey: foto, image: image)
+                            self?.selectedImage = image
+                        }
                     }
                 }
             }

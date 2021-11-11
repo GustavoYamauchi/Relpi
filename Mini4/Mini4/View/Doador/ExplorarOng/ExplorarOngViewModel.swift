@@ -17,7 +17,7 @@ final class ExplorarOngViewModel: ObservableObject {
     var array = ["SP", "RJ"]
     @Published var estadoSelecionado = ""
     @Published var images: [String: UIImage] = [String: UIImage]()
-    
+    var imageCache = ImageCache.getImageCache()
     
     //MARK: - Inicializador
     
@@ -50,18 +50,24 @@ final class ExplorarOngViewModel: ObservableObject {
     }
     
     // MARK: - Método service
-    func fetchImages() {
+    private func fetchImages() {
         for ong in ongs {
             if let foto = ong.foto {
                 if foto != "" {
-                    ImageStorageService.shared.downloadImage(urlString: foto) { [weak self] image, err in
-                        if let err = err {
-                            print(err.localizedDescription)
-                        }
+                    if let cacheImage = imageCache.get(forKey: foto) {
+                        images[ong.id!] = cacheImage
                         
-                        if let image = image {
-                            DispatchQueue.main.async {
-                                self?.images[ong.id!] = image
+                    } else {
+                        ImageStorageService.shared.downloadImage(urlString: foto) { [weak self] image, err in
+                            if let err = err {
+                                print(err.localizedDescription)
+                            }
+                            
+                            if let image = image {
+                                self?.imageCache.set(forKey: foto, image: image)
+                                DispatchQueue.main.async {
+                                    self?.images[ong.id!] = image
+                                }
                             }
                         }
                     }
@@ -69,5 +75,4 @@ final class ExplorarOngViewModel: ObservableObject {
             }
         }
     }
-    
 }
