@@ -67,7 +67,7 @@ struct CadastroView: View {
                         viewModel.cadastrarLogar()
                     }.buttonStyle(.primaryButton)
                     
-                    NavigationLink(destination: NewOngFormView(viewModel: .init(modo: .cadastro)), isActive: $viewModel.encaminharOngForm) {
+                    NavigationLink(destination: NewOngFormView(viewModel: .init(modo: .cadastro, image: nil, ongHome: nil)), isActive: $viewModel.encaminharOngForm) {
                         EmptyView()
                     }
                     

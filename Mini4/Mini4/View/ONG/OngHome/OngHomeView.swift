@@ -82,7 +82,7 @@ struct OngHomeView: View {
                     // TODO: Direcionar para a tela "Sobre ONG" certa!!! conferir o figma
                     
                     Button(action: {}, label: {
-                        NavigationLink(destination: NewOngFormView(viewModel: .init(modo: .perfil)),
+                        NavigationLink(destination: NewOngFormView(viewModel: .init(modo: .perfil, image: viewModel.selectedImage, ongHome: viewModel.ong)),
                                        label: { Text(viewModel.verPerfilButtonLabel) } )
                     }).buttonStyle(.primaryButton)
                     .padding(.top, 20)
