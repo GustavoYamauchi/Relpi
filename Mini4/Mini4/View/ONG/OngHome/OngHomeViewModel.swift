@@ -82,19 +82,32 @@ final class OngHomeViewModel: ObservableObject {
         }
     }
     
+    private func fetchOngSemImagem(idOng: String) {
+        ongService.getOng(idOng: idOng) { [weak self] result in
+            self?.isLoading = true
+            switch result {
+            case .success(let ong):
+                self?.isLoading = false
+                self?.ong = ong
+                self?.fetchItems()
+            case .failure(let err):
+                self?.isLoading = false
+                print(err.localizedDescription)
+            }
+        }
+    }
+    
     private func fetchImage() {
         if let foto = ong.foto {
-            if selectedImage == nil {
-                self.isLoading = true
-                ImageStorageService.shared.downloadImage(urlString: foto) { [weak self] image, err in
-                    DispatchQueue.main.async {
-                        if let image = image {
-                            self?.selectedImage = image
-                        }
+            self.isLoading = true
+            ImageStorageService.shared.downloadImage(urlString: foto) { [weak self] image, err in
+                DispatchQueue.main.async {
+                    if let image = image {
+                        self?.selectedImage = image
                     }
                 }
-                self.isLoading = false
             }
+            self.isLoading = false
         }
     }
     
@@ -134,5 +147,15 @@ final class OngHomeViewModel: ObservableObject {
     
     func atualizar(){
         fetchItems()
+    }
+}
+
+extension OngHomeViewModel: OngFormViewModelDelegate {
+    func atualizarHome() {
+        fetchOngSemImagem(idOng: ong.id!)
+    }
+    
+    func atualizarHomeComImagem() {
+        fetchOng(idOng: ong.id!)
     }
 }
