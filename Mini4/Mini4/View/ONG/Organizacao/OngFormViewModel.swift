@@ -79,8 +79,11 @@ class OngFormViewModel: ObservableObject {
     
     
     func salvar() {
-        isLoading = true
-        switch modo {
+        verificaCampos()
+        if !apresentaFeedback{
+            cor = .green
+            isLoading = true
+            switch modo {
             case .cadastro:
                 if selectedImage != nil {
                     salvaComImagem()
@@ -94,8 +97,9 @@ class OngFormViewModel: ObservableObject {
                 } else {
                     salvaSemImagem()
                 }
+            }
+            isLoading = false
         }
-        isLoading = false
     }
     
     private func salvaSemImagem() {
@@ -166,47 +170,88 @@ class OngFormViewModel: ObservableObject {
     }
     
     //MARK: Métodos validadores
-    func emailValido() -> Bool {
+    func emailValido(){
         // criteria in regex.  See http://regexlib.com
         let emailTest = NSPredicate(format: "SELF MATCHES %@",
                                     "^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$")
-        return emailTest.evaluate(with: ong.email)
+        if !emailTest.evaluate(with: ong.email){
+            mensagem = "Parece que o e-mail não está no formato correto :)\nExemplo: nome@email.org.br"
+            apresentaFeedback = true
+            cor = .red
+        }
     }
     
-    func cnpjValido() -> Bool{
+    func cnpjValido(){
         let cnpjTest = NSPredicate(format: "SELF MATCHES %@",
                                     "[0-9]{2}\\.?[0-9]{3}\\.?[0-9]{3}\\/?[0-9]{4}\\-?[0-9]{2}")
-        return cnpjTest.evaluate(with: ong.cnpj)
+        if !cnpjTest.evaluate(with: ong.cnpj){
+            mensagem = "Parece que cnpj não está no formato correto :)\nExemplo: 12.345.567/0001-89"
+            apresentaFeedback = true
+            cor = .red
+        }
     }
     
-    func telefoneValido() -> Bool{
+    func telefoneValido(){
         let telefoneTest = NSPredicate(format: "SELF MATCHES %@",
                                     "\\(?[0-9]{2}\\)?[0-9]?[0-9]{4}\\-?[0-9]{4}")
-        return telefoneTest.evaluate(with: ong.cnpj)
+        if !telefoneTest.evaluate(with: ong.telefone){
+            mensagem = "Parece que o telefone não está no formato correto :)\nExemplo: (11)94002-8922"
+            apresentaFeedback = true
+            cor = .red
+        }
     }
     
-    func agenciaValido() -> Bool{
+    func agenciaValido(){
         let agenciaTest = NSPredicate(format: "SELF MATCHES %@",
                                     "[0-9]{4}")
-        return agenciaTest.evaluate(with: ong.banco.agencia)
+        if !agenciaTest.evaluate(with: ong.banco.agencia){
+            mensagem = "Parece que a agência não está no formato correto :)\nExemplo: 0001"
+            apresentaFeedback = true
+            cor = .red
+        }
     }
     
-    func contaValido() -> Bool{
+    func contaValido(){
         let contaTest = NSPredicate(format: "SELF MATCHES %@",
                                     "[0-9]{5}\\-?[0-9]")
-        return contaTest.evaluate(with: ong.banco.conta)
+        if !contaTest.evaluate(with: ong.banco.conta){
+            mensagem = "Parece que a conta não está no formato correto :)\nExemplo: 12345-6"
+            apresentaFeedback = true
+            cor = .red
+        }
     }
     
-    func cepValido() -> Bool{
+    func cepValido(){
         let cepTest = NSPredicate(format: "SELF MATCHES %@",
                                     "[0-9]{5}\\-?[0-9]{3}")
-        return cepTest.evaluate(with: ong.endereco.cep)
+        if !cepTest.evaluate(with: ong.endereco.cep){
+            mensagem = "Parece que o cep não está no formato correto :)\nExemplo: 12345-678"
+            apresentaFeedback = true
+            cor = .red
+        }
     }
     
-    func estadoValido() -> Bool{
+    func estadoValido(){
         let estadoTest = NSPredicate(format: "SELF MATCHES %@",
                                     "[A-Z]{2}")
-        return estadoTest.evaluate(with: ong.endereco.estado)
+        if !estadoTest.evaluate(with: ong.endereco.estado){
+            mensagem = "Parece que o estado não está no formato correto :)\nExemplo: SP"
+            apresentaFeedback = true
+            cor = .red
+        }
+    }
+    func verificaCampos(){
+        apresentaFeedback = false
+        emailValido()
+        cnpjValido()
+        telefoneValido()
+        agenciaValido()
+        contaValido()
+        cepValido()
+        estadoValido()
+        estadoValido()
+        print(apresentaFeedback)
+        print(mensagem)
     }
     
     
