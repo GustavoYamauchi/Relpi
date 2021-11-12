@@ -65,6 +65,10 @@ struct EditarItem: View {
                             
                         }.padding(.horizontal, 30)
                         
+                        if itemViewModel.apresentaFeedback {
+                            DialogCard(text: itemViewModel.mensagem, colorStyle: itemViewModel.cor)
+                        }
+                        
                         Button("Salvar", action: {
                             itemViewModel.salvar()
                             novaTela.toggle()
