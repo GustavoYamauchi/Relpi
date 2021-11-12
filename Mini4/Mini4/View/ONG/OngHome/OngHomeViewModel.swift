@@ -71,10 +71,10 @@ final class OngHomeViewModel: ObservableObject {
             self?.isLoading = true
             switch result {
             case .success(let ong):
-                self?.isLoading = false
                 self?.ong = ong
                 self?.fetchImage()
                 self?.fetchItems()
+                self?.isLoading = false
             case .failure(let err):
                 self?.isLoading = false
                 print(err.localizedDescription)
@@ -87,9 +87,9 @@ final class OngHomeViewModel: ObservableObject {
             self?.isLoading = true
             switch result {
             case .success(let ong):
-                self?.isLoading = false
                 self?.ong = ong
                 self?.fetchItems()
+                self?.isLoading = false
             case .failure(let err):
                 self?.isLoading = false
                 print(err.localizedDescription)
@@ -116,9 +116,9 @@ final class OngHomeViewModel: ObservableObject {
             self.isLoading = true
             switch result {
             case .success(let items):
-                self.isLoading = false
                 DispatchQueue.main.async {
                     self.ong.estoque = items
+                    self.isLoading = false
                 }
             case .failure(let error):
                 self.isLoading = false
