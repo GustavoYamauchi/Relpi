@@ -61,7 +61,7 @@ final class DoadorHomeViewModel: ObservableObject {
             switch result {
             case .success(let ongs):
                 DispatchQueue.main.async {
-                    self?.ongs = ongs
+                    self?.ongs = ongs.sorted(by: {$0.nome < $1.nome})
                 }
                 
             case .failure(let err):

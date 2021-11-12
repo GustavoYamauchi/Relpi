@@ -52,7 +52,7 @@ struct ExplorarOngView: View {
                     ForEach(viewModel.ongs) { ong in
                         if viewModel.listaVertical {
                             Button(action: {}) {
-                                NavigationLink(destination: SobreOngView(viewModel: .init(ong: ong)),
+                                NavigationLink(destination: SobreOngView(viewModel: .init(ong: ong, imagem: viewModel.getImage(from: ong.id!))),
                                                label: {
                                                 Text(ong.nome)
                                                     .frame(minWidth: 0, maxWidth: .infinity)
@@ -62,7 +62,7 @@ struct ExplorarOngView: View {
                         } else {
                             VStack(alignment: .leading, spacing: 8) {
                                 Button(action: {}) {
-                                    NavigationLink(destination: SobreOngView(viewModel: .init(ong: ong)),
+                                    NavigationLink(destination: SobreOngView(viewModel: .init(ong: ong, imagem: viewModel.getImage(from: ong.id!))),
                                                    label: {
                                                     Text(ong.nome)
                                                         .textStyle(TitleStyle())

@@ -97,10 +97,15 @@ struct OngHomeView: View {
                     .padding(.top, 20)
                 }
             }
+            
+            if viewModel.isLoading {
+                LoadingView()
+            }
         }
         .onChange(of: viewModel.voltouTela) { _ in
             viewModel.atualizar()
         }
+        .navigationBarHidden(viewModel.isLoading)
         .navigationBarItems(trailing:
                                 
                                 ZStack {
@@ -121,8 +126,5 @@ struct OngHomeView: View {
         )
         .navigationBarBackButtonHidden(true)
         .navigationBarTitle("", displayMode: .inline)
-        if viewModel.isLoading {
-            LoadingView()
-        }
     }
 }
