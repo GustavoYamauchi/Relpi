@@ -67,8 +67,8 @@ final class OngHomeViewModel: ObservableObject {
     //MARK: - Métodos
     
     private func fetchOng(idOng: String) {
+        isLoading = true
         ongService.getOng(idOng: idOng) { [weak self] result in
-            self?.isLoading = true
             switch result {
             case .success(let ong):
                 self?.ong = ong
@@ -79,6 +79,7 @@ final class OngHomeViewModel: ObservableObject {
                 self?.isLoading = false
                 print(err.localizedDescription)
             }
+            self?.isLoading = false
         }
     }
     
