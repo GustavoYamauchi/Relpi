@@ -85,6 +85,7 @@ struct NewOngFormView: View {
                     }
                         
                     }
+                    .navigationBarHidden(viewModel.isLoading)
                     .padding([.leading, .trailing], 30)
                     .toolbar {
                         Button("Alterar foto") {
@@ -99,6 +100,7 @@ struct NewOngFormView: View {
                     }
                 }
             }
+            
             if viewModel.isLoading {
                 LoadingView()
             }
