@@ -126,7 +126,7 @@ final class FormItemViewModel: ObservableObject {
     
     //MARK: Métodos validadores
     func nomeValido(){
-        if !item.nome.isEmpty || item.nome == ""{
+        if item.nome.isEmpty || item.nome == ""{
             mensagem = "Parece que você não colocou um nome neste item :)"
             apresentaFeedback = true
             cor = .red
@@ -134,7 +134,7 @@ final class FormItemViewModel: ObservableObject {
     }
     
     func categoriaValido(){
-        if !item.categoria.isEmpty || item.categoria == ""{
+        if item.categoria.isEmpty || item.categoria == ""{
             mensagem = "Parece que você não selecionou uma categoria neste item :)"
             apresentaFeedback = true
             cor = .red
