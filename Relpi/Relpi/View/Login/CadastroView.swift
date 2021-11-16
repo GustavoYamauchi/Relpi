@@ -72,26 +72,29 @@ struct CadastroView: View {
                     }
                     
                     if let id = viewModel.id {
-                        NavigationLink(destination: OngHomeView(viewModel: .init(idOng: id)).environmentObject(EstoqueViewModel(id)) , isActive: $viewModel.encaminharOngHome) {
+                        NavigationLink(destination: OngHomeView(viewModel: .init(idOng: id)), isActive: $viewModel.encaminharOngHome) {
                             EmptyView()
                         }
                     }
                 }
                 
                 Spacer(minLength: 0)
-                
+
                 VStack(alignment: .center, spacing: 10) {
                     Text(viewModel.temContaLabel)
-                    
+
                     Button(action: {}, label: {
                         NavigationLink(destination:
                                         CadastroView(viewModel: .init(mode: (viewModel.mode == .cadastro) ? .login : .cadastro, usuario: .ong)),
                                        label: { Text(viewModel.temContaBotaoLabel) })
                     }).buttonStyle(.textButton)
-                    
+
                 }
                 .padding(.bottom, 50)
+                .hidden()
+                
             }
+            .navigationBarHidden(true)
         }
     }
 }

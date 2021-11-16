@@ -109,7 +109,7 @@ struct OngHomeView: View {
         .navigationBarItems(trailing:
                                 
                                 ZStack {
-                                    NavigationLink(destination: CadastroView(viewModel: .init(mode: .cadastro, usuario: .ong)), tag: 1, selection: $viewModel.tag){
+                                    NavigationLink(destination: CadastroView(viewModel: .init(mode: .login, usuario: .ong)), tag: 1, selection: $viewModel.tag){
                                         EmptyView()
                                     }
                                     
