@@ -19,7 +19,7 @@ class ImageStorageService {
     
     private init() { } 
     
-    func uploadImage(orgName: String, image: UIImage, completion: @escaping (String, Error?) -> Void) {
+    func uploadImage(idOng: String, image: UIImage, completion: @escaping (String, Error?) -> Void) {
         
         guard let imageData = image.jpegData(compressionQuality: 1) else { return }
         
@@ -27,14 +27,14 @@ class ImageStorageService {
         storageMetadata.contentType = "image/jpeg"
         
         // salva imagem
-        storageReference.child(orgName).putData(imageData, metadata: storageMetadata) { _ , err in
+        storageReference.child(idOng).putData(imageData, metadata: storageMetadata) { _ , err in
             if let err = err {
                 completion("", err)
                 return
             }
             
             // pega url da imagem recém salva
-            self.storageReference.child(orgName).downloadURL { url, error in
+            self.storageReference.child(idOng).downloadURL { url, error in
                 if let error = error {
                     print(error)
                     completion("", error)
@@ -57,7 +57,7 @@ class ImageStorageService {
                 if let error = error {
                     completion(nil, error)
                 }
-                
+                print("downloading image")
                 if let data = data, let image = UIImage(data: data) {
                     completion(image, nil)
                 }

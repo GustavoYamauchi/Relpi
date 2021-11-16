@@ -8,6 +8,8 @@ target 'Mini4' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
   pod 'Firebase/Auth'
+  pod 'Firebase/Analytics'
+  pod 'FirebaseFirestoreSwift', '8.3.0-beta'
 
   # Pods for Mini4
 
@@ -20,6 +22,8 @@ target 'Mini4Admin' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
   pod 'Firebase/Auth'
+  pod 'Firebase/Analytics'
+  pod 'FirebaseFirestoreSwift', '8.3.0-beta'
 
   # Pods for Mini4
 

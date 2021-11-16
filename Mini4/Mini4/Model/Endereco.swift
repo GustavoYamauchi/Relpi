@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct Endereco: Identifiable {
-    var id: String?
-    var logradouro: String
-    var numero: String
-    var bairro: String
-    var cidade: String
-    var cep: String
-    var estado: String
+struct Endereco: Identifiable, Codable {
+    var id: String? //Sem validacao
+    var logradouro: String //Sem validacao
+    var numero: String //Sem validacao
+    var bairro: String //Sem validacao
+    var cidade: String //Sem validacao
+    var cep: String //Validado
+    var estado: String //Validado
 }
 

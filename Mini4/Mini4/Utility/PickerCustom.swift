@@ -17,15 +17,16 @@ struct PickerCustom: View {
     var body: some View {
 
         ZStack {
-            RoundedRectangle(cornerRadius: 5)
-                .frame(width: UIScreen.main.bounds.size.width-75, height: 32)
+            RoundedRectangle(cornerRadius: 10)
+                .frame(width: UIScreen.main.bounds.size.width*((UIScreen.main.bounds.size.width > 1000) ? 0.61 : 0.81), height: 32)
                 .foregroundColor(Color.secundaria)
             
             Picker("Color", selection: $select){
-                ForEach(array, id: \.self){
+                let arraySort = array.sorted()
+                ForEach(arraySort, id: \.self){
                     Text($0)
                 }
-            }
+            }.pickerStyle(WheelPickerStyle())
         }.padding(30)
     }
     
