@@ -1,0 +1,6 @@
+framework module Pods_RelpiAdmin {
+  umbrella header "Pods-RelpiAdmin-umbrella.h"
+
+  export *
+  module * { export * }
+}
