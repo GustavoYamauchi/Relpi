@@ -1,6 +1,0 @@
-framework module Pods_Mini4 {
-  umbrella header "Pods-Mini4-umbrella.h"
-
-  export *
-  module * { export * }
-}
