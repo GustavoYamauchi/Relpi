@@ -25,7 +25,6 @@ class OngFormViewModel: ObservableObject {
     @Published var isLoading = false
     
     weak var ongHomeViewModel: OngHomeViewModel?
-        
     // MARK: - Inicializador
     
     init(modo: Modo,
@@ -116,6 +115,7 @@ class OngFormViewModel: ObservableObject {
                 } else {
                     self?.mensagem = "Atualizado com sucesso!"
                     self?.apresentaFeedback = true
+                    
                     // faz a ongHomeView model atualizar através de protocolo e delegate
                     if self?.ongHomeViewModel != nil {
                         self?.ongHomeViewModel?.atualizarHome()

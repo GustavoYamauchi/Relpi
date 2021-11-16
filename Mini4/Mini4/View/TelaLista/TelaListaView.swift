@@ -66,13 +66,13 @@ struct TelaListaView: View {
                 .padding(.vertical, 20)
             
                 #if Mini4
-                Button(action: {
-                    print("TODO: Fazer caixa de doação(?) resp: Não no mvp")
-                }, label: {
-                    Text("Adicionar itens na caixa de doação")
-                })
-                .buttonStyle(PrimaryButton())
-                .padding(.vertical, 20)
+//                Button(action: {
+//                    print("TODO: Fazer caixa de doação(?) resp: Não no mvp")
+//                }, label: {
+//                    Text("Adicionar itens na caixa de doação")
+//                })
+//                .buttonStyle(PrimaryButton())
+//                .padding(.vertical, 20)
                 #else
                 Button(action: {}, label: {
                     NavigationLink(destination: EditarItem(itemViewModel: .init(idOng: telaViewModel.idOng, idItem: "", modo: .novoItem), novaTela: $telaViewModel.voltouTela), label: {

@@ -72,6 +72,7 @@ struct EditarItem: View {
                         Button("Salvar", action: {
                             itemViewModel.salvar()
                             novaTela.toggle()
+                            presentationMode.wrappedValue.dismiss()
                         }).buttonStyle(.primaryButton)
                         
                         
