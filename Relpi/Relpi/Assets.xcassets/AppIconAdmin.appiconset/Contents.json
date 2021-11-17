@@ -1,109 +1,109 @@
 {
   "images" : [
     {
-      "filename" : "relpi-icon-40.png",
+      "filename" : "relpiONG-icon-40.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
-      "filename" : "relpi-icon-60.png",
+      "filename" : "relpiONG-icon-60.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "20x20"
     },
     {
-      "filename" : "relpi-icon-58.png",
+      "filename" : "relpiONG-icon-58.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
-      "filename" : "relpi-icon-87.png",
+      "filename" : "relpiONG-icon-87.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "29x29"
     },
     {
-      "filename" : "relpi-icon-80.png",
+      "filename" : "relpiONG-icon-80.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
-      "filename" : "relpi-icon-120.png",
+      "filename" : "relpiONG-icon-120.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
     },
     {
-      "filename" : "relpi-icon-121.png",
+      "filename" : "relpiONG-icon-121.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
-      "filename" : "relpi-icon-180.png",
+      "filename" : "relpiONG-icon-180.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
     },
     {
-      "filename" : "relpi-icon-20.png",
+      "filename" : "relpiONG-icon-20.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "20x20"
     },
     {
-      "filename" : "relpi-icon-42.png",
+      "filename" : "relpiONG-icon-41.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
-      "filename" : "relpi-icon-29.png",
+      "filename" : "relpiONG-icon-29.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "29x29"
     },
     {
-      "filename" : "relpi-icon-59.png",
+      "filename" : "relpiONG-icon-59.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
-      "filename" : "relpi-icon-41.png",
+      "filename" : "relpiONG-icon-42.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "40x40"
     },
     {
-      "filename" : "relpi-icon-81.png",
+      "filename" : "relpiONG-icon-81.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
-      "filename" : "relpi-icon-76.png",
+      "filename" : "relpiONG-icon-76.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "76x76"
     },
     {
-      "filename" : "relpi-icon-152.png",
+      "filename" : "relpiONG-icon-152.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "76x76"
     },
     {
-      "filename" : "relpi-icon-167.png",
+      "filename" : "relpiONG-icon-167.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "83.5x83.5"
     },
     {
-      "filename" : "relpi-icon-1024.png",
+      "filename" : "relpiONG-icon-1024.png",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"

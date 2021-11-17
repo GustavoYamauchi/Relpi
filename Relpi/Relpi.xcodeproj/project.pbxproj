@@ -148,7 +148,6 @@
 		1CC8104F2702336400B9E721 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1CC810522702336400B9E721 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1CC810542702336400B9E721 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1CC8105C2702366800B9E721 /* Mini4.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mini4.entitlements; sourceTree = "<group>"; };
 		1CC81086270237F400B9E721 /* RelpiAdmin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RelpiAdmin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CC8109427038A3100B9E721 /* Endereco.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endereco.swift; sourceTree = "<group>"; };
 		1CC8109527038A3100B9E721 /* Banco.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Banco.swift; sourceTree = "<group>"; };
@@ -166,6 +165,7 @@
 		852B1C9D2744310A00A60B71 /* Relpi copy-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Relpi copy-Info.plist"; sourceTree = "<group>"; };
 		852B1C9F274432F700A60B71 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		852B1CA12744330400A60B71 /* GoogleService-Info-admin.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-admin.plist"; sourceTree = "<group>"; };
+		85367FCC274443A7005099C8 /* Relpi.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Relpi.entitlements; sourceTree = "<group>"; };
 		854B99002722DBB900B1CEF9 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		8553EDC92704E6A300DB408D /* DoadorHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoadorHome.swift; sourceTree = "<group>"; };
 		8553EDCB2704F17900DB408D /* OngHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngHomeView.swift; sourceTree = "<group>"; };
@@ -272,11 +272,11 @@
 				1CC810A427038FE100B9E721 /* View */,
 				1CC810A027038E1A00B9E721 /* ViewModel */,
 				A3E7438F270E13FF004B47A0 /* Utility */,
-				1CC8105C2702366800B9E721 /* Mini4.entitlements */,
 				1CC810462702336200B9E721 /* AppDelegate.swift */,
 				1CC810482702336200B9E721 /* SceneDelegate.swift */,
 				1CC8104C2702336400B9E721 /* Assets.xcassets */,
 				1CC810512702336400B9E721 /* LaunchScreen.storyboard */,
+				85367FCC274443A7005099C8 /* Relpi.entitlements */,
 				852B1C9F274432F700A60B71 /* GoogleService-Info.plist */,
 				852B1CA12744330400A60B71 /* GoogleService-Info-admin.plist */,
 				1CC810542702336400B9E721 /* Info.plist */,
@@ -334,6 +334,7 @@
 		850CBD1D273390A400B846BB /* ItemLista */ = {
 			isa = PBXGroup;
 			children = (
+				85FA07FC2732F6EF00F7D8C7 /* Item */,
 				1C136A39270E399E00D09E9D /* ItemListaView.swift */,
 				1C136A402718971800D09E9D /* ItemListaVerticalView.swift */,
 				85FA07FD2732FCA300F7D8C7 /* ItemViewModel.swift */,
@@ -395,7 +396,6 @@
 			isa = PBXGroup;
 			children = (
 				8589EBE7270B935900EA906C /* Organizacao */,
-				85FA07FC2732F6EF00F7D8C7 /* Item */,
 				85EA0262272E044700FE1471 /* OngHome */,
 			);
 			path = ONG;
@@ -836,6 +836,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -898,6 +899,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -927,7 +929,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Mini4/Mini4.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Relpi/Relpi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Relpi/Preview Content\"";
 				DEVELOPMENT_TEAM = CFSW3AA3PQ;
@@ -953,7 +955,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Mini4/Mini4.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Relpi/Relpi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Relpi/Preview Content\"";
 				DEVELOPMENT_TEAM = CFSW3AA3PQ;
@@ -977,9 +979,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BF084DBB22371E23816FA4B3 /* Pods-RelpiAdmin.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconAdmin;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Mini4/Mini4.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Relpi/Relpi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Relpi/Preview Content\"";
 				DEVELOPMENT_TEAM = CFSW3AA3PQ;
@@ -1004,9 +1006,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AA7C5B8BF8F0E0BD0BFD44B9 /* Pods-RelpiAdmin.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconAdmin;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Mini4/Mini4.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Relpi/Relpi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Relpi/Preview Content\"";
 				DEVELOPMENT_TEAM = CFSW3AA3PQ;
