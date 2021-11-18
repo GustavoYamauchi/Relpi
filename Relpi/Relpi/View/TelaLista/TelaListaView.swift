@@ -77,6 +77,7 @@ struct TelaListaView: View {
                 Button(action: {}, label: {
                     NavigationLink(destination: FormItem(itemViewModel: .init(idOng: telaViewModel.idOng, idItem: "", modo: .novoItem), novaTela: $telaViewModel.voltouTela), label: {
                         Text("Adicionar item")
+                            .frame(minWidth: 0, maxWidth: .infinity)
                     })
                 })
                 .buttonStyle(PrimaryButton())
