@@ -33,7 +33,10 @@ struct DoadorHome: View {
                         if pesquisa == "" {
                             if doadorViewModel.quantidadeOngs() >= doadorViewModel.rangeOng { //verifica se tem 3 ongs e entrar no if
                                 ForEach(0..<qtdItensPorTamanhoTela) { i in
-                                    NavigationLink(destination: SobreOngView(viewModel: .init(ong: doadorViewModel.ong(at: i), imagem: nil))) {
+//                                    NavigationLink(destination: SobreOngViewGeral(viewModel: .init(ong: doadorViewModel.ong(at: i), imagem: nil))) {
+//                                        Text(doadorViewModel.ongName(at: i))
+//                                    }
+                                    NavigationLink(destination: SobreOngViewGeral(viewModel: .init(idOng: doadorViewModel.ong(at: i).id!))) {
                                         Text(doadorViewModel.ongName(at: i))
                                     }
                                     .buttonStyle(SecondaryButton())
@@ -41,7 +44,7 @@ struct DoadorHome: View {
                             } else { // se tiver menos exibi só elas
                                 ForEach(doadorViewModel.ongs) { ong in
                                     HStack {
-                                        NavigationLink(destination: SobreOngView(viewModel: .init(ong: ong, imagem: nil))) {
+                                        NavigationLink(destination: SobreOngViewGeral(viewModel: .init(idOng: ong.id!))) {
                                             Text("\(ong.nome)")
                                         }
                                         .buttonStyle(SecondaryButton())

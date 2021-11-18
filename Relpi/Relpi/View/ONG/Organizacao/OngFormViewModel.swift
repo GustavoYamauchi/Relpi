@@ -24,7 +24,7 @@ class OngFormViewModel: ObservableObject {
     var cor: ColorStyle = .green
     @Published var isLoading = false
     
-    weak var ongHomeViewModel: OngHomeViewModel?
+    weak var ongHomeViewModel: SobreOngGeralViewModel?
     // MARK: - Inicializador
     
     init(modo: Modo,
@@ -32,7 +32,7 @@ class OngFormViewModel: ObservableObject {
          ongService: OngServiceProtocol = OngService(),
          image: UIImage?,
          ongHome: Organizacao?,
-         ongHomeViewModel: OngHomeViewModel?
+         ongHomeViewModel: SobreOngGeralViewModel?
          )
     {
         self.modo = modo
