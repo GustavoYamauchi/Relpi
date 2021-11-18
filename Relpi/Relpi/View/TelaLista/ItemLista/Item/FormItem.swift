@@ -77,7 +77,7 @@ struct FormItem: View {
                         
                         
                         
-                        Button("Ocutar", action: {
+                        Button("Ocultar", action: {
                             itemViewModel.item.visivel.toggle()
                         }).buttonStyle(.secondaryButton)
                         
