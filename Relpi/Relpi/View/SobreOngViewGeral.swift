@@ -128,6 +128,10 @@ struct SobreOngViewGeral: View {
                                             .foregroundColor(Color.primaryButton)
                                             .font(.system(size: 16, weight: .bold, design: .default))
                                     })
+                                    #else
+                                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                                        /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
+                                    })
                                     #endif
                                 }
                         

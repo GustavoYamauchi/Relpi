@@ -81,8 +81,8 @@ struct NewOngFormView: View {
                     if viewModel.modo == .cadastro {
                         NavigationLink(destination: SobreOngViewGeral(isOng: true, viewModel: .init(idOng: viewModel.ong.id!)), isActive: $viewModel.redirectHome) {
                             EmptyView()
+                            }
                         }
-                    }
                         
                     }
                     .navigationBarHidden(viewModel.isLoading)

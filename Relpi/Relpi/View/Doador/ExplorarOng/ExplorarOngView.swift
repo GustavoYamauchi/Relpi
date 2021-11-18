@@ -52,8 +52,8 @@ struct ExplorarOngView: View {
                     ForEach(viewModel.ongs) { ong in
                         if viewModel.listaVertical {
                             Button(action: {}) {
-//                                NavigationLink(destination: SobreOngViewGeral(viewModel: .init(ong: ong, imagem: viewModel.getImage(from: ong.id!))),
-                                NavigationLink(destination: SobreOngViewGeral(viewModel: .init(idOng: ong.id!,imagem: viewModel.getImage(from: ong.id!))),
+////                                NavigationLink(destination: SobreOngViewGeral(viewModel: .init(ong: ong, imagem: viewModel.getImage(from: ong.id!))),
+                                NavigationLink(destination: SobreOngViewGeral(viewModel: .init(idOng: ong.id!, imagem: viewModel.getImage(from: ong.id!))),
                                                label: {
                                                 Text(ong.nome)
                                                     .frame(minWidth: 0, maxWidth: .infinity)

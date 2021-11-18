@@ -36,7 +36,7 @@ struct DoadorHome: View {
 //                                    NavigationLink(destination: SobreOngViewGeral(viewModel: .init(ong: doadorViewModel.ong(at: i), imagem: nil))) {
 //                                        Text(doadorViewModel.ongName(at: i))
 //                                    }
-                                    NavigationLink(destination: SobreOngViewGeral(viewModel: .init(idOng: doadorViewModel.ong(at: i).id!))) {
+                                    NavigationLink(destination: SobreOngViewGeral(viewModel: .init(idOng: doadorViewModel.ong(at: i).id!, imagem: nil))) {
                                         Text(doadorViewModel.ongName(at: i))
                                     }
                                     .buttonStyle(SecondaryButton())
@@ -44,7 +44,7 @@ struct DoadorHome: View {
                             } else { // se tiver menos exibi só elas
                                 ForEach(doadorViewModel.ongs) { ong in
                                     HStack {
-                                        NavigationLink(destination: SobreOngViewGeral(viewModel: .init(idOng: ong.id!))) {
+                                        NavigationLink(destination: SobreOngViewGeral(viewModel: .init(idOng: ong.id!, imagem: nil))) {
                                             Text("\(ong.nome)")
                                         }
                                         .buttonStyle(SecondaryButton())

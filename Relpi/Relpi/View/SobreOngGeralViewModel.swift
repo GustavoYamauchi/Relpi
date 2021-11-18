@@ -58,12 +58,14 @@ final class SobreOngGeralViewModel: ObservableObject {
     
     init(idOng: String,
          ongService: OngServiceProtocol = OngService(),
-         estoqueService: EstoqueServiceProtocol = EstoqueService()
+         estoqueService: EstoqueServiceProtocol = EstoqueService(), imagem:UIImage?
     ) {
         self.ongService = ongService
         self.estoqueService = estoqueService
         
         self.ong = Organizacao(id: idOng, nome: "", cnpj: "", descricao: "", telefone: "", email: "", foto: "", data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""), endereco: Endereco( logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""), estoque: [Item]())
+        
+        self.selectedImage = imagem
         
         fetchOng(idOng: idOng)
     }
