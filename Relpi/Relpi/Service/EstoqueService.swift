@@ -21,6 +21,7 @@ final class EstoqueService: EstoqueServiceProtocol {
     private let ongRef = Firestore.firestore().collection("ong")
     
     func addItem(idOng: String, item: Item, completion: @escaping (Result<Void, Error>) -> Void) {
+        print("tenta adicionar item")
         let itemNovo = ongRef.document(idOng).collection("estoque").document()
         let id = itemNovo.documentID
         

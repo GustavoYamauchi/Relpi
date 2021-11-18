@@ -67,6 +67,7 @@ struct ExplorarOngView: View {
                                                    label: {
                                                     Text(ong.nome)
                                                         .textStyle(TitleStyle())
+                                                        .frame(minWidth: 0, maxWidth: .infinity)
                                                    })
                                 }
                                 

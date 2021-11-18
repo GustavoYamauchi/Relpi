@@ -72,7 +72,11 @@ final class TelaListaViewModel: ObservableObject {
     }
     
     func temItemNaCategoria(categoria: Categorias) -> Bool{
+        #if RelpiAdmin
+        let filtro = items.filter({ ($0.nome.contains("\(itemPesquisado)") || itemPesquisado.isEmpty) && $0.categoria == categoria.rawValue  && ($0.urgente || !apenasUrgente)})
+        #else
         let filtro = items.filter({ ($0.nome.contains("\(itemPesquisado)") || itemPesquisado.isEmpty) && $0.categoria == categoria.rawValue && $0.visivel  && ($0.urgente || !apenasUrgente)})
+        #endif
         print("filtro: \(filtro.count) de \(filtro.first?.categoria ?? "")")
         return filtro.count > 0
     }

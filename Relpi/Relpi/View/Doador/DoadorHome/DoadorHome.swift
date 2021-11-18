@@ -32,11 +32,9 @@ struct DoadorHome: View {
                         let qtdItensPorTamanhoTela = Int((UIScreen.main.bounds.size.height * 0.25 / 41.61) - 1)
                         if pesquisa == "" {
                             if doadorViewModel.quantidadeOngs() >= doadorViewModel.rangeOng { //verifica se tem 3 ongs e entrar no if
-                                ForEach(0..<qtdItensPorTamanhoTela) { i in
-//                                    NavigationLink(destination: SobreOngViewGeral(viewModel: .init(ong: doadorViewModel.ong(at: i), imagem: nil))) {
-//                                        Text(doadorViewModel.ongName(at: i))
-//                                    }
-                                    NavigationLink(destination: SobreOngViewGeral(viewModel: .init(idOng: doadorViewModel.ong(at: i).id!, imagem: nil))) {
+                                let quantOngs = doadorViewModel.quantidadeOngs()
+                                ForEach(0..<((qtdItensPorTamanhoTela > quantOngs) ? quantOngs : qtdItensPorTamanhoTela)) { i in
+                                    NavigationLink(destination: SobreOngView(viewModel: .init(ong: doadorViewModel.ong(at: i), imagem: nil))) {
                                         Text(doadorViewModel.ongName(at: i))
                                     }
                                     .buttonStyle(SecondaryButton())

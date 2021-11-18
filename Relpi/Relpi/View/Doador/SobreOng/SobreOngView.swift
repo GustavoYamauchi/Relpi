@@ -38,6 +38,7 @@ struct SobreOngView: View {
                         NavigationLink(destination: TelaListaView(telaViewModel: .init(idOng: viewModel.idOng, data: viewModel.data)),
                                        label: {
                                         Text("Lista Completa")
+                                            .frame(minWidth: 0, maxWidth: .infinity)
                                        })
                     }
                     .buttonStyle(.primaryButton)
@@ -54,7 +55,10 @@ struct SobreOngView: View {
                         // Listar todos os itens da ONG
                         Button(action: {}) {
                             NavigationLink(destination: TelaListaView(telaViewModel: .init(idOng: viewModel.idOng, data: viewModel.data)),
-                                           label: { Text("Lista Completa") })
+                                           label: {
+                                            Text("Lista Completa")
+                                                .frame(minWidth: 0, maxWidth: .infinity)
+                                           })
                         }
                         .buttonStyle(.primaryButton)
                         

@@ -86,12 +86,15 @@ struct CadastroView: View {
                     Button(action: {}, label: {
                         NavigationLink(destination:
                                         CadastroView(viewModel: .init(mode: (viewModel.mode == .cadastro) ? .login : .cadastro, usuario: .ong)),
-                                       label: { Text(viewModel.temContaBotaoLabel) })
+                                       label: {
+                                        Text(viewModel.temContaBotaoLabel)
+                                            .frame(minWidth: 0, maxWidth: .infinity)
+                                       })
                     }).buttonStyle(.textButton)
 
                 }
                 .padding(.bottom, 50)
-                .hidden()
+//                .hidden()
                 
             }
             .navigationBarHidden(true)

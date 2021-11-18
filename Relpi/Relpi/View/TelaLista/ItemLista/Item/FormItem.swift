@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct EditarItem: View {
+struct FormItem: View {
     
     @ObservedObject var itemViewModel: FormItemViewModel
     @Environment(\.presentationMode) var presentationMode
@@ -77,7 +77,7 @@ struct EditarItem: View {
                         
                         
                         
-                        Button("Ocutar", action: {
+                        Button("Ocultar", action: {
                             itemViewModel.item.visivel.toggle()
                         }).buttonStyle(.secondaryButton)
                         
