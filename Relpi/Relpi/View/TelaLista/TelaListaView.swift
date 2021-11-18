@@ -75,7 +75,7 @@ struct TelaListaView: View {
 //                .padding(.vertical, 20)
                 #else
                 Button(action: {}, label: {
-                    NavigationLink(destination: EditarItem(itemViewModel: .init(idOng: telaViewModel.idOng, idItem: "", modo: .novoItem), novaTela: $telaViewModel.voltouTela), label: {
+                    NavigationLink(destination: FormItem(itemViewModel: .init(idOng: telaViewModel.idOng, idItem: "", modo: .novoItem), novaTela: $telaViewModel.voltouTela), label: {
                         Text("Adicionar item")
                     })
                 })

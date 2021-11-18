@@ -91,7 +91,7 @@ struct CadastroView: View {
 
                 }
                 .padding(.bottom, 50)
-                .hidden()
+//                .hidden()
                 
             }
             .navigationBarHidden(true)

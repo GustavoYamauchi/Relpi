@@ -41,7 +41,7 @@ struct ItemListaView: View {
                 #if Relpi
                 itemView
                 #else
-                NavigationLink(destination: EditarItem(itemViewModel: .init(idOng: viewModel.idOng, idItem: viewModel.item.id!, modo: .editarItem), novaTela: $novaTela),
+                NavigationLink(destination: FormItem(itemViewModel: .init(idOng: viewModel.idOng, idItem: viewModel.item.id!, modo: .editarItem), novaTela: $novaTela),
                     label: {
                         itemView
                 })

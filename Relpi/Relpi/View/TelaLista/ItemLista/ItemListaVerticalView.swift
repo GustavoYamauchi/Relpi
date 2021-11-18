@@ -37,7 +37,7 @@ struct ItemListaVerticalView: View {
             #if Relpi
             itemView
             #else
-            NavigationLink(destination: EditarItem(itemViewModel: .init(idOng: viewModel.idOng, idItem: viewModel.item.id!, modo: .editarItem), novaTela: $trocaDeTela), label: {
+            NavigationLink(destination: FormItem(itemViewModel: .init(idOng: viewModel.idOng, idItem: viewModel.item.id!, modo: .editarItem), novaTela: $trocaDeTela), label: {
                 itemView
             })
             #endif

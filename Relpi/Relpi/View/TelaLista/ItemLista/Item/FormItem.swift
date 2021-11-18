@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct EditarItem: View {
+struct FormItem: View {
     
     @ObservedObject var itemViewModel: FormItemViewModel
     @Environment(\.presentationMode) var presentationMode

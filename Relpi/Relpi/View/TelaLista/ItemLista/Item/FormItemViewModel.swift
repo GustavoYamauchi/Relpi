@@ -48,7 +48,7 @@ final class FormItemViewModel: ObservableObject {
         self.modo = modo
         self.estoqueService = estoqueService
         self.idOng = idOng
-        self.item = Item(nome: "", categoria: "", quantidade: 1, urgente: false, visivel: true)
+        self.item = Item(nome: "", categoria: "alimento", quantidade: 1, urgente: false, visivel: true)
         
         if modo == .editarItem && !idItem.isEmpty {
             fetchItem(idOng: idOng, idItem: idItem)
@@ -85,6 +85,7 @@ final class FormItemViewModel: ObservableObject {
     }
     
     func adicionarItem() {
+        print("adicionar item view model")
         estoqueService.addItem(idOng: idOng, item: item) { result in
             switch result {
                 case .success():
