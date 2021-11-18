@@ -14,6 +14,7 @@ protocol EstoqueServiceProtocol {
     func getItem(idOng: String, idItem: String, completion: @escaping (Result<Item, Error>) -> Void)
     func updateItem(idOng: String, item: Item, completion: @escaping (Result<Void, Error>) -> Void)
     func deleteItem(idOng: String, idItem: String, completion: @escaping (Result<Void, Error>) -> Void)
+    func updateDate(idOng: String, completion: @escaping (Result<Void, Error>) -> Void)
 }
 
 final class EstoqueService: EstoqueServiceProtocol {
@@ -37,6 +38,17 @@ final class EstoqueService: EstoqueServiceProtocol {
                 completion(.failure(erro))
             }
         }
+        
+        updateDate(idOng: idOng){ result in
+            switch result {
+            case .success(()):
+                print("data Atualizada")
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+
+        }
+        
         completion(.success(()))
     }
     
@@ -98,6 +110,16 @@ final class EstoqueService: EstoqueServiceProtocol {
             }
         }
         
+        updateDate(idOng: idOng){ result in
+            switch result {
+            case .success(()):
+                print("data Atualizada")
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+
+        }
+        
         completion(.success(()))
     }
     
@@ -109,6 +131,25 @@ final class EstoqueService: EstoqueServiceProtocol {
             }
         }
         
+        updateDate(idOng: idOng){ result in
+            switch result {
+            case .success(()):
+                print("data Atualizada")
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+
+        }
+        
+        completion(.success(()))
+    }
+    
+    func updateDate(idOng: String, completion: @escaping (Result<Void, Error>) -> Void){
+        ongRef.document(idOng).updateData(["data": Timestamp(date: Date())]){ err in
+            if let err = err {
+                completion(.failure(err))
+            }
+        }
         completion(.success(()))
     }
     

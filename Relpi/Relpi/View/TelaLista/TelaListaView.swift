@@ -118,6 +118,10 @@ struct TelaListaView: View {
             telaViewModel.atualizar()
         }
         
+        .onChange(of: telaViewModel.data) { _ in
+            print("ué")
+        }
+        
     }
 }
 
