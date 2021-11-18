@@ -72,7 +72,7 @@ struct CadastroView: View {
                     }
                     
                     if let id = viewModel.id {
-                        NavigationLink(destination: SobreOngViewGeral(isOng:true, viewModel: .init(idOng: id)), isActive: $viewModel.encaminharOngHome) {
+                        NavigationLink(destination: SobreOngViewGeral(isOng:true, viewModel: .init(idOng: id, imagem: nil)), isActive: $viewModel.encaminharOngHome) {
                             EmptyView()
                         }
                     }

@@ -79,7 +79,7 @@ struct NewOngFormView: View {
                     }
                         
                     if viewModel.modo == .cadastro {
-                        NavigationLink(destination: SobreOngViewGeral(isOng: true, viewModel: .init(idOng: viewModel.ong.id!)), isActive: $viewModel.redirectHome) {
+                        NavigationLink(destination: SobreOngViewGeral(isOng: true, viewModel: .init(idOng: viewModel.ong.id!, imagem: viewModel.downloadedImage)), isActive: $viewModel.redirectHome) {
                             EmptyView()
                             }
                         }
