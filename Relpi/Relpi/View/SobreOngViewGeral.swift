@@ -58,7 +58,10 @@ struct SobreOngViewGeral: View {
                     
                     Button(action: {}) {
                         NavigationLink(destination: TelaListaView(telaViewModel: .init(idOng: viewModel.ong.id!, data: viewModel.ong.data)),
-                                       label: { Text(viewModel.listaCompletaButtonLabel) })
+                                       label: {
+                                        Text(viewModel.listaCompletaButtonLabel)
+                                            .frame(minWidth: 0, maxWidth: .infinity)
+                                       })
                     }
                     .buttonStyle(.primaryButton)
                     
@@ -93,7 +96,10 @@ struct SobreOngViewGeral: View {
                     #if RelpiAdmin
                     Button(action: {}, label: {
                         NavigationLink(destination: NewOngFormView(viewModel: .init(modo: .perfil, image: viewModel.selectedImage, ongHome: viewModel.ong, ongHomeViewModel: viewModel)),
-                                       label: { Text(viewModel.verPerfilButtonLabel) } )
+                                       label: {
+                                        Text(viewModel.verPerfilButtonLabel)
+                                            .frame(minWidth: 0, maxWidth: .infinity)
+                                       } )
                     }).buttonStyle(.primaryButton)
                     .padding(.top, 20)
                     #else
