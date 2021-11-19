@@ -39,6 +39,7 @@ final class TelaListaViewModel: ObservableObject {
     // MARK: - Métodos
     
     var dataAtualizada: String {
+        atualizaData()
         let date = Date(timeIntervalSince1970: TimeInterval(self.data.seconds))
         
         let formatador = DateFormatter()
@@ -46,14 +47,28 @@ final class TelaListaViewModel: ObservableObject {
         formatador.dateStyle = .short
         formatadorHora.locale = .current
         formatador.locale = .current
-        let template = "MM/dd/yyyy"
+        let template = "dd/MM/yyyy"
         let templateHora = "HH:mm"
         if let dateFormate = DateFormatter.dateFormat(fromTemplate: template, options: 0, locale: formatador.locale), let hourFormate = DateFormatter.dateFormat(fromTemplate: templateHora, options: 0, locale: formatador.locale){
             formatador.dateFormat = dateFormate
             formatadorHora.dateFormat = hourFormate
-            return "\(formatador.string(from: date)) às \(formatadorHora.string(from: date))"
+            return "Atualizado em \(formatador.string(from: date)) às \(formatadorHora.string(from: date))"
         }
-        return ""
+        return "Parece que a Ong não teve atualizações"
+    }
+    
+    func atualizaData(){
+        estoqueService.getDate(idOng: idOng) { [weak self] result in
+            switch result {
+            case .success(let dataAtt):
+                DispatchQueue.main.async {
+                    self?.data = dataAtt
+                }
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
     private func fetchItems() {

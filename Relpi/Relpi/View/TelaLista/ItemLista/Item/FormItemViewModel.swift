@@ -103,7 +103,6 @@ final class FormItemViewModel: ObservableObject {
             switch result {
                 case .success():
                     print("item atualizado")
-                    
                 case .failure(let err):
                     print(err.localizedDescription)
                     
@@ -116,8 +115,6 @@ final class FormItemViewModel: ObservableObject {
             switch result {
                 case .success():
                     print("item excluído")
-                    // atualizar timestamp da ong
-                    
                 case .failure(let err):
                     print(err.localizedDescription)
                     
