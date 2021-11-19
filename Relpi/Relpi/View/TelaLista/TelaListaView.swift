@@ -52,7 +52,7 @@ struct TelaListaView: View {
                 .foregroundColor(Color.primaryButton)
                 .font(.system(size: 24, weight: .bold, design: .default))
             
-            Text("Atualizado em \(telaViewModel.dataAtualizada).")
+            Text("\(telaViewModel.dataAtualizada).")
                 .padding(.leading, 25)
                 .foregroundColor(Color.gray)
                 .font(.system(size: 14, weight: .regular, design: .default))

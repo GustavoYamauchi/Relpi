@@ -15,6 +15,7 @@ protocol EstoqueServiceProtocol {
     func updateItem(idOng: String, item: Item, completion: @escaping (Result<Void, Error>) -> Void)
     func deleteItem(idOng: String, idItem: String, completion: @escaping (Result<Void, Error>) -> Void)
     func updateDate(idOng: String, completion: @escaping (Result<Void, Error>) -> Void)
+    func getDate(idOng: String, completion: @escaping (Result<Timestamp, Error>) -> Void)
 }
 
 final class EstoqueService: EstoqueServiceProtocol {
@@ -151,6 +152,28 @@ final class EstoqueService: EstoqueServiceProtocol {
             }
         }
         completion(.success(()))
+    }
+    func getDate(idOng: String, completion: @escaping (Result<Timestamp, Error>) -> Void) {
+        ongRef.whereField("id", isEqualTo: idOng).getDocuments{ (ong, err) in
+            if let err = err {
+                completion(.failure(err))
+            }
+            do {
+                let ongs = try ong?.documents.map {
+                    try $0.data(as: Organizacao.self)
+                }
+                                
+                if let ongTemp = ongs?.compactMap({ $0 }) {
+                    if let timestamp = ongTemp.first?.data{
+                        completion(.success(timestamp))
+                    }
+                }
+                
+            } catch let err {
+                completion(.failure(err))
+            }
+            
+        }
     }
     
     func castString(_ variable: Any?) -> String{
