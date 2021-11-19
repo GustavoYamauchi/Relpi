@@ -24,9 +24,9 @@ struct EnderecoFormView: View {
             CustomTextField(text: $endereco.cep, placeholder: "CEP")
             CustomTextField(text: $endereco.logradouro, placeholder: "Rua")
             CustomTextField(text: $endereco.numero, placeholder: "Numero e Complemento")
-            CustomTextField(text: $endereco.estado, placeholder: "Estado")
             CustomTextField(text: $endereco.bairro, placeholder: "Bairro")
             CustomTextField(text: $endereco.cidade, placeholder: "Cidade")
+            CustomTextField(text: $endereco.estado, placeholder: "Estado")
         }
         .onAppear {
             endereco = (isEditing) ? endereco : Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: "")

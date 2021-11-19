@@ -19,6 +19,7 @@ final class FormItemViewModel: ObservableObject {
     @Published var mensagem = ""
     @Published var apresentaFeedback = false
     var cor: ColorStyle = .green
+    @Published var isLoading = false
     
     
     // MARK: - Views
@@ -48,7 +49,7 @@ final class FormItemViewModel: ObservableObject {
         self.modo = modo
         self.estoqueService = estoqueService
         self.idOng = idOng
-        self.item = Item(nome: "", categoria: "alimento", quantidade: 1, urgente: false, visivel: true)
+        self.item = Item(nome: "", categoria: "Alimento", quantidade: 1, urgente: false, visivel: true)
         
         if modo == .editarItem && !idItem.isEmpty {
             fetchItem(idOng: idOng, idItem: idItem)
@@ -73,6 +74,7 @@ final class FormItemViewModel: ObservableObject {
     }
     
     func salvar() {
+        isLoading = true
         verificaCampos()
         if !apresentaFeedback{
             switch modo {
@@ -82,6 +84,7 @@ final class FormItemViewModel: ObservableObject {
                 adicionarItem()
             }
         }
+        isLoading = false
     }
     
     func adicionarItem() {
@@ -103,7 +106,6 @@ final class FormItemViewModel: ObservableObject {
             switch result {
                 case .success():
                     print("item atualizado")
-                    
                 case .failure(let err):
                     print(err.localizedDescription)
                     
@@ -116,8 +118,6 @@ final class FormItemViewModel: ObservableObject {
             switch result {
                 case .success():
                     print("item excluído")
-                    // atualizar timestamp da ong
-                    
                 case .failure(let err):
                     print(err.localizedDescription)
                     
