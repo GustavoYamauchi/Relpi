@@ -64,10 +64,12 @@ struct NewOngFormView: View {
                             }
                         }.foregroundColor(Color("primaryButton"))
                         .font(.system(size: 16, weight: .bold, design: .default))
-
-                    Button("Salvar") {
-                        viewModel.salvar()
-                    }.buttonStyle(PrimaryButton())
+                        
+                    if viewModel.modo == .perfil || pageIndex == 3{
+                        Button("Salvar") {
+                            viewModel.salvar()
+                        }.buttonStyle(PrimaryButton())
+                    }
                     
                     if viewModel.modo == .perfil {
                         Button("Cancelar") {
