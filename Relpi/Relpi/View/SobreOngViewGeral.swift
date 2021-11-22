@@ -35,6 +35,24 @@ struct SobreOngViewGeral: View {
     }
     
     // MARK: Gesture
+    var changePage : some Gesture{
+        DragGesture()
+            .onChanged { gesture in
+                gestureIsValid = false
+                if gesture.translation.height > 50{
+                    gestureIsValid = true
+                }
+                
+                if gesture.translation.height < -50{
+                    gestureIsValid = true
+                }
+            }
+            .onEnded({ _ in
+                if gestureIsValid {
+                  hideKeyboard()
+                }
+            })
+    }
     
     
     var body: some View {
@@ -124,6 +142,7 @@ struct SobreOngViewGeral: View {
         .onTapGesture {
             self.hideKeyboard()
         }
+        .gesture(changePage)
         .navigationBarHidden(viewModel.isLoading)
         .navigationBarItems(trailing:
                                 ZStack {

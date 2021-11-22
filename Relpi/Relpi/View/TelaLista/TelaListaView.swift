@@ -12,6 +12,28 @@ struct TelaListaView: View {
 
     @ObservedObject var telaViewModel: TelaListaViewModel
     
+    @State var gestureIsValid = false
+    
+    // MARK: Gesture
+    var changePage : some Gesture{
+        DragGesture()
+            .onChanged { gesture in
+                gestureIsValid = false
+                if gesture.translation.height > 50{
+                    gestureIsValid = true
+                }
+                
+                if gesture.translation.height < -50{
+                    gestureIsValid = true
+                }
+            }
+            .onEnded({ _ in
+                if gestureIsValid {
+                  hideKeyboard()
+                }
+            })
+    }
+    
     var body: some View {
         
         VStack(alignment: .leading){
@@ -117,10 +139,10 @@ struct TelaListaView: View {
         .onChange(of: telaViewModel.voltouTela) { _ in
             telaViewModel.atualizar()
         }
-        
-        .onChange(of: telaViewModel.data) { _ in
-            print("ué")
+        .onTapGesture {
+            self.hideKeyboard()
         }
+        .gesture(changePage)
         
     }
 }
