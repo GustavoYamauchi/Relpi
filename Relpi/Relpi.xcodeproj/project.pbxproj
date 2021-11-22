@@ -32,6 +32,8 @@
 		1C7DF8D6272B1E2300D227CA /* OngService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7DF8D4272B1E2300D227CA /* OngService.swift */; };
 		1C9A05A5273AEB2E004E629B /* SobreOngDoadorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9A05A4273AEB2E004E629B /* SobreOngDoadorView.swift */; };
 		1C9A05A7273AECF4004E629B /* SobreOngDoadorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9A05A6273AECF4004E629B /* SobreOngDoadorViewModel.swift */; };
+		1CAC66CC27483D2B00CE7DC6 /* Keyboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC66CB27483D2B00CE7DC6 /* Keyboard+Extension.swift */; };
+		1CAC66CD27483D2B00CE7DC6 /* Keyboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC66CB27483D2B00CE7DC6 /* Keyboard+Extension.swift */; };
 		1CC810472702336200B9E721 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC810462702336200B9E721 /* AppDelegate.swift */; };
 		1CC810492702336200B9E721 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC810482702336200B9E721 /* SceneDelegate.swift */; };
 		1CC8104B2702336200B9E721 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8104A2702336200B9E721 /* ContentView.swift */; };
@@ -108,7 +110,6 @@
 		8B410CF12746D80700887CE3 /* SobreOngDoadorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9A05A6273AECF4004E629B /* SobreOngDoadorViewModel.swift */; };
 		8B410CF22746D80A00887CE3 /* SobreOngDoadorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9A05A4273AEB2E004E629B /* SobreOngDoadorView.swift */; };
 		8B410CF42746DFD500887CE3 /* OngFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8592BE15272B41A2002165EF /* OngFormViewModel.swift */; };
-		8BCF2D9D271DF2D400E13139 /* EditarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF2D9C271DF2D400E13139 /* EditarItem.swift */; };
 		8BCF2D9D271DF2D400E13139 /* FormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF2D9C271DF2D400E13139 /* FormItem.swift */; };
 		8BCF2D9F271E00B500E13139 /* Quantity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF2D9E271E00B500E13139 /* Quantity.swift */; };
 		8BCF2DA0271E00B500E13139 /* Quantity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF2D9E271E00B500E13139 /* Quantity.swift */; };
@@ -148,6 +149,7 @@
 		1C7DF8D4272B1E2300D227CA /* OngService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngService.swift; sourceTree = "<group>"; };
 		1C9A05A4273AEB2E004E629B /* SobreOngDoadorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SobreOngDoadorView.swift; sourceTree = "<group>"; };
 		1C9A05A6273AECF4004E629B /* SobreOngDoadorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SobreOngDoadorViewModel.swift; sourceTree = "<group>"; };
+		1CAC66CB27483D2B00CE7DC6 /* Keyboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Keyboard+Extension.swift"; sourceTree = "<group>"; };
 		1CC810432702336200B9E721 /* Relpi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Relpi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CC810462702336200B9E721 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CC810482702336200B9E721 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -198,7 +200,6 @@
 		8B12DA582710BE9700A19E3B /* PickerCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerCustom.swift; sourceTree = "<group>"; };
 		8B1E5FAE27459D4F00E4FCA3 /* SobreOngViewGeral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SobreOngViewGeral.swift; sourceTree = "<group>"; };
 		8B1E5FB12745A2A200E4FCA3 /* SobreOngGeralViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SobreOngGeralViewModel.swift; sourceTree = "<group>"; };
-		8BCF2D9C271DF2D400E13139 /* EditarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarItem.swift; sourceTree = "<group>"; };
 		8BCF2D9C271DF2D400E13139 /* FormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormItem.swift; sourceTree = "<group>"; };
 		8BCF2D9E271E00B500E13139 /* Quantity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quantity.swift; sourceTree = "<group>"; };
 		955494525642010205C58BB7 /* Pods_RelpiAdmin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RelpiAdmin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -478,6 +479,7 @@
 			isa = PBXGroup;
 			children = (
 				A3ADA90D270CC6BE0005A81E /* Button+Extension.swift */,
+				1CAC66CB27483D2B00CE7DC6 /* Keyboard+Extension.swift */,
 				A30BA3AC270F5C9F00D2222B /* Color+Extension.swift */,
 				8B12DA552710BE5900A19E3B /* Category.swift */,
 				8B12DA582710BE9700A19E3B /* PickerCustom.swift */,
@@ -737,6 +739,7 @@
 				1CD911DD270B7224007B2D05 /* BancoViewModel.swift in Sources */,
 				1C136A3A270E399E00D09E9D /* ItemListaView.swift in Sources */,
 				1C136A37270E391C00D09E9D /* TelaListaView.swift in Sources */,
+				1CAC66CC27483D2B00CE7DC6 /* Keyboard+Extension.swift in Sources */,
 				8B12DA592710BE9700A19E3B /* PickerCustom.swift in Sources */,
 				1C7DF8D5272B1E2300D227CA /* OngService.swift in Sources */,
 				8B410CF42746DFD500887CE3 /* OngFormViewModel.swift in Sources */,
@@ -803,6 +806,7 @@
 				1CC810A327038E7400B9E721 /* OngViewModel.swift in Sources */,
 				A386DDB4273C4A2E002BA7BF /* LoadingView.swift in Sources */,
 				8B410CF22746D80A00887CE3 /* SobreOngDoadorView.swift in Sources */,
+				1CAC66CD27483D2B00CE7DC6 /* Keyboard+Extension.swift in Sources */,
 				1C5CC9322720AE9B0078EC01 /* ListaVerticalItem.swift in Sources */,
 				1CC8107A270237F400B9E721 /* ContentView.swift in Sources */,
 				1CC8109B27038A3100B9E721 /* Banco.swift in Sources */,
