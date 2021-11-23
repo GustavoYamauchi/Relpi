@@ -18,23 +18,23 @@ struct Category: View {
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        NavigationView {
-            VStack {
-                Button(action: {
-                    self.toggle.toggle()
-                }, label: {
-                    HStack {
-                        Text("\(selected)")
-                            .foregroundColor(.textPlaceholderTextfield)
-                        
-                        Spacer()
-                        
-                        Text("...")
-                            .foregroundColor(.textPlaceholderTextfield)
-                    }
-                })
-                .buttonStyle(.categoryButton)
-                .sheet(isPresented: $toggle, content: {
+        VStack {
+            Button(action: {
+                self.toggle.toggle()
+            }, label: {
+                HStack {
+                    Text("\(selected)")
+                        .foregroundColor(.textPlaceholderTextfield)
+                    
+                    Spacer()
+                    
+                    Text("...")
+                        .foregroundColor(.textPlaceholderTextfield)
+                }
+            })
+            .buttonStyle(.categoryButton)
+            .sheet(isPresented: $toggle, content: {
+                NavigationView{
                     ZStack {
                         Color.primaria
                         VStack {
@@ -48,18 +48,18 @@ struct Category: View {
                             }.buttonStyle(.primaryButton)
                         }
                     }.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-                })
-            }
-            .navigationBarItems(
-                leading: Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }) {
-                    HStack {
-                        Text("Cancelar")
-                            .accentColor(.destaque)
-                    }
+                    .navigationBarItems(
+                        leading: Button(action: {
+                            self.toggle.toggle()
+                        }) {
+                            HStack {
+                                Text("Cancelar")
+                                    .accentColor(.destaque)
+                            }
+                        }
+                    )
                 }
-            )
+            })
         }
     }
 }
