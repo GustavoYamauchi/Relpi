@@ -17,6 +17,28 @@ struct DoadorHome: View {
     
     let tabItemNames = ["Home", "Favoritos", "CaixaDoacao"]
     
+    @State var gestureIsValid = false
+    
+    // MARK: Gesture
+    var changePage : some Gesture{
+        DragGesture()
+            .onChanged { gesture in
+                gestureIsValid = false
+                if gesture.translation.height > 50{
+                    gestureIsValid = true
+                }
+                
+                if gesture.translation.height < -50{
+                    gestureIsValid = true
+                }
+            }
+            .onEnded({ _ in
+                if gestureIsValid {
+                  hideKeyboard()
+                }
+            })
+    }
+    
     var body: some View {
         VStack {
             ScrollView {
@@ -71,6 +93,10 @@ struct DoadorHome: View {
                     }
                 }
             }
+            .onTapGesture {
+                self.hideKeyboard()
+            }
+            .gesture(changePage)
         }
 
 //MARK: Codigo pra utilizar quando tiver a tela de caixa de doação e/ou ONGs favoritas

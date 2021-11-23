@@ -14,6 +14,28 @@ struct FormItem: View {
     @Environment(\.presentationMode) var presentationMode
     @Binding var novaTela: Bool
     
+    @State var gestureIsValid = false
+    
+    // MARK: Gesture
+    var changePage : some Gesture{
+        DragGesture()
+            .onChanged { gesture in
+                gestureIsValid = false
+                if gesture.translation.height > 50{
+                    gestureIsValid = true
+                }
+                
+                if gesture.translation.height < -50{
+                    gestureIsValid = true
+                }
+            }
+            .onEnded({ _ in
+                if gestureIsValid {
+                  hideKeyboard()
+                }
+            })
+    }
+    
 
     var body: some View {
         ZStack {
@@ -109,6 +131,10 @@ struct FormItem: View {
                 LoadingView()
             }
         }
+        .onTapGesture {
+            self.hideKeyboard()
+        }
+        .gesture(changePage)
         
     }
 }

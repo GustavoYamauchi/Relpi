@@ -14,6 +14,7 @@ struct SobreOngViewGeral: View {
     @State var isOng = false
     @ObservedObject var viewModel: SobreOngGeralViewModel
     @State var itemPesquisado = ""
+    @State var gestureIsValid = false
     
     // MARK: Subviews
     
@@ -32,6 +33,27 @@ struct SobreOngViewGeral: View {
             .font(.system(size: 14, weight: .regular, design: .default))
             .padding(.bottom, 10)
     }
+    
+    // MARK: Gesture
+    var changePage : some Gesture{
+        DragGesture()
+            .onChanged { gesture in
+                gestureIsValid = false
+                if gesture.translation.height > 50{
+                    gestureIsValid = true
+                }
+                
+                if gesture.translation.height < -50{
+                    gestureIsValid = true
+                }
+            }
+            .onEnded({ _ in
+                if gestureIsValid {
+                  hideKeyboard()
+                }
+            })
+    }
+    
     
     var body: some View {
         ZStack {
@@ -117,6 +139,10 @@ struct SobreOngViewGeral: View {
         .onChange(of: viewModel.voltouTela) { _ in
             viewModel.atualizar()
         }
+        .onTapGesture {
+            self.hideKeyboard()
+        }
+        .gesture(changePage)
         .navigationBarHidden(viewModel.isLoading)
         .navigationBarItems(trailing:
                                 ZStack {
@@ -134,10 +160,6 @@ struct SobreOngViewGeral: View {
                                             .foregroundColor(Color.primaryButton)
                                             .font(.system(size: 16, weight: .bold, design: .default))
                                     })
-//                                    #else
-//                                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-//                                        /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
-//                                    })
                                     #endif
                                 }
                         

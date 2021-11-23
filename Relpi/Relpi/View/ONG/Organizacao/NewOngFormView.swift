@@ -18,6 +18,27 @@ struct NewOngFormView: View {
         
     @State var pageIndex: Int = 0
         
+    @State var gestureIsValid = false
+    
+    // MARK: Gesture
+    var changePage : some Gesture{
+        DragGesture()
+            .onChanged { gesture in
+                gestureIsValid = false
+                if gesture.translation.height > 50{
+                    gestureIsValid = true
+                }
+                
+                if gesture.translation.height < -50{
+                    gestureIsValid = true
+                }
+            }
+            .onEnded({ _ in
+                if gestureIsValid {
+                  hideKeyboard()
+                }
+            })
+    }
     
     //MARK: - View
     var body: some View {
@@ -107,6 +128,10 @@ struct NewOngFormView: View {
                 LoadingView()
             }
         }
+        .onTapGesture {
+            self.hideKeyboard()
+        }
+        .gesture(changePage)
     }
     
     // MARK: - Métodos

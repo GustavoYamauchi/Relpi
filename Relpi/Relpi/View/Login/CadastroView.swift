@@ -13,6 +13,28 @@ struct CadastroView: View {
     
     @ObservedObject var viewModel: LoginCadastroViewModel
     
+    @State var gestureIsValid = false
+    
+    // MARK: Gesture
+    var changePage : some Gesture{
+        DragGesture()
+            .onChanged { gesture in
+                gestureIsValid = false
+                if gesture.translation.height > 50{
+                    gestureIsValid = true
+                }
+                
+                if gesture.translation.height < -50{
+                    gestureIsValid = true
+                }
+            }
+            .onEnded({ _ in
+                if gestureIsValid {
+                  hideKeyboard()
+                }
+            })
+    }
+    
     // MARK: Subviews
     var tituloView: some View {
         Text(viewModel.titulo)
@@ -99,5 +121,9 @@ struct CadastroView: View {
             }
             .navigationBarHidden(true)
         }
+        .onTapGesture {
+            self.hideKeyboard()
+        }
+        .gesture(changePage)
     }
 }
