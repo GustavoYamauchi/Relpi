@@ -41,7 +41,7 @@ class OngFormViewModel: ObservableObject {
         self.ongService = ongService
         
         ong = Organizacao(id: userService.usuarioAtual()?.uid,
-            nome: "", cnpj: "", descricao: "", telefone: "", email: "",
+                          nome: "", cnpj: "", descricao: "", telefone: "", email: "", site: "",
             data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
             endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
         

@@ -39,6 +39,7 @@ class OngViewModel : ObservableObject {
                         descricao: self.castString(i.document.get("descricao")),
                         telefone: self.castString(i.document.get("telefone")),
                         email: self.castString(i.document.get("email")),
+                        site: self.castString(i.document.get("site")),
                         foto: self.castString(i.document.get("foto")),
                         data: Timestamp.init(date: Date()),
                         banco: Banco(banco: "31231", agencia: "", conta: "", pix: ""),
@@ -268,7 +269,7 @@ class OngViewModel : ObservableObject {
 
     func gerarNovaOng() -> Organizacao {
         return Organizacao(
-            nome: "", cnpj: "", descricao: "", telefone: "", email: "", data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
+            nome: "", cnpj: "", descricao: "", telefone: "", email: "", site: "", data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
             endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
     }
     
@@ -277,7 +278,7 @@ class OngViewModel : ObservableObject {
                 
         let ong = self.data.first(where: { $0.id == id} )
         return ong ?? Organizacao(
-            nome: "n tem ong", cnpj: "", descricao: "", telefone: "", email: "", data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
+            nome: "n tem ong", cnpj: "", descricao: "", telefone: "", email: "", site: "", data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
             endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
     }
     
@@ -291,6 +292,7 @@ class OngViewModel : ObservableObject {
                               descricao: "A Casa Maria Helena Paulina é uma organização não governamental paulista fundada em 1992 que acolhe jovens com câncer - ou outras enfermidades - e seus acompanhantes oriundos de diversos estados brasileiros que encaminham-se para São Paulo em busca de infraestrutura de tratamento adequado às suas necessidades. A Casa fornece moradia, alimentos, assistência psicológica, produtos de higiene e as mais variadas atividades para que a estadia dos assistidos seja a melhor possível apesar de todas as dificuldades encontradas ao longo do tratamento.",
                               telefone: "(11) 3744-7492",
                               email: "contato@casamariahelenapaulina.org.br",
+                              site: "https://www.casamariahelenapaulina.org.br",
                               foto: "",
                               data: Timestamp(date: Date()),
                               banco: Banco(banco: "Banco Itaú",
