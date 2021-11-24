@@ -86,7 +86,7 @@ struct NewOngFormView: View {
                         }.foregroundColor(Color("primaryButton"))
                         .font(.system(size: 16, weight: .bold, design: .default))
                         
-                    if (viewModel.modo == .perfil || pageIndex == 3) && viewModel.ong != viewModel.ongInicial{
+                        if (viewModel.modo == .perfil || pageIndex == 3) && (viewModel.ong != viewModel.ongInicial || viewModel.selectedImage != nil && viewModel.selectedImage?.pngData() != viewModel.downloadedImage?.pngData()){
                         Button("Salvar") {
                             viewModel.salvar()
                         }.buttonStyle(PrimaryButton())
