@@ -92,11 +92,13 @@ struct FormItem: View {
                                 DialogCard(text: itemViewModel.mensagem, colorStyle: itemViewModel.cor)
                             }
                             
-                            Button("Salvar", action: {
-                                itemViewModel.salvar()
-                                novaTela.toggle()
-                                presentationMode.wrappedValue.dismiss()
-                            }).buttonStyle(.primaryButton)
+                            if itemViewModel.item != itemViewModel.itemInicial{
+                                Button("Salvar", action: {
+                                    itemViewModel.salvar()
+                                    novaTela.toggle()
+                                    presentationMode.wrappedValue.dismiss()
+                                }).buttonStyle(.primaryButton)
+                            }
                             
                             
                             
