@@ -61,18 +61,22 @@ struct SobreOngViewGeral: View {
                 tituloLabel
                 nomeOngLabel
                 
-                SearchBarView(pesquisando: $itemPesquisado, placeholder: "Pesquisar")
+                SearchBarView(pesquisando: $viewModel.itemPesquisado, placeholder: "Pesquisar")
                     .padding(.vertical, 10)
                 
                 ScrollView{
                     HStack {
-                        if viewModel.itensEstocados() > 0 {
-                            let qtdItens = ((UIScreen.main.bounds.size.height > 1000) ? ((viewModel.itensEstocados() >= 3 ) ? 3 : 2): 2)
-                            ForEach((viewModel.itensEstocados() >= qtdItens) ? 0..<qtdItens : 0..<1) { i in
-                                if let id = viewModel.ongItens()[i].id {
-                                    ItemListaView(viewModel: .init(idOng: viewModel.ong.id!, idItem: id), novaTela: ((isOng) ? $viewModel.voltouTela : $viewModel.trocaTela))
-                                        .frame(maxHeight: 220)
+                        if viewModel.ongItens().count > 0 {
+                            let qtdItens = ((UIScreen.main.bounds.size.height > 1000) ? ((viewModel.ongItens().count >= 3 ) ? 3 : 2): 2)
+
+                            ForEach((viewModel.ongItens().count >= qtdItens) ? 0..<qtdItens : 0..<1) { i in
+                                if viewModel.ongItens().count-1 >= i{
+                                    if let id = viewModel.ongItens()[i].id {
+                                        ItemListaView(viewModel: .init(idOng: viewModel.ong.id!, idItem: id), novaTela: ((isOng) ? $viewModel.voltouTela : $viewModel.trocaTela))
+                                            .frame(maxHeight: 220)
+                                    }
                                 }
+                                
                             }
                         }
                         

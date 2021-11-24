@@ -22,6 +22,7 @@ final class SobreOngGeralViewModel: ObservableObject {
     @Published var trocaTela: Bool = false
     @Published var tag:Int? = nil
     @Published var isLoading = false
+    @Published var itemPesquisado = ""
     
     //MARK: - Elementos da View
     
@@ -148,7 +149,22 @@ final class SobreOngGeralViewModel: ObservableObject {
     
     func ongItens() -> [Item] {
         if let estoque = ong.estoque {
-            return estoque
+            return estoque.filter({($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty)})
+        }
+        return [Item]()
+    }
+    
+    func ongItens(_ qtd:Int) -> [Item] {
+        if let estoque = ong.estoque {
+            let validItens = estoque.filter({($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty)})
+            var itens = [Item]()
+            if qtd >= validItens.count{
+                for num in 0...qtd-1{
+                    print(num)
+                    itens.append(validItens[num])
+                }
+                return itens
+            }
         }
         return [Item]()
     }
