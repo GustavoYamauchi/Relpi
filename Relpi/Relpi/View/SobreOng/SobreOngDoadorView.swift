@@ -64,7 +64,7 @@ struct sobreOngDoadorView: View {
     
     var visteSiteOngView: some View{
         Button(action: {
-            openURL(URL(string: "https://www.casamariahelenapaulina.org.br")!)
+            openURL(URL(string: viewModel.siteOngLabel)!)
         }){
             Text("Visite o site")
         }.buttonStyle(.primaryButton)

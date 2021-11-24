@@ -21,6 +21,7 @@ struct ContatoFormView: View {
             CustomTextField(text: $ong.email, placeholder: "E-mail")
                 .autocapitalization(.none)
                 .textContentType(.emailAddress)
+            CustomTextField(text: $ong.site, placeholder: "Site")
         }
     }
 }

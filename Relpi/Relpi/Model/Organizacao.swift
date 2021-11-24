@@ -15,6 +15,7 @@ struct Organizacao: Identifiable, Codable, Equatable {
     var descricao: String //Sem validacao
     var telefone: String //Validado
     var email: String //Validado
+    var site: String //Sem validacao
     var foto: String? //Sem validacao
     var data: Timestamp //Sem validacao
     var banco: Banco //Validado

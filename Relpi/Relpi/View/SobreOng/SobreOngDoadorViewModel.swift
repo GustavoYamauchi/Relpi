@@ -37,6 +37,10 @@ final class SobreOngDoadorViewModel: ObservableObject {
         return ong.email
     }
     
+    var siteOngLabel: String{
+        return ong.site
+    }
+    
     //MARK: - Inicializador
     
     init(idOng: String,
@@ -45,7 +49,7 @@ final class SobreOngDoadorViewModel: ObservableObject {
     ) {
         self.ongService = ongService
         
-        self.ong = Organizacao(id: idOng, nome: "", cnpj: "", descricao: "", telefone: "", email: "", foto: "", data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""), endereco: Endereco( logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""), estoque: [Item]())
+        self.ong = Organizacao(id: idOng, nome: "", cnpj: "", descricao: "", telefone: "", email: "", site: "", foto: "", data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""), endereco: Endereco( logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""), estoque: [Item]())
         
         selectedImage = UIImage(named: "ImagePlaceholder")!
         
