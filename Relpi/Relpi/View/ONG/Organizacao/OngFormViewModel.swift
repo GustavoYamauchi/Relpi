@@ -17,6 +17,7 @@ class OngFormViewModel: ObservableObject {
     @Published var ong: Organizacao
     @Published var selectedImage: UIImage?
     var downloadedImage: UIImage?
+    var ongInicial: Organizacao?
     
     @Published var redirectHome = false
     @Published var apresentaFeedback = false
@@ -49,6 +50,7 @@ class OngFormViewModel: ObservableObject {
         if modo == .perfil {
             if let ong = ongHome {
                 self.ong = ong
+                self.ongInicial = ong
             }
             
             if let image = image {
