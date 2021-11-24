@@ -71,6 +71,12 @@ final class SobreOngGeralViewModel: ObservableObject {
         fetchOng(idOng: idOng)
     }
     
+    // inicializador ONG
+        // vai carregar a ong a partir do id
+    
+    // inicializador doador
+        // tem ong carregada já mas sem imagem
+    
     
     //MARK: - Métodos
     

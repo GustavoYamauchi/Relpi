@@ -115,8 +115,6 @@ class OngFormViewModel: ObservableObject {
                     print("redirect home")
                     
                 } else {
-                    self?.mensagem = "Atualizado com sucesso!"
-                    self?.apresentaFeedback = true
                     
                     // faz a ongHomeView model atualizar através de protocolo e delegate
                     if self?.ongHomeViewModel != nil {
@@ -154,8 +152,7 @@ class OngFormViewModel: ObservableObject {
                         if self?.modo == .cadastro {
                             self?.redirectHome = true
                         } else {
-                            self?.mensagem = "Atualizado com sucesso!"
-                            self?.apresentaFeedback = true
+
                             if self?.ongHomeViewModel != nil {
                                 self?.ongHomeViewModel?.atualizarHomeComImagem()
                             }

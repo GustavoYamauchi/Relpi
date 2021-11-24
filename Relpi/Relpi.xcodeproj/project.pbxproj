@@ -334,8 +334,8 @@
 		1CC810A427038FE100B9E721 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8B1E5FB12745A2A200E4FCA3 /* SobreOngGeralViewModel.swift */,
 				8B1E5FAE27459D4F00E4FCA3 /* SobreOngViewGeral.swift */,
+				8B1E5FB12745A2A200E4FCA3 /* SobreOngGeralViewModel.swift */,
 				85E1332D2735B32A00F9DEDB /* ONG */,
 				85A33067271DF83700230D40 /* Login */,
 				1C136A35270E38FC00D09E9D /* TelaLista */,
