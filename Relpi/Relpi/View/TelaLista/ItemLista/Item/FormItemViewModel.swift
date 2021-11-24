@@ -41,6 +41,7 @@ final class FormItemViewModel: ObservableObject {
     }
     
     @Published var item: Item
+    var itemInicial: Item?
     
     
     // MARK: - Métodos
@@ -65,6 +66,7 @@ final class FormItemViewModel: ObservableObject {
                 case .success(let item):
                     DispatchQueue.main.async {
                         self?.item = item
+                        self?.itemInicial = item
                     }
                     
             case .failure(let err):
