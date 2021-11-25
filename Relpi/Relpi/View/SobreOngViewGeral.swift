@@ -119,7 +119,7 @@ struct SobreOngViewGeral: View {
                     // TODO: Direcionar para a tela "Sobre ONG" certa!!! conferir o figma
                     #if RelpiAdmin
                     Button(action: {}, label: {
-                        NavigationLink(destination: NewOngFormView(viewModel: .init(modo: .perfil, image: viewModel.selectedImage, ongHome: viewModel.ong, ongHomeViewModel: viewModel)),
+                        NavigationLink(destination: NewOngFormView(viewModel: .init(ong: viewModel.ong, sobreOngViewModel: viewModel, image: viewModel.selectedImage)),
                                        label: {
                                         Text(viewModel.verPerfilButtonLabel)
                                             .frame(minWidth: 0, maxWidth: .infinity)
