@@ -81,6 +81,7 @@ final class SobreOngGeralViewModel: ObservableObject {
     
     //MARK: - Métodos
     // reinicializar a ong????? em caso de exclusão
+    // adicionar snapshotlistener
     
     private func fetchOng(idOng: String) {
         isLoading = true

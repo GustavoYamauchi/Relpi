@@ -30,11 +30,17 @@ final class ItemViewModel: ObservableObject {
     
     // MARK: - Inicializador
     
-    init(idOng: String, idItem: String, estoqueService: EstoqueServiceProtocol = EstoqueService()) {
+//    init(idOng: String, idItem: String, estoqueService: EstoqueServiceProtocol = EstoqueService()) {
+//        self.idOng = idOng
+//        self.estoqueService = estoqueService
+//        self.item = Item(id: idItem, nome: "", categoria: "", quantidade: 0, urgente: false, visivel: false)
+//        self.fetchItem(idOng: idOng, idItem: idItem)
+//    }
+    
+    init(idOng: String, item: Item, estoqueService: EstoqueServiceProtocol = EstoqueService()) {
         self.idOng = idOng
+        self.item = item
         self.estoqueService = estoqueService
-        self.item = Item(id: idItem, nome: "", categoria: "", quantidade: 0, urgente: false, visivel: false)
-        self.fetchItem(idOng: idOng, idItem: idItem)
     }
     
     

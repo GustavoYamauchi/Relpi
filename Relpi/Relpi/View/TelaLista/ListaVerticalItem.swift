@@ -21,7 +21,7 @@ struct ListaVerticalItem: View {
         }
         #if RelpiAdmin
         ForEach(telaViewModel.items.filter({($0.nome.contains(telaViewModel.itemPesquisado) || telaViewModel.itemPesquisado.isEmpty) && ($0.categoria == categoria || categoria.isEmpty) && ($0.urgente || !telaViewModel.apenasUrgente) })){ item in
-            ItemListaVerticalView(viewModel: .init(idOng: telaViewModel.idOng, idItem: item.id!), trocaDeTela: $trocaDeTela)
+            ItemListaVerticalView(viewModel: .init(idOng: telaViewModel.idOng, item: item), trocaDeTela: $trocaDeTela)
                 .frame(maxWidth: .infinity, minHeight: 55)
                 .padding(.bottom, 10)
             
@@ -30,7 +30,7 @@ struct ListaVerticalItem: View {
         .padding(.top, 10)
         #else
         ForEach(telaViewModel.items.filter({($0.nome.contains(telaViewModel.itemPesquisado) || telaViewModel.itemPesquisado.isEmpty) && ($0.categoria == categoria || categoria.isEmpty) && $0.visivel && ($0.urgente || !telaViewModel.apenasUrgente) })){ item in
-            ItemListaVerticalView(viewModel: .init(idOng: telaViewModel.idOng, idItem: item.id!), trocaDeTela: $trocaDeTela)
+            ItemListaVerticalView(viewModel: .init(idOng: telaViewModel.idOng, item: item), trocaDeTela: $trocaDeTela)
                 .frame(maxWidth: .infinity, minHeight: 55)
                 .padding(.bottom, 10)
             

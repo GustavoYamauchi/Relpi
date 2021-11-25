@@ -69,13 +69,10 @@ struct SobreOngViewGeral: View {
                         if viewModel.ongItens().count > 0 {
                             let qtdItens = ((UIScreen.main.bounds.size.height > 1000) ? ((viewModel.ongItens().count >= 3 ) ? 3 : 2): 2)
 
-                            // TODO: MANDAR O ITEM???? e a view model pra puxar de novo?
                             ForEach((viewModel.ongItens().count >= qtdItens) ? 0..<qtdItens : 0..<1) { i in
                                 if viewModel.ongItens().count-1 >= i{
-                                    if let id = viewModel.ongItens()[i].id {
-                                        ItemListaView(viewModel: .init(idOng: viewModel.ong.id!, idItem: id), novaTela: ((isOng) ? $viewModel.voltouTela : $viewModel.trocaTela))
-                                            .frame(maxHeight: 220)
-                                    }
+                                    ItemListaView(viewModel: .init(idOng: viewModel.ong.id!, item: viewModel.item(at: i)), novaTela: ((isOng) ? $viewModel.voltouTela : $viewModel.trocaTela))
+                                        .frame(maxHeight: 220)
                                 }
                                 
                             }
@@ -118,7 +115,6 @@ struct SobreOngViewGeral: View {
                         
                     }.padding(.top, 20)
                     
-                    // Contribuir com a ONG
                     
                     // TODO: Direcionar para a tela "Sobre ONG" certa!!! conferir o figma
                     #if RelpiAdmin
@@ -131,6 +127,7 @@ struct SobreOngViewGeral: View {
                     }).buttonStyle(.primaryButton)
                     .padding(.top, 20)
                     #else
+                    // Contribuir com a ONG caso seja doador
                     NavigationLink(destination: sobreOngDoadorView(viewModel: .init(idOng: viewModel.ong.id!, image: viewModel.selectedImage))) {
                         Text("Contribua")
                     }.buttonStyle(PrimaryButton())
