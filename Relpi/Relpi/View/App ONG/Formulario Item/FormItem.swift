@@ -69,7 +69,7 @@ struct FormItem: View {
                             
                             CustomTextField(text: $itemViewModel.item.nome, placeholder: "Nome").padding(.horizontal, 30)
                             
-                            Category(array: ["Higiene","Alimento","Limpeza","Medicamento","Utensilio"], selected: $itemViewModel.item.categoria)
+                            Category(array: ["Higiene","Alimento","Limpeza","Medicamento","Utensílio"], selected: $itemViewModel.item.categoria)
                             
                             HStack{
                                 Quantity(qtd: $itemViewModel.item.quantidade)

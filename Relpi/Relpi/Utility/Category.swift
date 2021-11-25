@@ -8,9 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Category: View {
-    //    @ObservedObject var viewModel: BancoViewModel
-    
+struct Category: View {    
     @State var toggle: Bool = false
     @State var title: String = "Categoria"
     @State var array = [""]

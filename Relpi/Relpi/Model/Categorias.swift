@@ -12,7 +12,7 @@ enum Categorias : String{
     case alimento = "Alimento"
     case limpeza = "Limpeza"
     case medicamento = "Medicamento"
-    case utensilio = "Utensilio"
+    case utensilio = "Utensílio"
     case vazio = ""
     var categoria: Categorias {
         switch self {

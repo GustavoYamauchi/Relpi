@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAuth
 import Firebase
 
-struct CadastroView: View {
+struct LoginCadastroView: View {
     
     @ObservedObject var viewModel: LoginCadastroViewModel
     
@@ -89,7 +89,7 @@ struct CadastroView: View {
                         viewModel.cadastrarLogar()
                     }.buttonStyle(.primaryButton)
                     
-                    NavigationLink(destination: NewOngFormView(viewModel: .init()), isActive: $viewModel.encaminharOngForm) {
+                    NavigationLink(destination: OngFormView(viewModel: .init()), isActive: $viewModel.encaminharOngForm) {
                         EmptyView()
                     }
                     
@@ -107,7 +107,7 @@ struct CadastroView: View {
 
                     Button(action: {}, label: {
                         NavigationLink(destination:
-                                        CadastroView(viewModel: .init(mode: (viewModel.mode == .cadastro) ? .login : .cadastro, usuario: .ong)),
+                                        LoginCadastroView(viewModel: .init(mode: (viewModel.mode == .cadastro) ? .login : .cadastro, usuario: .ong)),
                                        label: {
                                         Text(viewModel.temContaBotaoLabel)
                                             .frame(minWidth: 0, maxWidth: .infinity)

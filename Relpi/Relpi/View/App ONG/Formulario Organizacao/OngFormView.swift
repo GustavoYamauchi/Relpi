@@ -8,7 +8,7 @@
 import SwiftUI
 import Firebase
 
-struct NewOngFormView: View {
+struct OngFormView: View {
     @ObservedObject var viewModel: OngFormViewModel
     
     @Environment(\.presentationMode) var presentationMode
