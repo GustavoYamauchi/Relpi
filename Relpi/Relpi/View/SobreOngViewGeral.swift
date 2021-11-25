@@ -16,7 +16,7 @@ struct SobreOngViewGeral: View {
     @State var itemPesquisado = ""
     @State var gestureIsValid = false
     
-    // MARK: Subviews
+    // MARK: - Subviews
     
     var tituloLabel: some View {
         Text((isOng) ? viewModel.bemVindoLabel : viewModel.nomeOngLabel)
@@ -34,7 +34,7 @@ struct SobreOngViewGeral: View {
             .padding(.bottom, 10)
     }
     
-    // MARK: Gesture
+    // MARK: - Gesture
     var changePage : some Gesture{
         DragGesture()
             .onChanged { gesture in
@@ -54,7 +54,7 @@ struct SobreOngViewGeral: View {
             })
     }
     
-    
+    // MARK: - View
     var body: some View {
         ZStack {
             VStack(alignment: .leading){
@@ -69,6 +69,7 @@ struct SobreOngViewGeral: View {
                         if viewModel.ongItens().count > 0 {
                             let qtdItens = ((UIScreen.main.bounds.size.height > 1000) ? ((viewModel.ongItens().count >= 3 ) ? 3 : 2): 2)
 
+                            // TODO: MANDAR O ITEM???? e a view model pra puxar de novo?
                             ForEach((viewModel.ongItens().count >= qtdItens) ? 0..<qtdItens : 0..<1) { i in
                                 if viewModel.ongItens().count-1 >= i{
                                     if let id = viewModel.ongItens()[i].id {
@@ -82,6 +83,7 @@ struct SobreOngViewGeral: View {
                         
                     }.padding(.horizontal, 30)
                     
+                    // TODO: MANDAR A ONG
                     Button(action: {}) {
                         NavigationLink(destination: TelaListaView(telaViewModel: .init(idOng: viewModel.ong.id!, data: viewModel.ong.data)),
                                        label: {
@@ -140,6 +142,8 @@ struct SobreOngViewGeral: View {
                 LoadingView()
             }
         }
+        
+        // MARK: - Modifiers
         .onChange(of: viewModel.voltouTela) { _ in
             viewModel.atualizar()
         }

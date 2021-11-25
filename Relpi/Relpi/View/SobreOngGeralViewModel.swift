@@ -16,6 +16,7 @@ final class SobreOngGeralViewModel: ObservableObject {
     let ongService: OngServiceProtocol
     let estoqueService: EstoqueServiceProtocol
     
+    // MARK: - Propriedades
     @Published var ong: Organizacao
     @Published var selectedImage: UIImage?
     @Published var voltouTela: Bool = false
@@ -79,6 +80,7 @@ final class SobreOngGeralViewModel: ObservableObject {
     
     
     //MARK: - Métodos
+    // reinicializar a ong????? em caso de exclusão
     
     private func fetchOng(idOng: String) {
         isLoading = true
