@@ -25,13 +25,13 @@ struct ListaGridItem: View {
         LazyVGrid(columns: gridItemLayout) {
             #if RelpiAdmin
             ForEach(telaViewModel.items.filter({ ($0.nome.contains(telaViewModel.itemPesquisado) || telaViewModel.itemPesquisado.isEmpty) && ($0.categoria == categoria || categoria.isEmpty) && ($0.urgente || !telaViewModel.apenasUrgente) })){ item in
-                ItemListaView(viewModel: .init(idOng: telaViewModel.idOng, idItem: item.id!), novaTela: $fdc)
+                ItemListaView(viewModel: .init(idOng: telaViewModel.idOng, item: item), novaTela: $fdc)
                     .frame(minWidth: 50, minHeight: 220)
                     .padding(.bottom, 10)
             }
             #else
             ForEach(telaViewModel.items.filter({ ($0.nome.contains(telaViewModel.itemPesquisado) || telaViewModel.itemPesquisado.isEmpty) && ($0.categoria == categoria || categoria.isEmpty) && $0.visivel && ($0.urgente || !telaViewModel.apenasUrgente) })){ item in
-                ItemListaView(viewModel: .init(idOng: telaViewModel.idOng, idItem: item.id!), novaTela: $fdc)
+                ItemListaView(viewModel: .init(idOng: telaViewModel.idOng, item: item), novaTela: $fdc)
                     .frame(minWidth: 50, minHeight: 220)
                     .padding(.bottom, 10)
             }

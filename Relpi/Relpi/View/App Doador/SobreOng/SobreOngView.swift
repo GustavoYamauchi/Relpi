@@ -28,7 +28,7 @@ struct SobreOngView: View {
                 if viewModel.itensEstocados() > 2 {
                     HStack {
                     ForEach(0..<2) { i in
-                        ItemListaView(viewModel: .init(idOng: viewModel.idOng, idItem: viewModel.ong.estoque![i].id!), novaTela: $viewModel.trocaTela)
+                        ItemListaView(viewModel: .init(idOng: viewModel.idOng, item: viewModel.ong.estoque![i]), novaTela: $viewModel.trocaTela)
                             .frame(maxHeight: 220)
                     }
                     .padding(.horizontal, 30)
@@ -46,7 +46,7 @@ struct SobreOngView: View {
                     if viewModel.itensEstocados() != 0 {
                         HStack {
                             ForEach(0..<viewModel.itensEstocados()) { i in
-                                ItemListaView(viewModel: .init(idOng: viewModel.idOng, idItem: viewModel.ong.estoque![i].id!), novaTela: $viewModel.trocaTela)
+                                ItemListaView(viewModel: .init(idOng: viewModel.idOng, item: viewModel.ong.estoque![i]), novaTela: $viewModel.trocaTela)
                                     .frame(maxHeight: 220)
                             }
                             .padding(.horizontal, 30)

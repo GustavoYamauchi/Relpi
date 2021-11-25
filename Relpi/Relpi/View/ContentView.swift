@@ -22,8 +22,8 @@ struct ContentView: View {
             if loginViewModel.autenticado {
                 SobreOngViewGeral(isOng:true, viewModel: .init(idOng: loginViewModel.id, imagem: nil))
             } else {
-//                CadastroView(viewModel: .init(mode: .cadastro, usuario: .ong))
-                CadastroView(viewModel: .init(mode: .login, usuario: .ong))
+//                LoginCadastroView(viewModel: .init(mode: .cadastro, usuario: .ong))
+                LoginCadastroView(viewModel: .init(mode: .login, usuario: .ong))
             }
             
             #endif

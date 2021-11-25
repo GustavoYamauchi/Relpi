@@ -16,7 +16,7 @@ struct SobreOngViewGeral: View {
     @State var itemPesquisado = ""
     @State var gestureIsValid = false
     
-    // MARK: Subviews
+    // MARK: - Subviews
     
     var tituloLabel: some View {
         Text((isOng) ? viewModel.bemVindoLabel : viewModel.nomeOngLabel)
@@ -34,7 +34,7 @@ struct SobreOngViewGeral: View {
             .padding(.bottom, 10)
     }
     
-    // MARK: Gesture
+    // MARK: - Gesture
     var changePage : some Gesture{
         DragGesture()
             .onChanged { gesture in
@@ -54,7 +54,7 @@ struct SobreOngViewGeral: View {
             })
     }
     
-    
+    // MARK: - View
     var body: some View {
         ZStack {
             VStack(alignment: .leading){
@@ -71,10 +71,8 @@ struct SobreOngViewGeral: View {
 
                             ForEach((viewModel.ongItens().count >= qtdItens) ? 0..<qtdItens : 0..<1) { i in
                                 if viewModel.ongItens().count-1 >= i{
-                                    if let id = viewModel.ongItens()[i].id {
-                                        ItemListaView(viewModel: .init(idOng: viewModel.ong.id!, idItem: id), novaTela: ((isOng) ? $viewModel.voltouTela : $viewModel.trocaTela))
-                                            .frame(maxHeight: 220)
-                                    }
+                                    ItemListaView(viewModel: .init(idOng: viewModel.ong.id!, item: viewModel.item(at: i)), novaTela: ((isOng) ? $viewModel.voltouTela : $viewModel.trocaTela))
+                                        .frame(maxHeight: 220)
                                 }
                                 
                             }
@@ -82,6 +80,7 @@ struct SobreOngViewGeral: View {
                         
                     }.padding(.horizontal, 30)
                     
+                    // TODO: MANDAR A ONG
                     Button(action: {}) {
                         NavigationLink(destination: TelaListaView(telaViewModel: .init(idOng: viewModel.ong.id!, data: viewModel.ong.data)),
                                        label: {
@@ -116,12 +115,11 @@ struct SobreOngViewGeral: View {
                         
                     }.padding(.top, 20)
                     
-                    // Contribuir com a ONG
                     
                     // TODO: Direcionar para a tela "Sobre ONG" certa!!! conferir o figma
                     #if RelpiAdmin
                     Button(action: {}, label: {
-                        NavigationLink(destination: NewOngFormView(viewModel: .init(modo: .perfil, image: viewModel.selectedImage, ongHome: viewModel.ong, ongHomeViewModel: viewModel)),
+                        NavigationLink(destination: OngFormView(viewModel: .init(ong: viewModel.ong, sobreOngViewModel: viewModel, image: viewModel.selectedImage)),
                                        label: {
                                         Text(viewModel.verPerfilButtonLabel)
                                             .frame(minWidth: 0, maxWidth: .infinity)
@@ -129,6 +127,7 @@ struct SobreOngViewGeral: View {
                     }).buttonStyle(.primaryButton)
                     .padding(.top, 20)
                     #else
+                    // Contribuir com a ONG caso seja doador
                     NavigationLink(destination: sobreOngDoadorView(viewModel: .init(idOng: viewModel.ong.id!, image: viewModel.selectedImage))) {
                         Text("Contribua")
                     }.buttonStyle(PrimaryButton())
@@ -140,6 +139,8 @@ struct SobreOngViewGeral: View {
                 LoadingView()
             }
         }
+        
+        // MARK: - Modifiers
         .onChange(of: viewModel.voltouTela) { _ in
             viewModel.atualizar()
         }
@@ -151,7 +152,7 @@ struct SobreOngViewGeral: View {
         .navigationBarItems(trailing:
                                 ZStack {
                                     #if RelpiAdmin
-                                    NavigationLink(destination: CadastroView(viewModel: .init(mode: .login, usuario: .ong)), tag: 1, selection: $viewModel.tag){
+                                    NavigationLink(destination: LoginCadastroView(viewModel: .init(mode: .login, usuario: .ong)), tag: 1, selection: $viewModel.tag){
                                         EmptyView()
                                     }
                                     

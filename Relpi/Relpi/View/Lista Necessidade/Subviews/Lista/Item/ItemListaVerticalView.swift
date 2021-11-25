@@ -36,10 +36,12 @@ struct ItemListaVerticalView: View {
                                     viewModel.item.visivel ? Color.regular : Color.urgencia.opacity(0.5))
             #if Relpi
             itemView
+            
             #else
-            NavigationLink(destination: FormItem(itemViewModel: .init(idOng: viewModel.idOng, idItem: viewModel.item.id!, modo: .editarItem), novaTela: $trocaDeTela), label: {
+            NavigationLink(destination: FormItem(itemViewModel: .init(idOng: viewModel.idOng, item: viewModel.item), novaTela: $trocaDeTela), label: {
                 itemView
             })
+            
             #endif
                 
         }

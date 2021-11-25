@@ -9,32 +9,53 @@ import SwiftUI
 import Firebase
 
 class OngFormViewModel: ObservableObject {
-    let modo: Modo
     
     let userService: UserServiceProtocol
     let ongService: OngServiceProtocol
     
+    // MARK: - Propriedades
     @Published var ong: Organizacao
     @Published var selectedImage: UIImage?
     var downloadedImage: UIImage?
     var ongInicial: Organizacao?
-    
+    let modo: Modo
+    weak var sobreOngViewModel: SobreOngGeralViewModel?
+
     @Published var redirectHome = false
     @Published var apresentaFeedback = false
     @Published var mensagem = ""
     var cor: ColorStyle = .green
     @Published var isLoading = false
     
-    weak var ongHomeViewModel: SobreOngGeralViewModel?
-    // MARK: - Inicializador
     
-    init(modo: Modo,
-         userService: UserServiceProtocol = UserService(),
-         ongService: OngServiceProtocol = OngService(),
+    // MARK: - Inicializador
+    // caso tenha ong
+    init(ong: Organizacao,
+         sobreOngViewModel: SobreOngGeralViewModel,
          image: UIImage?,
-         ongHome: Organizacao?,
-         ongHomeViewModel: SobreOngGeralViewModel?
-         )
+         modo: Modo = .perfil,
+         userService: UserServiceProtocol = UserService(),
+         ongService: OngServiceProtocol = OngService()
+    ) {
+        self.userService = userService
+        self.ongService = ongService
+        self.modo = modo
+        self.sobreOngViewModel = sobreOngViewModel
+        
+        self.ong = ong
+        self.ongInicial = ong
+
+        if let image = image {
+            self.downloadedImage = image
+        }
+    }
+    
+    // caso seja nova ong
+    init(
+        modo: Modo = .cadastro,
+        userService: UserServiceProtocol = UserService(),
+        ongService: OngServiceProtocol = OngService()
+    )
     {
         self.modo = modo
         self.userService = userService
@@ -44,21 +65,8 @@ class OngFormViewModel: ObservableObject {
                           nome: "", cnpj: "", descricao: "", telefone: "", email: "", site: "",
             data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""),
             endereco: Endereco(logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""))
-        
-        self.ongHomeViewModel = ongHomeViewModel
-        
-        if modo == .perfil {
-            if let ong = ongHome {
-                self.ong = ong
-                self.ongInicial = ong
-            }
-            
-            if let image = image {
-                downloadedImage = image
-            }
-        }
-        
     }
+    
     
     // MARK: - Métodos
     
@@ -115,12 +123,10 @@ class OngFormViewModel: ObservableObject {
                     print("redirect home")
                     
                 } else {
-                    self?.mensagem = "Atualizado com sucesso!"
-                    self?.apresentaFeedback = true
                     
                     // faz a ongHomeView model atualizar através de protocolo e delegate
-                    if self?.ongHomeViewModel != nil {
-                        self?.ongHomeViewModel?.atualizarHome()
+                    if self?.sobreOngViewModel != nil {
+                        self?.sobreOngViewModel?.atualizarHome()
                     }
                 }
                 self?.isLoading = false
@@ -154,10 +160,9 @@ class OngFormViewModel: ObservableObject {
                         if self?.modo == .cadastro {
                             self?.redirectHome = true
                         } else {
-                            self?.mensagem = "Atualizado com sucesso!"
-                            self?.apresentaFeedback = true
-                            if self?.ongHomeViewModel != nil {
-                                self?.ongHomeViewModel?.atualizarHomeComImagem()
+
+                            if self?.sobreOngViewModel != nil {
+                                self?.sobreOngViewModel?.atualizarHomeComImagem()
                             }
                         }
 

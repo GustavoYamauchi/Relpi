@@ -10,17 +10,19 @@ import Firebase
 
 final class FormItemViewModel: ObservableObject {
     
-    // MARK: - Propriedades
-    
-    let modo: Modo
     let estoqueService: EstoqueServiceProtocol
+    
+    // MARK: - Propriedades
+    @Published var item: Item
+    var itemInicial: Item?
+
     let idOng: String
+    let modo: Modo
     
     @Published var mensagem = ""
     @Published var apresentaFeedback = false
     var cor: ColorStyle = .green
     @Published var isLoading = false
-    
     
     // MARK: - Views
     
@@ -39,24 +41,31 @@ final class FormItemViewModel: ObservableObject {
         }
         return "\(item.categoria.lowercased())Icon"
     }
-    
-    @Published var item: Item
-    var itemInicial: Item?
-    
-    
-    // MARK: - Métodos
-    
-    init(idOng: String, idItem: String, modo: Modo, estoqueService: EstoqueServiceProtocol = EstoqueService()) {
+
+    // MARK: - Inicializador
+    // caso tenha item
+    init(idOng: String,
+         item: Item,
+         modo: Modo = .editarItem,
+         estoqueService: EstoqueServiceProtocol = EstoqueService())
+    {
+        self.idOng = idOng
+        self.item = item
         self.modo = modo
         self.estoqueService = estoqueService
-        self.idOng = idOng
-        self.item = Item(nome: "", categoria: "Alimento", quantidade: 1, urgente: false, visivel: true)
-        
-        if modo == .editarItem && !idItem.isEmpty {
-            fetchItem(idOng: idOng, idItem: idItem)
-        }
     }
-
+    
+    
+    // caso não tenha item
+    init(idOng: String,
+         modo: Modo = .novoItem,
+         estoqueService: EstoqueServiceProtocol = EstoqueService())
+    {
+        self.idOng = idOng
+        self.modo = modo
+        self.estoqueService = estoqueService
+        item = Item(nome: "", categoria: "Alimento", quantidade: 1, urgente: false, visivel: true)
+    }
     
     // MARK: - Métodos
     

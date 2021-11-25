@@ -11,16 +11,19 @@ import Firebase
 // primeiro lugar que carrega a view, source of truth?
 // nas outras telas, usa o binding?
 
-final class OngHomeViewModel: ObservableObject {
+final class SobreOngGeralViewModel: ObservableObject {
     
     let ongService: OngServiceProtocol
     let estoqueService: EstoqueServiceProtocol
     
+    // MARK: - Propriedades
     @Published var ong: Organizacao
     @Published var selectedImage: UIImage?
     @Published var voltouTela: Bool = false
+    @Published var trocaTela: Bool = false
     @Published var tag:Int? = nil
     @Published var isLoading = false
+    @Published var itemPesquisado = ""
     
     //MARK: - Elementos da View
     
@@ -48,23 +51,37 @@ final class OngHomeViewModel: ObservableObject {
         return "Logout"
     }
     
+    var cidadeOng: String{
+        return ong.endereco.cidade
+    }
+    
         
     //MARK: - Inicializador
     
     init(idOng: String,
          ongService: OngServiceProtocol = OngService(),
-         estoqueService: EstoqueServiceProtocol = EstoqueService()
+         estoqueService: EstoqueServiceProtocol = EstoqueService(), imagem:UIImage?
     ) {
         self.ongService = ongService
         self.estoqueService = estoqueService
         
-        self.ong = Organizacao(id: idOng, nome: "", cnpj: "", descricao: "", telefone: "", email: "", foto: "", data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""), endereco: Endereco( logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""), estoque: [Item]())
+        self.ong = Organizacao(id: idOng, nome: "", cnpj: "", descricao: "", telefone: "", email: "", site: "", foto: "", data: Timestamp(date: Date()), banco: Banco(banco: "", agencia: "", conta: "", pix: ""), endereco: Endereco( logradouro: "", numero: "", bairro: "", cidade: "", cep: "", estado: ""), estoque: [Item]())
+        
+        self.selectedImage = imagem
         
         fetchOng(idOng: idOng)
     }
     
+    // inicializador ONG
+        // vai carregar a ong a partir do id
+    
+    // inicializador doador
+        // tem ong carregada já mas sem imagem
+    
     
     //MARK: - Métodos
+    // reinicializar a ong????? em caso de exclusão
+    // adicionar snapshotlistener
     
     private func fetchOng(idOng: String) {
         isLoading = true
@@ -141,7 +158,22 @@ final class OngHomeViewModel: ObservableObject {
     
     func ongItens() -> [Item] {
         if let estoque = ong.estoque {
-            return estoque
+            return estoque.filter({($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty)})
+        }
+        return [Item]()
+    }
+    
+    func ongItens(_ qtd:Int) -> [Item] {
+        if let estoque = ong.estoque {
+            let validItens = estoque.filter({($0.nome.contains(itemPesquisado) || itemPesquisado.isEmpty)})
+            var itens = [Item]()
+            if qtd >= validItens.count{
+                for num in 0...qtd-1{
+                    print(num)
+                    itens.append(validItens[num])
+                }
+                return itens
+            }
         }
         return [Item]()
     }
@@ -151,7 +183,7 @@ final class OngHomeViewModel: ObservableObject {
     }
 }
 
-extension OngHomeViewModel: OngFormViewModelDelegate {
+extension SobreOngGeralViewModel: OngFormViewModelDelegate {
     func atualizarHome() {
         fetchOngSemImagem(idOng: ong.id!)
     }
