@@ -93,9 +93,14 @@ struct TelaListaView: View {
 //                })
 //                .buttonStyle(PrimaryButton())
 //                .padding(.vertical, 20)
-                
-                DialogCard(text: "Para realizar a doação, entre em contato com a ONG. Nossa plataforma apenas cataloga os itens demandados! :)", colorStyle: .yellow)
-                    .padding(.vertical, 20)
+                if telaViewModel.items.count > 0 {
+                    DialogCard(text: "Para realizar a doação, entre em contato com a ONG. Nossa plataforma apenas cataloga os itens demandados! :)", colorStyle: .yellow)
+                        .padding(.vertical, 20)
+                } else {
+                    DialogCard(text: "Essa ONG ainda não precisa de nenhum item! :)", colorStyle: .yellow)
+                        .padding(.vertical, 20)
+                }
+
                 #else
                 Button(action: {}, label: {
                     NavigationLink(destination: FormItem(itemViewModel: .init(idOng: telaViewModel.idOng), novaTela: $telaViewModel.voltouTela), label: {
@@ -106,7 +111,6 @@ struct TelaListaView: View {
                 .buttonStyle(PrimaryButton())
                 .padding(.vertical, 20)
                 #endif
-        
                 if telaViewModel.listaVertical{
                     if !telaViewModel.listaCategorizada{
                         ListaVerticalItem(telaViewModel: telaViewModel, trocaDeTela: $telaViewModel.voltouTela)

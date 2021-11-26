@@ -12,14 +12,14 @@ struct ExplorarOngView: View {
 
     var headerView: some View {
         HStack {
-            Image(viewModel.nomeImagemFiltro)
-                .renderingMode(.template)
-                .foregroundColor(viewModel.mostrarFiltros ? .primaryButton : .backgroundPrimarySearch)
-                .frame(width: 40, height: 40, alignment: .center)
-                .onTapGesture {
-                    viewModel.mostrarFiltros = true
-                }
-            
+//            Image("")
+//                .renderingMode(.template)
+//                .foregroundColor(viewModel.mostrarFiltros ? .primaryButton : .backgroundPrimarySearch)
+//                .frame(width: 40, height: 40, alignment: .center)
+////                .onTapGesture {
+////                    viewModel.mostrarFiltros = true
+////                }
+//            
             Spacer()
             Image(viewModel.nomeImagemColecao)
                 .renderingMode(.template)

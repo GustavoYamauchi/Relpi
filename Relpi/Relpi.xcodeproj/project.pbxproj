@@ -7,11 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C136A21270B9AEC00D09E9D /* EnderecoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A20270B9AEC00D09E9D /* EnderecoViewModel.swift */; };
 		1C136A24270BA39E00D09E9D /* EnderecoFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A22270BA39E00D09E9D /* EnderecoFormView.swift */; };
-		1C136A25270BA41500D09E9D /* EnderecoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A20270B9AEC00D09E9D /* EnderecoViewModel.swift */; };
-		1C136A27270CC6F400D09E9D /* EstoqueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A26270CC6F400D09E9D /* EstoqueViewModel.swift */; };
-		1C136A28270CC6F400D09E9D /* EstoqueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A26270CC6F400D09E9D /* EstoqueViewModel.swift */; };
 		1C136A37270E391C00D09E9D /* TelaListaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A36270E391C00D09E9D /* TelaListaView.swift */; };
 		1C136A38270E391C00D09E9D /* TelaListaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A36270E391C00D09E9D /* TelaListaView.swift */; };
 		1C136A3A270E399E00D09E9D /* ItemListaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C136A39270E399E00D09E9D /* ItemListaView.swift */; };
@@ -52,11 +48,7 @@
 		1CC8109D27038A3100B9E721 /* Organizacao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8109627038A3100B9E721 /* Organizacao.swift */; };
 		1CC8109E27038A3100B9E721 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8109727038A3100B9E721 /* Item.swift */; };
 		1CC8109F27038A3100B9E721 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC8109727038A3100B9E721 /* Item.swift */; };
-		1CC810A227038E7400B9E721 /* OngViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC810A127038E7400B9E721 /* OngViewModel.swift */; };
-		1CC810A327038E7400B9E721 /* OngViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC810A127038E7400B9E721 /* OngViewModel.swift */; };
 		1CC810B027064ABF00B9E721 /* BancoFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC810AE27064AB800B9E721 /* BancoFormView.swift */; };
-		1CD911DD270B7224007B2D05 /* BancoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD911DC270B7224007B2D05 /* BancoViewModel.swift */; };
-		1CD911DE270B778F007B2D05 /* BancoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD911DC270B7224007B2D05 /* BancoViewModel.swift */; };
 		1CFC96AA2718BF8D00B33A9E /* DialogCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE97EE2717A91B00DEB318 /* DialogCard.swift */; };
 		1CFC96AC2719E47900B33A9E /* TituloListaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFC96AB2719E47900B33A9E /* TituloListaView.swift */; };
 		1CFC96AD2719E47900B33A9E /* TituloListaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFC96AB2719E47900B33A9E /* TituloListaView.swift */; };
@@ -131,9 +123,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1C136A20270B9AEC00D09E9D /* EnderecoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnderecoViewModel.swift; sourceTree = "<group>"; };
 		1C136A22270BA39E00D09E9D /* EnderecoFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnderecoFormView.swift; sourceTree = "<group>"; };
-		1C136A26270CC6F400D09E9D /* EstoqueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstoqueViewModel.swift; sourceTree = "<group>"; };
 		1C136A36270E391C00D09E9D /* TelaListaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaListaView.swift; sourceTree = "<group>"; };
 		1C136A39270E399E00D09E9D /* ItemListaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListaView.swift; sourceTree = "<group>"; };
 		1C136A3D27175E0A00D09E9D /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
@@ -158,9 +148,7 @@
 		1CC8109527038A3100B9E721 /* Banco.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Banco.swift; sourceTree = "<group>"; };
 		1CC8109627038A3100B9E721 /* Organizacao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Organizacao.swift; sourceTree = "<group>"; };
 		1CC8109727038A3100B9E721 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		1CC810A127038E7400B9E721 /* OngViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngViewModel.swift; sourceTree = "<group>"; };
 		1CC810AE27064AB800B9E721 /* BancoFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BancoFormView.swift; sourceTree = "<group>"; };
-		1CD911DC270B7224007B2D05 /* BancoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BancoViewModel.swift; sourceTree = "<group>"; };
 		1CFC96AB2719E47900B33A9E /* TituloListaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TituloListaView.swift; sourceTree = "<group>"; };
 		4258C518AA466222A1617927 /* Pods-Relpi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Relpi.release.xcconfig"; path = "Target Support Files/Pods-Relpi/Pods-Relpi.release.xcconfig"; sourceTree = "<group>"; };
 		5DEE601D68E77A6665D6809C /* Pods_Relpi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Relpi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -311,10 +299,6 @@
 		1CC810A027038E1A00B9E721 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				1CC810A127038E7400B9E721 /* OngViewModel.swift */,
-				1CD911DC270B7224007B2D05 /* BancoViewModel.swift */,
-				1C136A20270B9AEC00D09E9D /* EnderecoViewModel.swift */,
-				1C136A26270CC6F400D09E9D /* EstoqueViewModel.swift */,
 				854B99002722DBB900B1CEF9 /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
@@ -721,12 +705,10 @@
 				A3D22A62271B4CD0003D69FF /* CustomTextField.swift in Sources */,
 				1C136A412718971800D09E9D /* ItemListaVerticalView.swift in Sources */,
 				1CFC96AC2719E47900B33A9E /* TituloListaView.swift in Sources */,
-				1C136A27270CC6F400D09E9D /* EstoqueViewModel.swift in Sources */,
 				A3AE97EF2717A91B00DEB318 /* DialogCard.swift in Sources */,
 				8553EDCA2704E6A300DB408D /* DoadorHome.swift in Sources */,
 				85DF1F052746CDCB008340E3 /* Categorias.swift in Sources */,
 				1C5CC9312720ACC70078EC01 /* ListaVerticalItem.swift in Sources */,
-				1C136A21270B9AEC00D09E9D /* EnderecoViewModel.swift in Sources */,
 				855EB88D2718F24D004468EC /* ImageStorageService.swift in Sources */,
 				8B1E5FAF27459D4F00E4FCA3 /* SobreOngViewGeral.swift in Sources */,
 				85DAA31B2729CCB500CD7696 /* UserService.swift in Sources */,
@@ -737,9 +719,7 @@
 				1CC8109E27038A3100B9E721 /* Item.swift in Sources */,
 				85FA07FE2732FCA300F7D8C7 /* ItemViewModel.swift in Sources */,
 				85B0CCA3273478C2002EFCEC /* DoadorHomeViewModel.swift in Sources */,
-				1CC810A227038E7400B9E721 /* OngViewModel.swift in Sources */,
 				85DAA31D2729CD8200CD7696 /* LoginCadastroViewModel.swift in Sources */,
-				1CD911DD270B7224007B2D05 /* BancoViewModel.swift in Sources */,
 				1C136A3A270E399E00D09E9D /* ItemListaView.swift in Sources */,
 				1C136A37270E391C00D09E9D /* TelaListaView.swift in Sources */,
 				1CAC66CC27483D2B00CE7DC6 /* Keyboard+Extension.swift in Sources */,
@@ -768,13 +748,11 @@
 				85AC8807270F66E400BFDF96 /* ImagePickerView.swift in Sources */,
 				1CC81079270237F400B9E721 /* SceneDelegate.swift in Sources */,
 				1C136A422718971800D09E9D /* ItemListaVerticalView.swift in Sources */,
-				1C136A25270BA41500D09E9D /* EnderecoViewModel.swift in Sources */,
 				1C7DF8D6272B1E2300D227CA /* OngService.swift in Sources */,
 				854B99022722DBB900B1CEF9 /* LoginViewModel.swift in Sources */,
 				8592BE18272B41B1002165EF /* OngFormView.swift in Sources */,
 				A35E8994271F715800F8E901 /* Text+Extension.swift in Sources */,
 				1C136A3F27175E0A00D09E9D /* SearchBarView.swift in Sources */,
-				1C136A28270CC6F400D09E9D /* EstoqueViewModel.swift in Sources */,
 				8BCF2DA0271E00B500E13139 /* Quantity.swift in Sources */,
 				8B12DA5A2710BE9700A19E3B /* PickerCustom.swift in Sources */,
 				8B1E5FB027459D4F00E4FCA3 /* SobreOngViewGeral.swift in Sources */,
@@ -801,9 +779,7 @@
 				8BCF2D9D271DF2D400E13139 /* FormItem.swift in Sources */,
 				1CC8109F27038A3100B9E721 /* Item.swift in Sources */,
 				1C136A3B270E399E00D09E9D /* ItemListaView.swift in Sources */,
-				1CD911DE270B778F007B2D05 /* BancoViewModel.swift in Sources */,
 				8578A636270E23520064497C /* Button+Extension.swift in Sources */,
-				1CC810A327038E7400B9E721 /* OngViewModel.swift in Sources */,
 				A386DDB4273C4A2E002BA7BF /* LoadingView.swift in Sources */,
 				8B410CF22746D80A00887CE3 /* SobreOngDoadorView.swift in Sources */,
 				1CAC66CD27483D2B00CE7DC6 /* Keyboard+Extension.swift in Sources */,

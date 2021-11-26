@@ -81,15 +81,19 @@ struct SobreOngViewGeral: View {
                     }.padding(.horizontal, 30)
                     
                     // TODO: MANDAR A ONG
-                    Button(action: {}) {
-                        NavigationLink(destination: TelaListaView(telaViewModel: .init(idOng: viewModel.ong.id!, data: viewModel.ong.data)),
-                                       label: {
-                                        Text(viewModel.listaCompletaButtonLabel)
-                                            .frame(minWidth: 0, maxWidth: .infinity)
-                                       })
+                    if !isOng && viewModel.itensEstocados() == 0 {
+                        DialogCard(text: "Essa ONG ainda não precisa de nenhum item! :)", colorStyle: .yellow)
+                            .padding(.vertical, 20)
+                    } else {
+                        Button(action: {}) {
+                            NavigationLink(destination: TelaListaView(telaViewModel: .init(idOng: viewModel.ong.id!, data: viewModel.ong.data)),
+                                           label: {
+                                            Text(viewModel.listaCompletaButtonLabel)
+                                                .frame(minWidth: 0, maxWidth: .infinity)
+                                           })
+                        }
+                        .buttonStyle(.primaryButton)
                     }
-                    .buttonStyle(.primaryButton)
-                    
                     
                     // Infos sobre a ONG
                     VStack(alignment: .leading, spacing: 20) {
