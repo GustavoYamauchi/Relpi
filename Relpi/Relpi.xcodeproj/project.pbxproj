@@ -436,8 +436,8 @@
 		85F505D4274F25B20049295A /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
-				85F505D6274F26270049295A /* Lista */,
 				1C5CC92D272094410078EC01 /* FiltroModal.swift */,
+				85F505D6274F26270049295A /* Lista */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
