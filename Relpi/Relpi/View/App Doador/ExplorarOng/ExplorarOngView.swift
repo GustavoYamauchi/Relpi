@@ -65,28 +65,47 @@ struct ExplorarOngView: View {
                                 Button(action: {}) {
                                     NavigationLink(destination: SobreOngViewGeral(viewModel: .init(idOng: ong.id!,imagem: viewModel.getImage(from: ong.id!))),
                                                    label: {
-                                                    Text(ong.nome)
-                                                        .textStyle(TitleStyle())
-                                                        .frame(minWidth: 0, maxWidth: .infinity)
+                                        VStack(alignment: .leading){
+                                                        Text(ong.nome)
+                                                            .textStyle(TitleStyle())
+                                                            .frame(minWidth: 0, maxWidth: .infinity)
+                                            
+                                                        if let id = ong.id {
+                                                            Image(uiImage: viewModel.getImage(from: id))
+                                                                .resizable()
+                                                                .cornerRadius(15)
+                                                                .aspectRatio(contentMode: .fit)
+                                                                .padding(.horizontal, 30)
+                                                        } else {
+                                                            Image("ImagePlaceholder")
+                                                                .resizable()
+                                                                .cornerRadius(15)
+                                                                .aspectRatio(contentMode: .fit)
+                                                                .padding(.horizontal, 30)
+                                                        }
+                                                        
+                                                        Text(ong.endereco.cidade)
+                                                            .textStyle(ContentStyle())
+                                                    }
                                                    })
                                 }
                                 
-                                if let id = ong.id {
-                                    Image(uiImage: viewModel.getImage(from: id))
-                                        .resizable()
-                                        .cornerRadius(15)
-                                        .aspectRatio(contentMode: .fit)
-                                        .padding(.horizontal, 30)
-                                } else {
-                                    Image("ImagePlaceholder")
-                                        .resizable()
-                                        .cornerRadius(15)
-                                        .aspectRatio(contentMode: .fit)
-                                        .padding(.horizontal, 30)
-                                }
-                                
-                                Text(ong.endereco.cidade)
-                                    .textStyle(ContentStyle())
+//                                if let id = ong.id {
+//                                    Image(uiImage: viewModel.getImage(from: id))
+//                                        .resizable()
+//                                        .cornerRadius(15)
+//                                        .aspectRatio(contentMode: .fit)
+//                                        .padding(.horizontal, 30)
+//                                } else {
+//                                    Image("ImagePlaceholder")
+//                                        .resizable()
+//                                        .cornerRadius(15)
+//                                        .aspectRatio(contentMode: .fit)
+//                                        .padding(.horizontal, 30)
+//                                }
+//
+//                                Text(ong.endereco.cidade)
+//                                    .textStyle(ContentStyle())
                             }
                         }
                     }
