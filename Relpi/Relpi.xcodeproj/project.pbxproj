@@ -942,6 +942,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				OTHER_SWIFT_FLAGS = "-D Relpi";
 				PRODUCT_BUNDLE_IDENTIFIER = academy.com.Grupo3.Relpi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -968,6 +969,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				OTHER_SWIFT_FLAGS = "-D Relpi";
 				PRODUCT_BUNDLE_IDENTIFIER = academy.com.Grupo3.Relpi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -995,6 +997,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				OTHER_SWIFT_FLAGS = "-D RelpiAdmin";
 				PRODUCT_BUNDLE_IDENTIFIER = academy.com.Grupo3.RelpiAdmin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1022,6 +1025,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				OTHER_SWIFT_FLAGS = "-D RelpiAdmin";
 				PRODUCT_BUNDLE_IDENTIFIER = academy.com.Grupo3.RelpiAdmin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
