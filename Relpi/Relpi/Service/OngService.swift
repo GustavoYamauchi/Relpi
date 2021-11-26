@@ -24,7 +24,9 @@ final class OngService: OngServiceProtocol {
     func create(_ ong: Organizacao, completion: @escaping (Result<Void, Error>) -> Void) {
         do {
             if let id = ong.id {
-                _ = try self.db.collection("ong").document(id).setData(from: ong)
+                var newOng = ong
+                newOng.estoque = nil
+                _ = try self.db.collection("ong").document(id).setData(from: newOng)
                     completion(.success(()))
             }
         } catch {
