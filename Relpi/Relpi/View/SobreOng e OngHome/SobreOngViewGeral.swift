@@ -90,6 +90,7 @@ struct SobreOngViewGeral: View {
                     }
                     .buttonStyle(.primaryButton)
                     
+                    
                     // Infos sobre a ONG
                     VStack(alignment: .leading, spacing: 20) {
                         Text(viewModel.sobreOngLabel)

@@ -70,18 +70,10 @@ final class SobreOngGeralViewModel: ObservableObject {
         self.selectedImage = imagem
         
         fetchOng(idOng: idOng)
+        addSnapshotListenerToItems()
     }
     
-    // inicializador ONG
-        // vai carregar a ong a partir do id
-    
-    // inicializador doador
-        // tem ong carregada já mas sem imagem
-    
-    
     //MARK: - Métodos
-    // reinicializar a ong????? em caso de exclusão
-    // adicionar snapshotlistener
     
     private func fetchOng(idOng: String) {
         isLoading = true
@@ -190,5 +182,76 @@ extension SobreOngGeralViewModel: OngFormViewModelDelegate {
     
     func atualizarHomeComImagem() {
         fetchOng(idOng: ong.id!)
+    }
+}
+
+
+// MARK: - Snapshot Listener
+extension SobreOngGeralViewModel {
+    
+    private func addSnapshotListenerToItems() {
+        let dbEstoque = Firestore.firestore().collection("ong").document(ong.id!).collection("estoque")
+        
+        dbEstoque.addSnapshotListener({ (snap_, err) in
+            guard let snap = snap_ else {return}
+            
+            if let erro = err {
+                print(erro.localizedDescription)
+                return
+            }
+    
+            if self.ong.estoque != nil{
+                for i in snap.documentChanges{
+                    if i.type == .added{
+                        let msgData = Item(
+                            id: i.document.documentID,
+                            nome: self.castString(i.document.get("nome")),
+                            categoria: self.castString(i.document.get("categoria")),
+                            quantidade: self.castInt(i.document.get("quantidade")),
+                            urgente: self.castBool(i.document.get("urgente")),
+                            visivel: self.castBool(i.document.get("visivel"))
+                        )
+                        self.ong.estoque!.append(msgData)
+                    }
+                    if i.type == .modified{
+                        for j in 0..<self.ong.estoque!.count{
+                            if self.ong.estoque![j].id == i.document.documentID{
+                                self.ong.estoque![j].nome = self.castString(i.document.get("nome"))
+                                self.ong.estoque![j].categoria = self.castString(i.document.get("categoria"))
+                                self.ong.estoque![j].quantidade = self.castInt(i.document.get("quantidade"))
+                                self.ong.estoque![j].urgente = self.castBool(i.document.get("urgente"))
+                                self.ong.estoque![j].visivel = self.castBool(i.document.get("visivel"))
+                            }
+                        }
+                    }
+                    if i.type == .removed{
+                        self.ong.estoque!.remove(at: self.ong.estoque!.firstIndex(where: { item in
+                            i.document.documentID == item.id
+                        })!)
+                    }
+                }
+            }
+        })
+    }
+    
+    func castString(_ variable: Any?) -> String{
+        if let str = variable as? String{
+            return str
+        }
+        return ""
+    }
+    
+    func castInt(_ variable: Any?) -> Int{
+        if let int = variable as? Int{
+            return int
+        }
+        return 0
+    }
+    
+    func castBool(_ variable: Any?) -> Bool{
+        if let bool = variable as? Bool{
+            return bool
+        }
+        return false
     }
 }

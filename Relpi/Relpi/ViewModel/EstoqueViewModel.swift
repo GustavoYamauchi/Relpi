@@ -33,34 +33,34 @@ class EstoqueViewModel : ObservableObject {
             }
             
             for i in snap.documentChanges{
-                if i.type == .added{
-                    let msgData = Item(
-                        id: i.document.documentID,
-                        nome: self.castString(i.document.get("nome")),
-                        categoria: self.castString(i.document.get("categoria")),
-                        quantidade: self.castInt(i.document.get("quantidade")),
-                        urgente: self.castBool(i.document.get("urgente")),
-                        visivel: self.castBool(i.document.get("visivel"))
-                    )
-                    self.data.append(msgData)
-                }
-                if i.type == .modified{
-                    for j in 0..<self.data.count{
-                        if self.data[j].id == i.document.documentID{
-                            self.data[j].nome = self.castString(i.document.get("nome"))
-                            self.data[j].categoria = self.castString(i.document.get("categoria"))
-                            self.data[j].quantidade = self.castInt(i.document.get("quantidade"))
-                            self.data[j].urgente = self.castBool(i.document.get("urgente"))
-                            self.data[j].visivel = self.castBool(i.document.get("visivel"))
+                            if i.type == .added{
+                                let msgData = Item(
+                                    id: i.document.documentID,
+                                    nome: self.castString(i.document.get("nome")),
+                                    categoria: self.castString(i.document.get("categoria")),
+                                    quantidade: self.castInt(i.document.get("quantidade")),
+                                    urgente: self.castBool(i.document.get("urgente")),
+                                    visivel: self.castBool(i.document.get("visivel"))
+                                )
+                                self.data.append(msgData)
+                            }
+                            if i.type == .modified{
+                                for j in 0..<self.data.count{
+                                    if self.data[j].id == i.document.documentID{
+                                        self.data[j].nome = self.castString(i.document.get("nome"))
+                                        self.data[j].categoria = self.castString(i.document.get("categoria"))
+                                        self.data[j].quantidade = self.castInt(i.document.get("quantidade"))
+                                        self.data[j].urgente = self.castBool(i.document.get("urgente"))
+                                        self.data[j].visivel = self.castBool(i.document.get("visivel"))
+                                    }
+                                }
+                            }
+                            if i.type == .removed{
+                                self.data.remove(at: self.data.firstIndex(where: { item in
+                                    i.document.documentID == item.id
+                                })!)
+                            }
                         }
-                    }
-                }
-                if i.type == .removed{
-                    self.data.remove(at: self.data.firstIndex(where: { item in
-                        i.document.documentID == item.id
-                    })!)
-                }
-            }
             
         })
     }

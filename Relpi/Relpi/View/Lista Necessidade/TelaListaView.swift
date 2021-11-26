@@ -84,8 +84,6 @@ struct TelaListaView: View {
                 .padding(.vertical, 20)
             
             ScrollView{
-            DialogCard(text: "Para realizar a doação, entre em contato com a ONG. Nossa plataforma apenas cataloga os itens demandados! :)", colorStyle: .yellow)
-                .padding(.vertical, 20)
             
                 #if Relpi
 //                Button(action: {
@@ -95,6 +93,9 @@ struct TelaListaView: View {
 //                })
 //                .buttonStyle(PrimaryButton())
 //                .padding(.vertical, 20)
+                
+                DialogCard(text: "Para realizar a doação, entre em contato com a ONG. Nossa plataforma apenas cataloga os itens demandados! :)", colorStyle: .yellow)
+                    .padding(.vertical, 20)
                 #else
                 Button(action: {}, label: {
                     NavigationLink(destination: FormItem(itemViewModel: .init(idOng: telaViewModel.idOng), novaTela: $telaViewModel.voltouTela), label: {
